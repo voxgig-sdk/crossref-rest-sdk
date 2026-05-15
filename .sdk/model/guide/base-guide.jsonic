@@ -1,0 +1,70 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 5
+  metrics: count: path: 14
+  metrics: count: method: 14
+
+  entity: funder: {
+    path: "/funders": {
+      op: load: method: *GET
+    }
+    path: "/funders/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: journal: {
+    path: "/journals": {
+      op: load: method: *GET
+    }
+    path: "/journals/{issn}": {
+      rename: param: "issn": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: member: {
+    path: "/members": {
+      op: load: method: *GET
+    }
+    path: "/members/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: type: {
+    path: "/types": {
+      op: load: method: *GET
+    }
+    path: "/types/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: work: {
+    path: "/funders/{id}/works": {
+      rename: param: "id": *"funder_id"
+      op: load: method: *GET
+    }
+    path: "/journals/{issn}/works": {
+      op: load: method: *GET
+    }
+    path: "/members/{id}/works": {
+      rename: param: "id": *"member_id"
+      op: load: method: *GET
+    }
+    path: "/types/{id}/works": {
+      rename: param: "id": *"type_id"
+      op: load: method: *GET
+    }
+    path: "/works": {
+      op: load: method: *GET
+    }
+    path: "/works/{doi}": {
+      rename: param: "doi": *"id"
+      op: load: method: *GET
+    }
+  }
+
+}

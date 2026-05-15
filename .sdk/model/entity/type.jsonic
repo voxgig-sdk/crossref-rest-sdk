@@ -1,0 +1,76 @@
+# Entity: type
+
+main: kit: entity: type: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "message"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "message_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "type"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "journal-article"
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/types/{id}"
+          parts: [
+            "types"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/types"
+          parts: [
+            "types"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

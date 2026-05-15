@@ -1,0 +1,391 @@
+# Entity: work
+
+main: kit: entity: work: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "message"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "message_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "message_version"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "work"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "filter"
+                orig: "filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "mailto"
+                orig: "mailto"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "offset"
+                orig: "offset"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "desc"
+                kind: "query"
+                name: "order"
+                orig: "order"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "query"
+                orig: "query"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "row"
+                orig: "row"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/works"
+          parts: [
+            "works"
+          ]
+          select: {
+            exist: [
+              "filter"
+              "mailto"
+              "offset"
+              "order"
+              "query"
+              "row"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "funder_id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 0
+                kind: "query"
+                name: "offset"
+                orig: "offset"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "row"
+                orig: "row"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/funders/{id}/works"
+          parts: [
+            "funders"
+            "{funder_id}"
+            "works"
+          ]
+          rename: {
+            param: {
+              id: "funder_id"
+            }
+          }
+          select: {
+            exist: [
+              "funder_id"
+              "offset"
+              "row"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "issn"
+                orig: "issn"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 0
+                kind: "query"
+                name: "offset"
+                orig: "offset"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "row"
+                orig: "row"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/journals/{issn}/works"
+          parts: [
+            "journals"
+            "{issn}"
+            "works"
+          ]
+          select: {
+            exist: [
+              "issn"
+              "offset"
+              "row"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "member_id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 0
+                kind: "query"
+                name: "offset"
+                orig: "offset"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "row"
+                orig: "row"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/members/{id}/works"
+          parts: [
+            "members"
+            "{member_id}"
+            "works"
+          ]
+          rename: {
+            param: {
+              id: "member_id"
+            }
+          }
+          select: {
+            exist: [
+              "member_id"
+              "offset"
+              "row"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "type_id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 0
+                kind: "query"
+                name: "offset"
+                orig: "offset"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "row"
+                orig: "row"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/types/{id}/works"
+          parts: [
+            "types"
+            "{type_id}"
+            "works"
+          ]
+          rename: {
+            param: {
+              id: "type_id"
+            }
+          }
+          select: {
+            exist: [
+              "offset"
+              "row"
+              "type_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: "10.1037/0003-066X.59.1.29"
+                kind: "param"
+                name: "id"
+                orig: "doi"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "mailto"
+                orig: "mailto"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/works/{doi}"
+          parts: [
+            "works"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              doi: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "mailto"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "funder"
+      ]
+      [
+        "journal"
+      ]
+      [
+        "member"
+      ]
+      [
+        "type"
+      ]
+    ]
+  }
+
+
+
+}

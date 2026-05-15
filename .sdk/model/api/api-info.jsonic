@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Crossref API Support"
+        url: "https://www.crossref.org/documentation/retrieve-metadata/rest-api/"
+      }
+      description: "The Crossref REST API allows users to search and retrieve metadata for scholarly works, including DOIs, ISSNs, and funder identifiers. It provides access to various endpoints that expose data on works, journals, funders, and more, facilitating sophisticated searches and integrations for research purposes."
+      license: {
+        name: "Crossref Metadata License"
+        url: "https://www.crossref.org/documentation/retrieve-metadata/rest-api/rest-api-metadata-license-information/"
+      }
+      servers: [
+        {
+          description: "Crossref REST API Production Server"
+          url: "https://api.crossref.org"
+        }
+      ]
+      title: "Crossref REST API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

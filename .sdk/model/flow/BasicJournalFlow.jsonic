@@ -1,0 +1,32 @@
+# BasicJournalFlow
+
+main: kit: flow: BasicJournalFlow:
+{
+  entity: "journal",
+  kind: "basic",
+  name: "BasicJournalFlow",
+  step: [
+    {
+      input: {
+        ref: "journal_ref01",
+        srcdatavar: "journal_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "journal01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-journal_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicJournalFlow"
+}

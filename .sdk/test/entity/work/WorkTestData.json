@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "work": {
+      "WORK00": {
+        "message": {},
+        "message_type": "s29",
+        "message_version": "s2a",
+        "status": "s2b",
+        "funder_id": "FUNDER01",
+        "issn": "ISSN01",
+        "member_id": "MEMBER01",
+        "type_id": "TYPE01"
+      },
+      "WORK01": {
+        "message": {},
+        "message_type": "s51",
+        "message_version": "s52",
+        "status": "s53",
+        "funder_id": "FUNDER01",
+        "issn": "ISSN01",
+        "member_id": "MEMBER01",
+        "type_id": "TYPE01"
+      },
+      "WORK02": {
+        "message": {},
+        "message_type": "s79",
+        "message_version": "s7a",
+        "status": "s7b",
+        "funder_id": "FUNDER01",
+        "issn": "ISSN01",
+        "member_id": "MEMBER01",
+        "type_id": "TYPE01"
+      }
+    }
+  },
+  "new": {
+    "work": {
+      "work_ref01": {
+        "message": {},
+        "message_type": "sa1",
+        "message_version": "sa2",
+        "status": "sa3"
+      }
+    }
+  }
+}

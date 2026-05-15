@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "member": {
+      "MEMBER00": {
+        "message": {},
+        "message_type": "s1f",
+        "status": "s20"
+      },
+      "MEMBER01": {
+        "message": {},
+        "message_type": "s3d",
+        "status": "s3e"
+      },
+      "MEMBER02": {
+        "message": {},
+        "message_type": "s5b",
+        "status": "s5c"
+      }
+    }
+  },
+  "new": {
+    "member": {
+      "member_ref01": {
+        "message": {},
+        "message_type": "s79",
+        "status": "s7a"
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# Entity Models
+
+@"funder.jsonic"
+@"journal.jsonic"
+@"member.jsonic"
+@"type.jsonic"
+@"work.jsonic"

@@ -1,0 +1,32 @@
+# BasicMemberFlow
+
+main: kit: flow: BasicMemberFlow:
+{
+  entity: "member",
+  kind: "basic",
+  name: "BasicMemberFlow",
+  step: [
+    {
+      input: {
+        ref: "member_ref01",
+        srcdatavar: "member_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "member01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-member_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMemberFlow"
+}

@@ -1,0 +1,1168 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Crossref REST API",
+    "description": "The Crossref REST API allows users to search and retrieve metadata for scholarly works, including DOIs, ISSNs, and funder identifiers. It provides access to various endpoints that expose data on works, journals, funders, and more, facilitating sophisticated searches and integrations for research purposes.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Crossref API Support",
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/"
+    },
+    "license": {
+      "name": "Crossref Metadata License",
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/rest-api-metadata-license-information/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.crossref.org",
+      "description": "Crossref REST API Production Server"
+    }
+  ],
+  "paths": {
+    "/works": {
+      "get": {
+        "summary": "Search and retrieve works metadata",
+        "description": "Returns a list of works (scholarly articles, books, etc.) matching the search criteria. Supports filtering, sorting, and pagination.",
+        "operationId": "getWorks",
+        "tags": [
+          "Works"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Search query string",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "description": "Number of results to return per page (max 1000)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "maximum": 1000
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filter results by specific criteria (e.g., from-pub-date:2020, type:journal-article)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort results by field (e.g., published, relevance, score)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "relevance",
+                "score",
+                "published",
+                "deposited",
+                "indexed",
+                "updated"
+              ]
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Sort order",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "name": "mailto",
+            "in": "query",
+            "description": "Email address for polite pool access (recommended for better performance)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "email"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with works metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorksResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters"
+          },
+          "404": {
+            "description": "No results found"
+          },
+          "503": {
+            "description": "Service unavailable"
+          }
+        }
+      }
+    },
+    "/works/{doi}": {
+      "get": {
+        "summary": "Get metadata for a specific work by DOI",
+        "description": "Returns detailed metadata for a single work identified by its DOI",
+        "operationId": "getWorkByDoi",
+        "tags": [
+          "Works"
+        ],
+        "parameters": [
+          {
+            "name": "doi",
+            "in": "path",
+            "description": "Digital Object Identifier (DOI) of the work",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "10.1037/0003-066X.59.1.29"
+          },
+          {
+            "name": "mailto",
+            "in": "query",
+            "description": "Email address for polite pool access",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "email"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with work metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "DOI not found"
+          },
+          "503": {
+            "description": "Service unavailable"
+          }
+        }
+      }
+    },
+    "/journals": {
+      "get": {
+        "summary": "Search and retrieve journal metadata",
+        "description": "Returns a list of journals matching the search criteria",
+        "operationId": "getJournals",
+        "tags": [
+          "Journals"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Search query string",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with journal metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JournalsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "No results found"
+          }
+        }
+      }
+    },
+    "/journals/{issn}": {
+      "get": {
+        "summary": "Get metadata for a specific journal by ISSN",
+        "description": "Returns detailed metadata for a single journal identified by its ISSN",
+        "operationId": "getJournalByIssn",
+        "tags": [
+          "Journals"
+        ],
+        "parameters": [
+          {
+            "name": "issn",
+            "in": "path",
+            "description": "International Standard Serial Number (ISSN) of the journal",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1476-4687"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with journal metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JournalResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ISSN not found"
+          }
+        }
+      }
+    },
+    "/journals/{issn}/works": {
+      "get": {
+        "summary": "Get works for a specific journal",
+        "description": "Returns all works published in a journal identified by its ISSN",
+        "operationId": "getJournalWorks",
+        "tags": [
+          "Journals"
+        ],
+        "parameters": [
+          {
+            "name": "issn",
+            "in": "path",
+            "description": "ISSN of the journal",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with works metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorksResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Journal not found"
+          }
+        }
+      }
+    },
+    "/funders": {
+      "get": {
+        "summary": "Search and retrieve funder metadata",
+        "description": "Returns a list of funders matching the search criteria",
+        "operationId": "getFunders",
+        "tags": [
+          "Funders"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Search query string",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with funder metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FundersResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/funders/{id}": {
+      "get": {
+        "summary": "Get metadata for a specific funder",
+        "description": "Returns detailed metadata for a single funder identified by its ID",
+        "operationId": "getFunderById",
+        "tags": [
+          "Funders"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Funder identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "100000001"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with funder metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FunderResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Funder not found"
+          }
+        }
+      }
+    },
+    "/funders/{id}/works": {
+      "get": {
+        "summary": "Get works funded by a specific funder",
+        "description": "Returns all works funded by a specific funder",
+        "operationId": "getFunderWorks",
+        "tags": [
+          "Funders"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Funder identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with works metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorksResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Funder not found"
+          }
+        }
+      }
+    },
+    "/members": {
+      "get": {
+        "summary": "Search and retrieve member metadata",
+        "description": "Returns a list of Crossref members (publishers and other organizations)",
+        "operationId": "getMembers",
+        "tags": [
+          "Members"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Search query string",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with member metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MembersResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/members/{id}": {
+      "get": {
+        "summary": "Get metadata for a specific member",
+        "description": "Returns detailed metadata for a single Crossref member",
+        "operationId": "getMemberById",
+        "tags": [
+          "Members"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Member identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "311"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with member metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MemberResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Member not found"
+          }
+        }
+      }
+    },
+    "/members/{id}/works": {
+      "get": {
+        "summary": "Get works from a specific member",
+        "description": "Returns all works registered by a specific Crossref member",
+        "operationId": "getMemberWorks",
+        "tags": [
+          "Members"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Member identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with works metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorksResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Member not found"
+          }
+        }
+      }
+    },
+    "/types": {
+      "get": {
+        "summary": "Get list of work types",
+        "description": "Returns a list of work types available in Crossref",
+        "operationId": "getTypes",
+        "tags": [
+          "Types"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with type metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TypesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/types/{id}": {
+      "get": {
+        "summary": "Get metadata for a specific work type",
+        "description": "Returns detailed metadata for a specific work type",
+        "operationId": "getTypeById",
+        "tags": [
+          "Types"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Type identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "journal-article"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with type metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TypeResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Type not found"
+          }
+        }
+      }
+    },
+    "/types/{id}/works": {
+      "get": {
+        "summary": "Get works of a specific type",
+        "description": "Returns all works of a specific type",
+        "operationId": "getTypeWorks",
+        "tags": [
+          "Types"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Type identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with works metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorksResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Type not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "WorksResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "message-type": {
+            "type": "string",
+            "example": "work-list"
+          },
+          "message-version": {
+            "type": "string",
+            "example": "1.0.0"
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "items-per-page": {
+                "type": "integer"
+              },
+              "query": {
+                "type": "object"
+              },
+              "total-results": {
+                "type": "integer"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Work"
+                }
+              }
+            }
+          }
+        }
+      },
+      "WorkResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "message-type": {
+            "type": "string",
+            "example": "work"
+          },
+          "message-version": {
+            "type": "string",
+            "example": "1.0.0"
+          },
+          "message": {
+            "$ref": "#/components/schemas/Work"
+          }
+        }
+      },
+      "Work": {
+        "type": "object",
+        "properties": {
+          "DOI": {
+            "type": "string",
+            "description": "Digital Object Identifier"
+          },
+          "URL": {
+            "type": "string",
+            "description": "URL to the work"
+          },
+          "title": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "author": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "given": {
+                  "type": "string"
+                },
+                "family": {
+                  "type": "string"
+                },
+                "ORCID": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "published": {
+            "type": "object",
+            "properties": {
+              "date-parts": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "type": {
+            "type": "string"
+          },
+          "container-title": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ISSN": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "abstract": {
+            "type": "string"
+          },
+          "reference-count": {
+            "type": "integer"
+          },
+          "is-referenced-by-count": {
+            "type": "integer"
+          }
+        }
+      },
+      "JournalsResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "message-type": {
+            "type": "string",
+            "example": "journal-list"
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "items-per-page": {
+                "type": "integer"
+              },
+              "total-results": {
+                "type": "integer"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Journal"
+                }
+              }
+            }
+          }
+        }
+      },
+      "JournalResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "message-type": {
+            "type": "string",
+            "example": "journal"
+          },
+          "message": {
+            "$ref": "#/components/schemas/Journal"
+          }
+        }
+      },
+      "Journal": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "ISSN": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "coverage": {
+            "type": "object"
+          }
+        }
+      },
+      "FundersResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "message-type": {
+            "type": "string",
+            "example": "funder-list"
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "items-per-page": {
+                "type": "integer"
+              },
+              "total-results": {
+                "type": "integer"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Funder"
+                }
+              }
+            }
+          }
+        }
+      },
+      "FunderResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "message-type": {
+            "type": "string",
+            "example": "funder"
+          },
+          "message": {
+            "$ref": "#/components/schemas/Funder"
+          }
+        }
+      },
+      "Funder": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "alt-names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "uri": {
+            "type": "string"
+          }
+        }
+      },
+      "MembersResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "message-type": {
+            "type": "string",
+            "example": "member-list"
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "items-per-page": {
+                "type": "integer"
+              },
+              "total-results": {
+                "type": "integer"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Member"
+                }
+              }
+            }
+          }
+        }
+      },
+      "MemberResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "message-type": {
+            "type": "string",
+            "example": "member"
+          },
+          "message": {
+            "$ref": "#/components/schemas/Member"
+          }
+        }
+      },
+      "Member": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "primary-name": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "last-status-check-time": {
+            "type": "integer"
+          },
+          "counts": {
+            "type": "object"
+          }
+        }
+      },
+      "TypesResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "message-type": {
+            "type": "string",
+            "example": "type-list"
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Type"
+                }
+              }
+            }
+          }
+        }
+      },
+      "TypeResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "message-type": {
+            "type": "string",
+            "example": "type"
+          },
+          "message": {
+            "$ref": "#/components/schemas/Type"
+          }
+        }
+      },
+      "Type": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Works",
+      "description": "Operations related to scholarly works metadata"
+    },
+    {
+      "name": "Journals",
+      "description": "Operations related to journal metadata"
+    },
+    {
+      "name": "Funders",
+      "description": "Operations related to funder metadata"
+    },
+    {
+      "name": "Members",
+      "description": "Operations related to Crossref member organizations"
+    },
+    {
+      "name": "Types",
+      "description": "Operations related to work types"
+    }
+  ],
+  "externalDocs": {
+    "description": "Crossref REST API Documentation",
+    "url": "https://api.crossref.org/swagger-ui/index.html"
+  }
+}

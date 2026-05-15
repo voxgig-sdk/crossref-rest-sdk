@@ -1,0 +1,115 @@
+# Entity: journal
+
+main: kit: entity: journal: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "message"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "message_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "journal"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: 0
+                kind: "query"
+                name: "offset"
+                orig: "offset"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "query"
+                orig: "query"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 20
+                kind: "query"
+                name: "row"
+                orig: "row"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/journals"
+          parts: [
+            "journals"
+          ]
+          select: {
+            exist: [
+              "offset"
+              "query"
+              "row"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: "1476-4687"
+                kind: "param"
+                name: "id"
+                orig: "issn"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/journals/{issn}"
+          parts: [
+            "journals"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              issn: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
