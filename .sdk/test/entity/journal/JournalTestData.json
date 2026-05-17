@@ -4,17 +4,20 @@
       "JOURNAL00": {
         "message": {},
         "message_type": "s1f",
-        "status": "s20"
+        "status": "s20",
+        "id": "JOURNAL00"
       },
       "JOURNAL01": {
         "message": {},
         "message_type": "s3d",
-        "status": "s3e"
+        "status": "s3e",
+        "id": "JOURNAL01"
       },
       "JOURNAL02": {
         "message": {},
         "message_type": "s5b",
-        "status": "s5c"
+        "status": "s5c",
+        "id": "JOURNAL02"
       }
     }
   },

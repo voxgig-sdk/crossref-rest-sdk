@@ -1,10 +1,10 @@
 package voxgigcrossrefrestsdk
 
 import (
-	"github.com/voxgig-sdk/crossref-rest-sdk/core"
-	"github.com/voxgig-sdk/crossref-rest-sdk/entity"
-	"github.com/voxgig-sdk/crossref-rest-sdk/feature"
-	_ "github.com/voxgig-sdk/crossref-rest-sdk/utility"
+	"github.com/voxgig-sdk/crossref-rest-sdk/go/core"
+	"github.com/voxgig-sdk/crossref-rest-sdk/go/entity"
+	"github.com/voxgig-sdk/crossref-rest-sdk/go/feature"
+	_ "github.com/voxgig-sdk/crossref-rest-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

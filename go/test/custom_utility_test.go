@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/crossref-rest-sdk"
+	sdk "github.com/voxgig-sdk/crossref-rest-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

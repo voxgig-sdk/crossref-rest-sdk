@@ -9,7 +9,8 @@
         "funder_id": "FUNDER01",
         "issn": "ISSN01",
         "member_id": "MEMBER01",
-        "type_id": "TYPE01"
+        "type_id": "TYPE01",
+        "id": "WORK00"
       },
       "WORK01": {
         "message": {},
@@ -19,7 +20,8 @@
         "funder_id": "FUNDER01",
         "issn": "ISSN01",
         "member_id": "MEMBER01",
-        "type_id": "TYPE01"
+        "type_id": "TYPE01",
+        "id": "WORK01"
       },
       "WORK02": {
         "message": {},
@@ -29,7 +31,8 @@
         "funder_id": "FUNDER01",
         "issn": "ISSN01",
         "member_id": "MEMBER01",
-        "type_id": "TYPE01"
+        "type_id": "TYPE01",
+        "id": "WORK02"
       }
     }
   },

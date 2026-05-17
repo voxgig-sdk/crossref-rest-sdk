@@ -4,17 +4,20 @@
       "TYPE00": {
         "message": {},
         "message_type": "s1f",
-        "status": "s20"
+        "status": "s20",
+        "id": "TYPE00"
       },
       "TYPE01": {
         "message": {},
         "message_type": "s3d",
-        "status": "s3e"
+        "status": "s3e",
+        "id": "TYPE01"
       },
       "TYPE02": {
         "message": {},
         "message_type": "s5b",
-        "status": "s5c"
+        "status": "s5c",
+        "id": "TYPE02"
       }
     }
   },

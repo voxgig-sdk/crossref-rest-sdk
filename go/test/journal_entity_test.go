@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/crossref-rest-sdk"
-	"github.com/voxgig-sdk/crossref-rest-sdk/core"
+	sdk "github.com/voxgig-sdk/crossref-rest-sdk/go"
+	"github.com/voxgig-sdk/crossref-rest-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/crossref-rest-sdk/go/utility/struct"
 )
 
 func TestJournalEntity(t *testing.T) {
