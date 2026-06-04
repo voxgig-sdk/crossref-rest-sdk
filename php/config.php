@@ -20,9 +20,6 @@ class CrossrefRestConfig
             ],
             "options" => [
                 "base" => "https://api.crossref.org",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

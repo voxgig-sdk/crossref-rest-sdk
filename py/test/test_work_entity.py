@@ -91,7 +91,6 @@ def _work_basic_setup(extra):
         "CROSSREFREST_TEST_WORK_ENTID": idmap,
         "CROSSREFREST_TEST_LIVE": "FALSE",
         "CROSSREFREST_TEST_EXPLAIN": "FALSE",
-        "CROSSREFREST_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +101,6 @@ def _work_basic_setup(extra):
     if env.get("CROSSREFREST_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CROSSREFREST_APIKEY"),
             },
             extra or {},
         ])

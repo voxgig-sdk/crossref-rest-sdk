@@ -21,7 +21,21 @@
           }
         ],
         "title": "Crossref REST API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Search and retrieve scholarly metadata for 150M+ works, DOIs, funders, journals, and Crossref members",
+        "homepage": "https://www.crossref.org",
+        "docs_url": "https://api.crossref.org/swagger-ui/index.html",
+        "license_short": "Crossref asserts no ownership over bibliographic metadata; free to cache and reuse. Documentation is CC BY 4.0.",
+        "license_md": "- Crossref makes no ownership claims over bibliographic metadata or DOIs returned by the API\n- Metadata may be cached and incorporated into downstream systems\n- The REST API documentation itself is licensed CC BY 4.0\n- No registration required, but identifying yourself (see the polite pool) is strongly encouraged",
+        "about_md": "The [Crossref REST API](https://api.crossref.org) is operated by [Crossref](https://www.crossref.org), the not-for-profit DOI registration agency for scholarly content. It exposes the metadata that publishers deposit with Crossref when they mint DOIs, covering journal articles, books, conference proceedings, datasets, preprints, and more.\n\nWhat you get from the API:\n\n- Bibliographic records for over 150 million scholarly works keyed by DOI\n- Funder Registry entries and the works each funder supported\n- Crossref member (publisher) records and the works each member registered\n- Journal records indexed by ISSN\n- Work-type vocabulary, DOI-owner prefixes, and license assertions on works\n\nThe service runs two pools of machines. Clients that identify themselves either via a `mailto` query parameter or a contact address in the `User-Agent` header are routed to the \"polite pool\" with better performance. Rate-limit hints are returned in `X-Rate-Limit-Limit` and `X-Rate-Limit-Interval` response headers; clients should honour them and back off when needed.",
+        "entity_desc": {
+          "funder": "Entry in the Crossref Funder Registry; available at `/funders` and `/funders/{id}`, with associated works at `/funders/{id}/works`",
+          "journal": "Journal record indexed by ISSN; available at `/journals` and `/journals/{issn}`, with its works at `/journals/{issn}/works`",
+          "member": "Crossref member organisation (typically a publisher); available at `/members` and `/members/{id}`, with works the member registered at `/members/{id}/works`",
+          "type": "Controlled vocabulary of work types (journal-article, book-chapter, dataset, etc.); available at `/types` and `/types/{id}`",
+          "work": "Scholarly output identified by a DOI (article, book, dataset, preprint, etc.); available at `/works` and `/works/{doi}`"
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -29,7 +43,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "funder": {

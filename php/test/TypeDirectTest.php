@@ -75,14 +75,12 @@ function type_direct_setup($mockres)
     $env = Runner::env_override([
         "CROSSREFREST_TEST_TYPE_ENTID" => [],
         "CROSSREFREST_TEST_LIVE" => "FALSE",
-        "CROSSREFREST_APIKEY" => "NONE",
     ]);
 
     $live = $env["CROSSREFREST_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["CROSSREFREST_APIKEY"],
         ];
         $client = new CrossrefRestSDK($merged_opts);
         return [

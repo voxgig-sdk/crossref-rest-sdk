@@ -99,14 +99,12 @@ func funderDirectSetup(mockres any) *funderDirectSetupResult {
 	env := envOverride(map[string]any{
 		"CROSSREFREST_TEST_FUNDER_ENTID": map[string]any{},
 		"CROSSREFREST_TEST_LIVE":    "FALSE",
-		"CROSSREFREST_APIKEY":       "NONE",
 	})
 
 	live := env["CROSSREFREST_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["CROSSREFREST_APIKEY"],
 		}
 		client := sdk.NewCrossrefRestSDK(mergedOpts)
 
