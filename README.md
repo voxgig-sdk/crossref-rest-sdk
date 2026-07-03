@@ -1,22 +1,8 @@
 # CrossrefRest SDK
 
-Search and retrieve scholarly metadata for 150M+ works, DOIs, funders, journals, and Crossref members
+Crossref REST API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Crossref REST API
-
-The [Crossref REST API](https://api.crossref.org) is operated by [Crossref](https://www.crossref.org), the not-for-profit DOI registration agency for scholarly content. It exposes the metadata that publishers deposit with Crossref when they mint DOIs, covering journal articles, books, conference proceedings, datasets, preprints, and more.
-
-What you get from the API:
-
-- Bibliographic records for over 150 million scholarly works keyed by DOI
-- Funder Registry entries and the works each funder supported
-- Crossref member (publisher) records and the works each member registered
-- Journal records indexed by ISSN
-- Work-type vocabulary, DOI-owner prefixes, and license assertions on works
-
-The service runs two pools of machines. Clients that identify themselves either via a `mailto` query parameter or a contact address in the `User-Agent` header are routed to the "polite pool" with better performance. Rate-limit hints are returned in `X-Rate-Limit-Limit` and `X-Rate-Limit-Interval` response headers; clients should honour them and back off when needed.
 
 ## Try it
 
@@ -50,27 +36,31 @@ gem install crossref-rest-sdk
 luarocks install crossref-rest-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { CrossrefRestSDK } from 'crossref-rest'
 
-const client = new CrossrefRestSDK({})
+const client = new CrossrefRestSDK({
+  apikey: process.env.CROSSREF-REST_APIKEY,
+})
 
+// Load funder data
+const funder = await client.Funder().load({})
+console.log(funder.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,11 +90,11 @@ The API exposes 5 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Funder** | Entry in the Crossref Funder Registry; available at `/funders` and `/funders/{id}`, with associated works at `/funders/{id}/works` | `/funders` |
-| **Journal** | Journal record indexed by ISSN; available at `/journals` and `/journals/{issn}`, with its works at `/journals/{issn}/works` | `/journals` |
-| **Member** | Crossref member organisation (typically a publisher); available at `/members` and `/members/{id}`, with works the member registered at `/members/{id}/works` | `/members` |
-| **Type** | Controlled vocabulary of work types (journal-article, book-chapter, dataset, etc.); available at `/types` and `/types/{id}` | `/types/{id}` |
-| **Work** | Scholarly output identified by a DOI (article, book, dataset, preprint, etc.); available at `/works` and `/works/{doi}` | `/works` |
+| **Funder** |  | `/funders` |
+| **Journal** |  | `/journals` |
+| **Member** |  | `/members` |
+| **Type** |  | `/types/{id}` |
+| **Work** |  | `/works` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -114,15 +104,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from crossrefrest_sdk import CrossrefRestSDK
 
-client = CrossrefRestSDK({})
+client = CrossrefRestSDK({
+    "apikey": os.environ.get("CROSSREF-REST_APIKEY"),
+})
 
 
 # Load a specific funder
-funder, err = client.Funder(None).load(
-    {"id": "example_id"}, None
-)
+funder, err = client.Funder().load({"id": "example_id"})
+print(funder)
 ```
 
 ### PHP
@@ -131,13 +123,14 @@ funder, err = client.Funder(None).load(
 <?php
 require_once 'crossrefrest_sdk.php';
 
-$client = new CrossrefRestSDK([]);
+$client = new CrossrefRestSDK([
+    "apikey" => getenv("CROSSREF-REST_APIKEY"),
+]);
 
 
 // Load a specific funder
-[$funder, $err] = $client->Funder(null)->load(
-    ["id" => "example_id"], null
-);
+[$funder, $err] = $client->Funder()->load(["id" => "example_id"]);
+print_r($funder);
 ```
 
 ### Golang
@@ -145,8 +138,13 @@ $client = new CrossrefRestSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/crossref-rest-sdk/go"
 
-client := sdk.NewCrossrefRestSDK(map[string]any{})
+client := sdk.NewCrossrefRestSDK(map[string]any{
+    "apikey": os.Getenv("CROSSREF-REST_APIKEY"),
+})
 
+// Load funder data
+funder, err := client.Funder(nil).Load(map[string]any{}, nil)
+fmt.Println(funder)
 ```
 
 ### Ruby
@@ -154,13 +152,14 @@ client := sdk.NewCrossrefRestSDK(map[string]any{})
 ```ruby
 require_relative "CrossrefRest_sdk"
 
-client = CrossrefRestSDK.new({})
+client = CrossrefRestSDK.new({
+  "apikey" => ENV["CROSSREF-REST_APIKEY"],
+})
 
 
 # Load a specific funder
-funder, err = client.Funder(nil).load(
-  { "id" => "example_id" }, nil
-)
+funder, err = client.Funder().load({ "id" => "example_id" })
+puts funder
 ```
 
 ### Lua
@@ -168,13 +167,14 @@ funder, err = client.Funder(nil).load(
 ```lua
 local sdk = require("crossref-rest_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("CROSSREF-REST_APIKEY"),
+})
 
 
 -- Load a specific funder
-local funder, err = client:Funder(nil):load(
-  { id = "example_id" }, nil
-)
+local funder, err = client:Funder():load({ id = "example_id" })
+print(funder)
 ```
 
 ## Unit testing in offline mode
@@ -193,25 +193,21 @@ const result = await client.Funder().load({ id: 'test01' })
 ### Python
 
 ```python
-client = CrossrefRestSDK.test(None, None)
-result, err = client.Funder(None).load(
-    {"id": "test01"}, None
-)
+client = CrossrefRestSDK.test()
+result, err = client.Funder().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = CrossrefRestSDK::test(null, null);
-[$result, $err] = $client->Funder(null)->load(
-    ["id" => "test01"], null
-);
+$client = CrossrefRestSDK::test();
+[$result, $err] = $client->Funder()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Funder(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -220,19 +216,15 @@ result, err := client.Funder(nil).Load(
 ### Ruby
 
 ```ruby
-client = CrossrefRestSDK.test(nil, nil)
-result, err = client.Funder(nil).load(
-  { "id" => "test01" }, nil
-)
+client = CrossrefRestSDK.test
+result, err = client.Funder().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Funder(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Funder():load({ id = "test01" })
 ```
 
 ## How it works
@@ -336,16 +328,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Crossref REST API
-
-- Upstream: [https://www.crossref.org](https://www.crossref.org)
-- API docs: [https://api.crossref.org/swagger-ui/index.html](https://api.crossref.org/swagger-ui/index.html)
-
-- Crossref makes no ownership claims over bibliographic metadata or DOIs returned by the API
-- Metadata may be cached and incorporated into downstream systems
-- The REST API documentation itself is licensed CC BY 4.0
-- No registration required, but identifying yourself (see the polite pool) is strongly encouraged
 
 ---
 

@@ -111,6 +111,7 @@ function basicSetup(extra?: any) {
     'CROSSREF_REST_TEST_TYPE_ENTID': idmap,
     'CROSSREF_REST_TEST_LIVE': 'FALSE',
     'CROSSREF_REST_TEST_EXPLAIN': 'FALSE',
+    'CROSSREF_REST_APIKEY': 'NONE',
   })
 
   idmap = env['CROSSREF_REST_TEST_TYPE_ENTID']
@@ -120,6 +121,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new CrossrefRestSDK(merge([
       {
+        apikey: env.CROSSREF_REST_APIKEY,
       },
       extra
     ]))

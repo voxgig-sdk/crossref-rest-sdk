@@ -1,6 +1,11 @@
 # CrossrefRest Python SDK
 
-The Python SDK for the CrossrefRest API. Provides an entity-oriented interface following Pythonic conventions.
+
+
+The Python SDK for the CrossrefRest API — an entity-oriented client following Pythonic conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -23,15 +28,18 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
+import os
 from crossrefrest_sdk import CrossrefRestSDK
 
-client = CrossrefRestSDK({})
+client = CrossrefRestSDK({
+    "apikey": os.environ.get("CROSSREF-REST_APIKEY"),
+})
 ```
 
 ### 3. Load a funder
 
 ```python
-result, err = client.Funder(None).load({"id": "example_id"}, None)
+result, err = client.Funder().load({"id": "example_id"})
 if err:
     raise Exception(err)
 print(result)
@@ -79,11 +87,9 @@ print(fetchdef["headers"])
 Create a mock client for unit testing — no server required:
 
 ```python
-client = CrossrefRestSDK.test(None, None)
+client = CrossrefRestSDK.test()
 
-result, err = client.CrossrefRest(None).load(
-    {"id": "test01"}, None
-)
+result, err = client.CrossrefRest().load({"id": "test01"})
 # result contains mock response data
 ```
 
@@ -114,6 +120,7 @@ Create a `.env.local` file at the project root:
 
 ```
 CROSSREF-REST_TEST_LIVE=TRUE
+CROSSREF-REST_APIKEY=<your-key>
 ```
 
 Then run:
@@ -137,6 +144,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |

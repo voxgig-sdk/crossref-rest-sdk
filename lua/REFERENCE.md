@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -118,7 +118,7 @@ local funder = client:Funder(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Funder(nil):load({ id = "funder_id" }, nil)
+local result, err = client:Funder():load({ id = "funder_id" })
 ```
 
 ### Common Methods
@@ -172,7 +172,7 @@ local journal = client:Journal(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Journal(nil):load({ id = "journal_id" }, nil)
+local result, err = client:Journal():load({ id = "journal_id" })
 ```
 
 ### Common Methods
@@ -226,7 +226,7 @@ local member = client:Member(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Member(nil):load({ id = "member_id" }, nil)
+local result, err = client:Member():load({ id = "member_id" })
 ```
 
 ### Common Methods
@@ -280,7 +280,7 @@ local type = client:Type(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Type(nil):load({ id = "type_id" }, nil)
+local result, err = client:Type():load({ id = "type_id" })
 ```
 
 ### Common Methods
@@ -335,7 +335,7 @@ local work = client:Work(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Work(nil):load({ id = "work_id" }, nil)
+local result, err = client:Work():load({ id = "work_id" })
 ```
 
 ### Common Methods

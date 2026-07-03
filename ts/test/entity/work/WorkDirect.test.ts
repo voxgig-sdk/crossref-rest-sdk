@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'CROSSREFREST_TEST_WORK_ENTID': {},
     'CROSSREFREST_TEST_LIVE': 'FALSE',
+    'CROSSREFREST_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.CROSSREFREST_TEST_LIVE
 
   if (live) {
     const client = new CrossrefRestSDK({
+      apikey: env.CROSSREFREST_APIKEY,
     })
 
     let idmap: any = env['CROSSREFREST_TEST_WORK_ENTID']

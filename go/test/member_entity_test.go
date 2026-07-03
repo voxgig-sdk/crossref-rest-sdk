@@ -117,6 +117,7 @@ func memberBasicSetup(extra map[string]any) *entityTestSetup {
 		"CROSSREFREST_TEST_MEMBER_ENTID": idmap,
 		"CROSSREFREST_TEST_LIVE":      "FALSE",
 		"CROSSREFREST_TEST_EXPLAIN":   "FALSE",
+		"CROSSREFREST_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["CROSSREFREST_TEST_MEMBER_ENTID"])
@@ -127,6 +128,7 @@ func memberBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["CROSSREFREST_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["CROSSREFREST_APIKEY"],
 			},
 			extra,
 		})
