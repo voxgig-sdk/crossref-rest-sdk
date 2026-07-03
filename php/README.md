@@ -10,7 +10,7 @@ The PHP SDK for the CrossrefRest API — an entity-oriented client using PHP con
 
 ## Install
 ```bash
-composer require voxgig/crossref-rest-sdk
+composer require voxgig-sdk/crossref-rest
 ```
 
 

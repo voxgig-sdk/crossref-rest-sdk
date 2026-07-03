@@ -10,13 +10,13 @@ The Ruby SDK for the CrossrefRest API — an entity-oriented client using idioma
 
 ## Install
 ```bash
-gem install crossref-rest-sdk
+gem install voxgig-sdk-crossref-rest
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "crossref-rest-sdk"
+gem "voxgig-sdk-crossref-rest"
 ```
 
 Then run:

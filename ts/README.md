@@ -10,7 +10,7 @@ The TypeScript SDK for the CrossrefRest API — a type-safe, entity-oriented cli
 
 ## Install
 ```bash
-npm install crossref-rest
+npm install @voxgig-sdk/crossref-rest
 ```
 ## Tutorial: your first API call
 

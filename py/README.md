@@ -10,7 +10,7 @@ The Python SDK for the CrossrefRest API — an entity-oriented client following 
 
 ## Install
 ```bash
-pip install crossref-rest-sdk
+pip install voxgig-sdk-crossref-rest
 ```
 
 Or install from source:
