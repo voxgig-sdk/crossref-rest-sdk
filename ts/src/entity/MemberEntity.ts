@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Member,
+  MemberLoadMatch,
+} from '../CrossrefRestTypes'
 
 // TODO: needs Entity superclass
-class MemberEntity extends CrossrefRestEntityBase {
+class MemberEntity extends CrossrefRestEntityBase<Member> {
 
   constructor(client: CrossrefRestSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class MemberEntity extends CrossrefRestEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: MemberLoadMatch, ctrl?: Control): Promise<Member> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class MemberEntity extends CrossrefRestEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Member> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

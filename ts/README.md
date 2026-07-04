@@ -9,9 +9,12 @@ The TypeScript SDK for the CrossrefRest API — a type-safe, entity-oriented cli
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/crossref-rest
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/crossref-rest-sdk/releases](https://github.com/voxgig-sdk/crossref-rest-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CrossrefRestSDK } from 'crossref-rest'
+import { CrossrefRestSDK } from '@voxgig-sdk/crossref-rest'
 
-const client = new CrossrefRestSDK({
-  apikey: process.env.CROSSREF-REST_APIKEY,
-})
+const client = new CrossrefRestSDK()
 ```
 
 ### 3. Load a funder
 
 ```ts
-const result = await client.Funder().load({ id: 'example_id' })
+const result = await client.funder.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CrossrefRestSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.funder.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new CrossrefRestSDK({ apikey: '...' })
+const client = new CrossrefRestSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.funder
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new CrossrefRestSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new CrossrefRestSDK({
 Create a `.env.local` file at the project root:
 
 ```
-CROSSREF-REST_TEST_LIVE=TRUE
-CROSSREF-REST_APIKEY=<your-key>
+CROSSREF_REST_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new CrossrefRestSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new CrossrefRestSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -321,7 +318,7 @@ API path: `/works`
 
 ### Funder
 
-Create an instance: `const funder = client.Funder()`
+Create an instance: `const funder = client.funder`
 
 #### Operations
 
@@ -340,13 +337,13 @@ Create an instance: `const funder = client.Funder()`
 #### Example: Load
 
 ```ts
-const funder = await client.Funder().load({ id: 'funder_id' })
+const funder = await client.funder.load({ id: 'funder_id' })
 ```
 
 
 ### Journal
 
-Create an instance: `const journal = client.Journal()`
+Create an instance: `const journal = client.journal`
 
 #### Operations
 
@@ -365,13 +362,13 @@ Create an instance: `const journal = client.Journal()`
 #### Example: Load
 
 ```ts
-const journal = await client.Journal().load({ id: 'journal_id' })
+const journal = await client.journal.load({ id: 'journal_id' })
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.Member()`
+Create an instance: `const member = client.member`
 
 #### Operations
 
@@ -390,13 +387,13 @@ Create an instance: `const member = client.Member()`
 #### Example: Load
 
 ```ts
-const member = await client.Member().load({ id: 'member_id' })
+const member = await client.member.load({ id: 'member_id' })
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.Type()`
+Create an instance: `const type = client.type`
 
 #### Operations
 
@@ -415,13 +412,13 @@ Create an instance: `const type = client.Type()`
 #### Example: Load
 
 ```ts
-const type = await client.Type().load({ id: 'type_id' })
+const type = await client.type.load({ id: 'type_id' })
 ```
 
 
 ### Work
 
-Create an instance: `const work = client.Work()`
+Create an instance: `const work = client.work`
 
 #### Operations
 
@@ -441,7 +438,7 @@ Create an instance: `const work = client.Work()`
 #### Example: Load
 
 ```ts
-const work = await client.Work().load({ id: 'work_id' })
+const work = await client.work.load({ id: 'work_id' })
 ```
 
 
@@ -502,7 +499,7 @@ crossref-rest/
 Import the SDK from the package root:
 
 ```ts
-import { CrossrefRestSDK } from 'crossref-rest'
+import { CrossrefRestSDK } from '@voxgig-sdk/crossref-rest'
 ```
 
 ### Entity state
@@ -512,11 +509,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const funder = client.funder
+await funder.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// funder.data() now returns the loaded funder data
+// funder.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

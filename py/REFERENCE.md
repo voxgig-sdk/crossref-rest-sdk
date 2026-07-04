@@ -20,7 +20,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `dict` | SDK configuration options. |
-| `options["apikey"]` | `str` | API key for authentication. |
 | `options["base"]` | `str` | Base URL for API requests. |
 | `options["prefix"]` | `str` | URL prefix appended after base. |
 | `options["suffix"]` | `str` | URL suffix appended after path. |
@@ -70,9 +69,9 @@ Return a deep copy of the current SDK options.
 
 Return a copy of the SDK utility object.
 
-#### `direct(fetchargs=None) -> tuple`
+#### `direct(fetchargs=None) -> dict`
 
-Make a direct HTTP request to any API endpoint. Returns `(result, err)`.
+Make a direct HTTP request to any API endpoint. Returns a result `dict` with `ok`, `status`, `headers`, and `data` (or `err` on failure). This escape hatch never raises — branch on `result["ok"]`.
 
 **Parameters:**
 
@@ -85,11 +84,11 @@ Make a direct HTTP request to any API endpoint. Returns `(result, err)`.
 | `fetchargs["headers"]` | `dict` | Request headers (merged with defaults). |
 | `fetchargs["body"]` | `any` | Request body (dicts are JSON-serialized). |
 
-**Returns:** `(result_dict, err)`
+**Returns:** `result_dict`
 
-#### `prepare(fetchargs=None) -> tuple`
+#### `prepare(fetchargs=None) -> dict`
 
-Prepare a fetch definition without sending. Returns `(fetchdef, err)`.
+Prepare a fetch definition without sending. Returns the `fetchdef` and raises on error.
 
 
 ---
@@ -97,7 +96,7 @@ Prepare a fetch definition without sending. Returns `(fetchdef, err)`.
 ## FunderEntity
 
 ```python
-funder = client.Funder()
+funder = client.funder
 ```
 
 ### Fields
@@ -110,12 +109,12 @@ funder = client.Funder()
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.Funder().load({"id": "funder_id"})
+result = client.funder.load({"id": "funder_id"})
 ```
 
 ### Common Methods
@@ -150,7 +149,7 @@ Return the entity name.
 ## JournalEntity
 
 ```python
-journal = client.Journal()
+journal = client.journal
 ```
 
 ### Fields
@@ -163,12 +162,12 @@ journal = client.Journal()
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.Journal().load({"id": "journal_id"})
+result = client.journal.load({"id": "journal_id"})
 ```
 
 ### Common Methods
@@ -203,7 +202,7 @@ Return the entity name.
 ## MemberEntity
 
 ```python
-member = client.Member()
+member = client.member
 ```
 
 ### Fields
@@ -216,12 +215,12 @@ member = client.Member()
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.Member().load({"id": "member_id"})
+result = client.member.load({"id": "member_id"})
 ```
 
 ### Common Methods
@@ -256,7 +255,7 @@ Return the entity name.
 ## TypeEntity
 
 ```python
-type = client.Type()
+type = client.type
 ```
 
 ### Fields
@@ -269,12 +268,12 @@ type = client.Type()
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.Type().load({"id": "type_id"})
+result = client.type.load({"id": "type_id"})
 ```
 
 ### Common Methods
@@ -309,7 +308,7 @@ Return the entity name.
 ## WorkEntity
 
 ```python
-work = client.Work()
+work = client.work
 ```
 
 ### Fields
@@ -323,12 +322,12 @@ work = client.Work()
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.Work().load({"id": "work_id"})
+result = client.work.load({"id": "work_id"})
 ```
 
 ### Common Methods

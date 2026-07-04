@@ -49,8 +49,7 @@ class FunderEntityTest extends TestCase
         // LOAD
         $funder_ref01_ent = $client->Funder(null);
         $funder_ref01_match_dt0 = [];
-        [$funder_ref01_data_dt0_loaded, $err] = $funder_ref01_ent->load($funder_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $funder_ref01_data_dt0_loaded = $funder_ref01_ent->load($funder_ref01_match_dt0, null);
         $this->assertNotNull($funder_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function funder_basic_setup($extra)
         "CROSSREFREST_TEST_FUNDER_ENTID" => $idmap,
         "CROSSREFREST_TEST_LIVE" => "FALSE",
         "CROSSREFREST_TEST_EXPLAIN" => "FALSE",
-        "CROSSREFREST_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function funder_basic_setup($extra)
     if ($env["CROSSREFREST_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CROSSREFREST_APIKEY"],
             ],
             $extra ?? [],
         ]);

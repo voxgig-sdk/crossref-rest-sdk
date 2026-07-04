@@ -85,6 +85,27 @@ func (e *FunderEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Funder; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *FunderEntity) DataTyped(data ...Funder) Funder {
+	if len(data) > 0 {
+		return typedFrom[Funder](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Funder](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Funder (all fields
+// optional at the wire level).
+func (e *FunderEntity) MatchTyped(match ...Funder) Funder {
+	if len(match) > 0 {
+		return typedFrom[Funder](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Funder](e.Match())
+}
+
 
 func (e *FunderEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *FunderEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, 
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// FunderLoadMatch and returns an Funder. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *FunderEntity) LoadTyped(reqmatch FunderLoadMatch, ctrl map[string]any) (Funder, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Funder{}, err
+	}
+	return typedFrom[Funder](res), nil
 }
 
 

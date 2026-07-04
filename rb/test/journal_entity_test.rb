@@ -42,8 +42,7 @@ class JournalEntityTest < Minitest::Test
     # LOAD
     journal_ref01_ent = client.Journal(nil)
     journal_ref01_match_dt0 = {}
-    journal_ref01_data_dt0_loaded, err = journal_ref01_ent.load(journal_ref01_match_dt0, nil)
-    assert_nil err
+    journal_ref01_data_dt0_loaded = journal_ref01_ent.load(journal_ref01_match_dt0, nil)
     assert !journal_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def journal_basic_setup(extra)
     "CROSSREFREST_TEST_JOURNAL_ENTID" => idmap,
     "CROSSREFREST_TEST_LIVE" => "FALSE",
     "CROSSREFREST_TEST_EXPLAIN" => "FALSE",
-    "CROSSREFREST_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def journal_basic_setup(extra)
   if env["CROSSREFREST_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["CROSSREFREST_APIKEY"],
       },
       extra || {},
     ])

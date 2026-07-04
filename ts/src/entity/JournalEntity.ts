@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Journal,
+  JournalLoadMatch,
+} from '../CrossrefRestTypes'
 
 // TODO: needs Entity superclass
-class JournalEntity extends CrossrefRestEntityBase {
+class JournalEntity extends CrossrefRestEntityBase<Journal> {
 
   constructor(client: CrossrefRestSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class JournalEntity extends CrossrefRestEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: JournalLoadMatch, ctrl?: Control): Promise<Journal> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class JournalEntity extends CrossrefRestEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Journal> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

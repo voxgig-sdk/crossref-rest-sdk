@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "Crossref API Support"
         url: "https://www.crossref.org/documentation/retrieve-metadata/rest-api/"

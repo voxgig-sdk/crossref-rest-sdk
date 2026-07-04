@@ -70,14 +70,12 @@ function type_direct_setup(mockres)
   local env = runner.env_override({
     ["CROSSREFREST_TEST_TYPE_ENTID"] = {},
     ["CROSSREFREST_TEST_LIVE"] = "FALSE",
-    ["CROSSREFREST_APIKEY"] = "NONE",
   })
 
   local live = env["CROSSREFREST_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["CROSSREFREST_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

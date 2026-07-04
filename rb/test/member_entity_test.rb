@@ -42,8 +42,7 @@ class MemberEntityTest < Minitest::Test
     # LOAD
     member_ref01_ent = client.Member(nil)
     member_ref01_match_dt0 = {}
-    member_ref01_data_dt0_loaded, err = member_ref01_ent.load(member_ref01_match_dt0, nil)
-    assert_nil err
+    member_ref01_data_dt0_loaded = member_ref01_ent.load(member_ref01_match_dt0, nil)
     assert !member_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def member_basic_setup(extra)
     "CROSSREFREST_TEST_MEMBER_ENTID" => idmap,
     "CROSSREFREST_TEST_LIVE" => "FALSE",
     "CROSSREFREST_TEST_EXPLAIN" => "FALSE",
-    "CROSSREFREST_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def member_basic_setup(extra)
   if env["CROSSREFREST_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["CROSSREFREST_APIKEY"],
       },
       extra || {},
     ])

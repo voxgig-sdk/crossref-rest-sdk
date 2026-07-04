@@ -85,6 +85,27 @@ func (e *JournalEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Journal; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *JournalEntity) DataTyped(data ...Journal) Journal {
+	if len(data) > 0 {
+		return typedFrom[Journal](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Journal](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Journal (all fields
+// optional at the wire level).
+func (e *JournalEntity) MatchTyped(match ...Journal) Journal {
+	if len(match) > 0 {
+		return typedFrom[Journal](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Journal](e.Match())
+}
+
 
 func (e *JournalEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *JournalEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any,
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// JournalLoadMatch and returns an Journal. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *JournalEntity) LoadTyped(reqmatch JournalLoadMatch, ctrl map[string]any) (Journal, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Journal{}, err
+	}
+	return typedFrom[Journal](res), nil
 }
 
 

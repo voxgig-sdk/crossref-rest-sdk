@@ -9,9 +9,10 @@ The PHP SDK for the CrossrefRest API — an entity-oriented client using PHP con
 
 
 ## Install
-```bash
-composer require voxgig-sdk/crossref-rest
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/crossref-rest-sdk/releases](https://github.com/voxgig-sdk/crossref-rest-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,17 +26,18 @@ loading a specific record.
 <?php
 require_once 'crossrefrest_sdk.php';
 
-$client = new CrossrefRestSDK([
-    "apikey" => getenv("CROSSREF-REST_APIKEY"),
-]);
+$client = new CrossrefRestSDK();
 ```
 
 ### 3. Load a funder
 
 ```php
-[$result, $err] = $client->Funder()->load(["id" => "example_id"]);
-if ($err) { throw new \Exception($err); }
-print_r($result);
+try {
+    $result = $client->funder()->load(["id" => "example_id"]);
+    print_r($result);
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
+}
 ```
 
 
@@ -46,28 +48,31 @@ print_r($result);
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -81,7 +86,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = CrossrefRestSDK::test();
 
-[$result, $err] = $client->CrossrefRest()->load(["id" => "test01"]);
+$result = $client->funder()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -115,8 +120,7 @@ $client = new CrossrefRestSDK([
 Create a `.env.local` file at the project root:
 
 ```
-CROSSREF-REST_TEST_LIVE=TRUE
-CROSSREF-REST_APIKEY=<your-key>
+CROSSREF_REST_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -139,7 +143,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -189,8 +192,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -271,7 +278,7 @@ API path: `/works`
 
 ### Funder
 
-Create an instance: `const funder = client.Funder()`
+Create an instance: `const funder = client.funder`
 
 #### Operations
 
@@ -290,13 +297,13 @@ Create an instance: `const funder = client.Funder()`
 #### Example: Load
 
 ```ts
-const funder = await client.Funder().load({ id: 'funder_id' })
+const funder = await client.funder.load({ id: 'funder_id' })
 ```
 
 
 ### Journal
 
-Create an instance: `const journal = client.Journal()`
+Create an instance: `const journal = client.journal`
 
 #### Operations
 
@@ -315,13 +322,13 @@ Create an instance: `const journal = client.Journal()`
 #### Example: Load
 
 ```ts
-const journal = await client.Journal().load({ id: 'journal_id' })
+const journal = await client.journal.load({ id: 'journal_id' })
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.Member()`
+Create an instance: `const member = client.member`
 
 #### Operations
 
@@ -340,13 +347,13 @@ Create an instance: `const member = client.Member()`
 #### Example: Load
 
 ```ts
-const member = await client.Member().load({ id: 'member_id' })
+const member = await client.member.load({ id: 'member_id' })
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.Type()`
+Create an instance: `const type = client.type`
 
 #### Operations
 
@@ -365,13 +372,13 @@ Create an instance: `const type = client.Type()`
 #### Example: Load
 
 ```ts
-const type = await client.Type().load({ id: 'type_id' })
+const type = await client.type.load({ id: 'type_id' })
 ```
 
 
 ### Work
 
-Create an instance: `const work = client.Work()`
+Create an instance: `const work = client.work`
 
 #### Operations
 
@@ -391,7 +398,7 @@ Create an instance: `const work = client.Work()`
 #### Example: Load
 
 ```ts
-const work = await client.Work().load({ id: 'work_id' })
+const work = await client.work.load({ id: 'work_id' })
 ```
 
 
@@ -466,11 +473,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$funder = $client->funder();
+$funder->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $funder->dataGet() now returns the loaded funder data
+// $funder->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

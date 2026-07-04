@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Type,
+  TypeLoadMatch,
+} from '../CrossrefRestTypes'
 
 // TODO: needs Entity superclass
-class TypeEntity extends CrossrefRestEntityBase {
+class TypeEntity extends CrossrefRestEntityBase<Type> {
 
   constructor(client: CrossrefRestSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class TypeEntity extends CrossrefRestEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: TypeLoadMatch, ctrl?: Control): Promise<Type> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class TypeEntity extends CrossrefRestEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Type> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

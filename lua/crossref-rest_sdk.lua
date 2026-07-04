@@ -244,30 +244,95 @@ end
 
 
 
+-- Idiomatic facade: client:funder():list() / client:funder():load({ id = ... })
+function CrossrefRestSDK:funder(data)
+  local EntityMod = require("entity.funder_entity")
+  if data == nil then
+    if self._funder == nil then
+      self._funder = EntityMod.new(self, nil)
+    end
+    return self._funder
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:funder() instead.
 function CrossrefRestSDK:Funder(data)
   local EntityMod = require("entity.funder_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:journal():list() / client:journal():load({ id = ... })
+function CrossrefRestSDK:journal(data)
+  local EntityMod = require("entity.journal_entity")
+  if data == nil then
+    if self._journal == nil then
+      self._journal = EntityMod.new(self, nil)
+    end
+    return self._journal
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:journal() instead.
 function CrossrefRestSDK:Journal(data)
   local EntityMod = require("entity.journal_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:member():list() / client:member():load({ id = ... })
+function CrossrefRestSDK:member(data)
+  local EntityMod = require("entity.member_entity")
+  if data == nil then
+    if self._member == nil then
+      self._member = EntityMod.new(self, nil)
+    end
+    return self._member
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:member() instead.
 function CrossrefRestSDK:Member(data)
   local EntityMod = require("entity.member_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:type():list() / client:type():load({ id = ... })
+function CrossrefRestSDK:type(data)
+  local EntityMod = require("entity.type_entity")
+  if data == nil then
+    if self._type == nil then
+      self._type = EntityMod.new(self, nil)
+    end
+    return self._type
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:type() instead.
 function CrossrefRestSDK:Type(data)
   local EntityMod = require("entity.type_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:work():list() / client:work():load({ id = ... })
+function CrossrefRestSDK:work(data)
+  local EntityMod = require("entity.work_entity")
+  if data == nil then
+    if self._work == nil then
+      self._work = EntityMod.new(self, nil)
+    end
+    return self._work
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:work() instead.
 function CrossrefRestSDK:Work(data)
   local EntityMod = require("entity.work_entity")
   return EntityMod.new(self, data)

@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'CrossrefRest_types'
+
 
 class CrossrefRestSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class CrossrefRestSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class CrossrefRestSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue CrossrefRestError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = CrossrefRestHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class CrossrefRestSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,40 +198,75 @@ class CrossrefRestSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.funder.list / client.funder.load({ "id" => ... })
+  def funder
+    require_relative 'entity/funder_entity'
+    @funder ||= FunderEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.funder instead.
   def Funder(data = nil)
     require_relative 'entity/funder_entity'
     FunderEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.journal.list / client.journal.load({ "id" => ... })
+  def journal
+    require_relative 'entity/journal_entity'
+    @journal ||= JournalEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.journal instead.
   def Journal(data = nil)
     require_relative 'entity/journal_entity'
     JournalEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.member.list / client.member.load({ "id" => ... })
+  def member
+    require_relative 'entity/member_entity'
+    @member ||= MemberEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.member instead.
   def Member(data = nil)
     require_relative 'entity/member_entity'
     MemberEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.type.list / client.type.load({ "id" => ... })
+  def type
+    require_relative 'entity/type_entity'
+    @type ||= TypeEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.type instead.
   def Type(data = nil)
     require_relative 'entity/type_entity'
     TypeEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.work.list / client.work.load({ "id" => ... })
+  def work
+    require_relative 'entity/work_entity'
+    @work ||= WorkEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.work instead.
   def Work(data = nil)
     require_relative 'entity/work_entity'
     WorkEntity.new(self, data)

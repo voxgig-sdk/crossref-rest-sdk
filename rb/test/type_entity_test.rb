@@ -42,8 +42,7 @@ class TypeEntityTest < Minitest::Test
     # LOAD
     type_ref01_ent = client.Type(nil)
     type_ref01_match_dt0 = {}
-    type_ref01_data_dt0_loaded, err = type_ref01_ent.load(type_ref01_match_dt0, nil)
-    assert_nil err
+    type_ref01_data_dt0_loaded = type_ref01_ent.load(type_ref01_match_dt0, nil)
     assert !type_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def type_basic_setup(extra)
     "CROSSREFREST_TEST_TYPE_ENTID" => idmap,
     "CROSSREFREST_TEST_LIVE" => "FALSE",
     "CROSSREFREST_TEST_EXPLAIN" => "FALSE",
-    "CROSSREFREST_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def type_basic_setup(extra)
   if env["CROSSREFREST_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["CROSSREFREST_APIKEY"],
       },
       extra || {},
     ])

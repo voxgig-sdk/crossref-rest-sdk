@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -100,7 +99,7 @@ same parameters as `direct()`.
 ## FunderEntity
 
 ```lua
-local funder = client:Funder(nil)
+local funder = client:funder(nil)
 ```
 
 ### Fields
@@ -118,7 +117,7 @@ local funder = client:Funder(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Funder():load({ id = "funder_id" })
+local result, err = client:funder():load({ id = "funder_id" })
 ```
 
 ### Common Methods
@@ -154,7 +153,7 @@ Return the entity name.
 ## JournalEntity
 
 ```lua
-local journal = client:Journal(nil)
+local journal = client:journal(nil)
 ```
 
 ### Fields
@@ -172,7 +171,7 @@ local journal = client:Journal(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Journal():load({ id = "journal_id" })
+local result, err = client:journal():load({ id = "journal_id" })
 ```
 
 ### Common Methods
@@ -208,7 +207,7 @@ Return the entity name.
 ## MemberEntity
 
 ```lua
-local member = client:Member(nil)
+local member = client:member(nil)
 ```
 
 ### Fields
@@ -226,7 +225,7 @@ local member = client:Member(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Member():load({ id = "member_id" })
+local result, err = client:member():load({ id = "member_id" })
 ```
 
 ### Common Methods
@@ -262,7 +261,7 @@ Return the entity name.
 ## TypeEntity
 
 ```lua
-local type = client:Type(nil)
+local type = client:type(nil)
 ```
 
 ### Fields
@@ -280,7 +279,7 @@ local type = client:Type(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Type():load({ id = "type_id" })
+local result, err = client:type():load({ id = "type_id" })
 ```
 
 ### Common Methods
@@ -316,7 +315,7 @@ Return the entity name.
 ## WorkEntity
 
 ```lua
-local work = client:Work(nil)
+local work = client:work(nil)
 ```
 
 ### Fields
@@ -335,7 +334,7 @@ local work = client:Work(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Work():load({ id = "work_id" })
+local result, err = client:work():load({ id = "work_id" })
 ```
 
 ### Common Methods

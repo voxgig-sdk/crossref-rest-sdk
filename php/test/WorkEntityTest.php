@@ -49,8 +49,7 @@ class WorkEntityTest extends TestCase
         // LOAD
         $work_ref01_ent = $client->Work(null);
         $work_ref01_match_dt0 = [];
-        [$work_ref01_data_dt0_loaded, $err] = $work_ref01_ent->load($work_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $work_ref01_data_dt0_loaded = $work_ref01_ent->load($work_ref01_match_dt0, null);
         $this->assertNotNull($work_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function work_basic_setup($extra)
         "CROSSREFREST_TEST_WORK_ENTID" => $idmap,
         "CROSSREFREST_TEST_LIVE" => "FALSE",
         "CROSSREFREST_TEST_EXPLAIN" => "FALSE",
-        "CROSSREFREST_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function work_basic_setup($extra)
     if ($env["CROSSREFREST_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CROSSREFREST_APIKEY"],
             ],
             $extra ?? [],
         ]);

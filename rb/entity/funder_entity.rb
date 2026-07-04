@@ -45,6 +45,7 @@ class FunderEntity
     end
   end
 
+  # @return [Funder, Hash] the current Funder data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class FunderEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Funder fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Funder.
+  #
+  # @param reqmatch [FunderLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Funder, Hash] the loaded Funder; raises CrossrefRestError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

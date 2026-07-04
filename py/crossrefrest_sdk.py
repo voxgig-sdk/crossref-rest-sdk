@@ -144,16 +144,23 @@ class CrossrefRestSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class CrossrefRestSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,35 +212,90 @@ class CrossrefRestSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def funder(self):
+        """Idiomatic facade: client.funder.list() / client.funder.load({"id": ...})."""
+        from entity.funder_entity import FunderEntity
+        cached = getattr(self, "_funder", None)
+        if cached is None:
+            cached = FunderEntity(self, None)
+            self._funder = cached
+        return cached
 
     def Funder(self, data=None):
+        # Deprecated: use client.funder instead.
         from entity.funder_entity import FunderEntity
         return FunderEntity(self, data)
 
 
+    @property
+    def journal(self):
+        """Idiomatic facade: client.journal.list() / client.journal.load({"id": ...})."""
+        from entity.journal_entity import JournalEntity
+        cached = getattr(self, "_journal", None)
+        if cached is None:
+            cached = JournalEntity(self, None)
+            self._journal = cached
+        return cached
+
     def Journal(self, data=None):
+        # Deprecated: use client.journal instead.
         from entity.journal_entity import JournalEntity
         return JournalEntity(self, data)
 
 
+    @property
+    def member(self):
+        """Idiomatic facade: client.member.list() / client.member.load({"id": ...})."""
+        from entity.member_entity import MemberEntity
+        cached = getattr(self, "_member", None)
+        if cached is None:
+            cached = MemberEntity(self, None)
+            self._member = cached
+        return cached
+
     def Member(self, data=None):
+        # Deprecated: use client.member instead.
         from entity.member_entity import MemberEntity
         return MemberEntity(self, data)
 
 
+    @property
+    def type(self):
+        """Idiomatic facade: client.type.list() / client.type.load({"id": ...})."""
+        from entity.type_entity import TypeEntity
+        cached = getattr(self, "_type", None)
+        if cached is None:
+            cached = TypeEntity(self, None)
+            self._type = cached
+        return cached
+
     def Type(self, data=None):
+        # Deprecated: use client.type instead.
         from entity.type_entity import TypeEntity
         return TypeEntity(self, data)
 
 
+    @property
+    def work(self):
+        """Idiomatic facade: client.work.list() / client.work.load({"id": ...})."""
+        from entity.work_entity import WorkEntity
+        cached = getattr(self, "_work", None)
+        if cached is None:
+            cached = WorkEntity(self, None)
+            self._work = cached
+        return cached
+
     def Work(self, data=None):
+        # Deprecated: use client.work instead.
         from entity.work_entity import WorkEntity
         return WorkEntity(self, data)
 

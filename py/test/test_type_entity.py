@@ -49,8 +49,7 @@ class TestTypeEntity:
         # LOAD
         type_ref01_ent = client.Type(None)
         type_ref01_match_dt0 = {}
-        type_ref01_data_dt0_loaded, err = type_ref01_ent.load(type_ref01_match_dt0, None)
-        assert err is None
+        type_ref01_data_dt0_loaded = type_ref01_ent.load(type_ref01_match_dt0, None)
         assert type_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _type_basic_setup(extra):
         "CROSSREFREST_TEST_TYPE_ENTID": idmap,
         "CROSSREFREST_TEST_LIVE": "FALSE",
         "CROSSREFREST_TEST_EXPLAIN": "FALSE",
-        "CROSSREFREST_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _type_basic_setup(extra):
     if env.get("CROSSREFREST_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CROSSREFREST_APIKEY"),
             },
             extra or {},
         ])

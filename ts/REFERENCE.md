@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -158,7 +157,7 @@ Alias for `CrossrefRestSDK.test()`.
 ## FunderEntity
 
 ```ts
-const funder = client.Funder()
+const funder = client.funder
 ```
 
 ### Fields
@@ -176,7 +175,7 @@ const funder = client.Funder()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Funder().load({ id: 'funder_id' })
+const result = await client.funder.load({ id: 'funder_id' })
 ```
 
 ### Common Methods
@@ -210,7 +209,7 @@ Return a copy of the entity options.
 ## JournalEntity
 
 ```ts
-const journal = client.Journal()
+const journal = client.journal
 ```
 
 ### Fields
@@ -228,7 +227,7 @@ const journal = client.Journal()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Journal().load({ id: 'journal_id' })
+const result = await client.journal.load({ id: 'journal_id' })
 ```
 
 ### Common Methods
@@ -262,7 +261,7 @@ Return a copy of the entity options.
 ## MemberEntity
 
 ```ts
-const member = client.Member()
+const member = client.member
 ```
 
 ### Fields
@@ -280,7 +279,7 @@ const member = client.Member()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Member().load({ id: 'member_id' })
+const result = await client.member.load({ id: 'member_id' })
 ```
 
 ### Common Methods
@@ -314,7 +313,7 @@ Return a copy of the entity options.
 ## TypeEntity
 
 ```ts
-const type = client.Type()
+const type = client.type
 ```
 
 ### Fields
@@ -332,7 +331,7 @@ const type = client.Type()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Type().load({ id: 'type_id' })
+const result = await client.type.load({ id: 'type_id' })
 ```
 
 ### Common Methods
@@ -366,7 +365,7 @@ Return a copy of the entity options.
 ## WorkEntity
 
 ```ts
-const work = client.Work()
+const work = client.work
 ```
 
 ### Fields
@@ -385,7 +384,7 @@ const work = client.Work()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Work().load({ id: 'work_id' })
+const result = await client.work.load({ id: 'work_id' })
 ```
 
 ### Common Methods

@@ -49,8 +49,7 @@ class TestWorkEntity:
         # LOAD
         work_ref01_ent = client.Work(None)
         work_ref01_match_dt0 = {}
-        work_ref01_data_dt0_loaded, err = work_ref01_ent.load(work_ref01_match_dt0, None)
-        assert err is None
+        work_ref01_data_dt0_loaded = work_ref01_ent.load(work_ref01_match_dt0, None)
         assert work_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _work_basic_setup(extra):
         "CROSSREFREST_TEST_WORK_ENTID": idmap,
         "CROSSREFREST_TEST_LIVE": "FALSE",
         "CROSSREFREST_TEST_EXPLAIN": "FALSE",
-        "CROSSREFREST_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _work_basic_setup(extra):
     if env.get("CROSSREFREST_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CROSSREFREST_APIKEY"),
             },
             extra or {},
         ])

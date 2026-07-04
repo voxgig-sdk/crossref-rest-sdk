@@ -49,8 +49,7 @@ class JournalEntityTest extends TestCase
         // LOAD
         $journal_ref01_ent = $client->Journal(null);
         $journal_ref01_match_dt0 = [];
-        [$journal_ref01_data_dt0_loaded, $err] = $journal_ref01_ent->load($journal_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $journal_ref01_data_dt0_loaded = $journal_ref01_ent->load($journal_ref01_match_dt0, null);
         $this->assertNotNull($journal_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function journal_basic_setup($extra)
         "CROSSREFREST_TEST_JOURNAL_ENTID" => $idmap,
         "CROSSREFREST_TEST_LIVE" => "FALSE",
         "CROSSREFREST_TEST_EXPLAIN" => "FALSE",
-        "CROSSREFREST_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function journal_basic_setup($extra)
     if ($env["CROSSREFREST_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CROSSREFREST_APIKEY"],
             ],
             $extra ?? [],
         ]);

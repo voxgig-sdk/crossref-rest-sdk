@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch FunderLoadMatch
+---@param ctrl? table
+---@return Funder
+---@return string? err
 function FunderEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

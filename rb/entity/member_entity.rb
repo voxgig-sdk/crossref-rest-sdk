@@ -45,6 +45,7 @@ class MemberEntity
     end
   end
 
+  # @return [Member, Hash] the current Member data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class MemberEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Member fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Member.
+  #
+  # @param reqmatch [MemberLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Member, Hash] the loaded Member; raises CrossrefRestError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

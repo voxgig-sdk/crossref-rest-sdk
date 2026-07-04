@@ -245,26 +245,41 @@ func (sdk *CrossrefRestSDK) Direct(fetchargs map[string]any) (map[string]any, er
 }
 
 
+// Funder returns a Funder entity bound to this client.
+// Idiomatic usage: client.Funder(nil).List(nil, nil) or
+// client.Funder(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CrossrefRestSDK) Funder(data map[string]any) CrossrefRestEntity {
 	return NewFunderEntityFunc(sdk, data)
 }
 
 
+// Journal returns a Journal entity bound to this client.
+// Idiomatic usage: client.Journal(nil).List(nil, nil) or
+// client.Journal(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CrossrefRestSDK) Journal(data map[string]any) CrossrefRestEntity {
 	return NewJournalEntityFunc(sdk, data)
 }
 
 
+// Member returns a Member entity bound to this client.
+// Idiomatic usage: client.Member(nil).List(nil, nil) or
+// client.Member(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CrossrefRestSDK) Member(data map[string]any) CrossrefRestEntity {
 	return NewMemberEntityFunc(sdk, data)
 }
 
 
+// Type returns a Type entity bound to this client.
+// Idiomatic usage: client.Type(nil).List(nil, nil) or
+// client.Type(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CrossrefRestSDK) Type(data map[string]any) CrossrefRestEntity {
 	return NewTypeEntityFunc(sdk, data)
 }
 
 
+// Work returns a Work entity bound to this client.
+// Idiomatic usage: client.Work(nil).List(nil, nil) or
+// client.Work(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CrossrefRestSDK) Work(data map[string]any) CrossrefRestEntity {
 	return NewWorkEntityFunc(sdk, data)
 }

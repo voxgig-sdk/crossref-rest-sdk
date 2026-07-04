@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch JournalLoadMatch
+---@param ctrl? table
+---@return Journal
+---@return string? err
 function JournalEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

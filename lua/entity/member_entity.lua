@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch MemberLoadMatch
+---@param ctrl? table
+---@return Member
+---@return string? err
 function MemberEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
