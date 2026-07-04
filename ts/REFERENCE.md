@@ -157,7 +157,7 @@ Alias for `CrossrefRestSDK.test()`.
 ## FunderEntity
 
 ```ts
-const funder = client.funder
+const funder = client.Funder()
 ```
 
 ### Fields
@@ -175,7 +175,7 @@ const funder = client.funder
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.funder.load({ id: 'funder_id' })
+const result = await client.Funder().load({ id: 'funder_id' })
 ```
 
 ### Common Methods
@@ -209,7 +209,7 @@ Return a copy of the entity options.
 ## JournalEntity
 
 ```ts
-const journal = client.journal
+const journal = client.Journal()
 ```
 
 ### Fields
@@ -227,7 +227,7 @@ const journal = client.journal
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.journal.load({ id: 'journal_id' })
+const result = await client.Journal().load({ id: 'journal_id' })
 ```
 
 ### Common Methods
@@ -261,7 +261,7 @@ Return a copy of the entity options.
 ## MemberEntity
 
 ```ts
-const member = client.member
+const member = client.Member()
 ```
 
 ### Fields
@@ -279,7 +279,7 @@ const member = client.member
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.member.load({ id: 'member_id' })
+const result = await client.Member().load({ id: 'member_id' })
 ```
 
 ### Common Methods
@@ -313,7 +313,7 @@ Return a copy of the entity options.
 ## TypeEntity
 
 ```ts
-const type = client.type
+const type = client.Type()
 ```
 
 ### Fields
@@ -331,7 +331,7 @@ const type = client.type
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.type.load({ id: 'type_id' })
+const result = await client.Type().load({ id: 'type_id' })
 ```
 
 ### Common Methods
@@ -365,7 +365,7 @@ Return a copy of the entity options.
 ## WorkEntity
 
 ```ts
-const work = client.work
+const work = client.Work()
 ```
 
 ### Fields
@@ -384,7 +384,7 @@ const work = client.work
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.work.load({ id: 'work_id' })
+const result = await client.Work().load({ id: 'work_id' })
 ```
 
 ### Common Methods

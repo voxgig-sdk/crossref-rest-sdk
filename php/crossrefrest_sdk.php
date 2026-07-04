@@ -233,10 +233,10 @@ class CrossrefRestSDK
 
     private $_funder = null;
 
-    // Idiomatic facade: $client->funder()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Funder() (PHP method
-    // names are case-insensitive).
-    public function funder($data = null)
+    // Canonical facade: $client->Funder()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->funder()
+    // resolves here too.
+    public function Funder($data = null)
     {
         require_once __DIR__ . '/entity/funder_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class CrossrefRestSDK
 
     private $_journal = null;
 
-    // Idiomatic facade: $client->journal()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Journal() (PHP method
-    // names are case-insensitive).
-    public function journal($data = null)
+    // Canonical facade: $client->Journal()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->journal()
+    // resolves here too.
+    public function Journal($data = null)
     {
         require_once __DIR__ . '/entity/journal_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class CrossrefRestSDK
 
     private $_member = null;
 
-    // Idiomatic facade: $client->member()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Member() (PHP method
-    // names are case-insensitive).
-    public function member($data = null)
+    // Canonical facade: $client->Member()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->member()
+    // resolves here too.
+    public function Member($data = null)
     {
         require_once __DIR__ . '/entity/member_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class CrossrefRestSDK
 
     private $_type = null;
 
-    // Idiomatic facade: $client->type()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Type() (PHP method
-    // names are case-insensitive).
-    public function type($data = null)
+    // Canonical facade: $client->Type()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->type()
+    // resolves here too.
+    public function Type($data = null)
     {
         require_once __DIR__ . '/entity/type_entity.php';
         if ($data === null) {
@@ -305,10 +305,10 @@ class CrossrefRestSDK
 
     private $_work = null;
 
-    // Idiomatic facade: $client->work()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Work() (PHP method
-    // names are case-insensitive).
-    public function work($data = null)
+    // Canonical facade: $client->Work()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->work()
+    // resolves here too.
+    public function Work($data = null)
     {
         require_once __DIR__ . '/entity/work_entity.php';
         if ($data === null) {

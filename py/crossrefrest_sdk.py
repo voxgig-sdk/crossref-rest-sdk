@@ -220,89 +220,39 @@ class CrossrefRestSDK:
         }
 
 
-    @property
-    def funder(self):
-        """Idiomatic facade: client.funder.list() / client.funder.load({"id": ...})."""
-        from entity.funder_entity import FunderEntity
-        cached = getattr(self, "_funder", None)
-        if cached is None:
-            cached = FunderEntity(self, None)
-            self._funder = cached
-        return cached
-
-    def Funder(self, data=None):
-        # Deprecated: use client.funder instead.
+    def Funder(self, data=None) -> "FunderEntity":
+        """Entity factory: client.Funder().list({}) / client.Funder().load({"id": ...})."""
         from entity.funder_entity import FunderEntity
         return FunderEntity(self, data)
 
 
-    @property
-    def journal(self):
-        """Idiomatic facade: client.journal.list() / client.journal.load({"id": ...})."""
-        from entity.journal_entity import JournalEntity
-        cached = getattr(self, "_journal", None)
-        if cached is None:
-            cached = JournalEntity(self, None)
-            self._journal = cached
-        return cached
-
-    def Journal(self, data=None):
-        # Deprecated: use client.journal instead.
+    def Journal(self, data=None) -> "JournalEntity":
+        """Entity factory: client.Journal().list({}) / client.Journal().load({"id": ...})."""
         from entity.journal_entity import JournalEntity
         return JournalEntity(self, data)
 
 
-    @property
-    def member(self):
-        """Idiomatic facade: client.member.list() / client.member.load({"id": ...})."""
-        from entity.member_entity import MemberEntity
-        cached = getattr(self, "_member", None)
-        if cached is None:
-            cached = MemberEntity(self, None)
-            self._member = cached
-        return cached
-
-    def Member(self, data=None):
-        # Deprecated: use client.member instead.
+    def Member(self, data=None) -> "MemberEntity":
+        """Entity factory: client.Member().list({}) / client.Member().load({"id": ...})."""
         from entity.member_entity import MemberEntity
         return MemberEntity(self, data)
 
 
-    @property
-    def type(self):
-        """Idiomatic facade: client.type.list() / client.type.load({"id": ...})."""
-        from entity.type_entity import TypeEntity
-        cached = getattr(self, "_type", None)
-        if cached is None:
-            cached = TypeEntity(self, None)
-            self._type = cached
-        return cached
-
-    def Type(self, data=None):
-        # Deprecated: use client.type instead.
+    def Type(self, data=None) -> "TypeEntity":
+        """Entity factory: client.Type().list({}) / client.Type().load({"id": ...})."""
         from entity.type_entity import TypeEntity
         return TypeEntity(self, data)
 
 
-    @property
-    def work(self):
-        """Idiomatic facade: client.work.list() / client.work.load({"id": ...})."""
-        from entity.work_entity import WorkEntity
-        cached = getattr(self, "_work", None)
-        if cached is None:
-            cached = WorkEntity(self, None)
-            self._work = cached
-        return cached
-
-    def Work(self, data=None):
-        # Deprecated: use client.work instead.
+    def Work(self, data=None) -> "WorkEntity":
+        """Entity factory: client.Work().list({}) / client.Work().load({"id": ...})."""
         from entity.work_entity import WorkEntity
         return WorkEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "CrossrefRestSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -322,3 +272,13 @@ class CrossrefRestSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.funder_entity import FunderEntity
+    from entity.journal_entity import JournalEntity
+    from entity.member_entity import MemberEntity
+    from entity.type_entity import TypeEntity
+    from entity.work_entity import WorkEntity

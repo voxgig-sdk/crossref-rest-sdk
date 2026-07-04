@@ -96,7 +96,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## FunderEntity
 
 ```python
-funder = client.funder
+funder = client.Funder()
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ funder = client.funder
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.funder.load({"id": "funder_id"})
+result = client.Funder().load({"id": "funder_id"})
 ```
 
 ### Common Methods
@@ -149,7 +149,7 @@ Return the entity name.
 ## JournalEntity
 
 ```python
-journal = client.journal
+journal = client.Journal()
 ```
 
 ### Fields
@@ -167,7 +167,7 @@ journal = client.journal
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.journal.load({"id": "journal_id"})
+result = client.Journal().load({"id": "journal_id"})
 ```
 
 ### Common Methods
@@ -202,7 +202,7 @@ Return the entity name.
 ## MemberEntity
 
 ```python
-member = client.member
+member = client.Member()
 ```
 
 ### Fields
@@ -220,7 +220,7 @@ member = client.member
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.member.load({"id": "member_id"})
+result = client.Member().load({"id": "member_id"})
 ```
 
 ### Common Methods
@@ -255,7 +255,7 @@ Return the entity name.
 ## TypeEntity
 
 ```python
-type = client.type
+type = client.Type()
 ```
 
 ### Fields
@@ -273,7 +273,7 @@ type = client.type
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.type.load({"id": "type_id"})
+result = client.Type().load({"id": "type_id"})
 ```
 
 ### Common Methods
@@ -308,7 +308,7 @@ Return the entity name.
 ## WorkEntity
 
 ```python
-work = client.work
+work = client.Work()
 ```
 
 ### Fields
@@ -327,7 +327,7 @@ work = client.work
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.work.load({"id": "work_id"})
+result = client.Work().load({"id": "work_id"})
 ```
 
 ### Common Methods

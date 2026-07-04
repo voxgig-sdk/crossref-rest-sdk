@@ -99,7 +99,7 @@ same parameters as `direct()`.
 ## FunderEntity
 
 ```lua
-local funder = client:funder(nil)
+local funder = client:Funder(nil)
 ```
 
 ### Fields
@@ -117,7 +117,7 @@ local funder = client:funder(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:funder():load({ id = "funder_id" })
+local result, err = client:Funder():load({ id = "funder_id" })
 ```
 
 ### Common Methods
@@ -153,7 +153,7 @@ Return the entity name.
 ## JournalEntity
 
 ```lua
-local journal = client:journal(nil)
+local journal = client:Journal(nil)
 ```
 
 ### Fields
@@ -171,7 +171,7 @@ local journal = client:journal(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:journal():load({ id = "journal_id" })
+local result, err = client:Journal():load({ id = "journal_id" })
 ```
 
 ### Common Methods
@@ -207,7 +207,7 @@ Return the entity name.
 ## MemberEntity
 
 ```lua
-local member = client:member(nil)
+local member = client:Member(nil)
 ```
 
 ### Fields
@@ -225,7 +225,7 @@ local member = client:member(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:member():load({ id = "member_id" })
+local result, err = client:Member():load({ id = "member_id" })
 ```
 
 ### Common Methods
@@ -261,7 +261,7 @@ Return the entity name.
 ## TypeEntity
 
 ```lua
-local type = client:type(nil)
+local type = client:Type(nil)
 ```
 
 ### Fields
@@ -279,7 +279,7 @@ local type = client:type(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:type():load({ id = "type_id" })
+local result, err = client:Type():load({ id = "type_id" })
 ```
 
 ### Common Methods
@@ -315,7 +315,7 @@ Return the entity name.
 ## WorkEntity
 
 ```lua
-local work = client:work(nil)
+local work = client:Work(nil)
 ```
 
 ### Fields
@@ -334,7 +334,7 @@ local work = client:work(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:work():load({ id = "work_id" })
+local result, err = client:Work():load({ id = "work_id" })
 ```
 
 ### Common Methods

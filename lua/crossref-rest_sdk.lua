@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:funder():list() / client:funder():load({ id = ... })
-function CrossrefRestSDK:funder(data)
+-- Idiomatic facade: client:Funder():list() / client:Funder():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CrossrefRestSDK:Funder(data)
   local EntityMod = require("entity.funder_entity")
   if data == nil then
     if self._funder == nil then
@@ -256,15 +257,10 @@ function CrossrefRestSDK:funder(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:funder() instead.
-function CrossrefRestSDK:Funder(data)
-  local EntityMod = require("entity.funder_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:journal():list() / client:journal():load({ id = ... })
-function CrossrefRestSDK:journal(data)
+-- Idiomatic facade: client:Journal():list() / client:Journal():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CrossrefRestSDK:Journal(data)
   local EntityMod = require("entity.journal_entity")
   if data == nil then
     if self._journal == nil then
@@ -275,15 +271,10 @@ function CrossrefRestSDK:journal(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:journal() instead.
-function CrossrefRestSDK:Journal(data)
-  local EntityMod = require("entity.journal_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:member():list() / client:member():load({ id = ... })
-function CrossrefRestSDK:member(data)
+-- Idiomatic facade: client:Member():list() / client:Member():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CrossrefRestSDK:Member(data)
   local EntityMod = require("entity.member_entity")
   if data == nil then
     if self._member == nil then
@@ -294,15 +285,10 @@ function CrossrefRestSDK:member(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:member() instead.
-function CrossrefRestSDK:Member(data)
-  local EntityMod = require("entity.member_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:type():list() / client:type():load({ id = ... })
-function CrossrefRestSDK:type(data)
+-- Idiomatic facade: client:Type():list() / client:Type():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CrossrefRestSDK:Type(data)
   local EntityMod = require("entity.type_entity")
   if data == nil then
     if self._type == nil then
@@ -313,15 +299,10 @@ function CrossrefRestSDK:type(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:type() instead.
-function CrossrefRestSDK:Type(data)
-  local EntityMod = require("entity.type_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:work():list() / client:work():load({ id = ... })
-function CrossrefRestSDK:work(data)
+-- Idiomatic facade: client:Work():list() / client:Work():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CrossrefRestSDK:Work(data)
   local EntityMod = require("entity.work_entity")
   if data == nil then
     if self._work == nil then
@@ -329,12 +310,6 @@ function CrossrefRestSDK:work(data)
     end
     return self._work
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:work() instead.
-function CrossrefRestSDK:Work(data)
-  local EntityMod = require("entity.work_entity")
   return EntityMod.new(self, data)
 end
 

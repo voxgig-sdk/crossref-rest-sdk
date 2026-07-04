@@ -26,9 +26,9 @@ import { CrossrefRestSDK } from '@voxgig-sdk/crossref-rest'
 
 const client = new CrossrefRestSDK()
 
-// Load funder data
-const funder = await client.funder.load({})
-console.log(funder.data)
+// Load funder data (returns a Funder)
+const funder = await client.Funder().load()
+console.log(funder)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -88,8 +88,8 @@ from crossrefrest_sdk import CrossrefRestSDK
 client = CrossrefRestSDK()
 
 
-# Load a specific funder
-funder = client.funder.load({"id": "example_id"})
+# Load a specific funder (returns the record, raises on error)
+funder = client.Funder().load({"id": "example_id"})
 print(funder)
 ```
 
@@ -102,8 +102,8 @@ require_once 'crossrefrest_sdk.php';
 $client = new CrossrefRestSDK();
 
 
-// Load a specific funder
-$funder = $client->funder()->load(["id" => "example_id"]);
+// Load a specific funder (returns the bare record; throws on error)
+$funder = $client->Funder()->load(["id" => "example_id"]);
 print_r($funder);
 ```
 
@@ -127,8 +127,8 @@ require_relative "CrossrefRest_sdk"
 client = CrossrefRestSDK.new
 
 
-# Load a specific funder
-funder = client.funder.load({ "id" => "example_id" })
+# Load a specific funder (returns the bare record; raises on error)
+funder = client.Funder.load({ "id" => "example_id" })
 puts funder
 ```
 
@@ -141,7 +141,7 @@ local client = sdk.new()
 
 
 -- Load a specific funder
-local funder, err = client:funder():load({ id = "example_id" })
+local funder, err = client:Funder():load({ id = "example_id" })
 print(funder)
 ```
 
@@ -154,22 +154,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CrossrefRestSDK.test()
-const result = await client.funder.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const funder = await client.Funder().load({ id: 'test01' })
+// funder is a bare Funder populated with mock data
+console.log(funder)
 ```
 
 ### Python
 
 ```python
 client = CrossrefRestSDK.test()
-result = client.funder.load({"id": "test01"})
+funder = client.Funder().load({"id": "test01"})
+print(funder)
 ```
 
 ### PHP
 
 ```php
-$client = CrossrefRestSDK::test();
-$result = $client->funder()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = CrossrefRestSDK::test([
+    "entity" => ["funder" => ["test01" => ["id" => "test01"]]],
+]);
+$funder = $client->Funder()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -184,15 +189,18 @@ result, err := client.Funder(nil).Load(
 ### Ruby
 
 ```ruby
-client = CrossrefRestSDK.test
-result = client.funder.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = CrossrefRestSDK.test({
+  "entity" => { "funder" => { "test01" => { "id" => "test01" } } },
+})
+funder = client.Funder.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:funder():load({ id = "test01" })
+local result, err = client:Funder():load({ id = "test01" })
 ```
 
 ## How it works
@@ -240,6 +248,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

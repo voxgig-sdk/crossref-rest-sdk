@@ -208,70 +208,35 @@ class CrossrefRestSDK {
 
 
 
-  _funder?: FunderEntity
-
-  // Idiomatic facade: `client.funder.list()` / `client.funder.load({ id })`.
-  get funder(): FunderEntity {
-    return (this._funder ??= new FunderEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.funder` instead. */
+  // Entity access: `client.Funder().list()` / `client.Funder().load({ id })`.
   Funder(data?: any) {
     const self = this
     return new FunderEntity(self,data)
   }
 
 
-  _journal?: JournalEntity
-
-  // Idiomatic facade: `client.journal.list()` / `client.journal.load({ id })`.
-  get journal(): JournalEntity {
-    return (this._journal ??= new JournalEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.journal` instead. */
+  // Entity access: `client.Journal().list()` / `client.Journal().load({ id })`.
   Journal(data?: any) {
     const self = this
     return new JournalEntity(self,data)
   }
 
 
-  _member?: MemberEntity
-
-  // Idiomatic facade: `client.member.list()` / `client.member.load({ id })`.
-  get member(): MemberEntity {
-    return (this._member ??= new MemberEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.member` instead. */
+  // Entity access: `client.Member().list()` / `client.Member().load({ id })`.
   Member(data?: any) {
     const self = this
     return new MemberEntity(self,data)
   }
 
 
-  _type?: TypeEntity
-
-  // Idiomatic facade: `client.type.list()` / `client.type.load({ id })`.
-  get type(): TypeEntity {
-    return (this._type ??= new TypeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.type` instead. */
+  // Entity access: `client.Type().list()` / `client.Type().load({ id })`.
   Type(data?: any) {
     const self = this
     return new TypeEntity(self,data)
   }
 
 
-  _work?: WorkEntity
-
-  // Idiomatic facade: `client.work.list()` / `client.work.load({ id })`.
-  get work(): WorkEntity {
-    return (this._work ??= new WorkEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.work` instead. */
+  // Entity access: `client.Work().list()` / `client.Work().load({ id })`.
   Work(data?: any) {
     const self = this
     return new WorkEntity(self,data)

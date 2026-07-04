@@ -4,74 +4,68 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Funder:
-    message: Optional[dict] = None
-    message_type: Optional[str] = None
-    status: Optional[str] = None
+class Funder(TypedDict, total=False):
+    message: dict
+    message_type: str
+    status: str
 
 
-@dataclass
-class FunderLoadMatch:
+class FunderLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class Journal:
-    message: Optional[dict] = None
-    message_type: Optional[str] = None
-    status: Optional[str] = None
+class Journal(TypedDict, total=False):
+    message: dict
+    message_type: str
+    status: str
 
 
-@dataclass
-class JournalLoadMatch:
+class JournalLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class Member:
-    message: Optional[dict] = None
-    message_type: Optional[str] = None
-    status: Optional[str] = None
+class Member(TypedDict, total=False):
+    message: dict
+    message_type: str
+    status: str
 
 
-@dataclass
-class MemberLoadMatch:
+class MemberLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class Type:
-    message: Optional[dict] = None
-    message_type: Optional[str] = None
-    status: Optional[str] = None
+class Type(TypedDict, total=False):
+    message: dict
+    message_type: str
+    status: str
 
 
-@dataclass
-class TypeLoadMatch:
+class TypeLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class Work:
-    message: Optional[dict] = None
-    message_type: Optional[str] = None
-    message_version: Optional[str] = None
-    status: Optional[str] = None
+class Work(TypedDict, total=False):
+    message: dict
+    message_type: str
+    message_version: str
+    status: str
 
 
-@dataclass
-class WorkLoadMatch:
+class WorkLoadMatch(TypedDict):
     funder_id: str
     issn: str
     member_id: str
     type_id: str
     id: str
-

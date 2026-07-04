@@ -33,10 +33,12 @@ client = CrossrefRestSDK()
 
 ### 3. Load a funder
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.funder.load({"id": "example_id"})
-    print(result)
+    funder = client.Funder().load({"id": "example_id"})
+    print(funder)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CrossrefRestSDK.test()
 
-result = client.funder.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+funder = client.Funder().load({"id": "test01"})
+# funder contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -273,7 +276,7 @@ API path: `/works`
 
 ### Funder
 
-Create an instance: `const funder = client.funder`
+Create an instance: `funder = client.Funder()`
 
 #### Operations
 
@@ -291,14 +294,14 @@ Create an instance: `const funder = client.funder`
 
 #### Example: Load
 
-```ts
-const funder = await client.funder.load({ id: 'funder_id' })
+```python
+funder = client.Funder().load({"id": "funder_id"})
 ```
 
 
 ### Journal
 
-Create an instance: `const journal = client.journal`
+Create an instance: `journal = client.Journal()`
 
 #### Operations
 
@@ -316,14 +319,14 @@ Create an instance: `const journal = client.journal`
 
 #### Example: Load
 
-```ts
-const journal = await client.journal.load({ id: 'journal_id' })
+```python
+journal = client.Journal().load({"id": "journal_id"})
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.member`
+Create an instance: `member = client.Member()`
 
 #### Operations
 
@@ -341,14 +344,14 @@ Create an instance: `const member = client.member`
 
 #### Example: Load
 
-```ts
-const member = await client.member.load({ id: 'member_id' })
+```python
+member = client.Member().load({"id": "member_id"})
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.type`
+Create an instance: `type = client.Type()`
 
 #### Operations
 
@@ -366,14 +369,14 @@ Create an instance: `const type = client.type`
 
 #### Example: Load
 
-```ts
-const type = await client.type.load({ id: 'type_id' })
+```python
+type = client.Type().load({"id": "type_id"})
 ```
 
 
 ### Work
 
-Create an instance: `const work = client.work`
+Create an instance: `work = client.Work()`
 
 #### Operations
 
@@ -392,8 +395,8 @@ Create an instance: `const work = client.work`
 
 #### Example: Load
 
-```ts
-const work = await client.work.load({ id: 'work_id' })
+```python
+work = client.Work().load({"id": "work_id"})
 ```
 
 
@@ -467,7 +470,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-funder = client.funder
+funder = client.Funder()
 funder.load({"id": "example_id"})
 
 # funder.data_get() now returns the loaded funder data

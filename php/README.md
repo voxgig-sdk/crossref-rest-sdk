@@ -33,9 +33,10 @@ $client = new CrossrefRestSDK();
 
 ```php
 try {
-    $result = $client->funder()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Funder record (throws on error).
+    $funder = $client->Funder()->load(["id" => "example_id"]);
+    print_r($funder);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = CrossrefRestSDK::test();
+$client = CrossrefRestSDK::test([
+    "entity" => ["funder" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->funder()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$funder = $client->Funder()->load(["id" => "test01"]);
+print_r($funder);
 ```
 
 ### Use a custom fetch function
@@ -278,7 +283,7 @@ API path: `/works`
 
 ### Funder
 
-Create an instance: `const funder = client.funder`
+Create an instance: `$funder = $client->Funder();`
 
 #### Operations
 
@@ -296,14 +301,15 @@ Create an instance: `const funder = client.funder`
 
 #### Example: Load
 
-```ts
-const funder = await client.funder.load({ id: 'funder_id' })
+```php
+// load() returns the bare Funder record (throws on error).
+$funder = $client->Funder()->load(["id" => "funder_id"]);
 ```
 
 
 ### Journal
 
-Create an instance: `const journal = client.journal`
+Create an instance: `$journal = $client->Journal();`
 
 #### Operations
 
@@ -321,14 +327,15 @@ Create an instance: `const journal = client.journal`
 
 #### Example: Load
 
-```ts
-const journal = await client.journal.load({ id: 'journal_id' })
+```php
+// load() returns the bare Journal record (throws on error).
+$journal = $client->Journal()->load(["id" => "journal_id"]);
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.member`
+Create an instance: `$member = $client->Member();`
 
 #### Operations
 
@@ -346,14 +353,15 @@ Create an instance: `const member = client.member`
 
 #### Example: Load
 
-```ts
-const member = await client.member.load({ id: 'member_id' })
+```php
+// load() returns the bare Member record (throws on error).
+$member = $client->Member()->load(["id" => "member_id"]);
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.type`
+Create an instance: `$type = $client->Type();`
 
 #### Operations
 
@@ -371,14 +379,15 @@ Create an instance: `const type = client.type`
 
 #### Example: Load
 
-```ts
-const type = await client.type.load({ id: 'type_id' })
+```php
+// load() returns the bare Type record (throws on error).
+$type = $client->Type()->load(["id" => "type_id"]);
 ```
 
 
 ### Work
 
-Create an instance: `const work = client.work`
+Create an instance: `$work = $client->Work();`
 
 #### Operations
 
@@ -397,8 +406,9 @@ Create an instance: `const work = client.work`
 
 #### Example: Load
 
-```ts
-const work = await client.work.load({ id: 'work_id' })
+```php
+// load() returns the bare Work record (throws on error).
+$work = $client->Work()->load(["id" => "work_id"]);
 ```
 
 
@@ -473,7 +483,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$funder = $client->funder();
+$funder = $client->Funder();
 $funder->load(["id" => "example_id"]);
 
 // $funder->dataGet() now returns the loaded funder data

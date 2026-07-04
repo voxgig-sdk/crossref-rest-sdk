@@ -101,7 +101,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## FunderEntity
 
 ```php
-$funder = $client->funder();
+$funder = $client->Funder();
 ```
 
 ### Fields
@@ -119,7 +119,7 @@ $funder = $client->funder();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->funder()->load(["id" => "funder_id"]);
+$result = $client->Funder()->load(["id" => "funder_id"]);
 ```
 
 ### Common Methods
@@ -155,7 +155,7 @@ Return the entity name.
 ## JournalEntity
 
 ```php
-$journal = $client->journal();
+$journal = $client->Journal();
 ```
 
 ### Fields
@@ -173,7 +173,7 @@ $journal = $client->journal();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->journal()->load(["id" => "journal_id"]);
+$result = $client->Journal()->load(["id" => "journal_id"]);
 ```
 
 ### Common Methods
@@ -209,7 +209,7 @@ Return the entity name.
 ## MemberEntity
 
 ```php
-$member = $client->member();
+$member = $client->Member();
 ```
 
 ### Fields
@@ -227,7 +227,7 @@ $member = $client->member();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->member()->load(["id" => "member_id"]);
+$result = $client->Member()->load(["id" => "member_id"]);
 ```
 
 ### Common Methods
@@ -263,7 +263,7 @@ Return the entity name.
 ## TypeEntity
 
 ```php
-$type = $client->type();
+$type = $client->Type();
 ```
 
 ### Fields
@@ -281,7 +281,7 @@ $type = $client->type();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->type()->load(["id" => "type_id"]);
+$result = $client->Type()->load(["id" => "type_id"]);
 ```
 
 ### Common Methods
@@ -317,7 +317,7 @@ Return the entity name.
 ## WorkEntity
 
 ```php
-$work = $client->work();
+$work = $client->Work();
 ```
 
 ### Fields
@@ -336,7 +336,7 @@ $work = $client->work();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->work()->load(["id" => "work_id"]);
+$result = $client->Work()->load(["id" => "work_id"]);
 ```
 
 ### Common Methods

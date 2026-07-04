@@ -208,65 +208,35 @@ class CrossrefRestSDK
   end
 
 
-  # Idiomatic facade: client.funder.list / client.funder.load({ "id" => ... })
-  def funder
-    require_relative 'entity/funder_entity'
-    @funder ||= FunderEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.funder instead.
+  # Canonical facade: client.Funder.list / client.Funder.load({ "id" => ... })
   def Funder(data = nil)
     require_relative 'entity/funder_entity'
     FunderEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.journal.list / client.journal.load({ "id" => ... })
-  def journal
-    require_relative 'entity/journal_entity'
-    @journal ||= JournalEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.journal instead.
+  # Canonical facade: client.Journal.list / client.Journal.load({ "id" => ... })
   def Journal(data = nil)
     require_relative 'entity/journal_entity'
     JournalEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.member.list / client.member.load({ "id" => ... })
-  def member
-    require_relative 'entity/member_entity'
-    @member ||= MemberEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.member instead.
+  # Canonical facade: client.Member.list / client.Member.load({ "id" => ... })
   def Member(data = nil)
     require_relative 'entity/member_entity'
     MemberEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.type.list / client.type.load({ "id" => ... })
-  def type
-    require_relative 'entity/type_entity'
-    @type ||= TypeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.type instead.
+  # Canonical facade: client.Type.list / client.Type.load({ "id" => ... })
   def Type(data = nil)
     require_relative 'entity/type_entity'
     TypeEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.work.list / client.work.load({ "id" => ... })
-  def work
-    require_relative 'entity/work_entity'
-    @work ||= WorkEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.work instead.
+  # Canonical facade: client.Work.list / client.Work.load({ "id" => ... })
   def Work(data = nil)
     require_relative 'entity/work_entity'
     WorkEntity.new(self, data)
