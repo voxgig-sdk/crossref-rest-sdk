@@ -8,7 +8,7 @@ Complete API reference for the CrossrefRest Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'crossref-rest_sdk'
+require_relative 'CrossrefRest_sdk'
 
 client = CrossrefRestSDK.new(options)
 ```
@@ -109,9 +109,9 @@ funder = client.Funder
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `Hash` | No |  |
+| `message_type` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
@@ -163,9 +163,9 @@ journal = client.Journal
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `Hash` | No |  |
+| `message_type` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
@@ -217,9 +217,9 @@ member = client.Member
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `Hash` | No |  |
+| `message_type` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
@@ -271,9 +271,9 @@ type = client.Type
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `Hash` | No |  |
+| `message_type` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
@@ -325,10 +325,10 @@ work = client.Work
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `message_version` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `Hash` | No |  |
+| `message_type` | `String` | No |  |
+| `message_version` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 

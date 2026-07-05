@@ -164,9 +164,9 @@ const funder = client.Funder()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `Record<string, any>` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -216,9 +216,9 @@ const journal = client.Journal()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `Record<string, any>` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -268,9 +268,9 @@ const member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `Record<string, any>` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -320,9 +320,9 @@ const type = client.Type()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `Record<string, any>` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -372,10 +372,10 @@ const work = client.Work()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `message_version` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `Record<string, any>` | No |  |
+| `message_type` | `string` | No |  |
+| `message_version` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 

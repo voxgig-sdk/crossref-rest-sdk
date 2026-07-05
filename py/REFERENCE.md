@@ -8,7 +8,7 @@ Complete API reference for the CrossrefRest Python SDK.
 ### Constructor
 
 ```python
-from crossref-rest_sdk import CrossrefRestSDK
+from crossrefrest_sdk import CrossrefRestSDK
 
 client = CrossrefRestSDK(options)
 ```
@@ -103,9 +103,9 @@ funder = client.Funder()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `dict` | No |  |
+| `message_type` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
@@ -156,9 +156,9 @@ journal = client.Journal()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `dict` | No |  |
+| `message_type` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
@@ -209,9 +209,9 @@ member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `dict` | No |  |
+| `message_type` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
@@ -262,9 +262,9 @@ type = client.Type()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `dict` | No |  |
+| `message_type` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
@@ -315,10 +315,10 @@ work = client.Work()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `message_version` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `dict` | No |  |
+| `message_type` | `str` | No |  |
+| `message_version` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 

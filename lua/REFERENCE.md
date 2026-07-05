@@ -106,9 +106,9 @@ local funder = client:Funder(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `table` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -160,9 +160,9 @@ local journal = client:Journal(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `table` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -214,9 +214,9 @@ local member = client:Member(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `table` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -268,9 +268,9 @@ local type = client:Type(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `table` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -322,10 +322,10 @@ local work = client:Work(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `message_version` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `table` | No |  |
+| `message_type` | `string` | No |  |
+| `message_version` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 

@@ -221,31 +221,31 @@ class CrossrefRestSDK:
 
 
     def Funder(self, data=None) -> "FunderEntity":
-        """Entity factory: client.Funder().list({}) / client.Funder().load({"id": ...})."""
+        """Entity factory: client.Funder().list() / client.Funder().load({"id": ...})."""
         from entity.funder_entity import FunderEntity
         return FunderEntity(self, data)
 
 
     def Journal(self, data=None) -> "JournalEntity":
-        """Entity factory: client.Journal().list({}) / client.Journal().load({"id": ...})."""
+        """Entity factory: client.Journal().list() / client.Journal().load({"id": ...})."""
         from entity.journal_entity import JournalEntity
         return JournalEntity(self, data)
 
 
     def Member(self, data=None) -> "MemberEntity":
-        """Entity factory: client.Member().list({}) / client.Member().load({"id": ...})."""
+        """Entity factory: client.Member().list() / client.Member().load({"id": ...})."""
         from entity.member_entity import MemberEntity
         return MemberEntity(self, data)
 
 
     def Type(self, data=None) -> "TypeEntity":
-        """Entity factory: client.Type().list({}) / client.Type().load({"id": ...})."""
+        """Entity factory: client.Type().list() / client.Type().load({"id": ...})."""
         from entity.type_entity import TypeEntity
         return TypeEntity(self, data)
 
 
     def Work(self, data=None) -> "WorkEntity":
-        """Entity factory: client.Work().list({}) / client.Work().load({"id": ...})."""
+        """Entity factory: client.Work().list() / client.Work().load({"id": ...})."""
         from entity.work_entity import WorkEntity
         return WorkEntity(self, data)
 

@@ -113,9 +113,9 @@ funder := client.Funder(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `map[string]any` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -161,9 +161,9 @@ journal := client.Journal(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `map[string]any` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -209,9 +209,9 @@ member := client.Member(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `map[string]any` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -257,9 +257,9 @@ type := client.Type(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `map[string]any` | No |  |
+| `message_type` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -305,10 +305,10 @@ work := client.Work(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
-| `message_type` | ``$STRING`` | No |  |
-| `message_version` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `message` | `map[string]any` | No |  |
+| `message_type` | `string` | No |  |
+| `message_version` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
