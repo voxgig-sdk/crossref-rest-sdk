@@ -107,6 +107,7 @@ same parameters as `Direct()`.
 
 ```go
 funder := client.Funder(nil)
+fmt.Println(funder.GetName()) // "funder"
 ```
 
 ### Fields
@@ -125,6 +126,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Funder(nil).Load(map[string]any{"id": "funder_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -155,6 +160,7 @@ Return the entity name.
 
 ```go
 journal := client.Journal(nil)
+fmt.Println(journal.GetName()) // "journal"
 ```
 
 ### Fields
@@ -173,6 +179,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Journal(nil).Load(map[string]any{"id": "journal_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -203,6 +213,7 @@ Return the entity name.
 
 ```go
 member := client.Member(nil)
+fmt.Println(member.GetName()) // "member"
 ```
 
 ### Fields
@@ -221,6 +232,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Member(nil).Load(map[string]any{"id": "member_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -250,7 +265,8 @@ Return the entity name.
 ## TypeEntity
 
 ```go
-type := client.Type(nil)
+type_ := client.Type(nil)
+fmt.Println(type_.GetName()) // "type"
 ```
 
 ### Fields
@@ -269,6 +285,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Type(nil).Load(map[string]any{"id": "type_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -299,6 +319,7 @@ Return the entity name.
 
 ```go
 work := client.Work(nil)
+fmt.Println(work.GetName()) // "work"
 ```
 
 ### Fields
@@ -318,6 +339,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Work(nil).Load(map[string]any{"id": "work_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

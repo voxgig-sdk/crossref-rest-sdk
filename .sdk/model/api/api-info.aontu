@@ -20,9 +20,9 @@ main: {
           url: "https://api.crossref.org"
         }
       ]
+      summary: "The Crossref REST API allows users to search and retrieve metadata for scholarly works, including DOIs, ISSNs, and funder identifiers."
       title: "Crossref REST API"
       version: "1.0.0"
+      website: "https://api.crossref.org/swagger-ui/index.html"
     }
   }
-}
-

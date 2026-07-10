@@ -1,0 +1,7 @@
+# Entity Models
+
+@"funder.aontu"
+@"journal.aontu"
+@"member.aontu"
+@"type.aontu"
+@"work.aontu"

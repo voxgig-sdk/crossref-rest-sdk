@@ -17,7 +17,7 @@ type Funder struct {
 
 // FunderLoadMatch is the typed request payload for Funder.LoadTyped.
 type FunderLoadMatch struct {
-	Id string `json:"id"`
+	Id *string `json:"id,omitempty"`
 }
 
 // Journal is the typed data model for the journal entity.
@@ -29,7 +29,7 @@ type Journal struct {
 
 // JournalLoadMatch is the typed request payload for Journal.LoadTyped.
 type JournalLoadMatch struct {
-	Id string `json:"id"`
+	Id *string `json:"id,omitempty"`
 }
 
 // Member is the typed data model for the member entity.
@@ -41,7 +41,7 @@ type Member struct {
 
 // MemberLoadMatch is the typed request payload for Member.LoadTyped.
 type MemberLoadMatch struct {
-	Id string `json:"id"`
+	Id *string `json:"id,omitempty"`
 }
 
 // Type is the typed data model for the type entity.
@@ -53,7 +53,7 @@ type Type struct {
 
 // TypeLoadMatch is the typed request payload for Type.LoadTyped.
 type TypeLoadMatch struct {
-	Id string `json:"id"`
+	Id *string `json:"id,omitempty"`
 }
 
 // Work is the typed data model for the work entity.
@@ -66,11 +66,11 @@ type Work struct {
 
 // WorkLoadMatch is the typed request payload for Work.LoadTyped.
 type WorkLoadMatch struct {
-	FunderId string `json:"funder_id"`
-	Issn string `json:"issn"`
-	MemberId string `json:"member_id"`
-	TypeId string `json:"type_id"`
-	Id string `json:"id"`
+	FunderId *string `json:"funder_id,omitempty"`
+	Issn *string `json:"issn,omitempty"`
+	MemberId *string `json:"member_id,omitempty"`
+	TypeId *string `json:"type_id,omitempty"`
+	Id *string `json:"id,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

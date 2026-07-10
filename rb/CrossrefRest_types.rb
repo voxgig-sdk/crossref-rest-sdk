@@ -28,7 +28,7 @@ Funder = Struct.new(
 # Request payload for Funder#load.
 #
 # @!attribute [rw] id
-#   @return [String]
+#   @return [String, nil]
 FunderLoadMatch = Struct.new(
   :id,
   keyword_init: true
@@ -54,7 +54,7 @@ Journal = Struct.new(
 # Request payload for Journal#load.
 #
 # @!attribute [rw] id
-#   @return [String]
+#   @return [String, nil]
 JournalLoadMatch = Struct.new(
   :id,
   keyword_init: true
@@ -80,7 +80,7 @@ Member = Struct.new(
 # Request payload for Member#load.
 #
 # @!attribute [rw] id
-#   @return [String]
+#   @return [String, nil]
 MemberLoadMatch = Struct.new(
   :id,
   keyword_init: true
@@ -106,7 +106,7 @@ Type = Struct.new(
 # Request payload for Type#load.
 #
 # @!attribute [rw] id
-#   @return [String]
+#   @return [String, nil]
 TypeLoadMatch = Struct.new(
   :id,
   keyword_init: true
@@ -136,19 +136,19 @@ Work = Struct.new(
 # Request payload for Work#load.
 #
 # @!attribute [rw] funder_id
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] issn
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] member_id
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] type_id
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] id
-#   @return [String]
+#   @return [String, nil]
 WorkLoadMatch = Struct.new(
   :funder_id,
   :issn,

@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single funder — the value is the loaded record.
-    funder, err := client.Funder(nil).Load(map[string]any{"id": "example"}, nil)
+    funder, err := client.Funder(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }

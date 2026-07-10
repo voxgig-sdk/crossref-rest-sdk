@@ -23,7 +23,7 @@ class Funder
 /** Request payload for Funder#load. */
 class FunderLoadMatch
 {
-    public string $id;
+    public ?string $id = null;
 }
 
 /** Journal entity data model. */
@@ -37,7 +37,7 @@ class Journal
 /** Request payload for Journal#load. */
 class JournalLoadMatch
 {
-    public string $id;
+    public ?string $id = null;
 }
 
 /** Member entity data model. */
@@ -51,7 +51,7 @@ class Member
 /** Request payload for Member#load. */
 class MemberLoadMatch
 {
-    public string $id;
+    public ?string $id = null;
 }
 
 /** Type entity data model. */
@@ -65,7 +65,7 @@ class Type
 /** Request payload for Type#load. */
 class TypeLoadMatch
 {
-    public string $id;
+    public ?string $id = null;
 }
 
 /** Work entity data model. */
@@ -80,10 +80,10 @@ class Work
 /** Request payload for Work#load. */
 class WorkLoadMatch
 {
-    public string $funder_id;
-    public string $issn;
-    public string $member_id;
-    public string $type_id;
-    public string $id;
+    public ?string $funder_id = null;
+    public ?string $issn = null;
+    public ?string $member_id = null;
+    public ?string $type_id = null;
+    public ?string $id = null;
 }
 

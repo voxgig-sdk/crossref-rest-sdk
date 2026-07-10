@@ -12,7 +12,7 @@ export interface Funder {
 }
 
 export interface FunderLoadMatch {
-  id: string
+  id?: string
 }
 
 export interface Journal {
@@ -22,7 +22,7 @@ export interface Journal {
 }
 
 export interface JournalLoadMatch {
-  id: string
+  id?: string
 }
 
 export interface Member {
@@ -32,7 +32,7 @@ export interface Member {
 }
 
 export interface MemberLoadMatch {
-  id: string
+  id?: string
 }
 
 export interface Type {
@@ -42,7 +42,7 @@ export interface Type {
 }
 
 export interface TypeLoadMatch {
-  id: string
+  id?: string
 }
 
 export interface Work {
@@ -53,10 +53,10 @@ export interface Work {
 }
 
 export interface WorkLoadMatch {
-  funder_id: string
-  issn: string
-  member_id: string
-  type_id: string
-  id: string
+  funder_id?: string
+  issn?: string
+  member_id?: string
+  type_id?: string
+  id?: string
 }
 
