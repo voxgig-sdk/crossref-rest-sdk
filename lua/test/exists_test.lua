@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- CrossrefRest SDK exists test
 
 local sdk = require("crossref-rest_sdk")
 
