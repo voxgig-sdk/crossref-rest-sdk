@@ -23,8 +23,8 @@ module CrossrefRestTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("CROSSREFREST_TEST_LIVE")
-    override = getenv("CROSSREFREST_TEST_OVERRIDE")
+    live = getenv("CROSSREF_REST_TEST_LIVE")
+    override = getenv("CROSSREF_REST_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module CrossrefRestTestRunner
       end
     end
 
-    explain = getenv("CROSSREFREST_TEST_EXPLAIN")
-    m["CROSSREFREST_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("CROSSREF_REST_TEST_EXPLAIN")
+    m["CROSSREF_REST_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

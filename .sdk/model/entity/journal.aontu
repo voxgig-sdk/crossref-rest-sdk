@@ -6,19 +6,39 @@ main: kit: entity: journal: {
 
   fields: [
     {
-      name: "message"
+      name: "ISSN"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "coverage"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "message_type"
+      name: "items"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "itemsperpage"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "publisher"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "status"
+      name: "title"
       req: false
       type: "`$STRING`"
+    }
+    {
+      name: "totalresults"
+      req: false
+      type: "`$INTEGER`"
     }
   ]
 
@@ -69,7 +89,7 @@ main: kit: entity: journal: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
         {
@@ -103,7 +123,7 @@ main: kit: entity: journal: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
       ]

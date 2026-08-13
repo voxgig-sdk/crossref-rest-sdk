@@ -2,31 +2,27 @@
   "existing": {
     "type": {
       "TYPE00": {
-        "message": {},
-        "message_type": "s1f",
-        "status": "s20",
-        "id": "TYPE00"
+        "id": "TYPE00",
+        "items": [],
+        "label": "s20"
       },
       "TYPE01": {
-        "message": {},
-        "message_type": "s3d",
-        "status": "s3e",
-        "id": "TYPE01"
+        "id": "TYPE01",
+        "items": [],
+        "label": "s3e"
       },
       "TYPE02": {
-        "message": {},
-        "message_type": "s5b",
-        "status": "s5c",
-        "id": "TYPE02"
+        "id": "TYPE02",
+        "items": [],
+        "label": "s5c"
       }
     }
   },
   "new": {
     "type": {
       "type_ref01": {
-        "message": {},
-        "message_type": "s79",
-        "status": "s7a"
+        "items": [],
+        "label": "s7a"
       }
     }
   }

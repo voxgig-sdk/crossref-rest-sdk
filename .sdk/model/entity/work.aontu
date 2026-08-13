@@ -6,22 +6,82 @@ main: kit: entity: work: {
 
   fields: [
     {
-      name: "message"
+      name: "DOI"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ISSN"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "URL"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "abstract"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "author"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "containertitle"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "isreferencedbycount"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "items"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "itemsperpage"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "published"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "message_type"
+      name: "publisher"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "message_version"
+      name: "query"
       req: false
-      type: "`$STRING`"
+      type: "`$OBJECT`"
     }
     {
-      name: "status"
+      name: "referencecount"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "totalresults"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "type"
       req: false
       type: "`$STRING`"
     }
@@ -107,7 +167,7 @@ main: kit: entity: work: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
         {
@@ -161,7 +221,7 @@ main: kit: entity: work: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
         {
@@ -210,7 +270,7 @@ main: kit: entity: work: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
         {
@@ -264,7 +324,7 @@ main: kit: entity: work: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
         {
@@ -318,7 +378,7 @@ main: kit: entity: work: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
         {
@@ -362,7 +422,7 @@ main: kit: entity: work: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
       ]

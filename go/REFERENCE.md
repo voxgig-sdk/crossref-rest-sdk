@@ -114,9 +114,14 @@ fmt.Println(funder.GetName()) // "funder"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `map[string]any` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `altnames` | `[]any` | No |  |
+| `id` | `string` | No |  |
+| `items` | `[]any` | No |  |
+| `itemsperpage` | `int` | No |  |
+| `location` | `string` | No |  |
+| `name` | `string` | No |  |
+| `totalresults` | `int` | No |  |
+| `uri` | `string` | No |  |
 
 ### Operations
 
@@ -167,9 +172,13 @@ fmt.Println(journal.GetName()) // "journal"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `map[string]any` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `ISSN` | `[]any` | No |  |
+| `coverage` | `map[string]any` | No |  |
+| `items` | `[]any` | No |  |
+| `itemsperpage` | `int` | No |  |
+| `publisher` | `string` | No |  |
+| `title` | `string` | No |  |
+| `totalresults` | `int` | No |  |
 
 ### Operations
 
@@ -220,9 +229,14 @@ fmt.Println(member.GetName()) // "member"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `map[string]any` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `counts` | `map[string]any` | No |  |
+| `id` | `int` | No |  |
+| `items` | `[]any` | No |  |
+| `itemsperpage` | `int` | No |  |
+| `laststatuschecktime` | `int` | No |  |
+| `location` | `string` | No |  |
+| `primaryname` | `string` | No |  |
+| `totalresults` | `int` | No |  |
 
 ### Operations
 
@@ -273,9 +287,9 @@ fmt.Println(type_.GetName()) // "type"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `map[string]any` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `id` | `string` | No |  |
+| `items` | `[]any` | No |  |
+| `label` | `string` | No |  |
 
 ### Operations
 
@@ -326,10 +340,22 @@ fmt.Println(work.GetName()) // "work"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `map[string]any` | No |  |
-| `message_type` | `string` | No |  |
-| `message_version` | `string` | No |  |
-| `status` | `string` | No |  |
+| `DOI` | `string` | No |  |
+| `ISSN` | `[]any` | No |  |
+| `URL` | `string` | No |  |
+| `abstract` | `string` | No |  |
+| `author` | `[]any` | No |  |
+| `containertitle` | `[]any` | No |  |
+| `isreferencedbycount` | `int` | No |  |
+| `items` | `[]any` | No |  |
+| `itemsperpage` | `int` | No |  |
+| `published` | `map[string]any` | No |  |
+| `publisher` | `string` | No |  |
+| `query` | `map[string]any` | No |  |
+| `referencecount` | `int` | No |  |
+| `title` | `[]any` | No |  |
+| `totalresults` | `int` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

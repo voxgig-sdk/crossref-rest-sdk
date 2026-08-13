@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const funder = await client.Funder().load({ id: "example_id" })
+  const funder = await client.Funder().load()
   console.log(funder)
 } catch (err) {
   console.error('load failed:', err)
@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = CrossrefRestSDK.test()
 
 const funder = await client.Funder().load({ id: 'test01' })
-// funder is a bare entity populated with mock response data
+// funder is the entity, populated with mock response data
+// — call funder.data() for the record itself
 console.log(funder)
 ```
 
@@ -144,7 +145,7 @@ await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -288,9 +289,14 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `altnames` |  |
+| `id` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `location` |  |
+| `name` |  |
+| `totalresults` |  |
+| `uri` |  |
 
 Operations: load.
 
@@ -300,9 +306,13 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `ISSN` |  |
+| `coverage` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `publisher` |  |
+| `title` |  |
+| `totalresults` |  |
 
 Operations: load.
 
@@ -312,9 +322,14 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `counts` |  |
+| `id` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `laststatuschecktime` |  |
+| `location` |  |
+| `primaryname` |  |
+| `totalresults` |  |
 
 Operations: load.
 
@@ -324,9 +339,9 @@ API path: `/members`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `id` |  |
+| `items` |  |
+| `label` |  |
 
 Operations: load.
 
@@ -336,10 +351,22 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `message_version` |  |
-| `status` |  |
+| `DOI` |  |
+| `ISSN` |  |
+| `URL` |  |
+| `abstract` |  |
+| `author` |  |
+| `containertitle` |  |
+| `isreferencedbycount` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `published` |  |
+| `publisher` |  |
+| `query` |  |
+| `referencecount` |  |
+| `title` |  |
+| `totalresults` |  |
+| `type` |  |
 
 Operations: load.
 
@@ -364,9 +391,14 @@ Create an instance: `const funder = client.Funder()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `Record<string, any>` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `altnames` | `any[]` |  |
+| `id` | `string` |  |
+| `items` | `any[]` |  |
+| `itemsperpage` | `number` |  |
+| `location` | `string` |  |
+| `name` | `string` |  |
+| `totalresults` | `number` |  |
+| `uri` | `string` |  |
 
 #### Example: Load
 
@@ -389,9 +421,13 @@ Create an instance: `const journal = client.Journal()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `Record<string, any>` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `ISSN` | `any[]` |  |
+| `coverage` | `Record<string, any>` |  |
+| `items` | `any[]` |  |
+| `itemsperpage` | `number` |  |
+| `publisher` | `string` |  |
+| `title` | `string` |  |
+| `totalresults` | `number` |  |
 
 #### Example: Load
 
@@ -414,9 +450,14 @@ Create an instance: `const member = client.Member()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `Record<string, any>` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `counts` | `Record<string, any>` |  |
+| `id` | `number` |  |
+| `items` | `any[]` |  |
+| `itemsperpage` | `number` |  |
+| `laststatuschecktime` | `number` |  |
+| `location` | `string` |  |
+| `primaryname` | `string` |  |
+| `totalresults` | `number` |  |
 
 #### Example: Load
 
@@ -439,9 +480,9 @@ Create an instance: `const type = client.Type()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `Record<string, any>` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `id` | `string` |  |
+| `items` | `any[]` |  |
+| `label` | `string` |  |
 
 #### Example: Load
 
@@ -464,10 +505,22 @@ Create an instance: `const work = client.Work()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `Record<string, any>` |  |
-| `message_type` | `string` |  |
-| `message_version` | `string` |  |
-| `status` | `string` |  |
+| `DOI` | `string` |  |
+| `ISSN` | `any[]` |  |
+| `URL` | `string` |  |
+| `abstract` | `string` |  |
+| `author` | `any[]` |  |
+| `containertitle` | `any[]` |  |
+| `isreferencedbycount` | `number` |  |
+| `items` | `any[]` |  |
+| `itemsperpage` | `number` |  |
+| `published` | `Record<string, any>` |  |
+| `publisher` | `string` |  |
+| `query` | `Record<string, any>` |  |
+| `referencecount` | `number` |  |
+| `title` | `any[]` |  |
+| `totalresults` | `number` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
@@ -546,7 +599,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const funder = client.Funder()
-await funder.load({ id: "example_id" })
+await funder.load()
 
 // funder.data() now returns the funder data from the last `load`
 // funder.match() returns { id: "example_id" }

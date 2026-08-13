@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CrossrefRestSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CrossrefRestSDK.test({
+  entity: {
+    funder: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const funder = await client.Funder().load({ id: 'test01' })
-// funder is a bare Funder populated with mock data
+// funder is the Funder entity, populated with mock data
+// — call funder.data() for the record itself
 console.log(funder)
 ```
 
@@ -186,7 +195,7 @@ require_once 'crossrefrest_sdk.php';
 $client = new CrossrefRestSDK();
 
 
-// Load a specific funder (returns the bare record; throws on error)
+// Load a specific funder (returns the ENTITY; call data_get() for the record; throws on error)
 $funder = $client->Funder()->load(["id" => "example_id"]);
 print_r($funder);
 ```
@@ -214,7 +223,7 @@ require_relative "CrossrefRest_sdk"
 client = CrossrefRestSDK.new
 
 
-# Load a specific funder (returns the bare record; raises on error)
+# Load a specific funder (returns the ENTITY; call data_get for the record)
 funder = client.Funder.load({ "id" => "example_id" })
 puts funder
 ```
@@ -348,6 +357,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.crossref.org/documentation/retrieve-metadata/rest-api/](https://www.crossref.org/documentation/retrieve-metadata/rest-api/)
 

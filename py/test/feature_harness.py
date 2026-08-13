@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CrossrefRestControl
-from core.error import CrossrefRestError
-from core.result import CrossrefRestResult
-from core.spec import CrossrefRestSpec
+from crossrefrest_sdk.config import make_config
+from crossrefrest_sdk.features import _make_feature
+from crossrefrest_sdk.core.control import CrossrefRestControl
+from crossrefrest_sdk.core.error import CrossrefRestError
+from crossrefrest_sdk.core.result import CrossrefRestResult
+from crossrefrest_sdk.core.spec import CrossrefRestSpec
 
 
 # True when this SDK was generated with the named feature.

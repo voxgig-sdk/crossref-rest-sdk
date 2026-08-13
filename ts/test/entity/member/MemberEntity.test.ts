@@ -26,8 +26,8 @@ import {
 describe('MemberEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CROSSREFREST_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CROSSREFREST_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CROSSREF_REST_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CROSSREF_REST_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CrossrefRestSDK.test()
@@ -62,8 +62,9 @@ describe('MemberEntity', async () => {
     // LOAD
     const member_ref01_ent = client.Member()
     const member_ref01_match_dt0: any = {}
-    const member_ref01_data_dt0 = await member_ref01_ent.load(member_ref01_match_dt0)
-    assert(null != member_ref01_data_dt0)
+    member_ref01_match_dt0.id = member_ref01_data.id
+    const member_ref01_data_dt0 = (await member_ref01_ent.load(member_ref01_match_dt0)).data()
+    assert(member_ref01_data_dt0.id === member_ref01_data.id)
 
 
   })

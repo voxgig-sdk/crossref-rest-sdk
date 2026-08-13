@@ -6,21 +6,51 @@ main: kit: entity: member: {
 
   fields: [
     {
-      name: "message"
+      name: "counts"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "message_type"
+      name: "id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "items"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "itemsperpage"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "laststatuschecktime"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "location"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "status"
+      name: "primaryname"
       req: false
       type: "`$STRING`"
     }
+    {
+      name: "totalresults"
+      req: false
+      type: "`$INTEGER`"
+    }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "member"
   op: {
@@ -69,7 +99,7 @@ main: kit: entity: member: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
         {
@@ -98,7 +128,7 @@ main: kit: entity: member: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
       ]

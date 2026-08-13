@@ -38,7 +38,7 @@ client = CrossrefRestSDK()
 
 ### 3. Load a funder
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    funder = client.Funder().load({"id": "example_id"})
+    funder = client.Funder().load()
     print(funder)
 except Exception as err:
     print(f"load failed: {err}")
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CrossrefRestSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 funder = client.Funder().load({"id": "test01"})
 # funder contains the mock response record
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -244,9 +245,14 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `altnames` |  |
+| `id` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `location` |  |
+| `name` |  |
+| `totalresults` |  |
+| `uri` |  |
 
 Operations: Load.
 
@@ -256,9 +262,13 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `ISSN` |  |
+| `coverage` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `publisher` |  |
+| `title` |  |
+| `totalresults` |  |
 
 Operations: Load.
 
@@ -268,9 +278,14 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `counts` |  |
+| `id` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `laststatuschecktime` |  |
+| `location` |  |
+| `primaryname` |  |
+| `totalresults` |  |
 
 Operations: Load.
 
@@ -280,9 +295,9 @@ API path: `/members`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `id` |  |
+| `items` |  |
+| `label` |  |
 
 Operations: Load.
 
@@ -292,10 +307,22 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `message_version` |  |
-| `status` |  |
+| `DOI` |  |
+| `ISSN` |  |
+| `URL` |  |
+| `abstract` |  |
+| `author` |  |
+| `containertitle` |  |
+| `isreferencedbycount` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `published` |  |
+| `publisher` |  |
+| `query` |  |
+| `referencecount` |  |
+| `title` |  |
+| `totalresults` |  |
+| `type` |  |
 
 Operations: Load.
 
@@ -320,9 +347,14 @@ Create an instance: `funder = client.Funder()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `dict` |  |
-| `message_type` | `str` |  |
-| `status` | `str` |  |
+| `altnames` | `list` |  |
+| `id` | `str` |  |
+| `items` | `list` |  |
+| `itemsperpage` | `int` |  |
+| `location` | `str` |  |
+| `name` | `str` |  |
+| `totalresults` | `int` |  |
+| `uri` | `str` |  |
 
 #### Example: Load
 
@@ -345,9 +377,13 @@ Create an instance: `journal = client.Journal()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `dict` |  |
-| `message_type` | `str` |  |
-| `status` | `str` |  |
+| `ISSN` | `list` |  |
+| `coverage` | `dict` |  |
+| `items` | `list` |  |
+| `itemsperpage` | `int` |  |
+| `publisher` | `str` |  |
+| `title` | `str` |  |
+| `totalresults` | `int` |  |
 
 #### Example: Load
 
@@ -370,9 +406,14 @@ Create an instance: `member = client.Member()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `dict` |  |
-| `message_type` | `str` |  |
-| `status` | `str` |  |
+| `counts` | `dict` |  |
+| `id` | `int` |  |
+| `items` | `list` |  |
+| `itemsperpage` | `int` |  |
+| `laststatuschecktime` | `int` |  |
+| `location` | `str` |  |
+| `primaryname` | `str` |  |
+| `totalresults` | `int` |  |
 
 #### Example: Load
 
@@ -395,9 +436,9 @@ Create an instance: `type = client.Type()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `dict` |  |
-| `message_type` | `str` |  |
-| `status` | `str` |  |
+| `id` | `str` |  |
+| `items` | `list` |  |
+| `label` | `str` |  |
 
 #### Example: Load
 
@@ -420,10 +461,22 @@ Create an instance: `work = client.Work()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `dict` |  |
-| `message_type` | `str` |  |
-| `message_version` | `str` |  |
-| `status` | `str` |  |
+| `DOI` | `str` |  |
+| `ISSN` | `list` |  |
+| `URL` | `str` |  |
+| `abstract` | `str` |  |
+| `author` | `list` |  |
+| `containertitle` | `list` |  |
+| `isreferencedbycount` | `int` |  |
+| `items` | `list` |  |
+| `itemsperpage` | `int` |  |
+| `published` | `dict` |  |
+| `publisher` | `str` |  |
+| `query` | `dict` |  |
+| `referencecount` | `int` |  |
+| `title` | `list` |  |
+| `totalresults` | `int` |  |
+| `type` | `str` |  |
 
 #### Example: Load
 
@@ -508,7 +561,7 @@ stores the returned data and match criteria internally.
 
 ```python
 funder = client.Funder()
-funder.load({"id": "example_id"})
+funder.load()
 
 # funder.data_get() now returns the funder data from the last load
 # funder.match_get() returns the last match criteria

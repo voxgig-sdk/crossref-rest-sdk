@@ -2,21 +2,33 @@
   "existing": {
     "journal": {
       "JOURNAL00": {
-        "message": {},
-        "message_type": "s1f",
-        "status": "s20",
+        "ISSN": [],
+        "coverage": {},
+        "items": [],
+        "itemsperpage": "s49",
+        "publisher": "s4a",
+        "title": "s4b",
+        "totalresults": "s4c",
         "id": "JOURNAL00"
       },
       "JOURNAL01": {
-        "message": {},
-        "message_type": "s3d",
-        "status": "s3e",
+        "ISSN": [],
+        "coverage": {},
+        "items": [],
+        "itemsperpage": "s8f",
+        "publisher": "s90",
+        "title": "s91",
+        "totalresults": "s92",
         "id": "JOURNAL01"
       },
       "JOURNAL02": {
-        "message": {},
-        "message_type": "s5b",
-        "status": "s5c",
+        "ISSN": [],
+        "coverage": {},
+        "items": [],
+        "itemsperpage": "sd5",
+        "publisher": "sd6",
+        "title": "sd7",
+        "totalresults": "sd8",
         "id": "JOURNAL02"
       }
     }
@@ -24,9 +36,13 @@
   "new": {
     "journal": {
       "journal_ref01": {
-        "message": {},
-        "message_type": "s79",
-        "status": "s7a"
+        "ISSN": [],
+        "coverage": {},
+        "items": [],
+        "itemsperpage": "s11b",
+        "publisher": "s11c",
+        "title": "s11d",
+        "totalresults": "s11e"
       }
     }
   }

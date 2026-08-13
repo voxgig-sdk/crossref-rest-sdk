@@ -60,11 +60,11 @@ function work_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["CROSSREFREST_TEST_WORK_ENTID"] = {},
-    ["CROSSREFREST_TEST_LIVE"] = "FALSE",
+    ["CROSSREF_REST_TEST_WORK_ENTID"] = {},
+    ["CROSSREF_REST_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["CROSSREFREST_TEST_LIVE"] == "TRUE"
+  local live = env["CROSSREF_REST_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

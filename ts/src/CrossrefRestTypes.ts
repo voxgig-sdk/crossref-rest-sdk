@@ -6,9 +6,14 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Funder {
-  message?: Record<string, any>
-  message_type?: string
-  status?: string
+  altnames?: any[]
+  id?: string
+  items?: any[]
+  itemsperpage?: number
+  location?: string
+  name?: string
+  totalresults?: number
+  uri?: string
 }
 
 export interface FunderLoadMatch {
@@ -16,9 +21,13 @@ export interface FunderLoadMatch {
 }
 
 export interface Journal {
-  message?: Record<string, any>
-  message_type?: string
-  status?: string
+  ISSN?: any[]
+  coverage?: Record<string, any>
+  items?: any[]
+  itemsperpage?: number
+  publisher?: string
+  title?: string
+  totalresults?: number
 }
 
 export interface JournalLoadMatch {
@@ -26,9 +35,14 @@ export interface JournalLoadMatch {
 }
 
 export interface Member {
-  message?: Record<string, any>
-  message_type?: string
-  status?: string
+  counts?: Record<string, any>
+  id?: number
+  items?: any[]
+  itemsperpage?: number
+  laststatuschecktime?: number
+  location?: string
+  primaryname?: string
+  totalresults?: number
 }
 
 export interface MemberLoadMatch {
@@ -36,9 +50,9 @@ export interface MemberLoadMatch {
 }
 
 export interface Type {
-  message?: Record<string, any>
-  message_type?: string
-  status?: string
+  id?: string
+  items?: any[]
+  label?: string
 }
 
 export interface TypeLoadMatch {
@@ -46,10 +60,22 @@ export interface TypeLoadMatch {
 }
 
 export interface Work {
-  message?: Record<string, any>
-  message_type?: string
-  message_version?: string
-  status?: string
+  DOI?: string
+  ISSN?: any[]
+  URL?: string
+  abstract?: string
+  author?: any[]
+  containertitle?: any[]
+  isreferencedbycount?: number
+  items?: any[]
+  itemsperpage?: number
+  published?: Record<string, any>
+  publisher?: string
+  query?: Record<string, any>
+  referencecount?: number
+  title?: any[]
+  totalresults?: number
+  type?: string
 }
 
 export interface WorkLoadMatch {

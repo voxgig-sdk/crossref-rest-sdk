@@ -65,11 +65,11 @@ function funder_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "CROSSREFREST_TEST_FUNDER_ENTID" => [],
-        "CROSSREFREST_TEST_LIVE" => "FALSE",
+        "CROSSREF_REST_TEST_FUNDER_ENTID" => [],
+        "CROSSREF_REST_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["CROSSREFREST_TEST_LIVE"] === "TRUE";
+    $live = $env["CROSSREF_REST_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

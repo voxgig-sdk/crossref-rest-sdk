@@ -26,8 +26,8 @@ import {
 describe('TypeEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CROSSREFREST_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CROSSREFREST_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CROSSREF_REST_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CROSSREF_REST_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CrossrefRestSDK.test()
@@ -59,9 +59,12 @@ describe('TypeEntity', async () => {
 
     let type_ref01_data = Object.values(setup.data.existing.type)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const type_ref01_ent = client.Type()
+    const type_ref01_match_dt0: any = {}
+    type_ref01_match_dt0.id = type_ref01_data.id
+    const type_ref01_data_dt0 = (await type_ref01_ent.load(type_ref01_match_dt0)).data()
+    assert(type_ref01_data_dt0.id === type_ref01_data.id)
 
 
   })

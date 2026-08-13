@@ -6,21 +6,26 @@ main: kit: entity: type: {
 
   fields: [
     {
-      name: "message"
-      req: false
-      type: "`$OBJECT`"
-    }
-    {
-      name: "message_type"
+      name: "id"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "status"
+      name: "items"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "label"
       req: false
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "type"
   op: {
@@ -53,7 +58,7 @@ main: kit: entity: type: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
         {
@@ -64,7 +69,7 @@ main: kit: entity: type: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
       ]

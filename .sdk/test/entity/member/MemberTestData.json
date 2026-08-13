@@ -2,31 +2,47 @@
   "existing": {
     "member": {
       "MEMBER00": {
-        "message": {},
-        "message_type": "s1f",
-        "status": "s20",
-        "id": "MEMBER00"
+        "counts": {},
+        "id": "MEMBER00",
+        "items": [],
+        "itemsperpage": "s53",
+        "laststatuschecktime": "s54",
+        "location": "s55",
+        "primaryname": "s56",
+        "totalresults": "s57"
       },
       "MEMBER01": {
-        "message": {},
-        "message_type": "s3d",
-        "status": "s3e",
-        "id": "MEMBER01"
+        "counts": {},
+        "id": "MEMBER01",
+        "items": [],
+        "itemsperpage": "sa3",
+        "laststatuschecktime": "sa4",
+        "location": "sa5",
+        "primaryname": "sa6",
+        "totalresults": "sa7"
       },
       "MEMBER02": {
-        "message": {},
-        "message_type": "s5b",
-        "status": "s5c",
-        "id": "MEMBER02"
+        "counts": {},
+        "id": "MEMBER02",
+        "items": [],
+        "itemsperpage": "sf3",
+        "laststatuschecktime": "sf4",
+        "location": "sf5",
+        "primaryname": "sf6",
+        "totalresults": "sf7"
       }
     }
   },
   "new": {
     "member": {
       "member_ref01": {
-        "message": {},
-        "message_type": "s79",
-        "status": "s7a"
+        "counts": {},
+        "items": [],
+        "itemsperpage": "s143",
+        "laststatuschecktime": "s144",
+        "location": "s145",
+        "primaryname": "s146",
+        "totalresults": "s147"
       }
     }
   }

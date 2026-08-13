@@ -26,8 +26,8 @@ import {
 describe('FunderEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CROSSREFREST_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CROSSREFREST_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CROSSREF_REST_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CROSSREF_REST_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CrossrefRestSDK.test()
@@ -62,8 +62,9 @@ describe('FunderEntity', async () => {
     // LOAD
     const funder_ref01_ent = client.Funder()
     const funder_ref01_match_dt0: any = {}
-    const funder_ref01_data_dt0 = await funder_ref01_ent.load(funder_ref01_match_dt0)
-    assert(null != funder_ref01_data_dt0)
+    funder_ref01_match_dt0.id = funder_ref01_data.id
+    const funder_ref01_data_dt0 = (await funder_ref01_ent.load(funder_ref01_match_dt0)).data()
+    assert(funder_ref01_data_dt0.id === funder_ref01_data.id)
 
 
   })

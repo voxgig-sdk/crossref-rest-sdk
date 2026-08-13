@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'CrossrefRest',
   }
 
 
@@ -68,24 +68,59 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "message",
+          "name": "altnames",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "message_type",
+          "name": "id",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "status",
+          "name": "items",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 2
+        },
+        {
+          "active": true,
+          "name": "itemsperpage",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 3
+        },
+        {
+          "active": true,
+          "name": "location",
           "req": false,
           "type": "`$STRING`",
-          "index$": 2
+          "index$": 4
+        },
+        {
+          "active": true,
+          "name": "name",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 5
+        },
+        {
+          "active": true,
+          "name": "totalresults",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 6
+        },
+        {
+          "active": true,
+          "name": "uri",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 7
         }
       ],
       "name": "funder",
@@ -126,6 +161,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/funders",
               "parts": [
@@ -140,7 +176,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 0
             },
@@ -160,6 +196,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/funders/{id}",
               "parts": [
@@ -173,7 +210,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 1
             }
@@ -189,24 +226,52 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "message",
+          "name": "ISSN",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "message_type",
+          "name": "coverage",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$OBJECT`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "status",
+          "name": "items",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 2
+        },
+        {
+          "active": true,
+          "name": "itemsperpage",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 3
+        },
+        {
+          "active": true,
+          "name": "publisher",
           "req": false,
           "type": "`$STRING`",
-          "index$": 2
+          "index$": 4
+        },
+        {
+          "active": true,
+          "name": "title",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 5
+        },
+        {
+          "active": true,
+          "name": "totalresults",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 6
         }
       ],
       "name": "journal",
@@ -247,6 +312,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/journals",
               "parts": [
@@ -261,7 +327,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 0
             },
@@ -281,6 +347,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/journals/{issn}",
               "parts": [
@@ -299,7 +366,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 1
             }
@@ -315,24 +382,59 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "message",
+          "name": "counts",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "message_type",
+          "name": "id",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$INTEGER`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "status",
+          "name": "items",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 2
+        },
+        {
+          "active": true,
+          "name": "itemsperpage",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 3
+        },
+        {
+          "active": true,
+          "name": "laststatuschecktime",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 4
+        },
+        {
+          "active": true,
+          "name": "location",
           "req": false,
           "type": "`$STRING`",
-          "index$": 2
+          "index$": 5
+        },
+        {
+          "active": true,
+          "name": "primaryname",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 6
+        },
+        {
+          "active": true,
+          "name": "totalresults",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 7
         }
       ],
       "name": "member",
@@ -373,6 +475,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/members",
               "parts": [
@@ -387,7 +490,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 0
             },
@@ -407,6 +510,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/members/{id}",
               "parts": [
@@ -420,7 +524,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 1
             }
@@ -436,21 +540,21 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "message",
+          "name": "id",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "message_type",
+          "name": "items",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$ARRAY`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "status",
+          "name": "label",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -478,6 +582,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/types/{id}",
               "parts": [
@@ -491,13 +596,14 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 0
             },
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/types",
               "parts": [
@@ -506,7 +612,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 1
             }
@@ -522,31 +628,115 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "message",
+          "name": "DOI",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "message_type",
+          "name": "ISSN",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$ARRAY`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "message_version",
+          "name": "URL",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "status",
+          "name": "abstract",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
+        },
+        {
+          "active": true,
+          "name": "author",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 4
+        },
+        {
+          "active": true,
+          "name": "containertitle",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 5
+        },
+        {
+          "active": true,
+          "name": "isreferencedbycount",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 6
+        },
+        {
+          "active": true,
+          "name": "items",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 7
+        },
+        {
+          "active": true,
+          "name": "itemsperpage",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 8
+        },
+        {
+          "active": true,
+          "name": "published",
+          "req": false,
+          "type": "`$OBJECT`",
+          "index$": 9
+        },
+        {
+          "active": true,
+          "name": "publisher",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 10
+        },
+        {
+          "active": true,
+          "name": "query",
+          "req": false,
+          "type": "`$OBJECT`",
+          "index$": 11
+        },
+        {
+          "active": true,
+          "name": "referencecount",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 12
+        },
+        {
+          "active": true,
+          "name": "title",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 13
+        },
+        {
+          "active": true,
+          "name": "totalresults",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 14
+        },
+        {
+          "active": true,
+          "name": "type",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 15
         }
       ],
       "name": "work",
@@ -620,6 +810,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/works",
               "parts": [
@@ -638,7 +829,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 0
             },
@@ -677,6 +868,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/funders/{id}/works",
               "parts": [
@@ -698,7 +890,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 1
             },
@@ -737,6 +929,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/journals/{issn}/works",
               "parts": [
@@ -753,7 +946,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 2
             },
@@ -792,6 +985,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/members/{id}/works",
               "parts": [
@@ -813,7 +1007,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 3
             },
@@ -852,6 +1046,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/types/{id}/works",
               "parts": [
@@ -873,7 +1068,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 4
             },
@@ -903,6 +1098,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/works/{doi}",
               "parts": [
@@ -922,7 +1118,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.message`"
               },
               "index$": 5
             }

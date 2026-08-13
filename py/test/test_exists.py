@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# CrossrefRest SDK exists test
 
 import pytest
 from crossrefrest_sdk import CrossrefRestSDK

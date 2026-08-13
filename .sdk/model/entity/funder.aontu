@@ -6,21 +6,51 @@ main: kit: entity: funder: {
 
   fields: [
     {
-      name: "message"
+      name: "altnames"
       req: false
-      type: "`$OBJECT`"
+      type: "`$ARRAY`"
     }
     {
-      name: "message_type"
+      name: "id"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "status"
+      name: "items"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "itemsperpage"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "location"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "totalresults"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "uri"
       req: false
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "funder"
   op: {
@@ -69,7 +99,7 @@ main: kit: entity: funder: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
         {
@@ -98,7 +128,7 @@ main: kit: entity: funder: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.message`"
           }
         }
       ]

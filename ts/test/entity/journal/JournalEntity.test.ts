@@ -26,8 +26,8 @@ import {
 describe('JournalEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CROSSREFREST_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CROSSREFREST_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CROSSREF_REST_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CROSSREF_REST_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CrossrefRestSDK.test()
@@ -62,7 +62,7 @@ describe('JournalEntity', async () => {
     // LOAD
     const journal_ref01_ent = client.Journal()
     const journal_ref01_match_dt0: any = {}
-    const journal_ref01_data_dt0 = await journal_ref01_ent.load(journal_ref01_match_dt0)
+    const journal_ref01_data_dt0 = (await journal_ref01_ent.load(journal_ref01_match_dt0)).data()
     assert(null != journal_ref01_data_dt0)
 
 

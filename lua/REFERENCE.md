@@ -106,9 +106,14 @@ local funder = client:Funder(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `table` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `altnames` | `table` | No |  |
+| `id` | `string` | No |  |
+| `items` | `table` | No |  |
+| `itemsperpage` | `number` | No |  |
+| `location` | `string` | No |  |
+| `name` | `string` | No |  |
+| `totalresults` | `number` | No |  |
+| `uri` | `string` | No |  |
 
 ### Operations
 
@@ -160,9 +165,13 @@ local journal = client:Journal(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `table` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `ISSN` | `table` | No |  |
+| `coverage` | `table` | No |  |
+| `items` | `table` | No |  |
+| `itemsperpage` | `number` | No |  |
+| `publisher` | `string` | No |  |
+| `title` | `string` | No |  |
+| `totalresults` | `number` | No |  |
 
 ### Operations
 
@@ -214,9 +223,14 @@ local member = client:Member(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `table` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `counts` | `table` | No |  |
+| `id` | `number` | No |  |
+| `items` | `table` | No |  |
+| `itemsperpage` | `number` | No |  |
+| `laststatuschecktime` | `number` | No |  |
+| `location` | `string` | No |  |
+| `primaryname` | `string` | No |  |
+| `totalresults` | `number` | No |  |
 
 ### Operations
 
@@ -268,9 +282,9 @@ local type = client:Type(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `table` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `id` | `string` | No |  |
+| `items` | `table` | No |  |
+| `label` | `string` | No |  |
 
 ### Operations
 
@@ -322,10 +336,22 @@ local work = client:Work(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `table` | No |  |
-| `message_type` | `string` | No |  |
-| `message_version` | `string` | No |  |
-| `status` | `string` | No |  |
+| `DOI` | `string` | No |  |
+| `ISSN` | `table` | No |  |
+| `URL` | `string` | No |  |
+| `abstract` | `string` | No |  |
+| `author` | `table` | No |  |
+| `containertitle` | `table` | No |  |
+| `isreferencedbycount` | `number` | No |  |
+| `items` | `table` | No |  |
+| `itemsperpage` | `number` | No |  |
+| `published` | `table` | No |  |
+| `publisher` | `string` | No |  |
+| `query` | `table` | No |  |
+| `referencecount` | `number` | No |  |
+| `title` | `table` | No |  |
+| `totalresults` | `number` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

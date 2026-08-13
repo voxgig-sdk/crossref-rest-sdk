@@ -34,7 +34,7 @@ client = CrossrefRestSDK.new
 
 ```ruby
 begin
-  # load returns the bare Funder record (raises on error).
+  # load returns the ENTITY — call data_get for the Funder record (raises on error).
   funder = client.Funder.load({ "id" => "example_id" })
   puts funder
 rescue => err
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  funder = client.Funder.load({ "id" => "example_id" })
+  funder = client.Funder.load()
 rescue => err
   warn "load failed: #{err}"
 end
@@ -120,7 +120,8 @@ client = CrossrefRestSDK.test({
   "entity" => { "funder" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 funder = client.Funder.load({ "id" => "test01" })
 puts funder
 ```
@@ -241,9 +242,14 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `altnames` |  |
+| `id` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `location` |  |
+| `name` |  |
+| `totalresults` |  |
+| `uri` |  |
 
 Operations: Load.
 
@@ -253,9 +259,13 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `ISSN` |  |
+| `coverage` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `publisher` |  |
+| `title` |  |
+| `totalresults` |  |
 
 Operations: Load.
 
@@ -265,9 +275,14 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `counts` |  |
+| `id` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `laststatuschecktime` |  |
+| `location` |  |
+| `primaryname` |  |
+| `totalresults` |  |
 
 Operations: Load.
 
@@ -277,9 +292,9 @@ API path: `/members`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `id` |  |
+| `items` |  |
+| `label` |  |
 
 Operations: Load.
 
@@ -289,10 +304,22 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `message_version` |  |
-| `status` |  |
+| `DOI` |  |
+| `ISSN` |  |
+| `URL` |  |
+| `abstract` |  |
+| `author` |  |
+| `containertitle` |  |
+| `isreferencedbycount` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `published` |  |
+| `publisher` |  |
+| `query` |  |
+| `referencecount` |  |
+| `title` |  |
+| `totalresults` |  |
+| `type` |  |
 
 Operations: Load.
 
@@ -317,14 +344,19 @@ Create an instance: `funder = client.Funder`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `Hash` |  |
-| `message_type` | `String` |  |
-| `status` | `String` |  |
+| `altnames` | `Array` |  |
+| `id` | `String` |  |
+| `items` | `Array` |  |
+| `itemsperpage` | `Integer` |  |
+| `location` | `String` |  |
+| `name` | `String` |  |
+| `totalresults` | `Integer` |  |
+| `uri` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Funder record (raises on error).
+# load returns the ENTITY — call data_get for the Funder record (raises on error).
 funder = client.Funder.load({ "id" => "funder_id" })
 ```
 
@@ -343,14 +375,18 @@ Create an instance: `journal = client.Journal`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `Hash` |  |
-| `message_type` | `String` |  |
-| `status` | `String` |  |
+| `ISSN` | `Array` |  |
+| `coverage` | `Hash` |  |
+| `items` | `Array` |  |
+| `itemsperpage` | `Integer` |  |
+| `publisher` | `String` |  |
+| `title` | `String` |  |
+| `totalresults` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Journal record (raises on error).
+# load returns the ENTITY — call data_get for the Journal record (raises on error).
 journal = client.Journal.load({ "id" => "journal_id" })
 ```
 
@@ -369,14 +405,19 @@ Create an instance: `member = client.Member`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `Hash` |  |
-| `message_type` | `String` |  |
-| `status` | `String` |  |
+| `counts` | `Hash` |  |
+| `id` | `Integer` |  |
+| `items` | `Array` |  |
+| `itemsperpage` | `Integer` |  |
+| `laststatuschecktime` | `Integer` |  |
+| `location` | `String` |  |
+| `primaryname` | `String` |  |
+| `totalresults` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Member record (raises on error).
+# load returns the ENTITY — call data_get for the Member record (raises on error).
 member = client.Member.load({ "id" => "member_id" })
 ```
 
@@ -395,14 +436,14 @@ Create an instance: `type = client.Type`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `Hash` |  |
-| `message_type` | `String` |  |
-| `status` | `String` |  |
+| `id` | `String` |  |
+| `items` | `Array` |  |
+| `label` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Type record (raises on error).
+# load returns the ENTITY — call data_get for the Type record (raises on error).
 type = client.Type.load({ "id" => "type_id" })
 ```
 
@@ -421,15 +462,27 @@ Create an instance: `work = client.Work`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `Hash` |  |
-| `message_type` | `String` |  |
-| `message_version` | `String` |  |
-| `status` | `String` |  |
+| `DOI` | `String` |  |
+| `ISSN` | `Array` |  |
+| `URL` | `String` |  |
+| `abstract` | `String` |  |
+| `author` | `Array` |  |
+| `containertitle` | `Array` |  |
+| `isreferencedbycount` | `Integer` |  |
+| `items` | `Array` |  |
+| `itemsperpage` | `Integer` |  |
+| `published` | `Hash` |  |
+| `publisher` | `String` |  |
+| `query` | `Hash` |  |
+| `referencecount` | `Integer` |  |
+| `title` | `Array` |  |
+| `totalresults` | `Integer` |  |
+| `type` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Work record (raises on error).
+# load returns the ENTITY — call data_get for the Work record (raises on error).
 work = client.Work.load({ "id" => "work_id" })
 ```
 
@@ -511,7 +564,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 funder = client.Funder
-funder.load({ "id" => "example_id" })
+funder.load()
 
 # funder.data_get now returns the funder data from the last load
 # funder.match_get returns the last match criteria

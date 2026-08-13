@@ -43,8 +43,8 @@ class CrossrefRestTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('CROSSREFREST_TEST_LIVE');
-        $override = self::getenv('CROSSREFREST_TEST_OVERRIDE');
+        $live = self::getenv('CROSSREF_REST_TEST_LIVE');
+        $override = self::getenv('CROSSREF_REST_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class CrossrefRestTestRunner
             }
         }
 
-        $explain = self::getenv('CROSSREFREST_TEST_EXPLAIN');
+        $explain = self::getenv('CROSSREF_REST_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['CROSSREFREST_TEST_EXPLAIN'] = $explain;
+            $m['CROSSREF_REST_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

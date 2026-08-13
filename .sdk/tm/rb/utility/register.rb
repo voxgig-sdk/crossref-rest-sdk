@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ CrossrefRestUtility.registrar = ->(u) {
   u.prepare_params = CrossrefRestUtilities::PrepareParams
   u.prepare_path = CrossrefRestUtilities::PreparePath
   u.prepare_query = CrossrefRestUtilities::PrepareQuery
+  u.graphql_body = CrossrefRestUtilities::GraphqlBody
+  u.graphql_errors = CrossrefRestUtilities::GraphqlErrors
   u.result_basic = CrossrefRestUtilities::ResultBasic
   u.result_body = CrossrefRestUtilities::ResultBody
   u.result_headers = CrossrefRestUtilities::ResultHeaders

@@ -7,42 +7,68 @@
 -- edit by hand.
 
 ---@class Funder
----@field message? table
----@field message_type? string
----@field status? string
+---@field altnames? table
+---@field id? string
+---@field items? table
+---@field itemsperpage? number
+---@field location? string
+---@field name? string
+---@field totalresults? number
+---@field uri? string
 
 ---@class FunderLoadMatch
 ---@field id? string
 
 ---@class Journal
----@field message? table
----@field message_type? string
----@field status? string
+---@field ISSN? table
+---@field coverage? table
+---@field items? table
+---@field itemsperpage? number
+---@field publisher? string
+---@field title? string
+---@field totalresults? number
 
 ---@class JournalLoadMatch
 ---@field id? string
 
 ---@class Member
----@field message? table
----@field message_type? string
----@field status? string
+---@field counts? table
+---@field id? number
+---@field items? table
+---@field itemsperpage? number
+---@field laststatuschecktime? number
+---@field location? string
+---@field primaryname? string
+---@field totalresults? number
 
 ---@class MemberLoadMatch
 ---@field id? string
 
 ---@class Type
----@field message? table
----@field message_type? string
----@field status? string
+---@field id? string
+---@field items? table
+---@field label? string
 
 ---@class TypeLoadMatch
 ---@field id? string
 
 ---@class Work
----@field message? table
----@field message_type? string
----@field message_version? string
----@field status? string
+---@field DOI? string
+---@field ISSN? table
+---@field URL? string
+---@field abstract? string
+---@field author? table
+---@field containertitle? table
+---@field isreferencedbycount? number
+---@field items? table
+---@field itemsperpage? number
+---@field published? table
+---@field publisher? string
+---@field query? table
+---@field referencecount? number
+---@field title? table
+---@field totalresults? number
+---@field type? string
 
 ---@class WorkLoadMatch
 ---@field funder_id? string

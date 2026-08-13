@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-funder, err := client.Funder(nil).Load(map[string]any{"id": "example_id"}, nil)
+funder, err := client.Funder(nil).Load(nil, nil)
 if err != nil {
     // handle err
     return
@@ -262,9 +262,14 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"message"` |  |
-| `"message_type"` |  |
-| `"status"` |  |
+| `"altnames"` |  |
+| `"id"` |  |
+| `"items"` |  |
+| `"itemsperpage"` |  |
+| `"location"` |  |
+| `"name"` |  |
+| `"totalresults"` |  |
+| `"uri"` |  |
 
 Operations: Load.
 
@@ -274,9 +279,13 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `"message"` |  |
-| `"message_type"` |  |
-| `"status"` |  |
+| `"ISSN"` |  |
+| `"coverage"` |  |
+| `"items"` |  |
+| `"itemsperpage"` |  |
+| `"publisher"` |  |
+| `"title"` |  |
+| `"totalresults"` |  |
 
 Operations: Load.
 
@@ -286,9 +295,14 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `"message"` |  |
-| `"message_type"` |  |
-| `"status"` |  |
+| `"counts"` |  |
+| `"id"` |  |
+| `"items"` |  |
+| `"itemsperpage"` |  |
+| `"laststatuschecktime"` |  |
+| `"location"` |  |
+| `"primaryname"` |  |
+| `"totalresults"` |  |
 
 Operations: Load.
 
@@ -298,9 +312,9 @@ API path: `/members`
 
 | Field | Description |
 | --- | --- |
-| `"message"` |  |
-| `"message_type"` |  |
-| `"status"` |  |
+| `"id"` |  |
+| `"items"` |  |
+| `"label"` |  |
 
 Operations: Load.
 
@@ -310,10 +324,22 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `"message"` |  |
-| `"message_type"` |  |
-| `"message_version"` |  |
-| `"status"` |  |
+| `"DOI"` |  |
+| `"ISSN"` |  |
+| `"URL"` |  |
+| `"abstract"` |  |
+| `"author"` |  |
+| `"containertitle"` |  |
+| `"isreferencedbycount"` |  |
+| `"items"` |  |
+| `"itemsperpage"` |  |
+| `"published"` |  |
+| `"publisher"` |  |
+| `"query"` |  |
+| `"referencecount"` |  |
+| `"title"` |  |
+| `"totalresults"` |  |
+| `"type"` |  |
 
 Operations: Load.
 
@@ -338,9 +364,14 @@ Create an instance: `funder := client.Funder(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `map[string]any` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `altnames` | `[]any` |  |
+| `id` | `string` |  |
+| `items` | `[]any` |  |
+| `itemsperpage` | `int` |  |
+| `location` | `string` |  |
+| `name` | `string` |  |
+| `totalresults` | `int` |  |
+| `uri` | `string` |  |
 
 #### Example: Load
 
@@ -367,9 +398,13 @@ Create an instance: `journal := client.Journal(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `map[string]any` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `ISSN` | `[]any` |  |
+| `coverage` | `map[string]any` |  |
+| `items` | `[]any` |  |
+| `itemsperpage` | `int` |  |
+| `publisher` | `string` |  |
+| `title` | `string` |  |
+| `totalresults` | `int` |  |
 
 #### Example: Load
 
@@ -396,9 +431,14 @@ Create an instance: `member := client.Member(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `map[string]any` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `counts` | `map[string]any` |  |
+| `id` | `int` |  |
+| `items` | `[]any` |  |
+| `itemsperpage` | `int` |  |
+| `laststatuschecktime` | `int` |  |
+| `location` | `string` |  |
+| `primaryname` | `string` |  |
+| `totalresults` | `int` |  |
 
 #### Example: Load
 
@@ -425,9 +465,9 @@ Create an instance: `type_ := client.Type(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `map[string]any` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `id` | `string` |  |
+| `items` | `[]any` |  |
+| `label` | `string` |  |
 
 #### Example: Load
 
@@ -454,10 +494,22 @@ Create an instance: `work := client.Work(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `map[string]any` |  |
-| `message_type` | `string` |  |
-| `message_version` | `string` |  |
-| `status` | `string` |  |
+| `DOI` | `string` |  |
+| `ISSN` | `[]any` |  |
+| `URL` | `string` |  |
+| `abstract` | `string` |  |
+| `author` | `[]any` |  |
+| `containertitle` | `[]any` |  |
+| `isreferencedbycount` | `int` |  |
+| `items` | `[]any` |  |
+| `itemsperpage` | `int` |  |
+| `published` | `map[string]any` |  |
+| `publisher` | `string` |  |
+| `query` | `map[string]any` |  |
+| `referencecount` | `int` |  |
+| `title` | `[]any` |  |
+| `totalresults` | `int` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
@@ -544,7 +596,7 @@ stores the returned data and match criteria internally.
 
 ```go
 funder := client.Funder(nil)
-funder.Load(map[string]any{"id": "example_id"}, nil)
+funder.Load(nil, nil)
 
 // funder.Data() now returns the funder data from the last load
 // funder.Match() returns the last match criteria

@@ -67,11 +67,11 @@ def type_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "CROSSREFREST_TEST_TYPE_ENTID" => {},
-    "CROSSREFREST_TEST_LIVE" => "FALSE",
+    "CROSSREF_REST_TEST_TYPE_ENTID" => {},
+    "CROSSREF_REST_TEST_LIVE" => "FALSE",
   })
 
-  live = env["CROSSREFREST_TEST_LIVE"] == "TRUE"
+  live = env["CROSSREF_REST_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

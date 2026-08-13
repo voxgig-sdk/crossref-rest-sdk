@@ -164,9 +164,14 @@ const funder = client.Funder()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `Record<string, any>` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `altnames` | `any[]` | No |  |
+| `id` | `string` | No |  |
+| `items` | `any[]` | No |  |
+| `itemsperpage` | `number` | No |  |
+| `location` | `string` | No |  |
+| `name` | `string` | No |  |
+| `totalresults` | `number` | No |  |
+| `uri` | `string` | No |  |
 
 ### Operations
 
@@ -216,9 +221,13 @@ const journal = client.Journal()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `Record<string, any>` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `ISSN` | `any[]` | No |  |
+| `coverage` | `Record<string, any>` | No |  |
+| `items` | `any[]` | No |  |
+| `itemsperpage` | `number` | No |  |
+| `publisher` | `string` | No |  |
+| `title` | `string` | No |  |
+| `totalresults` | `number` | No |  |
 
 ### Operations
 
@@ -268,9 +277,14 @@ const member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `Record<string, any>` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `counts` | `Record<string, any>` | No |  |
+| `id` | `number` | No |  |
+| `items` | `any[]` | No |  |
+| `itemsperpage` | `number` | No |  |
+| `laststatuschecktime` | `number` | No |  |
+| `location` | `string` | No |  |
+| `primaryname` | `string` | No |  |
+| `totalresults` | `number` | No |  |
 
 ### Operations
 
@@ -320,9 +334,9 @@ const type = client.Type()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `Record<string, any>` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `id` | `string` | No |  |
+| `items` | `any[]` | No |  |
+| `label` | `string` | No |  |
 
 ### Operations
 
@@ -372,10 +386,22 @@ const work = client.Work()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `Record<string, any>` | No |  |
-| `message_type` | `string` | No |  |
-| `message_version` | `string` | No |  |
-| `status` | `string` | No |  |
+| `DOI` | `string` | No |  |
+| `ISSN` | `any[]` | No |  |
+| `URL` | `string` | No |  |
+| `abstract` | `string` | No |  |
+| `author` | `any[]` | No |  |
+| `containertitle` | `any[]` | No |  |
+| `isreferencedbycount` | `number` | No |  |
+| `items` | `any[]` | No |  |
+| `itemsperpage` | `number` | No |  |
+| `published` | `Record<string, any>` | No |  |
+| `publisher` | `string` | No |  |
+| `query` | `Record<string, any>` | No |  |
+| `referencecount` | `number` | No |  |
+| `title` | `any[]` | No |  |
+| `totalresults` | `number` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

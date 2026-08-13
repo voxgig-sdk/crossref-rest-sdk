@@ -2,31 +2,47 @@
   "existing": {
     "funder": {
       "FUNDER00": {
-        "message": {},
-        "message_type": "s1f",
-        "status": "s20",
-        "id": "FUNDER00"
+        "altnames": [],
+        "id": "FUNDER00",
+        "items": [],
+        "itemsperpage": "s53",
+        "location": "s54",
+        "name": "s55",
+        "totalresults": "s56",
+        "uri": "s57"
       },
       "FUNDER01": {
-        "message": {},
-        "message_type": "s3d",
-        "status": "s3e",
-        "id": "FUNDER01"
+        "altnames": [],
+        "id": "FUNDER01",
+        "items": [],
+        "itemsperpage": "sa3",
+        "location": "sa4",
+        "name": "sa5",
+        "totalresults": "sa6",
+        "uri": "sa7"
       },
       "FUNDER02": {
-        "message": {},
-        "message_type": "s5b",
-        "status": "s5c",
-        "id": "FUNDER02"
+        "altnames": [],
+        "id": "FUNDER02",
+        "items": [],
+        "itemsperpage": "sf3",
+        "location": "sf4",
+        "name": "sf5",
+        "totalresults": "sf6",
+        "uri": "sf7"
       }
     }
   },
   "new": {
     "funder": {
       "funder_ref01": {
-        "message": {},
-        "message_type": "s79",
-        "status": "s7a"
+        "altnames": [],
+        "items": [],
+        "itemsperpage": "s143",
+        "location": "s144",
+        "name": "s145",
+        "totalresults": "s146",
+        "uri": "s147"
       }
     }
   }

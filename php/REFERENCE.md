@@ -108,9 +108,14 @@ $funder = $client->Funder();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `array` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `altnames` | `array` | No |  |
+| `id` | `string` | No |  |
+| `items` | `array` | No |  |
+| `itemsperpage` | `int` | No |  |
+| `location` | `string` | No |  |
+| `name` | `string` | No |  |
+| `totalresults` | `int` | No |  |
+| `uri` | `string` | No |  |
 
 ### Operations
 
@@ -162,9 +167,13 @@ $journal = $client->Journal();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `array` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `ISSN` | `array` | No |  |
+| `coverage` | `array` | No |  |
+| `items` | `array` | No |  |
+| `itemsperpage` | `int` | No |  |
+| `publisher` | `string` | No |  |
+| `title` | `string` | No |  |
+| `totalresults` | `int` | No |  |
 
 ### Operations
 
@@ -216,9 +225,14 @@ $member = $client->Member();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `array` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `counts` | `array` | No |  |
+| `id` | `int` | No |  |
+| `items` | `array` | No |  |
+| `itemsperpage` | `int` | No |  |
+| `laststatuschecktime` | `int` | No |  |
+| `location` | `string` | No |  |
+| `primaryname` | `string` | No |  |
+| `totalresults` | `int` | No |  |
 
 ### Operations
 
@@ -270,9 +284,9 @@ $type = $client->Type();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `array` | No |  |
-| `message_type` | `string` | No |  |
-| `status` | `string` | No |  |
+| `id` | `string` | No |  |
+| `items` | `array` | No |  |
+| `label` | `string` | No |  |
 
 ### Operations
 
@@ -324,10 +338,22 @@ $work = $client->Work();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `array` | No |  |
-| `message_type` | `string` | No |  |
-| `message_version` | `string` | No |  |
-| `status` | `string` | No |  |
+| `DOI` | `string` | No |  |
+| `ISSN` | `array` | No |  |
+| `URL` | `string` | No |  |
+| `abstract` | `string` | No |  |
+| `author` | `array` | No |  |
+| `containertitle` | `array` | No |  |
+| `isreferencedbycount` | `int` | No |  |
+| `items` | `array` | No |  |
+| `itemsperpage` | `int` | No |  |
+| `published` | `array` | No |  |
+| `publisher` | `string` | No |  |
+| `query` | `array` | No |  |
+| `referencecount` | `int` | No |  |
+| `title` | `array` | No |  |
+| `totalresults` | `int` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

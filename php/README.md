@@ -35,7 +35,7 @@ $client = new CrossrefRestSDK();
 
 ```php
 try {
-    // load() returns the bare Funder record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Funder record (throws on error).
     $funder = $client->Funder()->load(["id" => "example_id"]);
     print_r($funder);
 } catch (\Throwable $err) {
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $funder = $client->Funder()->load(["id" => "example_id"]);
+    $funder = $client->Funder()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -126,7 +126,8 @@ $client = CrossrefRestSDK::test([
     "entity" => ["funder" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $funder = $client->Funder()->load(["id" => "test01"]);
 print_r($funder);
 ```
@@ -229,7 +230,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -251,9 +252,14 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `altnames` |  |
+| `id` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `location` |  |
+| `name` |  |
+| `totalresults` |  |
+| `uri` |  |
 
 Operations: Load.
 
@@ -263,9 +269,13 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `ISSN` |  |
+| `coverage` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `publisher` |  |
+| `title` |  |
+| `totalresults` |  |
 
 Operations: Load.
 
@@ -275,9 +285,14 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `counts` |  |
+| `id` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `laststatuschecktime` |  |
+| `location` |  |
+| `primaryname` |  |
+| `totalresults` |  |
 
 Operations: Load.
 
@@ -287,9 +302,9 @@ API path: `/members`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `id` |  |
+| `items` |  |
+| `label` |  |
 
 Operations: Load.
 
@@ -299,10 +314,22 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `message_version` |  |
-| `status` |  |
+| `DOI` |  |
+| `ISSN` |  |
+| `URL` |  |
+| `abstract` |  |
+| `author` |  |
+| `containertitle` |  |
+| `isreferencedbycount` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `published` |  |
+| `publisher` |  |
+| `query` |  |
+| `referencecount` |  |
+| `title` |  |
+| `totalresults` |  |
+| `type` |  |
 
 Operations: Load.
 
@@ -327,14 +354,19 @@ Create an instance: `$funder = $client->Funder();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `array` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `altnames` | `array` |  |
+| `id` | `string` |  |
+| `items` | `array` |  |
+| `itemsperpage` | `int` |  |
+| `location` | `string` |  |
+| `name` | `string` |  |
+| `totalresults` | `int` |  |
+| `uri` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Funder record (throws on error).
+// load() returns the ENTITY — call data_get() for the Funder record (throws on error).
 $funder = $client->Funder()->load(["id" => "funder_id"]);
 ```
 
@@ -353,14 +385,18 @@ Create an instance: `$journal = $client->Journal();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `array` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `ISSN` | `array` |  |
+| `coverage` | `array` |  |
+| `items` | `array` |  |
+| `itemsperpage` | `int` |  |
+| `publisher` | `string` |  |
+| `title` | `string` |  |
+| `totalresults` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Journal record (throws on error).
+// load() returns the ENTITY — call data_get() for the Journal record (throws on error).
 $journal = $client->Journal()->load(["id" => "journal_id"]);
 ```
 
@@ -379,14 +415,19 @@ Create an instance: `$member = $client->Member();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `array` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `counts` | `array` |  |
+| `id` | `int` |  |
+| `items` | `array` |  |
+| `itemsperpage` | `int` |  |
+| `laststatuschecktime` | `int` |  |
+| `location` | `string` |  |
+| `primaryname` | `string` |  |
+| `totalresults` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Member record (throws on error).
+// load() returns the ENTITY — call data_get() for the Member record (throws on error).
 $member = $client->Member()->load(["id" => "member_id"]);
 ```
 
@@ -405,14 +446,14 @@ Create an instance: `$type = $client->Type();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `array` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `id` | `string` |  |
+| `items` | `array` |  |
+| `label` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Type record (throws on error).
+// load() returns the ENTITY — call data_get() for the Type record (throws on error).
 $type = $client->Type()->load(["id" => "type_id"]);
 ```
 
@@ -431,15 +472,27 @@ Create an instance: `$work = $client->Work();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `array` |  |
-| `message_type` | `string` |  |
-| `message_version` | `string` |  |
-| `status` | `string` |  |
+| `DOI` | `string` |  |
+| `ISSN` | `array` |  |
+| `URL` | `string` |  |
+| `abstract` | `string` |  |
+| `author` | `array` |  |
+| `containertitle` | `array` |  |
+| `isreferencedbycount` | `int` |  |
+| `items` | `array` |  |
+| `itemsperpage` | `int` |  |
+| `published` | `array` |  |
+| `publisher` | `string` |  |
+| `query` | `array` |  |
+| `referencecount` | `int` |  |
+| `title` | `array` |  |
+| `totalresults` | `int` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Work record (throws on error).
+// load() returns the ENTITY — call data_get() for the Work record (throws on error).
 $work = $client->Work()->load(["id" => "work_id"]);
 ```
 
@@ -521,7 +574,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $funder = $client->Funder();
-$funder->load(["id" => "example_id"]);
+$funder->load();
 
 // $funder->data_get() now returns the funder data from the last load
 // $funder->match_get() returns the last match criteria

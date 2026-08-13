@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import CrossrefRestSDK
-from core.error import CrossrefRestError
-from core.result import CrossrefRestResult
-from core.response import CrossrefRestResponse
-from core.spec import CrossrefRestSpec
-from feature.base_feature import CrossrefRestBaseFeature
+from projectname_sdk.core.error import CrossrefRestError
+from projectname_sdk.core.result import CrossrefRestResult
+from projectname_sdk.core.response import CrossrefRestResponse
+from projectname_sdk.core.spec import CrossrefRestSpec
+from projectname_sdk.feature.base_feature import CrossrefRestBaseFeature
 
 
 def _client():

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from crossrefrest_sdk.utility.voxgig_struct import voxgig_struct as vs
 from crossrefrest_sdk import CrossrefRestSDK
-from core import helpers
+from crossrefrest_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _member_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "CROSSREFREST_TEST_MEMBER_ENTID": {},
-        "CROSSREFREST_TEST_LIVE": "FALSE",
+        "CROSSREF_REST_TEST_MEMBER_ENTID": {},
+        "CROSSREF_REST_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("CROSSREFREST_TEST_LIVE") == "TRUE"
+    live = env.get("CROSSREF_REST_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

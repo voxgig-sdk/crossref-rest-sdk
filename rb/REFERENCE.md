@@ -109,9 +109,14 @@ funder = client.Funder
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `Hash` | No |  |
-| `message_type` | `String` | No |  |
-| `status` | `String` | No |  |
+| `altnames` | `Array` | No |  |
+| `id` | `String` | No |  |
+| `items` | `Array` | No |  |
+| `itemsperpage` | `Integer` | No |  |
+| `location` | `String` | No |  |
+| `name` | `String` | No |  |
+| `totalresults` | `Integer` | No |  |
+| `uri` | `String` | No |  |
 
 ### Operations
 
@@ -163,9 +168,13 @@ journal = client.Journal
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `Hash` | No |  |
-| `message_type` | `String` | No |  |
-| `status` | `String` | No |  |
+| `ISSN` | `Array` | No |  |
+| `coverage` | `Hash` | No |  |
+| `items` | `Array` | No |  |
+| `itemsperpage` | `Integer` | No |  |
+| `publisher` | `String` | No |  |
+| `title` | `String` | No |  |
+| `totalresults` | `Integer` | No |  |
 
 ### Operations
 
@@ -217,9 +226,14 @@ member = client.Member
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `Hash` | No |  |
-| `message_type` | `String` | No |  |
-| `status` | `String` | No |  |
+| `counts` | `Hash` | No |  |
+| `id` | `Integer` | No |  |
+| `items` | `Array` | No |  |
+| `itemsperpage` | `Integer` | No |  |
+| `laststatuschecktime` | `Integer` | No |  |
+| `location` | `String` | No |  |
+| `primaryname` | `String` | No |  |
+| `totalresults` | `Integer` | No |  |
 
 ### Operations
 
@@ -271,9 +285,9 @@ type = client.Type
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `Hash` | No |  |
-| `message_type` | `String` | No |  |
-| `status` | `String` | No |  |
+| `id` | `String` | No |  |
+| `items` | `Array` | No |  |
+| `label` | `String` | No |  |
 
 ### Operations
 
@@ -325,10 +339,22 @@ work = client.Work
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | `Hash` | No |  |
-| `message_type` | `String` | No |  |
-| `message_version` | `String` | No |  |
-| `status` | `String` | No |  |
+| `DOI` | `String` | No |  |
+| `ISSN` | `Array` | No |  |
+| `URL` | `String` | No |  |
+| `abstract` | `String` | No |  |
+| `author` | `Array` | No |  |
+| `containertitle` | `Array` | No |  |
+| `isreferencedbycount` | `Integer` | No |  |
+| `items` | `Array` | No |  |
+| `itemsperpage` | `Integer` | No |  |
+| `published` | `Hash` | No |  |
+| `publisher` | `String` | No |  |
+| `query` | `Hash` | No |  |
+| `referencecount` | `Integer` | No |  |
+| `title` | `Array` | No |  |
+| `totalresults` | `Integer` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 

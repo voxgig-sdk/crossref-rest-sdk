@@ -33,7 +33,7 @@ class MemberEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set CROSSREFREST_TEST_MEMBER_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set CROSSREF_REST_TEST_MEMBER_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -48,9 +48,13 @@ class MemberEntityTest extends TestCase
 
         // LOAD
         $member_ref01_ent = $client->Member(null);
-        $member_ref01_match_dt0 = [];
+        $member_ref01_match_dt0 = [
+            "id" => $member_ref01_data["id"],
+        ];
         $member_ref01_data_dt0_loaded = $member_ref01_ent->load($member_ref01_match_dt0, null);
-        $this->assertNotNull($member_ref01_data_dt0_loaded);
+        $member_ref01_data_dt0_load_result = Helpers::to_map(is_object($member_ref01_data_dt0_loaded) && method_exists($member_ref01_data_dt0_loaded, 'data_get') ? $member_ref01_data_dt0_loaded->data_get() : $member_ref01_data_dt0_loaded);
+        $this->assertNotNull($member_ref01_data_dt0_load_result);
+        $this->assertEquals($member_ref01_data_dt0_load_result["id"], $member_ref01_data["id"]);
 
     }
 }
@@ -77,22 +81,22 @@ function member_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("CROSSREFREST_TEST_MEMBER_ENTID");
+    $entid_env_raw = getenv("CROSSREF_REST_TEST_MEMBER_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "CROSSREFREST_TEST_MEMBER_ENTID" => $idmap,
-        "CROSSREFREST_TEST_LIVE" => "FALSE",
-        "CROSSREFREST_TEST_EXPLAIN" => "FALSE",
+        "CROSSREF_REST_TEST_MEMBER_ENTID" => $idmap,
+        "CROSSREF_REST_TEST_LIVE" => "FALSE",
+        "CROSSREF_REST_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["CROSSREFREST_TEST_MEMBER_ENTID"]);
+        $env["CROSSREF_REST_TEST_MEMBER_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["CROSSREFREST_TEST_LIVE"] === "TRUE") {
+    if ($env["CROSSREF_REST_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -101,13 +105,13 @@ function member_basic_setup($extra)
         $client = new CrossrefRestSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["CROSSREFREST_TEST_LIVE"] === "TRUE";
+    $live = $env["CROSSREF_REST_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["CROSSREFREST_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["CROSSREF_REST_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

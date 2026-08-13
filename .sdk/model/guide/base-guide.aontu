@@ -8,37 +8,45 @@ guide: {
   entity: funder: {
     path: "/funders": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
     path: "/funders/{id}": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
   }
 
   entity: journal: {
     path: "/journals": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
     path: "/journals/{issn}": {
       rename: param: "issn": *"id"
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
   }
 
   entity: member: {
     path: "/members": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
     path: "/members/{id}": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
   }
 
   entity: type: {
     path: "/types": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
     path: "/types/{id}": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
   }
 
@@ -46,24 +54,30 @@ guide: {
     path: "/funders/{id}/works": {
       rename: param: "id": *"funder_id"
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
     path: "/journals/{issn}/works": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
     path: "/members/{id}/works": {
       rename: param: "id": *"member_id"
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
     path: "/types/{id}/works": {
       rename: param: "id": *"type_id"
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
     path: "/works": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
     path: "/works/{doi}": {
       rename: param: "doi": *"id"
       op: load: method: *GET
+      op: load: transform: res: *("`body.message`")|top
     }
   }
 

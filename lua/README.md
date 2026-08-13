@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local funder, err = client:Funder():load({ id = "example_id" })
+local funder, err = client:Funder():load()
 if err then error(err) end
 ```
 
@@ -229,9 +229,14 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `altnames` |  |
+| `id` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `location` |  |
+| `name` |  |
+| `totalresults` |  |
+| `uri` |  |
 
 Operations: Load.
 
@@ -241,9 +246,13 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `ISSN` |  |
+| `coverage` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `publisher` |  |
+| `title` |  |
+| `totalresults` |  |
 
 Operations: Load.
 
@@ -253,9 +262,14 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `counts` |  |
+| `id` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `laststatuschecktime` |  |
+| `location` |  |
+| `primaryname` |  |
+| `totalresults` |  |
 
 Operations: Load.
 
@@ -265,9 +279,9 @@ API path: `/members`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `status` |  |
+| `id` |  |
+| `items` |  |
+| `label` |  |
 
 Operations: Load.
 
@@ -277,10 +291,22 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `message` |  |
-| `message_type` |  |
-| `message_version` |  |
-| `status` |  |
+| `DOI` |  |
+| `ISSN` |  |
+| `URL` |  |
+| `abstract` |  |
+| `author` |  |
+| `containertitle` |  |
+| `isreferencedbycount` |  |
+| `items` |  |
+| `itemsperpage` |  |
+| `published` |  |
+| `publisher` |  |
+| `query` |  |
+| `referencecount` |  |
+| `title` |  |
+| `totalresults` |  |
+| `type` |  |
 
 Operations: Load.
 
@@ -305,9 +331,14 @@ Create an instance: `local funder = client:Funder(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `table` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `altnames` | `table` |  |
+| `id` | `string` |  |
+| `items` | `table` |  |
+| `itemsperpage` | `number` |  |
+| `location` | `string` |  |
+| `name` | `string` |  |
+| `totalresults` | `number` |  |
+| `uri` | `string` |  |
 
 #### Example: Load
 
@@ -330,9 +361,13 @@ Create an instance: `local journal = client:Journal(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `table` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `ISSN` | `table` |  |
+| `coverage` | `table` |  |
+| `items` | `table` |  |
+| `itemsperpage` | `number` |  |
+| `publisher` | `string` |  |
+| `title` | `string` |  |
+| `totalresults` | `number` |  |
 
 #### Example: Load
 
@@ -355,9 +390,14 @@ Create an instance: `local member = client:Member(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `table` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `counts` | `table` |  |
+| `id` | `number` |  |
+| `items` | `table` |  |
+| `itemsperpage` | `number` |  |
+| `laststatuschecktime` | `number` |  |
+| `location` | `string` |  |
+| `primaryname` | `string` |  |
+| `totalresults` | `number` |  |
 
 #### Example: Load
 
@@ -380,9 +420,9 @@ Create an instance: `local type = client:Type(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `table` |  |
-| `message_type` | `string` |  |
-| `status` | `string` |  |
+| `id` | `string` |  |
+| `items` | `table` |  |
+| `label` | `string` |  |
 
 #### Example: Load
 
@@ -405,10 +445,22 @@ Create an instance: `local work = client:Work(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `message` | `table` |  |
-| `message_type` | `string` |  |
-| `message_version` | `string` |  |
-| `status` | `string` |  |
+| `DOI` | `string` |  |
+| `ISSN` | `table` |  |
+| `URL` | `string` |  |
+| `abstract` | `string` |  |
+| `author` | `table` |  |
+| `containertitle` | `table` |  |
+| `isreferencedbycount` | `number` |  |
+| `items` | `table` |  |
+| `itemsperpage` | `number` |  |
+| `published` | `table` |  |
+| `publisher` | `string` |  |
+| `query` | `table` |  |
+| `referencecount` | `number` |  |
+| `title` | `table` |  |
+| `totalresults` | `number` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
@@ -494,7 +546,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local funder = client:Funder()
-funder:load({ id = "example_id" })
+funder:load()
 
 -- funder:data_get() now returns the funder data from the last load
 -- funder:match_get() returns the last match criteria
