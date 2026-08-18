@@ -40,7 +40,7 @@ class CrossrefRestSDK
         $utility = new CrossrefRestUtility();
         $this->_utility = $utility;
 
-        $config = CrossrefRestConfig::make_config();
+        $config = CrossrefRestConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

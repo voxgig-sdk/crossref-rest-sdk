@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new CrossrefRestSDK()
-const funder = await client.Funder().load()
+const funder = await client.Funder().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —

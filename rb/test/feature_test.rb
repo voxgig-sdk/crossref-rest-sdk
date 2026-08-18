@@ -15,7 +15,7 @@ require_relative "../CrossrefRest_sdk"
 module CrossrefRestFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = CrossrefRestConfig.make_config["feature"]
+    f = CrossrefRestConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

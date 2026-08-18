@@ -28,7 +28,7 @@ class CrossrefRestSDK
     utility = CrossrefRestUtility.new
     @_utility = utility
 
-    config = CrossrefRestConfig.make_config
+    config = CrossrefRestConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

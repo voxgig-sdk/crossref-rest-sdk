@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    funder = client.Funder().load()
+    funder = client.Funder().load({"id": "example_id"})
     print(funder)
 except Exception as err:
     print(f"load failed: {err}")
@@ -561,7 +561,7 @@ stores the returned data and match criteria internally.
 
 ```python
 funder = client.Funder()
-funder.load()
+funder.load({"id": "example_id"})
 
 # funder.data_get() now returns the funder data from the last load
 # funder.match_get() returns the last match criteria

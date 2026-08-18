@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-funder, err := client.Funder(nil).Load(nil, nil)
+funder, err := client.Funder(nil).Load(map[string]any{"id": "example_id"}, nil)
 if err != nil {
     // handle err
     return
@@ -596,7 +596,7 @@ stores the returned data and match criteria internally.
 
 ```go
 funder := client.Funder(nil)
-funder.Load(nil, nil)
+funder.Load(map[string]any{"id": "example_id"}, nil)
 
 // funder.Data() now returns the funder data from the last load
 // funder.Match() returns the last match criteria

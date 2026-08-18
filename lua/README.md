@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local funder, err = client:Funder():load()
+local funder, err = client:Funder():load({ id = "example_id" })
 if err then error(err) end
 ```
 
@@ -546,7 +546,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local funder = client:Funder()
-funder:load()
+funder:load({ id = "example_id" })
 
 -- funder:data_get() now returns the funder data from the last load
 -- funder:match_get() returns the last match criteria

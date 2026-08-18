@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $funder = $client->Funder()->load();
+    $funder = $client->Funder()->load(["id" => "example_id"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -574,7 +574,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $funder = $client->Funder();
-$funder->load();
+$funder->load(["id" => "example_id"]);
 
 // $funder->data_get() now returns the funder data from the last load
 // $funder->match_get() returns the last match criteria

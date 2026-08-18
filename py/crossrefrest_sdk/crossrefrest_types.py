@@ -27,7 +27,7 @@ class Funder(TypedDict, total=False):
     uri: str
 
 
-class FunderLoadMatch(TypedDict, total=False):
+class FunderLoadMatch(TypedDict):
     id: str
 
 
@@ -41,7 +41,7 @@ class Journal(TypedDict, total=False):
     totalresults: int
 
 
-class JournalLoadMatch(TypedDict, total=False):
+class JournalLoadMatch(TypedDict):
     id: str
 
 
@@ -56,7 +56,7 @@ class Member(TypedDict, total=False):
     totalresults: int
 
 
-class MemberLoadMatch(TypedDict, total=False):
+class MemberLoadMatch(TypedDict):
     id: str
 
 
@@ -66,7 +66,7 @@ class Type(TypedDict, total=False):
     label: str
 
 
-class TypeLoadMatch(TypedDict, total=False):
+class TypeLoadMatch(TypedDict):
     id: str
 
 
@@ -89,9 +89,5 @@ class Work(TypedDict, total=False):
     type: str
 
 
-class WorkLoadMatch(TypedDict, total=False):
-    funder_id: str
-    issn: str
-    member_id: str
-    type_id: str
+class WorkLoadMatch(TypedDict):
     id: str

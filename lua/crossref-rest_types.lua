@@ -17,7 +17,7 @@
 ---@field uri? string
 
 ---@class FunderLoadMatch
----@field id? string
+---@field id string
 
 ---@class Journal
 ---@field ISSN? table
@@ -29,7 +29,7 @@
 ---@field totalresults? number
 
 ---@class JournalLoadMatch
----@field id? string
+---@field id string
 
 ---@class Member
 ---@field counts? table
@@ -42,7 +42,7 @@
 ---@field totalresults? number
 
 ---@class MemberLoadMatch
----@field id? string
+---@field id string
 
 ---@class Type
 ---@field id? string
@@ -50,7 +50,7 @@
 ---@field label? string
 
 ---@class TypeLoadMatch
----@field id? string
+---@field id string
 
 ---@class Work
 ---@field DOI? string
@@ -71,11 +71,7 @@
 ---@field type? string
 
 ---@class WorkLoadMatch
----@field funder_id? string
----@field issn? string
----@field member_id? string
----@field type_id? string
----@field id? string
+---@field id string
 
 local M = {}
 

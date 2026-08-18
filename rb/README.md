@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  funder = client.Funder.load()
+  funder = client.Funder.load({ "id" => "example_id" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -564,7 +564,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 funder = client.Funder
-funder.load()
+funder.load({ "id" => "example_id" })
 
 # funder.data_get now returns the funder data from the last load
 # funder.match_get returns the last match criteria
