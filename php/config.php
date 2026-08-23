@@ -33,6 +33,9 @@ class CrossrefRestConfig
         return [
             "main" => [
                 "name" => "CrossrefRest",
+                "slug" => "crossref-rest",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -495,6 +498,7 @@ class CrossrefRestConfig
           'fields' => [
             [
               'name' => 'DOI',
+              'short' => 'Digital Object Identifier',
               'type' => '`$STRING`',
             ],
             [
@@ -503,6 +507,7 @@ class CrossrefRestConfig
             ],
             [
               'name' => 'URL',
+              'short' => 'URL to the work',
               'type' => '`$STRING`',
             ],
             [

@@ -314,9 +314,9 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `DOI` |  |
+| `DOI` | Digital Object Identifier |
 | `ISSN` |  |
-| `URL` |  |
+| `URL` | URL to the work |
 | `abstract` |  |
 | `author` |  |
 | `containertitle` |  |
@@ -472,9 +472,9 @@ Create an instance: `$work = $client->Work();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `string` |  |
+| `DOI` | `string` | Digital Object Identifier |
 | `ISSN` | `array` |  |
-| `URL` | `string` |  |
+| `URL` | `string` | URL to the work |
 | `abstract` | `string` |  |
 | `author` | `array` |  |
 | `containertitle` | `array` |  |

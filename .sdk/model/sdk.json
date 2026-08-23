@@ -582,6 +582,7 @@
               "active": true,
               "name": "DOI",
               "req": false,
+              "short": "Digital Object Identifier",
               "type": "`$STRING`"
             },
             {
@@ -594,6 +595,7 @@
               "active": true,
               "name": "URL",
               "req": false,
+              "short": "URL to the work",
               "type": "`$STRING`"
             },
             {

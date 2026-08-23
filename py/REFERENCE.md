@@ -329,9 +329,9 @@ work = client.Work()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `DOI` | `str` | No |  |
+| `DOI` | `str` | No | Digital Object Identifier |
 | `ISSN` | `list` | No |  |
-| `URL` | `str` | No |  |
+| `URL` | `str` | No | URL to the work |
 | `abstract` | `str` | No |  |
 | `author` | `list` | No |  |
 | `containertitle` | `list` | No |  |

@@ -19,6 +19,9 @@ module CrossrefRestConfig
     {
       "main" => {
         "name" => "CrossrefRest",
+        "slug" => "crossref-rest",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -481,6 +484,7 @@ module CrossrefRestConfig
           "fields" => [
             {
               "name" => "DOI",
+              "short" => "Digital Object Identifier",
               "type" => "`$STRING`",
             },
             {
@@ -489,6 +493,7 @@ module CrossrefRestConfig
             },
             {
               "name" => "URL",
+              "short" => "URL to the work",
               "type" => "`$STRING`",
             },
             {

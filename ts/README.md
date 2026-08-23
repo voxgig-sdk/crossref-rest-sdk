@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -351,9 +351,9 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `DOI` |  |
+| `DOI` | Digital Object Identifier |
 | `ISSN` |  |
-| `URL` |  |
+| `URL` | URL to the work |
 | `abstract` |  |
 | `author` |  |
 | `containertitle` |  |
@@ -505,9 +505,9 @@ Create an instance: `const work = client.Work()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `string` |  |
+| `DOI` | `string` | Digital Object Identifier |
 | `ISSN` | `any[]` |  |
-| `URL` | `string` |  |
+| `URL` | `string` | URL to the work |
 | `abstract` | `string` |  |
 | `author` | `any[]` |  |
 | `containertitle` | `any[]` |  |

@@ -336,9 +336,9 @@ local work = client:Work(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `DOI` | `string` | No |  |
+| `DOI` | `string` | No | Digital Object Identifier |
 | `ISSN` | `table` | No |  |
-| `URL` | `string` | No |  |
+| `URL` | `string` | No | URL to the work |
 | `abstract` | `string` | No |  |
 | `author` | `table` | No |  |
 | `containertitle` | `table` | No |  |

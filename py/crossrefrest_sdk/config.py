@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "CrossrefRest",
+            "slug": "crossref-rest",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -490,6 +493,7 @@ def make_config():
         "fields": [
           {
             "name": "DOI",
+            "short": "Digital Object Identifier",
             "type": "`$STRING`",
           },
           {
@@ -498,6 +502,7 @@ def make_config():
           },
           {
             "name": "URL",
+            "short": "URL to the work",
             "type": "`$STRING`",
           },
           {

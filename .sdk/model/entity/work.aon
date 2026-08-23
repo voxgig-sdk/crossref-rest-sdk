@@ -8,6 +8,7 @@ main: kit: entity: work: {
     {
       name: "DOI"
       req: false
+      short: "Digital Object Identifier"
       type: "`$STRING`"
     }
     {
@@ -18,6 +19,7 @@ main: kit: entity: work: {
     {
       name: "URL"
       req: false
+      short: "URL to the work"
       type: "`$STRING`"
     }
     {

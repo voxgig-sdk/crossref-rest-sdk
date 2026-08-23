@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'CrossrefRest',
+        slug: "crossref-rest",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -504,6 +515,7 @@ class Config {
       "fields": [
         {
           "name": "DOI",
+          "short": "Digital Object Identifier",
           "type": "`$STRING`"
         },
         {
@@ -512,6 +524,7 @@ class Config {
         },
         {
           "name": "URL",
+          "short": "URL to the work",
           "type": "`$STRING`"
         },
         {

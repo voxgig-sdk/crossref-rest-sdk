@@ -386,9 +386,9 @@ const work = client.Work()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `DOI` | `string` | No |  |
+| `DOI` | `string` | No | Digital Object Identifier |
 | `ISSN` | `any[]` | No |  |
-| `URL` | `string` | No |  |
+| `URL` | `string` | No | URL to the work |
 | `abstract` | `string` | No |  |
 | `author` | `any[]` | No |  |
 | `containertitle` | `any[]` | No |  |

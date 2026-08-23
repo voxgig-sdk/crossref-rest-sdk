@@ -291,9 +291,9 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `DOI` |  |
+| `DOI` | Digital Object Identifier |
 | `ISSN` |  |
-| `URL` |  |
+| `URL` | URL to the work |
 | `abstract` |  |
 | `author` |  |
 | `containertitle` |  |
@@ -445,9 +445,9 @@ Create an instance: `local work = client:Work(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `string` |  |
+| `DOI` | `string` | Digital Object Identifier |
 | `ISSN` | `table` |  |
-| `URL` | `string` |  |
+| `URL` | `string` | URL to the work |
 | `abstract` | `string` |  |
 | `author` | `table` |  |
 | `containertitle` | `table` |  |

@@ -304,9 +304,9 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `DOI` |  |
+| `DOI` | Digital Object Identifier |
 | `ISSN` |  |
-| `URL` |  |
+| `URL` | URL to the work |
 | `abstract` |  |
 | `author` |  |
 | `containertitle` |  |
@@ -462,9 +462,9 @@ Create an instance: `work = client.Work`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `String` |  |
+| `DOI` | `String` | Digital Object Identifier |
 | `ISSN` | `Array` |  |
-| `URL` | `String` |  |
+| `URL` | `String` | URL to the work |
 | `abstract` | `String` |  |
 | `author` | `Array` |  |
 | `containertitle` | `Array` |  |

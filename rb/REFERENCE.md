@@ -339,9 +339,9 @@ work = client.Work
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `DOI` | `String` | No |  |
+| `DOI` | `String` | No | Digital Object Identifier |
 | `ISSN` | `Array` | No |  |
-| `URL` | `String` | No |  |
+| `URL` | `String` | No | URL to the work |
 | `abstract` | `String` | No |  |
 | `author` | `Array` | No |  |
 | `containertitle` | `Array` | No |  |

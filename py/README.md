@@ -307,9 +307,9 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `DOI` |  |
+| `DOI` | Digital Object Identifier |
 | `ISSN` |  |
-| `URL` |  |
+| `URL` | URL to the work |
 | `abstract` |  |
 | `author` |  |
 | `containertitle` |  |
@@ -461,9 +461,9 @@ Create an instance: `work = client.Work()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `str` |  |
+| `DOI` | `str` | Digital Object Identifier |
 | `ISSN` | `list` |  |
-| `URL` | `str` |  |
+| `URL` | `str` | URL to the work |
 | `abstract` | `str` |  |
 | `author` | `list` |  |
 | `containertitle` | `list` |  |
