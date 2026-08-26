@@ -61,13 +61,19 @@ func TestJournalEntity(t *testing.T) {
 
 		// LOAD
 		journalRef01Ent := client.Journal(nil)
-		journalRef01MatchDt0 := map[string]any{}
+		journalRef01MatchDt0 := map[string]any{
+			"id": journalRef01Data["id"],
+		}
 		journalRef01DataDt0Loaded, err := journalRef01Ent.Load(journalRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if journalRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		journalRef01DataDt0LoadResult := core.ToMapAny(entityData(journalRef01DataDt0Loaded))
+		if journalRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if journalRef01DataDt0LoadResult["id"] != journalRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

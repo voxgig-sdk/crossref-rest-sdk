@@ -271,6 +271,7 @@ API path: `/funders`
 | --- | --- |
 | `ISSN` |  |
 | `coverage` |  |
+| `id` |  |
 | `items` |  |
 | `itemsperpage` |  |
 | `publisher` |  |
@@ -320,6 +321,7 @@ API path: `/types/{id}`
 | `abstract` |  |
 | `author` |  |
 | `containertitle` |  |
+| `id` |  |
 | `isreferencedbycount` |  |
 | `items` |  |
 | `itemsperpage` |  |
@@ -387,6 +389,7 @@ Create an instance: `$journal = $client->Journal();`
 | --- | --- | --- |
 | `ISSN` | `array` |  |
 | `coverage` | `array` |  |
+| `id` | `string` |  |
 | `items` | `array` |  |
 | `itemsperpage` | `int` |  |
 | `publisher` | `string` |  |
@@ -478,6 +481,7 @@ Create an instance: `$work = $client->Work();`
 | `abstract` | `string` |  |
 | `author` | `array` |  |
 | `containertitle` | `array` |  |
+| `id` | `string` |  |
 | `isreferencedbycount` | `int` |  |
 | `items` | `array` |  |
 | `itemsperpage` | `int` |  |

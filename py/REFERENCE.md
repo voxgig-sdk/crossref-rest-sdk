@@ -163,6 +163,7 @@ journal = client.Journal()
 | --- | --- | --- | --- |
 | `ISSN` | `list` | No |  |
 | `coverage` | `dict` | No |  |
+| `id` | `str` | No |  |
 | `items` | `list` | No |  |
 | `itemsperpage` | `int` | No |  |
 | `publisher` | `str` | No |  |
@@ -335,6 +336,7 @@ work = client.Work()
 | `abstract` | `str` | No |  |
 | `author` | `list` | No |  |
 | `containertitle` | `list` | No |  |
+| `id` | `str` | No |  |
 | `isreferencedbycount` | `int` | No |  |
 | `items` | `list` | No |  |
 | `itemsperpage` | `int` | No |  |

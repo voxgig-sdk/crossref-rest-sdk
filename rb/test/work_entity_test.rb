@@ -41,9 +41,13 @@ class WorkEntityTest < Minitest::Test
 
     # LOAD
     work_ref01_ent = client.Work(nil)
-    work_ref01_match_dt0 = {}
+    work_ref01_match_dt0 = {
+      "id" => work_ref01_data["id"],
+    }
     work_ref01_data_dt0_loaded = work_ref01_ent.load(work_ref01_match_dt0, nil)
-    assert !work_ref01_data_dt0_loaded.nil?
+    work_ref01_data_dt0_load_result = Helpers.to_map(work_ref01_data_dt0_loaded.respond_to?(:data_get) ? work_ref01_data_dt0_loaded.data_get : work_ref01_data_dt0_loaded)
+    assert !work_ref01_data_dt0_load_result.nil?
+    assert_equal work_ref01_data_dt0_load_result["id"], work_ref01_data["id"]
 
   end
 end

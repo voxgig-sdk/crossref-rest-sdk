@@ -169,6 +169,7 @@ $journal = $client->Journal();
 | --- | --- | --- | --- |
 | `ISSN` | `array` | No |  |
 | `coverage` | `array` | No |  |
+| `id` | `string` | No |  |
 | `items` | `array` | No |  |
 | `itemsperpage` | `int` | No |  |
 | `publisher` | `string` | No |  |
@@ -344,6 +345,7 @@ $work = $client->Work();
 | `abstract` | `string` | No |  |
 | `author` | `array` | No |  |
 | `containertitle` | `array` | No |  |
+| `id` | `string` | No |  |
 | `isreferencedbycount` | `int` | No |  |
 | `items` | `array` | No |  |
 | `itemsperpage` | `int` | No |  |

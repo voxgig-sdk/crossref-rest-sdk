@@ -174,6 +174,7 @@ fmt.Println(journal.GetName()) // "journal"
 | --- | --- | --- | --- |
 | `ISSN` | `[]any` | No |  |
 | `coverage` | `map[string]any` | No |  |
+| `id` | `string` | No |  |
 | `items` | `[]any` | No |  |
 | `itemsperpage` | `int` | No |  |
 | `publisher` | `string` | No |  |
@@ -346,6 +347,7 @@ fmt.Println(work.GetName()) // "work"
 | `abstract` | `string` | No |  |
 | `author` | `[]any` | No |  |
 | `containertitle` | `[]any` | No |  |
+| `id` | `string` | No |  |
 | `isreferencedbycount` | `int` | No |  |
 | `items` | `[]any` | No |  |
 | `itemsperpage` | `int` | No |  |

@@ -167,6 +167,7 @@ local journal = client:Journal(nil)
 | --- | --- | --- | --- |
 | `ISSN` | `table` | No |  |
 | `coverage` | `table` | No |  |
+| `id` | `string` | No |  |
 | `items` | `table` | No |  |
 | `itemsperpage` | `number` | No |  |
 | `publisher` | `string` | No |  |
@@ -342,6 +343,7 @@ local work = client:Work(nil)
 | `abstract` | `string` | No |  |
 | `author` | `table` | No |  |
 | `containertitle` | `table` | No |  |
+| `id` | `string` | No |  |
 | `isreferencedbycount` | `number` | No |  |
 | `items` | `table` | No |  |
 | `itemsperpage` | `number` | No |  |

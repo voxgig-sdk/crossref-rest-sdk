@@ -44,10 +44,14 @@ describe("JournalEntity", function()
 
     -- LOAD
     local journal_ref01_ent = client:Journal(nil)
-    local journal_ref01_match_dt0 = {}
+    local journal_ref01_match_dt0 = {
+      id = journal_ref01_data["id"],
+    }
     local journal_ref01_data_dt0_loaded, err = journal_ref01_ent:load(journal_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(journal_ref01_data_dt0_loaded)
+    local journal_ref01_data_dt0_load_result = helpers.to_map(type(journal_ref01_data_dt0_loaded) == 'table' and journal_ref01_data_dt0_loaded.data_get and journal_ref01_data_dt0_loaded:data_get() or journal_ref01_data_dt0_loaded)
+    assert.is_not_nil(journal_ref01_data_dt0_load_result)
+    assert.are.equal(journal_ref01_data_dt0_load_result["id"], journal_ref01_data["id"])
 
   end)
 end)

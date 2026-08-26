@@ -248,6 +248,7 @@ API path: `/funders`
 | --- | --- |
 | `ISSN` |  |
 | `coverage` |  |
+| `id` |  |
 | `items` |  |
 | `itemsperpage` |  |
 | `publisher` |  |
@@ -297,6 +298,7 @@ API path: `/types/{id}`
 | `abstract` |  |
 | `author` |  |
 | `containertitle` |  |
+| `id` |  |
 | `isreferencedbycount` |  |
 | `items` |  |
 | `itemsperpage` |  |
@@ -363,6 +365,7 @@ Create an instance: `local journal = client:Journal(nil)`
 | --- | --- | --- |
 | `ISSN` | `table` |  |
 | `coverage` | `table` |  |
+| `id` | `string` |  |
 | `items` | `table` |  |
 | `itemsperpage` | `number` |  |
 | `publisher` | `string` |  |
@@ -451,6 +454,7 @@ Create an instance: `local work = client:Work(nil)`
 | `abstract` | `string` |  |
 | `author` | `table` |  |
 | `containertitle` | `table` |  |
+| `id` | `string` |  |
 | `isreferencedbycount` | `number` |  |
 | `items` | `table` |  |
 | `itemsperpage` | `number` |  |

@@ -23,6 +23,7 @@ export interface FunderLoadMatch {
 export interface Journal {
   ISSN?: any[]
   coverage?: Record<string, any>
+  id?: string
   items?: any[]
   itemsperpage?: number
   publisher?: string
@@ -66,6 +67,7 @@ export interface Work {
   abstract?: string
   author?: any[]
   containertitle?: any[]
+  id?: string
   isreferencedbycount?: number
   items?: any[]
   itemsperpage?: number

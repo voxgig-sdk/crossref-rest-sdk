@@ -36,6 +36,7 @@ class Journal
 {
     public ?array $ISSN = null;
     public ?array $coverage = null;
+    public ?string $id = null;
     public ?array $items = null;
     public ?int $itemsperpage = null;
     public ?string $publisher = null;
@@ -91,6 +92,7 @@ class Work
     public ?string $abstract = null;
     public ?array $author = null;
     public ?array $containertitle = null;
+    public ?string $id = null;
     public ?int $isreferencedbycount = null;
     public ?array $items = null;
     public ?int $itemsperpage = null;

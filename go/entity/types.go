@@ -33,6 +33,7 @@ type FunderLoadMatch struct {
 type Journal struct {
 	ISSN *[]any `json:"ISSN,omitempty"`
 	Coverage *map[string]any `json:"coverage,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Items *[]any `json:"items,omitempty"`
 	Itemsperpage *int `json:"itemsperpage,omitempty"`
 	Publisher *string `json:"publisher,omitempty"`
@@ -82,6 +83,7 @@ type Work struct {
 	Abstract *string `json:"abstract,omitempty"`
 	Author *[]any `json:"author,omitempty"`
 	Containertitle *[]any `json:"containertitle,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Isreferencedbycount *int `json:"isreferencedbycount,omitempty"`
 	Items *[]any `json:"items,omitempty"`
 	Itemsperpage *int `json:"itemsperpage,omitempty"`

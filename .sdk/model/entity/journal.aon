@@ -16,6 +16,11 @@ main: kit: entity: journal: {
       type: "`$OBJECT`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "items"
       req: false
       type: "`$ARRAY`"
@@ -41,6 +46,11 @@ main: kit: entity: journal: {
       type: "`$INTEGER`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "journal"
   op: {

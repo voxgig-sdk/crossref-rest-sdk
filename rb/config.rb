@@ -28,6 +28,7 @@ module CrossrefRestConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -174,6 +175,10 @@ module CrossrefRestConfig
             {
               "name" => "coverage",
               "type" => "`$OBJECT`",
+            },
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
             },
             {
               "name" => "items",
@@ -507,6 +512,10 @@ module CrossrefRestConfig
             {
               "name" => "containertitle",
               "type" => "`$ARRAY`",
+            },
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
             },
             {
               "name" => "isreferencedbycount",

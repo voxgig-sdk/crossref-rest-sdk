@@ -61,13 +61,19 @@ func TestWorkEntity(t *testing.T) {
 
 		// LOAD
 		workRef01Ent := client.Work(nil)
-		workRef01MatchDt0 := map[string]any{}
+		workRef01MatchDt0 := map[string]any{
+			"id": workRef01Data["id"],
+		}
 		workRef01DataDt0Loaded, err := workRef01Ent.Load(workRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if workRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		workRef01DataDt0LoadResult := core.ToMapAny(entityData(workRef01DataDt0Loaded))
+		if workRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if workRef01DataDt0LoadResult["id"] != workRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

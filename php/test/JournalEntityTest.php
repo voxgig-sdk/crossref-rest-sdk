@@ -48,9 +48,13 @@ class JournalEntityTest extends TestCase
 
         // LOAD
         $journal_ref01_ent = $client->Journal(null);
-        $journal_ref01_match_dt0 = [];
+        $journal_ref01_match_dt0 = [
+            "id" => $journal_ref01_data["id"],
+        ];
         $journal_ref01_data_dt0_loaded = $journal_ref01_ent->load($journal_ref01_match_dt0, null);
-        $this->assertNotNull($journal_ref01_data_dt0_loaded);
+        $journal_ref01_data_dt0_load_result = Helpers::to_map(is_object($journal_ref01_data_dt0_loaded) && method_exists($journal_ref01_data_dt0_loaded, 'data_get') ? $journal_ref01_data_dt0_loaded->data_get() : $journal_ref01_data_dt0_loaded);
+        $this->assertNotNull($journal_ref01_data_dt0_load_result);
+        $this->assertEquals($journal_ref01_data_dt0_load_result["id"], $journal_ref01_data["id"]);
 
     }
 }

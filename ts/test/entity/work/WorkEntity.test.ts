@@ -62,8 +62,9 @@ describe('WorkEntity', async () => {
     // LOAD
     const work_ref01_ent = client.Work()
     const work_ref01_match_dt0: any = {}
+    work_ref01_match_dt0.id = work_ref01_data.id
     const work_ref01_data_dt0 = (await work_ref01_ent.load(work_ref01_match_dt0)).data()
-    assert(null != work_ref01_data_dt0)
+    assert(work_ref01_data_dt0.id === work_ref01_data.id)
 
 
   })

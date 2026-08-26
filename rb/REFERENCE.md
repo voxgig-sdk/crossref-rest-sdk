@@ -170,6 +170,7 @@ journal = client.Journal
 | --- | --- | --- | --- |
 | `ISSN` | `Array` | No |  |
 | `coverage` | `Hash` | No |  |
+| `id` | `String` | No |  |
 | `items` | `Array` | No |  |
 | `itemsperpage` | `Integer` | No |  |
 | `publisher` | `String` | No |  |
@@ -345,6 +346,7 @@ work = client.Work
 | `abstract` | `String` | No |  |
 | `author` | `Array` | No |  |
 | `containertitle` | `Array` | No |  |
+| `id` | `String` | No |  |
 | `isreferencedbycount` | `Integer` | No |  |
 | `items` | `Array` | No |  |
 | `itemsperpage` | `Integer` | No |  |

@@ -41,9 +41,13 @@ class JournalEntityTest < Minitest::Test
 
     # LOAD
     journal_ref01_ent = client.Journal(nil)
-    journal_ref01_match_dt0 = {}
+    journal_ref01_match_dt0 = {
+      "id" => journal_ref01_data["id"],
+    }
     journal_ref01_data_dt0_loaded = journal_ref01_ent.load(journal_ref01_match_dt0, nil)
-    assert !journal_ref01_data_dt0_loaded.nil?
+    journal_ref01_data_dt0_load_result = Helpers.to_map(journal_ref01_data_dt0_loaded.respond_to?(:data_get) ? journal_ref01_data_dt0_loaded.data_get : journal_ref01_data_dt0_loaded)
+    assert !journal_ref01_data_dt0_load_result.nil?
+    assert_equal journal_ref01_data_dt0_load_result["id"], journal_ref01_data["id"]
 
   end
 end

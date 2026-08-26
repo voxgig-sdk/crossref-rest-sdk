@@ -34,6 +34,7 @@ class FunderLoadMatch(TypedDict):
 class Journal(TypedDict, total=False):
     ISSN: list
     coverage: dict
+    id: str
     items: list
     itemsperpage: int
     publisher: str
@@ -77,6 +78,7 @@ class Work(TypedDict, total=False):
     abstract: str
     author: list
     containertitle: list
+    id: str
     isreferencedbycount: int
     items: list
     itemsperpage: int

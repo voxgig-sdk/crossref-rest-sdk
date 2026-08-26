@@ -62,8 +62,9 @@ describe('JournalEntity', async () => {
     // LOAD
     const journal_ref01_ent = client.Journal()
     const journal_ref01_match_dt0: any = {}
+    journal_ref01_match_dt0.id = journal_ref01_data.id
     const journal_ref01_data_dt0 = (await journal_ref01_ent.load(journal_ref01_match_dt0)).data()
-    assert(null != journal_ref01_data_dt0)
+    assert(journal_ref01_data_dt0.id === journal_ref01_data.id)
 
 
   })

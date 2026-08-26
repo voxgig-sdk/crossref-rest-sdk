@@ -22,6 +22,7 @@
 ---@class Journal
 ---@field ISSN? table
 ---@field coverage? table
+---@field id? string
 ---@field items? table
 ---@field itemsperpage? number
 ---@field publisher? string
@@ -59,6 +60,7 @@
 ---@field abstract? string
 ---@field author? table
 ---@field containertitle? table
+---@field id? string
 ---@field isreferencedbycount? number
 ---@field items? table
 ---@field itemsperpage? number

@@ -62,6 +62,9 @@ FunderLoadMatch = Struct.new(
 # @!attribute [rw] coverage
 #   @return [Hash, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] items
 #   @return [Array, nil]
 #
@@ -79,6 +82,7 @@ FunderLoadMatch = Struct.new(
 Journal = Struct.new(
   :ISSN,
   :coverage,
+  :id,
   :items,
   :itemsperpage,
   :publisher,
@@ -188,6 +192,9 @@ TypeLoadMatch = Struct.new(
 # @!attribute [rw] containertitle
 #   @return [Array, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] isreferencedbycount
 #   @return [Integer, nil]
 #
@@ -224,6 +231,7 @@ Work = Struct.new(
   :abstract,
   :author,
   :containertitle,
+  :id,
   :isreferencedbycount,
   :items,
   :itemsperpage,

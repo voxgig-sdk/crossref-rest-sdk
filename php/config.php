@@ -42,6 +42,7 @@ class CrossrefRestConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -188,6 +189,10 @@ class CrossrefRestConfig
             [
               'name' => 'coverage',
               'type' => '`$OBJECT`',
+            ],
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
             ],
             [
               'name' => 'items',
@@ -521,6 +526,10 @@ class CrossrefRestConfig
             [
               'name' => 'containertitle',
               'type' => '`$ARRAY`',
+            ],
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
             ],
             [
               'name' => 'isreferencedbycount',

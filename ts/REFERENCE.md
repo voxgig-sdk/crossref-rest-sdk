@@ -223,6 +223,7 @@ const journal = client.Journal()
 | --- | --- | --- | --- |
 | `ISSN` | `any[]` | No |  |
 | `coverage` | `Record<string, any>` | No |  |
+| `id` | `string` | No |  |
 | `items` | `any[]` | No |  |
 | `itemsperpage` | `number` | No |  |
 | `publisher` | `string` | No |  |
@@ -392,6 +393,7 @@ const work = client.Work()
 | `abstract` | `string` | No |  |
 | `author` | `any[]` | No |  |
 | `containertitle` | `any[]` | No |  |
+| `id` | `string` | No |  |
 | `isreferencedbycount` | `number` | No |  |
 | `items` | `any[]` | No |  |
 | `itemsperpage` | `number` | No |  |

@@ -38,6 +38,11 @@ main: kit: entity: work: {
       type: "`$ARRAY`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "isreferencedbycount"
       req: false
       type: "`$INTEGER`"
@@ -88,6 +93,11 @@ main: kit: entity: work: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "work"
   op: {

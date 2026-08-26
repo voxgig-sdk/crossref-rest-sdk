@@ -44,10 +44,14 @@ describe("WorkEntity", function()
 
     -- LOAD
     local work_ref01_ent = client:Work(nil)
-    local work_ref01_match_dt0 = {}
+    local work_ref01_match_dt0 = {
+      id = work_ref01_data["id"],
+    }
     local work_ref01_data_dt0_loaded, err = work_ref01_ent:load(work_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(work_ref01_data_dt0_loaded)
+    local work_ref01_data_dt0_load_result = helpers.to_map(type(work_ref01_data_dt0_loaded) == 'table' and work_ref01_data_dt0_loaded.data_get and work_ref01_data_dt0_loaded:data_get() or work_ref01_data_dt0_loaded)
+    assert.is_not_nil(work_ref01_data_dt0_load_result)
+    assert.are.equal(work_ref01_data_dt0_load_result["id"], work_ref01_data["id"])
 
   end)
 end)

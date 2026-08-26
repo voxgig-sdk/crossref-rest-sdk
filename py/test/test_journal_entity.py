@@ -48,9 +48,13 @@ class TestJournalEntity:
 
         # LOAD
         journal_ref01_ent = client.Journal(None)
-        journal_ref01_match_dt0 = {}
+        journal_ref01_match_dt0 = {
+            "id": journal_ref01_data["id"],
+        }
         journal_ref01_data_dt0_loaded = journal_ref01_ent.load(journal_ref01_match_dt0, None)
-        assert journal_ref01_data_dt0_loaded is not None
+        journal_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(journal_ref01_data_dt0_loaded))
+        assert journal_ref01_data_dt0_load_result is not None
+        assert journal_ref01_data_dt0_load_result["id"] == journal_ref01_data["id"]
 
 
 

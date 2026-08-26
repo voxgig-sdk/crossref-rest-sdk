@@ -264,6 +264,7 @@ API path: `/funders`
 | --- | --- |
 | `ISSN` |  |
 | `coverage` |  |
+| `id` |  |
 | `items` |  |
 | `itemsperpage` |  |
 | `publisher` |  |
@@ -313,6 +314,7 @@ API path: `/types/{id}`
 | `abstract` |  |
 | `author` |  |
 | `containertitle` |  |
+| `id` |  |
 | `isreferencedbycount` |  |
 | `items` |  |
 | `itemsperpage` |  |
@@ -379,6 +381,7 @@ Create an instance: `journal = client.Journal()`
 | --- | --- | --- |
 | `ISSN` | `list` |  |
 | `coverage` | `dict` |  |
+| `id` | `str` |  |
 | `items` | `list` |  |
 | `itemsperpage` | `int` |  |
 | `publisher` | `str` |  |
@@ -467,6 +470,7 @@ Create an instance: `work = client.Work()`
 | `abstract` | `str` |  |
 | `author` | `list` |  |
 | `containertitle` | `list` |  |
+| `id` | `str` |  |
 | `isreferencedbycount` | `int` |  |
 | `items` | `list` |  |
 | `itemsperpage` | `int` |  |

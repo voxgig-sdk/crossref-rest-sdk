@@ -4,32 +4,32 @@
       "JOURNAL00": {
         "ISSN": [],
         "coverage": {},
+        "id": "JOURNAL00",
         "items": [],
-        "itemsperpage": "s49",
-        "publisher": "s4a",
-        "title": "s4b",
-        "totalresults": "s4c",
-        "id": "JOURNAL00"
+        "itemsperpage": "s54",
+        "publisher": "s55",
+        "title": "s56",
+        "totalresults": "s57"
       },
       "JOURNAL01": {
         "ISSN": [],
         "coverage": {},
+        "id": "JOURNAL01",
         "items": [],
-        "itemsperpage": "s8f",
-        "publisher": "s90",
-        "title": "s91",
-        "totalresults": "s92",
-        "id": "JOURNAL01"
+        "itemsperpage": "sa4",
+        "publisher": "sa5",
+        "title": "sa6",
+        "totalresults": "sa7"
       },
       "JOURNAL02": {
         "ISSN": [],
         "coverage": {},
+        "id": "JOURNAL02",
         "items": [],
-        "itemsperpage": "sd5",
-        "publisher": "sd6",
-        "title": "sd7",
-        "totalresults": "sd8",
-        "id": "JOURNAL02"
+        "itemsperpage": "sf4",
+        "publisher": "sf5",
+        "title": "sf6",
+        "totalresults": "sf7"
       }
     }
   },
@@ -39,10 +39,10 @@
         "ISSN": [],
         "coverage": {},
         "items": [],
-        "itemsperpage": "s11b",
-        "publisher": "s11c",
-        "title": "s11d",
-        "totalresults": "s11e"
+        "itemsperpage": "s144",
+        "publisher": "s145",
+        "title": "s146",
+        "totalresults": "s147"
       }
     }
   }
