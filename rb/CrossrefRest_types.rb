@@ -249,8 +249,12 @@ Work = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] mailto
+#   @return [String, nil]
 WorkLoadMatch = Struct.new(
   :id,
+  :mailto,
   keyword_init: true
 )
 

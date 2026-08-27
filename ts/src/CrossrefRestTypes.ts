@@ -82,5 +82,6 @@ export interface Work {
 
 export interface WorkLoadMatch {
   id: string
+  mailto?: string
 }
 

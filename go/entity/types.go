@@ -99,6 +99,7 @@ type Work struct {
 // WorkLoadMatch is the typed request payload for Work.LoadTyped.
 type WorkLoadMatch struct {
 	Id string `json:"id"`
+	Mailto *string `json:"mailto,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

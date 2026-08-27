@@ -91,5 +91,9 @@ class Work(TypedDict, total=False):
     type: str
 
 
-class WorkLoadMatch(TypedDict):
+class WorkLoadMatchRequired(TypedDict):
     id: str
+
+
+class WorkLoadMatch(WorkLoadMatchRequired, total=False):
+    mailto: str

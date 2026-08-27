@@ -74,6 +74,7 @@
 
 ---@class WorkLoadMatch
 ---@field id string
+---@field mailto? string
 
 local M = {}
 

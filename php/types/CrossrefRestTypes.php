@@ -109,5 +109,6 @@ class Work
 class WorkLoadMatch
 {
     public string $id;
+    public ?string $mailto = null;
 }
 
