@@ -87,8 +87,10 @@ main: kit: entity: member: {
           }
           method: "GET"
           orig: "/members"
-          parts: [
-            "members"
+          segments: [
+            {
+              lit: "members"
+            }
           ]
           select: {
             exist: [
@@ -117,9 +119,13 @@ main: kit: entity: member: {
           }
           method: "GET"
           orig: "/members/{id}"
-          parts: [
-            "members"
-            "{id}"
+          segments: [
+            {
+              lit: "members"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

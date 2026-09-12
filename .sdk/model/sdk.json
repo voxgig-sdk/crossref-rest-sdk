@@ -126,8 +126,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/funders",
-                  "parts": [
-                    "funders"
+                  "segments": [
+                    {
+                      "lit": "funders"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -159,9 +161,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/funders/{id}",
-                  "parts": [
-                    "funders",
-                    "{id}"
+                  "segments": [
+                    {
+                      "lit": "funders"
+                    },
+                    {
+                      "var": "id"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -280,8 +286,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/journals",
-                  "parts": [
-                    "journals"
+                  "segments": [
+                    {
+                      "lit": "journals"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -313,15 +321,19 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/journals/{issn}",
-                  "parts": [
-                    "journals",
-                    "{id}"
-                  ],
                   "rename": {
                     "param": {
                       "issn": "id"
                     }
                   },
+                  "segments": [
+                    {
+                      "lit": "journals"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
                   "select": {
                     "exist": [
                       "id"
@@ -439,8 +451,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/members",
-                  "parts": [
-                    "members"
+                  "segments": [
+                    {
+                      "lit": "members"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -472,9 +486,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/members/{id}",
-                  "parts": [
-                    "members",
-                    "{id}"
+                  "segments": [
+                    {
+                      "lit": "members"
+                    },
+                    {
+                      "var": "id"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -546,9 +564,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/types/{id}",
-                  "parts": [
-                    "types",
-                    "{id}"
+                  "segments": [
+                    {
+                      "lit": "types"
+                    },
+                    {
+                      "var": "id"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -566,8 +588,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/types",
-                  "parts": [
-                    "types"
+                  "segments": [
+                    {
+                      "lit": "types"
+                    }
                   ],
                   "select": {},
                   "transform": {
@@ -771,8 +795,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/works",
-                  "parts": [
-                    "works"
+                  "segments": [
+                    {
+                      "lit": "works"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -827,16 +853,22 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/funders/{id}/works",
-                  "parts": [
-                    "funders",
-                    "{funder_id}",
-                    "works"
-                  ],
                   "rename": {
                     "param": {
                       "id": "funder_id"
                     }
                   },
+                  "segments": [
+                    {
+                      "lit": "funders"
+                    },
+                    {
+                      "var": "funder_id"
+                    },
+                    {
+                      "lit": "works"
+                    }
+                  ],
                   "select": {
                     "exist": [
                       "funder_id",
@@ -886,10 +918,16 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/journals/{issn}/works",
-                  "parts": [
-                    "journals",
-                    "{issn}",
-                    "works"
+                  "segments": [
+                    {
+                      "lit": "journals"
+                    },
+                    {
+                      "var": "issn"
+                    },
+                    {
+                      "lit": "works"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -940,16 +978,22 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/members/{id}/works",
-                  "parts": [
-                    "members",
-                    "{member_id}",
-                    "works"
-                  ],
                   "rename": {
                     "param": {
                       "id": "member_id"
                     }
                   },
+                  "segments": [
+                    {
+                      "lit": "members"
+                    },
+                    {
+                      "var": "member_id"
+                    },
+                    {
+                      "lit": "works"
+                    }
+                  ],
                   "select": {
                     "exist": [
                       "member_id",
@@ -999,16 +1043,22 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/types/{id}/works",
-                  "parts": [
-                    "types",
-                    "{type_id}",
-                    "works"
-                  ],
                   "rename": {
                     "param": {
                       "id": "type_id"
                     }
                   },
+                  "segments": [
+                    {
+                      "lit": "types"
+                    },
+                    {
+                      "var": "type_id"
+                    },
+                    {
+                      "lit": "works"
+                    }
+                  ],
                   "select": {
                     "exist": [
                       "offset",
@@ -1049,15 +1099,19 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/works/{doi}",
-                  "parts": [
-                    "works",
-                    "{id}"
-                  ],
                   "rename": {
                     "param": {
                       "doi": "id"
                     }
                   },
+                  "segments": [
+                    {
+                      "lit": "works"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
                   "select": {
                     "exist": [
                       "id",
@@ -1154,8 +1208,11 @@
             }
           },
           "name": "test",
+          "needs": {},
           "origname": "",
           "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
           "target": {
             "go": {
               "deps": {}
@@ -1410,6 +1467,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1435,6 +1495,10 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/runner_test.go",
+            "test/struct_runner_test.go"
+          ],
           "title": "Golang"
         },
         "go-cli": {
@@ -1486,6 +1550,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -1510,6 +1575,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go CLI"
         },
         "go-mcp": {
@@ -1561,6 +1627,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -1585,6 +1652,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go MCP server"
         },
         "lua": {
@@ -1625,6 +1693,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1650,6 +1721,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.lua"
+          ],
           "title": "Lua"
         },
         "php": {
@@ -1684,6 +1758,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1709,6 +1786,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/StructRunner.php"
+          ],
           "title": "PHP"
         },
         "py": {
@@ -1749,6 +1829,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1774,6 +1857,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.py"
+          ],
           "title": "Python"
         },
         "rb": {
@@ -1819,6 +1905,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1844,6 +1933,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.rb"
+          ],
           "title": "Ruby"
         },
         "ts": {
@@ -1861,11 +1953,6 @@
               "active": true,
               "kind": "dev",
               "version": "^25.6.0"
-            },
-            "dotenv": {
-              "active": true,
-              "kind": "dev",
-              "version": "^17.4.2"
             },
             "typescript": {
               "active": true,
@@ -1894,6 +1981,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1918,6 +2008,14 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [
+            "test/runner.ts",
+            "test/vendor/omni/compat.ts",
+            "src/feature/secrets/sekreto/Providers.ts",
+            "src/feature/secrets/sekreto/Sigv4.ts",
+            "src/feature/secrets/sekreto/provider/Registry.ts",
+            "src/feature/secrets/sekreto/provider/http.ts"
+          ],
           "title": "TypeScript"
         }
       },

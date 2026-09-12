@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -111,6 +122,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "funder",
       "op": {
         "load": {
@@ -145,8 +160,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/funders",
-              "parts": [
-                "funders"
+              "segments": [
+                {
+                  "lit": "funders"
+                }
               ],
               "select": {
                 "exist": [
@@ -158,7 +175,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "funders"
+              ]
             },
             {
               "args": {
@@ -176,9 +196,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/funders/{id}",
-              "parts": [
-                "funders",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "funders"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -188,7 +212,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "funders",
+                "{id}"
+              ]
             }
           ]
         }
@@ -232,6 +260,10 @@ class Config {
           "type": "`$INTEGER`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "journal",
       "op": {
         "load": {
@@ -266,8 +298,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/journals",
-              "parts": [
-                "journals"
+              "segments": [
+                {
+                  "lit": "journals"
+                }
               ],
               "select": {
                 "exist": [
@@ -279,7 +313,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "journals"
+              ]
             },
             {
               "args": {
@@ -297,15 +334,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/journals/{issn}",
-              "parts": [
-                "journals",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "issn": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "journals"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id"
@@ -314,7 +355,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "journals",
+                "{id}"
+              ]
             }
           ]
         }
@@ -358,6 +403,10 @@ class Config {
           "type": "`$INTEGER`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "member",
       "op": {
         "load": {
@@ -392,8 +441,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/members",
-              "parts": [
-                "members"
+              "segments": [
+                {
+                  "lit": "members"
+                }
               ],
               "select": {
                 "exist": [
@@ -405,7 +456,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "members"
+              ]
             },
             {
               "args": {
@@ -423,9 +477,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/members/{id}",
-              "parts": [
-                "members",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "members"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -435,7 +493,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "members",
+                "{id}"
+              ]
             }
           ]
         }
@@ -459,6 +521,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "type",
       "op": {
         "load": {
@@ -481,9 +547,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/types/{id}",
-              "parts": [
-                "types",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "types"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -493,21 +563,30 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "types",
+                "{id}"
+              ]
             },
             {
               "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/types",
-              "parts": [
-                "types"
+              "segments": [
+                {
+                  "lit": "types"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "types"
+              ]
             }
           ]
         }
@@ -589,6 +668,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "work",
       "op": {
         "load": {
@@ -648,8 +731,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/works",
-              "parts": [
-                "works"
+              "segments": [
+                {
+                  "lit": "works"
+                }
               ],
               "select": {
                 "exist": [
@@ -665,7 +750,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "works"
+              ]
             },
             {
               "args": {
@@ -698,16 +786,22 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/funders/{id}/works",
-              "parts": [
-                "funders",
-                "{funder_id}",
-                "works"
-              ],
               "rename": {
                 "param": {
                   "id": "funder_id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "funders"
+                },
+                {
+                  "var": "funder_id"
+                },
+                {
+                  "lit": "works"
+                }
+              ],
               "select": {
                 "exist": [
                   "funder_id",
@@ -718,7 +812,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "funders",
+                "{funder_id}",
+                "works"
+              ]
             },
             {
               "args": {
@@ -751,10 +850,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/journals/{issn}/works",
-              "parts": [
-                "journals",
-                "{issn}",
-                "works"
+              "segments": [
+                {
+                  "lit": "journals"
+                },
+                {
+                  "var": "issn"
+                },
+                {
+                  "lit": "works"
+                }
               ],
               "select": {
                 "exist": [
@@ -766,7 +871,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "journals",
+                "{issn}",
+                "works"
+              ]
             },
             {
               "args": {
@@ -799,16 +909,22 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/members/{id}/works",
-              "parts": [
-                "members",
-                "{member_id}",
-                "works"
-              ],
               "rename": {
                 "param": {
                   "id": "member_id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "members"
+                },
+                {
+                  "var": "member_id"
+                },
+                {
+                  "lit": "works"
+                }
+              ],
               "select": {
                 "exist": [
                   "member_id",
@@ -819,7 +935,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "members",
+                "{member_id}",
+                "works"
+              ]
             },
             {
               "args": {
@@ -852,16 +973,22 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/types/{id}/works",
-              "parts": [
-                "types",
-                "{type_id}",
-                "works"
-              ],
               "rename": {
                 "param": {
                   "id": "type_id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "types"
+                },
+                {
+                  "var": "type_id"
+                },
+                {
+                  "lit": "works"
+                }
+              ],
               "select": {
                 "exist": [
                   "offset",
@@ -872,7 +999,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "types",
+                "{type_id}",
+                "works"
+              ]
             },
             {
               "args": {
@@ -898,15 +1030,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/works/{doi}",
-              "parts": [
-                "works",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "doi": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "works"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id",
@@ -916,7 +1052,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.message`"
-              }
+              },
+              "parts": [
+                "works",
+                "{id}"
+              ]
             }
           ]
         }
@@ -945,6 +1085,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

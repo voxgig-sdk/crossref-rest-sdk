@@ -47,9 +47,13 @@ main: kit: entity: type: {
           }
           method: "GET"
           orig: "/types/{id}"
-          parts: [
-            "types"
-            "{id}"
+          segments: [
+            {
+              lit: "types"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -64,8 +68,10 @@ main: kit: entity: type: {
         {
           method: "GET"
           orig: "/types"
-          parts: [
-            "types"
+          segments: [
+            {
+              lit: "types"
+            }
           ]
           transform: {
             req: "`reqdata`"

@@ -50,7 +50,7 @@ func TestWorkEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		workRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.work", setup.data)))
+		workRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.work")))
 		var workRef01Data map[string]any
 		if len(workRef01DataRaw) > 0 {
 			workRef01Data = core.ToMapAny(workRef01DataRaw[0][1])
@@ -103,7 +103,7 @@ func workBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"work01", "work02", "work03", "funder01", "funder02", "funder03", "journal01", "journal02", "journal03", "member01", "member02", "member03", "type01", "type02", "type03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -131,10 +131,22 @@ func workBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CROSSREF_REST_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCrossrefRestSDK(core.ToMapAny(mergedOpts))
 	}

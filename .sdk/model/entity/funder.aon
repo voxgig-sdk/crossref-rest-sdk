@@ -87,8 +87,10 @@ main: kit: entity: funder: {
           }
           method: "GET"
           orig: "/funders"
-          parts: [
-            "funders"
+          segments: [
+            {
+              lit: "funders"
+            }
           ]
           select: {
             exist: [
@@ -117,9 +119,13 @@ main: kit: entity: funder: {
           }
           method: "GET"
           orig: "/funders/{id}"
-          parts: [
-            "funders"
-            "{id}"
+          segments: [
+            {
+              lit: "funders"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

@@ -1,6 +1,14 @@
 # CrossrefRest SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -89,6 +97,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "funder",
         "op": {
           "load": {
@@ -123,8 +135,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/funders",
-                "parts": [
-                  "funders",
+                "segments": [
+                  {
+                    "lit": "funders",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -137,6 +151,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "funders",
+                ],
               },
               {
                 "args": {
@@ -154,9 +171,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/funders/{id}",
-                "parts": [
-                  "funders",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "funders",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -167,6 +188,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "funders",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -210,6 +235,10 @@ def make_config():
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "journal",
         "op": {
           "load": {
@@ -244,8 +273,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/journals",
-                "parts": [
-                  "journals",
+                "segments": [
+                  {
+                    "lit": "journals",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -258,6 +289,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "journals",
+                ],
               },
               {
                 "args": {
@@ -275,15 +309,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/journals/{issn}",
-                "parts": [
-                  "journals",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "issn": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "journals",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -293,6 +331,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "journals",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -336,6 +378,10 @@ def make_config():
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "member",
         "op": {
           "load": {
@@ -370,8 +416,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/members",
-                "parts": [
-                  "members",
+                "segments": [
+                  {
+                    "lit": "members",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -384,6 +432,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "members",
+                ],
               },
               {
                 "args": {
@@ -401,9 +452,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/members/{id}",
-                "parts": [
-                  "members",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "members",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -414,6 +469,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "members",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -437,6 +496,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "type",
         "op": {
           "load": {
@@ -459,9 +522,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/types/{id}",
-                "parts": [
-                  "types",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "types",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -472,20 +539,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "types",
+                  "{id}",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/types",
-                "parts": [
-                  "types",
+                "segments": [
+                  {
+                    "lit": "types",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "types",
+                ],
               },
             ],
           },
@@ -567,6 +643,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "work",
         "op": {
           "load": {
@@ -626,8 +706,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/works",
-                "parts": [
-                  "works",
+                "segments": [
+                  {
+                    "lit": "works",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -644,6 +726,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "works",
+                ],
               },
               {
                 "args": {
@@ -676,16 +761,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/funders/{id}/works",
-                "parts": [
-                  "funders",
-                  "{funder_id}",
-                  "works",
-                ],
                 "rename": {
                   "param": {
                     "id": "funder_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "funders",
+                  },
+                  {
+                    "var": "funder_id",
+                  },
+                  {
+                    "lit": "works",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "funder_id",
@@ -697,6 +788,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "funders",
+                  "{funder_id}",
+                  "works",
+                ],
               },
               {
                 "args": {
@@ -729,10 +825,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/journals/{issn}/works",
-                "parts": [
-                  "journals",
-                  "{issn}",
-                  "works",
+                "segments": [
+                  {
+                    "lit": "journals",
+                  },
+                  {
+                    "var": "issn",
+                  },
+                  {
+                    "lit": "works",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -745,6 +847,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "journals",
+                  "{issn}",
+                  "works",
+                ],
               },
               {
                 "args": {
@@ -777,16 +884,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/members/{id}/works",
-                "parts": [
-                  "members",
-                  "{member_id}",
-                  "works",
-                ],
                 "rename": {
                   "param": {
                     "id": "member_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "members",
+                  },
+                  {
+                    "var": "member_id",
+                  },
+                  {
+                    "lit": "works",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "member_id",
@@ -798,6 +911,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "members",
+                  "{member_id}",
+                  "works",
+                ],
               },
               {
                 "args": {
@@ -830,16 +948,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/types/{id}/works",
-                "parts": [
-                  "types",
-                  "{type_id}",
-                  "works",
-                ],
                 "rename": {
                   "param": {
                     "id": "type_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "types",
+                  },
+                  {
+                    "var": "type_id",
+                  },
+                  {
+                    "lit": "works",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "offset",
@@ -851,6 +975,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "types",
+                  "{type_id}",
+                  "works",
+                ],
               },
               {
                 "args": {
@@ -876,15 +1005,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/works/{doi}",
-                "parts": [
-                  "works",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "doi": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "works",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -895,6 +1028,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
+                "parts": [
+                  "works",
+                  "{id}",
+                ],
               },
             ],
           },

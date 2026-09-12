@@ -163,8 +163,10 @@ main: kit: entity: work: {
           }
           method: "GET"
           orig: "/works"
-          parts: [
-            "works"
+          segments: [
+            {
+              lit: "works"
+            }
           ]
           select: {
             exist: [
@@ -214,16 +216,22 @@ main: kit: entity: work: {
           }
           method: "GET"
           orig: "/funders/{id}/works"
-          parts: [
-            "funders"
-            "{funder_id}"
-            "works"
-          ]
           rename: {
             param: {
               id: "funder_id"
             }
           }
+          segments: [
+            {
+              lit: "funders"
+            }
+            {
+              var: "funder_id"
+            }
+            {
+              lit: "works"
+            }
+          ]
           select: {
             exist: [
               "funder_id"
@@ -268,10 +276,16 @@ main: kit: entity: work: {
           }
           method: "GET"
           orig: "/journals/{issn}/works"
-          parts: [
-            "journals"
-            "{issn}"
-            "works"
+          segments: [
+            {
+              lit: "journals"
+            }
+            {
+              var: "issn"
+            }
+            {
+              lit: "works"
+            }
           ]
           select: {
             exist: [
@@ -317,16 +331,22 @@ main: kit: entity: work: {
           }
           method: "GET"
           orig: "/members/{id}/works"
-          parts: [
-            "members"
-            "{member_id}"
-            "works"
-          ]
           rename: {
             param: {
               id: "member_id"
             }
           }
+          segments: [
+            {
+              lit: "members"
+            }
+            {
+              var: "member_id"
+            }
+            {
+              lit: "works"
+            }
+          ]
           select: {
             exist: [
               "member_id"
@@ -371,16 +391,22 @@ main: kit: entity: work: {
           }
           method: "GET"
           orig: "/types/{id}/works"
-          parts: [
-            "types"
-            "{type_id}"
-            "works"
-          ]
           rename: {
             param: {
               id: "type_id"
             }
           }
+          segments: [
+            {
+              lit: "types"
+            }
+            {
+              var: "type_id"
+            }
+            {
+              lit: "works"
+            }
+          ]
           select: {
             exist: [
               "offset"
@@ -417,15 +443,19 @@ main: kit: entity: work: {
           }
           method: "GET"
           orig: "/works/{doi}"
-          parts: [
-            "works"
-            "{id}"
-          ]
           rename: {
             param: {
               doi: "id"
             }
           }
+          segments: [
+            {
+              lit: "works"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

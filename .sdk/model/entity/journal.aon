@@ -87,8 +87,10 @@ main: kit: entity: journal: {
           }
           method: "GET"
           orig: "/journals"
-          parts: [
-            "journals"
+          segments: [
+            {
+              lit: "journals"
+            }
           ]
           select: {
             exist: [
@@ -117,15 +119,19 @@ main: kit: entity: journal: {
           }
           method: "GET"
           orig: "/journals/{issn}"
-          parts: [
-            "journals"
-            "{id}"
-          ]
           rename: {
             param: {
               issn: "id"
             }
           }
+          segments: [
+            {
+              lit: "journals"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
