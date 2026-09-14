@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CrossrefRestSDK } from '@voxgig-sdk/crossref-rest'
+import { CrossrefRestSDK } from '@voxgig-sdk/crossref-rest-sdk'
 
 const client = new CrossrefRestSDK()
 ```
@@ -615,7 +615,7 @@ crossref-rest/
 Import the SDK from the package root:
 
 ```ts
-import { CrossrefRestSDK } from '@voxgig-sdk/crossref-rest'
+import { CrossrefRestSDK } from '@voxgig-sdk/crossref-rest-sdk'
 ```
 
 ### Entity state

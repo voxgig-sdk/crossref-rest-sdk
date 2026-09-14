@@ -1988,7 +1988,7 @@
             "registry": {
               "active": false,
               "name": "npm",
-              "package": "",
+              "package": "@voxgig-sdk/crossref-rest-sdk",
               "state": "pending",
               "url": "https://registry.npmjs.org",
               "vault": {

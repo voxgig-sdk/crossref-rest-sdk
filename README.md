@@ -105,7 +105,7 @@ local result, err = client:Funder():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/releases) |
+| TypeScript | `@voxgig-sdk/crossref-rest-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/releases) |
 | Python | `voxgig-sdk-crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/releases) |
 | PHP | `voxgig-sdk/crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/crossref-rest-sdk/go` | `go get github.com/voxgig-sdk/crossref-rest-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Funder():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { CrossrefRestSDK } from '@voxgig-sdk/crossref-rest'
+import { CrossrefRestSDK } from '@voxgig-sdk/crossref-rest-sdk'
 
 const client = new CrossrefRestSDK()
 
