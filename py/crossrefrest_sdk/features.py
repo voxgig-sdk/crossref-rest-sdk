@@ -1,12 +1,18 @@
 # CrossrefRest SDK feature factory
 
 from crossrefrest_sdk.feature.base_feature import CrossrefRestBaseFeature
+from crossrefrest_sdk.feature.ratelimit_feature import CrossrefRestRatelimitFeature
+from crossrefrest_sdk.feature.retry_feature import CrossrefRestRetryFeature
 from crossrefrest_sdk.feature.test_feature import CrossrefRestTestFeature
+from crossrefrest_sdk.feature.timeout_feature import CrossrefRestTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CrossrefRestBaseFeature(),
+    "ratelimit": lambda: CrossrefRestRatelimitFeature(),
+    "retry": lambda: CrossrefRestRetryFeature(),
     "test": lambda: CrossrefRestTestFeature(),
+    "timeout": lambda: CrossrefRestTimeoutFeature(),
 }
 
 

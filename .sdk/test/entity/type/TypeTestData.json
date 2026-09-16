@@ -25,5 +25,113 @@
         "label": "s7a"
       }
     }
+  },
+  "requests": {
+    "GET /types/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getTypeById",
+        "parameters": [
+          {
+            "description": "Type identifier",
+            "example": "journal-article",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "message": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "message-type": {
+                      "example": "type",
+                      "type": "string"
+                    },
+                    "status": {
+                      "example": "ok",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with type metadata"
+          },
+          "404": {
+            "description": "Type not found"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /types": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getTypes",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "message": {
+                      "properties": {
+                        "items": {
+                          "items": {
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "label": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "message-type": {
+                      "example": "type-list",
+                      "type": "string"
+                    },
+                    "status": {
+                      "example": "ok",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with type metadata"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

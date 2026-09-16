@@ -85,6 +85,12 @@ main: kit: entity: journal: {
               }
             ]
           }
+          contract: {
+            id: "GET /journals"
+            json: "{\"operationId\":\"getJournals\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"coverage\":{\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"journal-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with journal metadata\"},\"400\":{\"description\":\"Bad request\"},\"404\":{\"description\":\"No results found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/journals"
           segments: [
@@ -116,6 +122,12 @@ main: kit: entity: journal: {
                 type: "`$STRING`"
               }
             ]
+          }
+          contract: {
+            id: "GET /journals/{issn}"
+            json: "{\"operationId\":\"getJournalByIssn\",\"parameters\":[{\"description\":\"International Standard Serial Number (ISSN) of the journal\",\"example\":\"1476-4687\",\"in\":\"path\",\"name\":\"issn\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"coverage\":{\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"journal\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with journal metadata\"},\"404\":{\"description\":\"ISSN not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/journals/{issn}"

@@ -85,6 +85,12 @@ main: kit: entity: member: {
               }
             ]
           }
+          contract: {
+            id: "GET /members"
+            json: "{\"operationId\":\"getMembers\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"counts\":{\"type\":\"object\"},\"id\":{\"type\":\"integer\"},\"last-status-check-time\":{\"type\":\"integer\"},\"location\":{\"type\":\"string\"},\"primary-name\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"member-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with member metadata\"},\"400\":{\"description\":\"Bad request\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/members"
           segments: [
@@ -116,6 +122,12 @@ main: kit: entity: member: {
                 type: "`$STRING`"
               }
             ]
+          }
+          contract: {
+            id: "GET /members/{id}"
+            json: "{\"operationId\":\"getMemberById\",\"parameters\":[{\"description\":\"Member identifier\",\"example\":\"311\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"counts\":{\"type\":\"object\"},\"id\":{\"type\":\"integer\"},\"last-status-check-time\":{\"type\":\"integer\"},\"location\":{\"type\":\"string\"},\"primary-name\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"member\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with member metadata\"},\"404\":{\"description\":\"Member not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/members/{id}"

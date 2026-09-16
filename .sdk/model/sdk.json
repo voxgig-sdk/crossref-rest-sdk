@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "funder": {
           "active": true,
@@ -123,6 +187,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /funders",
+                    "json": "{\"operationId\":\"getFunders\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"alt-names\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"id\":{\"type\":\"string\"},\"location\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"uri\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"funder-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with funder metadata\"},\"400\":{\"description\":\"Bad request\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/funders",
@@ -157,6 +227,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /funders/{id}",
+                    "json": "{\"operationId\":\"getFunderById\",\"parameters\":[{\"description\":\"Funder identifier\",\"example\":\"100000001\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"alt-names\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"id\":{\"type\":\"string\"},\"location\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"uri\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"funder\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with funder metadata\"},\"404\":{\"description\":\"Funder not found\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -283,6 +359,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /journals",
+                    "json": "{\"operationId\":\"getJournals\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"coverage\":{\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"journal-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with journal metadata\"},\"400\":{\"description\":\"Bad request\"},\"404\":{\"description\":\"No results found\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/journals",
@@ -317,6 +399,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /journals/{issn}",
+                    "json": "{\"operationId\":\"getJournalByIssn\",\"parameters\":[{\"description\":\"International Standard Serial Number (ISSN) of the journal\",\"example\":\"1476-4687\",\"in\":\"path\",\"name\":\"issn\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"coverage\":{\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"journal\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with journal metadata\"},\"404\":{\"description\":\"ISSN not found\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -448,6 +536,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /members",
+                    "json": "{\"operationId\":\"getMembers\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"counts\":{\"type\":\"object\"},\"id\":{\"type\":\"integer\"},\"last-status-check-time\":{\"type\":\"integer\"},\"location\":{\"type\":\"string\"},\"primary-name\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"member-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with member metadata\"},\"400\":{\"description\":\"Bad request\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/members",
@@ -482,6 +576,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /members/{id}",
+                    "json": "{\"operationId\":\"getMemberById\",\"parameters\":[{\"description\":\"Member identifier\",\"example\":\"311\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"counts\":{\"type\":\"object\"},\"id\":{\"type\":\"integer\"},\"last-status-check-time\":{\"type\":\"integer\"},\"location\":{\"type\":\"string\"},\"primary-name\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"member\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with member metadata\"},\"404\":{\"description\":\"Member not found\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -561,6 +661,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /types/{id}",
+                    "json": "{\"operationId\":\"getTypeById\",\"parameters\":[{\"description\":\"Type identifier\",\"example\":\"journal-article\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"id\":{\"type\":\"string\"},\"label\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"type\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with type metadata\"},\"404\":{\"description\":\"Type not found\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/types/{id}",
@@ -585,6 +691,12 @@
                 {
                   "active": true,
                   "args": {},
+                  "contract": {
+                    "id": "GET /types",
+                    "json": "{\"operationId\":\"getTypes\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"id\":{\"type\":\"string\"},\"label\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"type-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with type metadata\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/types",
@@ -792,6 +904,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /works",
+                    "json": "{\"operationId\":\"getWorks\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page (max 1000)\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"maximum\":1000,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Filter results by specific criteria (e.g., from-pub-date:2020, type:journal-article)\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Sort results by field (e.g., published, relevance, score)\",\"in\":\"query\",\"name\":\"sort\",\"required\":false,\"schema\":{\"enum\":[\"relevance\",\"score\",\"published\",\"deposited\",\"indexed\",\"updated\"],\"type\":\"string\"}},{\"description\":\"Sort order\",\"in\":\"query\",\"name\":\"order\",\"required\":false,\"schema\":{\"default\":\"desc\",\"enum\":[\"asc\",\"desc\"],\"type\":\"string\"}},{\"description\":\"Email address for polite pool access (recommended for better performance)\",\"in\":\"query\",\"name\":\"mailto\",\"required\":false,\"schema\":{\"format\":\"email\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"400\":{\"description\":\"Bad request - invalid parameters\"},\"404\":{\"description\":\"No results found\"},\"503\":{\"description\":\"Service unavailable\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/works",
@@ -849,6 +967,12 @@
                         "type": "`$INTEGER`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /funders/{id}/works",
+                    "json": "{\"operationId\":\"getFunderWorks\",\"parameters\":[{\"description\":\"Funder identifier\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Funder not found\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -915,6 +1039,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /journals/{issn}/works",
+                    "json": "{\"operationId\":\"getJournalWorks\",\"parameters\":[{\"description\":\"ISSN of the journal\",\"in\":\"path\",\"name\":\"issn\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Journal not found\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/journals/{issn}/works",
@@ -974,6 +1104,12 @@
                         "type": "`$INTEGER`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /members/{id}/works",
+                    "json": "{\"operationId\":\"getMemberWorks\",\"parameters\":[{\"description\":\"Member identifier\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Member not found\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -1040,6 +1176,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /types/{id}/works",
+                    "json": "{\"operationId\":\"getTypeWorks\",\"parameters\":[{\"description\":\"Type identifier\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Type not found\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/types/{id}/works",
@@ -1096,6 +1238,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /works/{doi}",
+                    "json": "{\"operationId\":\"getWorkByDoi\",\"parameters\":[{\"description\":\"Digital Object Identifier (DOI) of the work\",\"example\":\"10.1037/0003-066X.59.1.29\",\"in\":\"path\",\"name\":\"doi\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Email address for polite pool access\",\"in\":\"query\",\"name\":\"mailto\",\"required\":false,\"schema\":{\"format\":\"email\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with work metadata\"},\"404\":{\"description\":\"DOI not found\"},\"503\":{\"description\":\"Service unavailable\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/works/{doi}",
@@ -1145,13 +1293,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -1241,6 +1599,102 @@
           },
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
           "version": "0.0.1"
         }
       },
@@ -1428,6 +1882,48 @@
         "website": "https://api.crossref.org/swagger-ui/index.html"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1982,6 +2478,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -2023,7 +2520,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

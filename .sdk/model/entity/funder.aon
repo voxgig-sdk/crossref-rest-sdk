@@ -85,6 +85,12 @@ main: kit: entity: funder: {
               }
             ]
           }
+          contract: {
+            id: "GET /funders"
+            json: "{\"operationId\":\"getFunders\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"alt-names\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"id\":{\"type\":\"string\"},\"location\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"uri\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"funder-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with funder metadata\"},\"400\":{\"description\":\"Bad request\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/funders"
           segments: [
@@ -116,6 +122,12 @@ main: kit: entity: funder: {
                 type: "`$STRING`"
               }
             ]
+          }
+          contract: {
+            id: "GET /funders/{id}"
+            json: "{\"operationId\":\"getFunderById\",\"parameters\":[{\"description\":\"Funder identifier\",\"example\":\"100000001\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"alt-names\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"id\":{\"type\":\"string\"},\"location\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"uri\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"funder\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with funder metadata\"},\"404\":{\"description\":\"Funder not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/funders/{id}"

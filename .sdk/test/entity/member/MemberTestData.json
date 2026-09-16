@@ -5,31 +5,31 @@
         "counts": {},
         "id": "MEMBER00",
         "items": [],
-        "itemsperpage": "s53",
-        "laststatuschecktime": "s54",
+        "itemsperpage": 83,
+        "laststatuschecktime": 84,
         "location": "s55",
         "primaryname": "s56",
-        "totalresults": "s57"
+        "totalresults": 87
       },
       "MEMBER01": {
         "counts": {},
         "id": "MEMBER01",
         "items": [],
-        "itemsperpage": "sa3",
-        "laststatuschecktime": "sa4",
+        "itemsperpage": 163,
+        "laststatuschecktime": 164,
         "location": "sa5",
         "primaryname": "sa6",
-        "totalresults": "sa7"
+        "totalresults": 167
       },
       "MEMBER02": {
         "counts": {},
         "id": "MEMBER02",
         "items": [],
-        "itemsperpage": "sf3",
-        "laststatuschecktime": "sf4",
+        "itemsperpage": 243,
+        "laststatuschecktime": 244,
         "location": "sf5",
         "primaryname": "sf6",
-        "totalresults": "sf7"
+        "totalresults": 247
       }
     }
   },
@@ -38,11 +38,176 @@
       "member_ref01": {
         "counts": {},
         "items": [],
-        "itemsperpage": "s143",
-        "laststatuschecktime": "s144",
+        "itemsperpage": 323,
+        "laststatuschecktime": 324,
         "location": "s145",
         "primaryname": "s146",
-        "totalresults": "s147"
+        "totalresults": 327
+      }
+    }
+  },
+  "requests": {
+    "GET /members": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getMembers",
+        "parameters": [
+          {
+            "description": "Search query string",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to return per page",
+            "in": "query",
+            "name": "rows",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Offset for pagination",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "message": {
+                      "properties": {
+                        "items": {
+                          "items": {
+                            "properties": {
+                              "counts": {
+                                "type": "object"
+                              },
+                              "id": {
+                                "type": "integer"
+                              },
+                              "last-status-check-time": {
+                                "type": "integer"
+                              },
+                              "location": {
+                                "type": "string"
+                              },
+                              "primary-name": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "items-per-page": {
+                          "type": "integer"
+                        },
+                        "total-results": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "message-type": {
+                      "example": "member-list",
+                      "type": "string"
+                    },
+                    "status": {
+                      "example": "ok",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with member metadata"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /members/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getMemberById",
+        "parameters": [
+          {
+            "description": "Member identifier",
+            "example": "311",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "message": {
+                      "properties": {
+                        "counts": {
+                          "type": "object"
+                        },
+                        "id": {
+                          "type": "integer"
+                        },
+                        "last-status-check-time": {
+                          "type": "integer"
+                        },
+                        "location": {
+                          "type": "string"
+                        },
+                        "primary-name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "message-type": {
+                      "example": "member",
+                      "type": "string"
+                    },
+                    "status": {
+                      "example": "ok",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with member metadata"
+          },
+          "404": {
+            "description": "Member not found"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

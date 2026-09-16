@@ -161,6 +161,12 @@ main: kit: entity: work: {
               }
             ]
           }
+          contract: {
+            id: "GET /works"
+            json: "{\"operationId\":\"getWorks\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page (max 1000)\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"maximum\":1000,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Filter results by specific criteria (e.g., from-pub-date:2020, type:journal-article)\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Sort results by field (e.g., published, relevance, score)\",\"in\":\"query\",\"name\":\"sort\",\"required\":false,\"schema\":{\"enum\":[\"relevance\",\"score\",\"published\",\"deposited\",\"indexed\",\"updated\"],\"type\":\"string\"}},{\"description\":\"Sort order\",\"in\":\"query\",\"name\":\"order\",\"required\":false,\"schema\":{\"default\":\"desc\",\"enum\":[\"asc\",\"desc\"],\"type\":\"string\"}},{\"description\":\"Email address for polite pool access (recommended for better performance)\",\"in\":\"query\",\"name\":\"mailto\",\"required\":false,\"schema\":{\"format\":\"email\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"400\":{\"description\":\"Bad request - invalid parameters\"},\"404\":{\"description\":\"No results found\"},\"503\":{\"description\":\"Service unavailable\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/works"
           segments: [
@@ -213,6 +219,12 @@ main: kit: entity: work: {
                 type: "`$INTEGER`"
               }
             ]
+          }
+          contract: {
+            id: "GET /funders/{id}/works"
+            json: "{\"operationId\":\"getFunderWorks\",\"parameters\":[{\"description\":\"Funder identifier\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Funder not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/funders/{id}/works"
@@ -274,6 +286,12 @@ main: kit: entity: work: {
               }
             ]
           }
+          contract: {
+            id: "GET /journals/{issn}/works"
+            json: "{\"operationId\":\"getJournalWorks\",\"parameters\":[{\"description\":\"ISSN of the journal\",\"in\":\"path\",\"name\":\"issn\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Journal not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/journals/{issn}/works"
           segments: [
@@ -328,6 +346,12 @@ main: kit: entity: work: {
                 type: "`$INTEGER`"
               }
             ]
+          }
+          contract: {
+            id: "GET /members/{id}/works"
+            json: "{\"operationId\":\"getMemberWorks\",\"parameters\":[{\"description\":\"Member identifier\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Member not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/members/{id}/works"
@@ -389,6 +413,12 @@ main: kit: entity: work: {
               }
             ]
           }
+          contract: {
+            id: "GET /types/{id}/works"
+            json: "{\"operationId\":\"getTypeWorks\",\"parameters\":[{\"description\":\"Type identifier\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Type not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/types/{id}/works"
           rename: {
@@ -440,6 +470,12 @@ main: kit: entity: work: {
                 type: "`$STRING`"
               }
             ]
+          }
+          contract: {
+            id: "GET /works/{doi}"
+            json: "{\"operationId\":\"getWorkByDoi\",\"parameters\":[{\"description\":\"Digital Object Identifier (DOI) of the work\",\"example\":\"10.1037/0003-066X.59.1.29\",\"in\":\"path\",\"name\":\"doi\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Email address for polite pool access\",\"in\":\"query\",\"name\":\"mailto\",\"required\":false,\"schema\":{\"format\":\"email\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with work metadata\"},\"404\":{\"description\":\"DOI not found\"},\"503\":{\"description\":\"Service unavailable\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/works/{doi}"
