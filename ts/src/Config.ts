@@ -127,21 +127,21 @@ class Config {
 
     entity: {
       
-      funder: {
-      },
-
-      journal: {
-      },
-
-      member: {
-      },
-
-      type: {
-      },
-
-      work: {
-      },
-
+        funder: {
+        },
+  
+        journal: {
+        },
+  
+        member: {
+        },
+  
+        type: {
+        },
+  
+        work: {
+        },
+  
     }
   }
 

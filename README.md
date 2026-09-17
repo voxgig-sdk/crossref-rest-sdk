@@ -105,12 +105,12 @@ local result, err = client:Funder():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/crossref-rest-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/releases) |
-| Python | `voxgig-sdk-crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/releases) |
-| PHP | `voxgig-sdk/crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/releases) |
+| TypeScript | `@voxgig-sdk/crossref-rest-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/tags) |
+| Python | `voxgig-sdk-crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/tags) |
+| PHP | `voxgig-sdk/crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/crossref-rest-sdk/go` | `go get github.com/voxgig-sdk/crossref-rest-sdk/go@latest` |
-| Ruby | `voxgig-sdk-crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/releases) |
-| Lua | `voxgig-sdk-crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/releases) |
+| Ruby | `voxgig-sdk-crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/tags) |
+| Lua | `voxgig-sdk-crossref-rest` | publish pending — [install from git tag](https://github.com/voxgig-sdk/crossref-rest-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/crossref-rest-sdk/go-cli` | `go install github.com/voxgig-sdk/crossref-rest-sdk/go-cli/cmd/crossref-rest@latest` |
 | Go MCP server | `github.com/voxgig-sdk/crossref-rest-sdk/go-mcp` | `go get github.com/voxgig-sdk/crossref-rest-sdk/go-mcp@latest` |
 
