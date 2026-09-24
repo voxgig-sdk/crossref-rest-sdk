@@ -1,0 +1,32 @@
+# BasicFunderFlow
+
+main: kit: flow: BasicFunderFlow:
+{
+  entity: "funder",
+  kind: "basic",
+  name: "BasicFunderFlow",
+  step: [
+    {
+      i: {
+        ref: "funder_ref01",
+        srcdatavar: "funder_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "funder01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-funder_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFunderFlow"
+}

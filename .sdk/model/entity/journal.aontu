@@ -1,0 +1,169 @@
+# Entity: journal
+
+main: kit: entity: journal: {
+
+  alias: field: {}
+
+  fields: {
+    ISSN: {
+      h: "Issn"
+      n: "ISSN"
+      r: false
+      t: "`$ARRAY`"
+    }
+    coverage: {
+      h: "Coverage"
+      n: "coverage"
+      r: false
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    items: {
+      h: "Items"
+      n: "items"
+      r: false
+      t: "`$ARRAY`"
+    }
+    itemsperpage: {
+      h: "Itemsperpage"
+      n: "itemsperpage"
+      r: false
+      t: "`$INTEGER`"
+    }
+    publisher: {
+      h: "Publisher"
+      n: "publisher"
+      r: false
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      t: "`$STRING`"
+    }
+    totalresults: {
+      h: "Totalresults"
+      n: "totalresults"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "journal"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /journals"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "query"
+                or: "query"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "row"
+                or: "row"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/journals"
+          q: {
+            exist: [
+              "offset"
+              "query"
+              "row"
+            ]
+          }
+          s: [
+            {
+              lit: "journals"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.message`"
+          }
+        }
+        {
+          co: {
+            id: "GET /journals/{issn}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "1476-4687"
+                k: "param"
+                n: "id"
+                or: "issn"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/journals/{issn}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              issn: "id"
+            }
+          }
+          s: [
+            {
+              lit: "journals"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.message`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

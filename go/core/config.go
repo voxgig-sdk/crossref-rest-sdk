@@ -95,34 +95,42 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "altnames",
+						"title": "Altnames",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "items",
+						"title": "Items",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "itemsperpage",
+						"title": "Itemsperpage",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "location",
+						"title": "Location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "totalresults",
+						"title": "Totalresults",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "uri",
+						"title": "Uri",
 						"type": "`$STRING`",
 					},
 				},
@@ -137,36 +145,44 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "query",
-											"orig": "query",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "row",
-											"orig": "row",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/funders",
 								"segments": []any{
 									map[string]any{
 										"lit": "funders",
+									},
+								},
+								"parts": []any{
+									"funders",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.message`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "query",
+											"orig": "query",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "row",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
 									},
 								},
 								"select": map[string]any{
@@ -176,27 +192,8 @@ func MakeConfig() map[string]any {
 										"row",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.message`",
-								},
-								"parts": []any{
-									"funders",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "100000001",
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/funders/{id}",
@@ -208,18 +205,31 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"parts": []any{
+									"funders",
+									"{id}",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.message`",
 								},
-								"parts": []any{
-									"funders",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "100000001",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -233,34 +243,42 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "ISSN",
+						"title": "Issn",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "coverage",
+						"title": "Coverage",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "items",
+						"title": "Items",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "itemsperpage",
+						"title": "Itemsperpage",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "publisher",
+						"title": "Publisher",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"title": "Title",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "totalresults",
+						"title": "Totalresults",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -275,36 +293,44 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "query",
-											"orig": "query",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "row",
-											"orig": "row",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/journals",
 								"segments": []any{
 									map[string]any{
 										"lit": "journals",
+									},
+								},
+								"parts": []any{
+									"journals",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.message`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "query",
+											"orig": "query",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "row",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
 									},
 								},
 								"select": map[string]any{
@@ -314,35 +340,11 @@ func MakeConfig() map[string]any {
 										"row",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.message`",
-								},
-								"parts": []any{
-									"journals",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "1476-4687",
-											"kind": "param",
-											"name": "id",
-											"orig": "issn",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/journals/{issn}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"issn": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "journals",
@@ -351,18 +353,35 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
+								"parts": []any{
+									"journals",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"issn": "id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.message`",
 								},
-								"parts": []any{
-									"journals",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "issn",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "1476-4687",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -376,34 +395,42 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "counts",
+						"title": "Counts",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "items",
+						"title": "Items",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "itemsperpage",
+						"title": "Itemsperpage",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "laststatuschecktime",
+						"title": "Laststatuschecktime",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "location",
+						"title": "Location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "primaryname",
+						"title": "Primaryname",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "totalresults",
+						"title": "Totalresults",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -418,36 +445,44 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "query",
-											"orig": "query",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "row",
-											"orig": "row",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/members",
 								"segments": []any{
 									map[string]any{
 										"lit": "members",
+									},
+								},
+								"parts": []any{
+									"members",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.message`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "query",
+											"orig": "query",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "row",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
 									},
 								},
 								"select": map[string]any{
@@ -457,27 +492,8 @@ func MakeConfig() map[string]any {
 										"row",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.message`",
-								},
-								"parts": []any{
-									"members",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "311",
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/members/{id}",
@@ -489,18 +505,31 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"parts": []any{
+									"members",
+									"{id}",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.message`",
 								},
-								"parts": []any{
-									"members",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "311",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -514,14 +543,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "items",
+						"title": "Items",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "label",
+						"title": "Label",
 						"type": "`$STRING`",
 					},
 				},
@@ -536,18 +568,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "journal-article",
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/types/{id}",
@@ -559,22 +579,34 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
+								"parts": []any{
+									"types",
+									"{id}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.message`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "journal-article",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"id",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.message`",
-								},
-								"parts": []any{
-									"types",
-									"{id}",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/types",
@@ -583,14 +615,16 @@ func MakeConfig() map[string]any {
 										"lit": "types",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"types",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.message`",
 								},
-								"parts": []any{
-									"types",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -603,72 +637,89 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "DOI",
-						"short": "Digital Object Identifier",
+						"title": "Doi",
 						"type": "`$STRING`",
+						"short": "Digital Object Identifier",
 					},
 					map[string]any{
 						"name": "ISSN",
+						"title": "Issn",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "URL",
-						"short": "URL to the work",
+						"title": "Url",
 						"type": "`$STRING`",
+						"short": "URL to the work",
 					},
 					map[string]any{
 						"name": "abstract",
+						"title": "Abstract",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "author",
+						"title": "Author",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "containertitle",
+						"title": "Containertitle",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isreferencedbycount",
+						"title": "Isreferencedbycount",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "items",
+						"title": "Items",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "itemsperpage",
+						"title": "Itemsperpage",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "published",
+						"title": "Published",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "publisher",
+						"title": "Publisher",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "query",
+						"title": "Query",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "referencecount",
+						"title": "Referencecount",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "title",
+						"title": "Title",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "totalresults",
+						"title": "Totalresults",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "type",
+						"title": "Type",
 						"type": "`$STRING`",
 					},
 				},
@@ -683,61 +734,69 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "filter",
-											"orig": "filter",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "mailto",
-											"orig": "mailto",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": "desc",
-											"kind": "query",
-											"name": "order",
-											"orig": "order",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "query",
-											"orig": "query",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "row",
-											"orig": "row",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "sort",
-											"orig": "sort",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/works",
 								"segments": []any{
 									map[string]any{
 										"lit": "works",
+									},
+								},
+								"parts": []any{
+									"works",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.message`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "filter",
+											"orig": "filter",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "mailto",
+											"orig": "mailto",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "order",
+											"orig": "order",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "desc",
+										},
+										map[string]any{
+											"name": "query",
+											"orig": "query",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "row",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+										map[string]any{
+											"name": "sort",
+											"orig": "sort",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -751,50 +810,11 @@ func MakeConfig() map[string]any {
 										"sort",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.message`",
-								},
-								"parts": []any{
-									"works",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "funder_id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "row",
-											"orig": "row",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/funders/{id}/works",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"id": "funder_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "funders",
@@ -806,6 +826,47 @@ func MakeConfig() map[string]any {
 										"lit": "works",
 									},
 								},
+								"parts": []any{
+									"funders",
+									"{funder_id}",
+									"works",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"id": "funder_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.message`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "funder_id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "row",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"funder_id",
@@ -813,44 +874,8 @@ func MakeConfig() map[string]any {
 										"row",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.message`",
-								},
-								"parts": []any{
-									"funders",
-									"{funder_id}",
-									"works",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "issn",
-											"orig": "issn",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "row",
-											"orig": "row",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/journals/{issn}/works",
@@ -865,6 +890,43 @@ func MakeConfig() map[string]any {
 										"lit": "works",
 									},
 								},
+								"parts": []any{
+									"journals",
+									"{issn}",
+									"works",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.message`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "issn",
+											"orig": "issn",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "row",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"issn",
@@ -872,52 +934,11 @@ func MakeConfig() map[string]any {
 										"row",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.message`",
-								},
-								"parts": []any{
-									"journals",
-									"{issn}",
-									"works",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "member_id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "row",
-											"orig": "row",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/members/{id}/works",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"id": "member_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "members",
@@ -929,6 +950,47 @@ func MakeConfig() map[string]any {
 										"lit": "works",
 									},
 								},
+								"parts": []any{
+									"members",
+									"{member_id}",
+									"works",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"id": "member_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.message`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "member_id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "row",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"member_id",
@@ -936,52 +998,11 @@ func MakeConfig() map[string]any {
 										"row",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.message`",
-								},
-								"parts": []any{
-									"members",
-									"{member_id}",
-									"works",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "type_id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "row",
-											"orig": "row",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/types/{id}/works",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"id": "type_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "types",
@@ -993,6 +1014,47 @@ func MakeConfig() map[string]any {
 										"lit": "works",
 									},
 								},
+								"parts": []any{
+									"types",
+									"{type_id}",
+									"works",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"id": "type_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.message`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "type_id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "row",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"offset",
@@ -1000,45 +1062,11 @@ func MakeConfig() map[string]any {
 										"type_id",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.message`",
-								},
-								"parts": []any{
-									"types",
-									"{type_id}",
-									"works",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "10.1037/0003-066X.59.1.29",
-											"kind": "param",
-											"name": "id",
-											"orig": "doi",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "mailto",
-											"orig": "mailto",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/works/{doi}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"doi": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "works",
@@ -1047,19 +1075,44 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-										"mailto",
+								"parts": []any{
+									"works",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"doi": "id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.message`",
 								},
-								"parts": []any{
-									"works",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "doi",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "10.1037/0003-066X.59.1.29",
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "mailto",
+											"orig": "mailto",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+										"mailto",
+									},
 								},
 							},
 						},
@@ -1068,16 +1121,16 @@ func MakeConfig() map[string]any {
 				"relations": map[string]any{
 					"ancestors": []any{
 						[]any{
-							"funder",
+							"$.main.kit.entity.funder",
 						},
 						[]any{
-							"journal",
+							"$.main.kit.entity.journal",
 						},
 						[]any{
-							"member",
+							"$.main.kit.entity.member",
 						},
 						[]any{
-							"type",
+							"$.main.kit.entity.type",
 						},
 					},
 				},

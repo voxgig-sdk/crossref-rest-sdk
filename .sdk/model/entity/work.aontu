@@ -1,0 +1,529 @@
+# Entity: work
+
+main: kit: entity: work: {
+
+  alias: field: {}
+
+  fields: {
+    DOI: {
+      h: "Doi"
+      n: "DOI"
+      r: false
+      sh: "Digital Object Identifier"
+      t: "`$STRING`"
+    }
+    ISSN: {
+      h: "Issn"
+      n: "ISSN"
+      r: false
+      t: "`$ARRAY`"
+    }
+    URL: {
+      h: "Url"
+      n: "URL"
+      r: false
+      sh: "URL to the work"
+      t: "`$STRING`"
+    }
+    abstract: {
+      h: "Abstract"
+      n: "abstract"
+      r: false
+      t: "`$STRING`"
+    }
+    author: {
+      h: "Author"
+      n: "author"
+      r: false
+      t: "`$ARRAY`"
+    }
+    containertitle: {
+      h: "Containertitle"
+      n: "containertitle"
+      r: false
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    isreferencedbycount: {
+      h: "Isreferencedbycount"
+      n: "isreferencedbycount"
+      r: false
+      t: "`$INTEGER`"
+    }
+    items: {
+      h: "Items"
+      n: "items"
+      r: false
+      t: "`$ARRAY`"
+    }
+    itemsperpage: {
+      h: "Itemsperpage"
+      n: "itemsperpage"
+      r: false
+      t: "`$INTEGER`"
+    }
+    published: {
+      h: "Published"
+      n: "published"
+      r: false
+      t: "`$OBJECT`"
+    }
+    publisher: {
+      h: "Publisher"
+      n: "publisher"
+      r: false
+      t: "`$STRING`"
+    }
+    query: {
+      h: "Query"
+      n: "query"
+      r: false
+      t: "`$OBJECT`"
+    }
+    referencecount: {
+      h: "Referencecount"
+      n: "referencecount"
+      r: false
+      t: "`$INTEGER`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      t: "`$ARRAY`"
+    }
+    totalresults: {
+      h: "Totalresults"
+      n: "totalresults"
+      r: false
+      t: "`$INTEGER`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "work"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /works"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "mailto"
+                or: "mailto"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "desc"
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "query"
+                or: "query"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "row"
+                or: "row"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/works"
+          q: {
+            exist: [
+              "filter"
+              "mailto"
+              "offset"
+              "order"
+              "query"
+              "row"
+              "sort"
+            ]
+          }
+          s: [
+            {
+              lit: "works"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.message`"
+          }
+        }
+        {
+          co: {
+            id: "GET /funders/{id}/works"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "funder_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "row"
+                or: "row"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/funders/{id}/works"
+          q: {
+            exist: [
+              "funder_id"
+              "offset"
+              "row"
+            ]
+          }
+          r: {
+            param: {
+              id: "funder_id"
+            }
+          }
+          s: [
+            {
+              lit: "funders"
+            }
+            {
+              var: "funder_id"
+            }
+            {
+              lit: "works"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.message`"
+          }
+        }
+        {
+          co: {
+            id: "GET /journals/{issn}/works"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "issn"
+                or: "issn"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "row"
+                or: "row"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/journals/{issn}/works"
+          q: {
+            exist: [
+              "issn"
+              "offset"
+              "row"
+            ]
+          }
+          s: [
+            {
+              lit: "journals"
+            }
+            {
+              var: "issn"
+            }
+            {
+              lit: "works"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.message`"
+          }
+        }
+        {
+          co: {
+            id: "GET /members/{id}/works"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "member_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "row"
+                or: "row"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/members/{id}/works"
+          q: {
+            exist: [
+              "member_id"
+              "offset"
+              "row"
+            ]
+          }
+          r: {
+            param: {
+              id: "member_id"
+            }
+          }
+          s: [
+            {
+              lit: "members"
+            }
+            {
+              var: "member_id"
+            }
+            {
+              lit: "works"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.message`"
+          }
+        }
+        {
+          co: {
+            id: "GET /types/{id}/works"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "type_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "row"
+                or: "row"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/types/{id}/works"
+          q: {
+            exist: [
+              "offset"
+              "row"
+              "type_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "type_id"
+            }
+          }
+          s: [
+            {
+              lit: "types"
+            }
+            {
+              var: "type_id"
+            }
+            {
+              lit: "works"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.message`"
+          }
+        }
+        {
+          co: {
+            id: "GET /works/{doi}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "10.1037/0003-066X.59.1.29"
+                k: "param"
+                n: "id"
+                or: "doi"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "mailto"
+                or: "mailto"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/works/{doi}"
+          q: {
+            exist: [
+              "id"
+              "mailto"
+            ]
+          }
+          r: {
+            param: {
+              doi: "id"
+            }
+          }
+          s: [
+            {
+              lit: "works"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.message`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.funder")]
+    [path("$.main.kit.entity.journal")]
+    [path("$.main.kit.entity.member")]
+    [path("$.main.kit.entity.type")]
+  ]
+
+}

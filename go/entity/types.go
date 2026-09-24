@@ -1,7 +1,7 @@
 // Typed models for the CrossrefRest SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,14 +14,6 @@ import (
 
 // Funder is the typed data model for the funder entity.
 type Funder struct {
-	Altnames *[]any `json:"altnames,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Items *[]any `json:"items,omitempty"`
-	Itemsperpage *int `json:"itemsperpage,omitempty"`
-	Location *string `json:"location,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Totalresults *int `json:"totalresults,omitempty"`
-	Uri *string `json:"uri,omitempty"`
 }
 
 // FunderLoadMatch is the typed request payload for Funder.LoadTyped.
@@ -31,14 +23,6 @@ type FunderLoadMatch struct {
 
 // Journal is the typed data model for the journal entity.
 type Journal struct {
-	ISSN *[]any `json:"ISSN,omitempty"`
-	Coverage *map[string]any `json:"coverage,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Items *[]any `json:"items,omitempty"`
-	Itemsperpage *int `json:"itemsperpage,omitempty"`
-	Publisher *string `json:"publisher,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Totalresults *int `json:"totalresults,omitempty"`
 }
 
 // JournalLoadMatch is the typed request payload for Journal.LoadTyped.
@@ -48,14 +32,6 @@ type JournalLoadMatch struct {
 
 // Member is the typed data model for the member entity.
 type Member struct {
-	Counts *map[string]any `json:"counts,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Items *[]any `json:"items,omitempty"`
-	Itemsperpage *int `json:"itemsperpage,omitempty"`
-	Laststatuschecktime *int `json:"laststatuschecktime,omitempty"`
-	Location *string `json:"location,omitempty"`
-	Primaryname *string `json:"primaryname,omitempty"`
-	Totalresults *int `json:"totalresults,omitempty"`
 }
 
 // MemberLoadMatch is the typed request payload for Member.LoadTyped.
@@ -65,9 +41,6 @@ type MemberLoadMatch struct {
 
 // Type is the typed data model for the type entity.
 type Type struct {
-	Id *string `json:"id,omitempty"`
-	Items *[]any `json:"items,omitempty"`
-	Label *string `json:"label,omitempty"`
 }
 
 // TypeLoadMatch is the typed request payload for Type.LoadTyped.
@@ -77,23 +50,6 @@ type TypeLoadMatch struct {
 
 // Work is the typed data model for the work entity.
 type Work struct {
-	DOI *string `json:"DOI,omitempty"`
-	ISSN *[]any `json:"ISSN,omitempty"`
-	URL *string `json:"URL,omitempty"`
-	Abstract *string `json:"abstract,omitempty"`
-	Author *[]any `json:"author,omitempty"`
-	Containertitle *[]any `json:"containertitle,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Isreferencedbycount *int `json:"isreferencedbycount,omitempty"`
-	Items *[]any `json:"items,omitempty"`
-	Itemsperpage *int `json:"itemsperpage,omitempty"`
-	Published *map[string]any `json:"published,omitempty"`
-	Publisher *string `json:"publisher,omitempty"`
-	Query *map[string]any `json:"query,omitempty"`
-	Referencecount *int `json:"referencecount,omitempty"`
-	Title *[]any `json:"title,omitempty"`
-	Totalresults *int `json:"totalresults,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // WorkLoadMatch is the typed request payload for Work.LoadTyped.

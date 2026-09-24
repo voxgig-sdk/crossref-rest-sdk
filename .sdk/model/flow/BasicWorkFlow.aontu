@@ -1,0 +1,32 @@
+# BasicWorkFlow
+
+main: kit: flow: BasicWorkFlow:
+{
+  entity: "work",
+  kind: "basic",
+  name: "BasicWorkFlow",
+  step: [
+    {
+      i: {
+        ref: "work_ref01",
+        srcdatavar: "work_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "work01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-work_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkFlow"
+}

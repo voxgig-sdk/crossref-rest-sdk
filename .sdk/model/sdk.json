@@ -24,62 +24,136 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "funder": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "altnames",
-              "req": false,
-              "type": "`$ARRAY`"
+          "fields": {
+            "altnames": {
+              "a": true,
+              "h": "Altnames",
+              "n": "altnames",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "items",
-              "req": false,
-              "type": "`$ARRAY`"
+            "items": {
+              "a": true,
+              "h": "Items",
+              "n": "items",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "itemsperpage",
-              "req": false,
-              "type": "`$INTEGER`"
+            "itemsperpage": {
+              "a": true,
+              "h": "Itemsperpage",
+              "n": "itemsperpage",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "location",
-              "req": false,
-              "type": "`$STRING`"
+            "location": {
+              "a": true,
+              "h": "Location",
+              "n": "location",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "totalresults",
-              "req": false,
-              "type": "`$INTEGER`"
+            "totalresults": {
+              "a": true,
+              "h": "Totalresults",
+              "n": "totalresults",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "uri",
-              "req": false,
-              "type": "`$STRING`"
+            "uri": {
+              "a": true,
+              "h": "Uri",
+              "n": "uri",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -91,88 +165,93 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /funders",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "query",
-                        "orig": "query",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "query",
+                        "or": "query",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "row",
-                        "orig": "row",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "row",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /funders",
-                    "json": "{\"operationId\":\"getFunders\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"alt-names\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"id\":{\"type\":\"string\"},\"location\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"uri\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"funder-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with funder metadata\"},\"400\":{\"description\":\"Bad request\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/funders",
-                  "segments": [
-                    {
-                      "lit": "funders"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/funders",
+                  "q": {
                     "exist": [
                       "offset",
                       "query",
                       "row"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "funders"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /funders/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "100000001",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "100000001",
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /funders/{id}",
-                    "json": "{\"operationId\":\"getFunderById\",\"parameters\":[{\"description\":\"Funder identifier\",\"example\":\"100000001\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"alt-names\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"id\":{\"type\":\"string\"},\"location\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"uri\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"funder\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with funder metadata\"},\"404\":{\"description\":\"Funder not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/funders/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/funders/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "funders"
                     },
@@ -180,12 +259,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
@@ -202,56 +276,64 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "ISSN",
-              "req": false,
-              "type": "`$ARRAY`"
+          "fields": {
+            "ISSN": {
+              "a": true,
+              "h": "Issn",
+              "n": "ISSN",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "coverage",
-              "req": false,
-              "type": "`$OBJECT`"
+            "coverage": {
+              "a": true,
+              "h": "Coverage",
+              "n": "coverage",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "items",
-              "req": false,
-              "type": "`$ARRAY`"
+            "items": {
+              "a": true,
+              "h": "Items",
+              "n": "items",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "itemsperpage",
-              "req": false,
-              "type": "`$INTEGER`"
+            "itemsperpage": {
+              "a": true,
+              "h": "Itemsperpage",
+              "n": "itemsperpage",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "publisher",
-              "req": false,
-              "type": "`$STRING`"
+            "publisher": {
+              "a": true,
+              "h": "Publisher",
+              "n": "publisher",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "totalresults",
-              "req": false,
-              "type": "`$INTEGER`"
+            "totalresults": {
+              "a": true,
+              "h": "Totalresults",
+              "n": "totalresults",
+              "r": false,
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -263,93 +345,97 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /journals",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "query",
-                        "orig": "query",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "query",
+                        "or": "query",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "row",
-                        "orig": "row",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "row",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /journals",
-                    "json": "{\"operationId\":\"getJournals\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"coverage\":{\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"journal-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with journal metadata\"},\"400\":{\"description\":\"Bad request\"},\"404\":{\"description\":\"No results found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/journals",
-                  "segments": [
-                    {
-                      "lit": "journals"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/journals",
+                  "q": {
                     "exist": [
                       "offset",
                       "query",
                       "row"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "journals"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /journals/{issn}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "1476-4687",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "issn",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "1476-4687",
+                        "k": "param",
+                        "n": "id",
+                        "or": "issn",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /journals/{issn}",
-                    "json": "{\"operationId\":\"getJournalByIssn\",\"parameters\":[{\"description\":\"International Standard Serial Number (ISSN) of the journal\",\"example\":\"1476-4687\",\"in\":\"path\",\"name\":\"issn\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"coverage\":{\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"journal\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with journal metadata\"},\"404\":{\"description\":\"ISSN not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/journals/{issn}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/journals/{issn}",
-                  "rename": {
+                  "r": {
                     "param": {
                       "issn": "id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "journals"
                     },
@@ -357,12 +443,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
@@ -379,56 +460,64 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "counts",
-              "req": false,
-              "type": "`$OBJECT`"
+          "fields": {
+            "counts": {
+              "a": true,
+              "h": "Counts",
+              "n": "counts",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "items",
-              "req": false,
-              "type": "`$ARRAY`"
+            "items": {
+              "a": true,
+              "h": "Items",
+              "n": "items",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "itemsperpage",
-              "req": false,
-              "type": "`$INTEGER`"
+            "itemsperpage": {
+              "a": true,
+              "h": "Itemsperpage",
+              "n": "itemsperpage",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "laststatuschecktime",
-              "req": false,
-              "type": "`$INTEGER`"
+            "laststatuschecktime": {
+              "a": true,
+              "h": "Laststatuschecktime",
+              "n": "laststatuschecktime",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "location",
-              "req": false,
-              "type": "`$STRING`"
+            "location": {
+              "a": true,
+              "h": "Location",
+              "n": "location",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "primaryname",
-              "req": false,
-              "type": "`$STRING`"
+            "primaryname": {
+              "a": true,
+              "h": "Primaryname",
+              "n": "primaryname",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "totalresults",
-              "req": false,
-              "type": "`$INTEGER`"
+            "totalresults": {
+              "a": true,
+              "h": "Totalresults",
+              "n": "totalresults",
+              "r": false,
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -440,88 +529,93 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /members",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "query",
-                        "orig": "query",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "query",
+                        "or": "query",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "row",
-                        "orig": "row",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "row",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /members",
-                    "json": "{\"operationId\":\"getMembers\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"counts\":{\"type\":\"object\"},\"id\":{\"type\":\"integer\"},\"last-status-check-time\":{\"type\":\"integer\"},\"location\":{\"type\":\"string\"},\"primary-name\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"member-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with member metadata\"},\"400\":{\"description\":\"Bad request\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/members",
-                  "segments": [
-                    {
-                      "lit": "members"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/members",
+                  "q": {
                     "exist": [
                       "offset",
                       "query",
                       "row"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "members"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /members/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "311",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "311",
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /members/{id}",
-                    "json": "{\"operationId\":\"getMemberById\",\"parameters\":[{\"description\":\"Member identifier\",\"example\":\"311\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"counts\":{\"type\":\"object\"},\"id\":{\"type\":\"integer\"},\"last-status-check-time\":{\"type\":\"integer\"},\"location\":{\"type\":\"string\"},\"primary-name\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"member\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with member metadata\"},\"404\":{\"description\":\"Member not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/members/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/members/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "members"
                     },
@@ -529,12 +623,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
@@ -551,26 +640,29 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "items",
-              "req": false,
-              "type": "`$ARRAY`"
+            "items": {
+              "a": true,
+              "h": "Items",
+              "n": "items",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "label",
-              "req": false,
-              "type": "`$STRING`"
+            "label": {
+              "a": true,
+              "h": "Label",
+              "n": "label",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -582,30 +674,35 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /types/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "journal-article",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "journal-article",
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /types/{id}",
-                    "json": "{\"operationId\":\"getTypeById\",\"parameters\":[{\"description\":\"Type identifier\",\"example\":\"journal-article\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"id\":{\"type\":\"string\"},\"label\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"type\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with type metadata\"},\"404\":{\"description\":\"Type not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/types/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/types/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "types"
                     },
@@ -613,35 +710,30 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /types",
-                    "json": "{\"operationId\":\"getTypes\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"id\":{\"type\":\"string\"},\"label\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"type-list\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with type metadata\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/types",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/types",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "types"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
@@ -658,112 +750,129 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "DOI",
-              "req": false,
-              "short": "Digital Object Identifier",
-              "type": "`$STRING`"
+          "fields": {
+            "DOI": {
+              "a": true,
+              "h": "Doi",
+              "n": "DOI",
+              "r": false,
+              "sh": "Digital Object Identifier",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "ISSN",
-              "req": false,
-              "type": "`$ARRAY`"
+            "ISSN": {
+              "a": true,
+              "h": "Issn",
+              "n": "ISSN",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "URL",
-              "req": false,
-              "short": "URL to the work",
-              "type": "`$STRING`"
+            "URL": {
+              "a": true,
+              "h": "Url",
+              "n": "URL",
+              "r": false,
+              "sh": "URL to the work",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "abstract",
-              "req": false,
-              "type": "`$STRING`"
+            "abstract": {
+              "a": true,
+              "h": "Abstract",
+              "n": "abstract",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "author",
-              "req": false,
-              "type": "`$ARRAY`"
+            "author": {
+              "a": true,
+              "h": "Author",
+              "n": "author",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "containertitle",
-              "req": false,
-              "type": "`$ARRAY`"
+            "containertitle": {
+              "a": true,
+              "h": "Containertitle",
+              "n": "containertitle",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "isreferencedbycount",
-              "req": false,
-              "type": "`$INTEGER`"
+            "isreferencedbycount": {
+              "a": true,
+              "h": "Isreferencedbycount",
+              "n": "isreferencedbycount",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "items",
-              "req": false,
-              "type": "`$ARRAY`"
+            "items": {
+              "a": true,
+              "h": "Items",
+              "n": "items",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "itemsperpage",
-              "req": false,
-              "type": "`$INTEGER`"
+            "itemsperpage": {
+              "a": true,
+              "h": "Itemsperpage",
+              "n": "itemsperpage",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "published",
-              "req": false,
-              "type": "`$OBJECT`"
+            "published": {
+              "a": true,
+              "h": "Published",
+              "n": "published",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "publisher",
-              "req": false,
-              "type": "`$STRING`"
+            "publisher": {
+              "a": true,
+              "h": "Publisher",
+              "n": "publisher",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "query",
-              "req": false,
-              "type": "`$OBJECT`"
+            "query": {
+              "a": true,
+              "h": "Query",
+              "n": "query",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "referencecount",
-              "req": false,
-              "type": "`$INTEGER`"
+            "referencecount": {
+              "a": true,
+              "h": "Referencecount",
+              "n": "referencecount",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "type": "`$ARRAY`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "totalresults",
-              "req": false,
-              "type": "`$INTEGER`"
+            "totalresults": {
+              "a": true,
+              "h": "Totalresults",
+              "n": "totalresults",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -775,85 +884,79 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /works",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "filter",
-                        "orig": "filter",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "filter",
+                        "or": "filter",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "mailto",
-                        "orig": "mailto",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "mailto",
+                        "or": "mailto",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "desc",
-                        "kind": "query",
-                        "name": "order",
-                        "orig": "order",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "desc",
+                        "k": "query",
+                        "n": "order",
+                        "or": "order",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "query",
-                        "orig": "query",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "query",
+                        "or": "query",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "row",
-                        "orig": "row",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "row",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "sort",
-                        "orig": "sort",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /works",
-                    "json": "{\"operationId\":\"getWorks\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"query\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page (max 1000)\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"maximum\":1000,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Filter results by specific criteria (e.g., from-pub-date:2020, type:journal-article)\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Sort results by field (e.g., published, relevance, score)\",\"in\":\"query\",\"name\":\"sort\",\"required\":false,\"schema\":{\"enum\":[\"relevance\",\"score\",\"published\",\"deposited\",\"indexed\",\"updated\"],\"type\":\"string\"}},{\"description\":\"Sort order\",\"in\":\"query\",\"name\":\"order\",\"required\":false,\"schema\":{\"default\":\"desc\",\"enum\":[\"asc\",\"desc\"],\"type\":\"string\"}},{\"description\":\"Email address for polite pool access (recommended for better performance)\",\"in\":\"query\",\"name\":\"mailto\",\"required\":false,\"schema\":{\"format\":\"email\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"400\":{\"description\":\"Bad request - invalid parameters\"},\"404\":{\"description\":\"No results found\"},\"503\":{\"description\":\"Service unavailable\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/works",
-                  "segments": [
-                    {
-                      "lit": "works"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/works",
+                  "q": {
                     "exist": [
                       "filter",
                       "mailto",
@@ -864,60 +967,72 @@
                       "sort"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "works"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /funders/{id}/works",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "funder_id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "funder_id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "row",
-                        "orig": "row",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "row",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /funders/{id}/works",
-                    "json": "{\"operationId\":\"getFunderWorks\",\"parameters\":[{\"description\":\"Funder identifier\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Funder not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/funders/{id}/works",
+                  "q": {
+                    "exist": [
+                      "funder_id",
+                      "offset",
+                      "row"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/funders/{id}/works",
-                  "rename": {
+                  "r": {
                     "param": {
                       "id": "funder_id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "funders"
                     },
@@ -928,62 +1043,62 @@
                       "lit": "works"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "funder_id",
-                      "offset",
-                      "row"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /journals/{issn}/works",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "issn",
-                        "orig": "issn",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "issn",
+                        "or": "issn",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "row",
-                        "orig": "row",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "row",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /journals/{issn}/works",
-                    "json": "{\"operationId\":\"getJournalWorks\",\"parameters\":[{\"description\":\"ISSN of the journal\",\"in\":\"path\",\"name\":\"issn\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Journal not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/journals/{issn}/works",
+                  "q": {
+                    "exist": [
+                      "issn",
+                      "offset",
+                      "row"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/journals/{issn}/works",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "journals"
                     },
@@ -994,67 +1109,66 @@
                       "lit": "works"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "issn",
-                      "offset",
-                      "row"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /members/{id}/works",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "member_id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "member_id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "row",
-                        "orig": "row",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "row",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /members/{id}/works",
-                    "json": "{\"operationId\":\"getMemberWorks\",\"parameters\":[{\"description\":\"Member identifier\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Member not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/members/{id}/works",
+                  "q": {
+                    "exist": [
+                      "member_id",
+                      "offset",
+                      "row"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/members/{id}/works",
-                  "rename": {
+                  "r": {
                     "param": {
                       "id": "member_id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "members"
                     },
@@ -1065,67 +1179,66 @@
                       "lit": "works"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "member_id",
-                      "offset",
-                      "row"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /types/{id}/works",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "type_id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "type_id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "row",
-                        "orig": "row",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "row",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /types/{id}/works",
-                    "json": "{\"operationId\":\"getTypeWorks\",\"parameters\":[{\"description\":\"Type identifier\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of results to return per page\",\"in\":\"query\",\"name\":\"rows\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"items-per-page\":{\"type\":\"integer\"},\"query\":{\"type\":\"object\"},\"total-results\":{\"type\":\"integer\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work-list\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with works metadata\"},\"404\":{\"description\":\"Type not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/types/{id}/works",
+                  "q": {
+                    "exist": [
+                      "offset",
+                      "row",
+                      "type_id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/types/{id}/works",
-                  "rename": {
+                  "r": {
                     "param": {
                       "id": "type_id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "types"
                     },
@@ -1136,58 +1249,56 @@
                       "lit": "works"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "offset",
-                      "row",
-                      "type_id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /works/{doi}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "10.1037/0003-066X.59.1.29",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "doi",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "10.1037/0003-066X.59.1.29",
+                        "k": "param",
+                        "n": "id",
+                        "or": "doi",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "mailto",
-                        "orig": "mailto",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "mailto",
+                        "or": "mailto",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /works/{doi}",
-                    "json": "{\"operationId\":\"getWorkByDoi\",\"parameters\":[{\"description\":\"Digital Object Identifier (DOI) of the work\",\"example\":\"10.1037/0003-066X.59.1.29\",\"in\":\"path\",\"name\":\"doi\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Email address for polite pool access\",\"in\":\"query\",\"name\":\"mailto\",\"required\":false,\"schema\":{\"format\":\"email\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"properties\":{\"DOI\":{\"description\":\"Digital Object Identifier\",\"type\":\"string\"},\"ISSN\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"URL\":{\"description\":\"URL to the work\",\"type\":\"string\"},\"abstract\":{\"type\":\"string\"},\"author\":{\"items\":{\"properties\":{\"ORCID\":{\"type\":\"string\"},\"family\":{\"type\":\"string\"},\"given\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"container-title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"is-referenced-by-count\":{\"type\":\"integer\"},\"published\":{\"properties\":{\"date-parts\":{\"items\":{\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"type\":\"array\"}},\"type\":\"object\"},\"publisher\":{\"type\":\"string\"},\"reference-count\":{\"type\":\"integer\"},\"title\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"type\":\"string\"}},\"type\":\"object\"},\"message-type\":{\"example\":\"work\",\"type\":\"string\"},\"message-version\":{\"example\":\"1.0.0\",\"type\":\"string\"},\"status\":{\"example\":\"ok\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with work metadata\"},\"404\":{\"description\":\"DOI not found\"},\"503\":{\"description\":\"Service unavailable\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/works/{doi}",
+                  "q": {
+                    "exist": [
+                      "id",
+                      "mailto"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/works/{doi}",
-                  "rename": {
+                  "r": {
                     "param": {
                       "doi": "id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "works"
                     },
@@ -1195,13 +1306,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id",
-                      "mailto"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.message`"
                   }
@@ -1212,16 +1317,16 @@
           "relations": {
             "ancestors": [
               [
-                "funder"
+                "$.main.kit.entity.funder"
               ],
               [
-                "journal"
+                "$.main.kit.entity.journal"
               ],
               [
-                "member"
+                "$.main.kit.entity.member"
               ],
               [
-                "type"
+                "$.main.kit.entity.type"
               ]
             ]
           }
@@ -1643,19 +1748,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "funder_ref01",
                 "srcdatavar": "funder_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "funder01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1675,19 +1780,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "journal_ref01",
                 "srcdatavar": "journal_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "journal01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1707,19 +1812,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "member_ref01",
                 "srcdatavar": "member_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "member01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1739,17 +1844,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "type_ref01",
                 "srcdatavar": "type_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1769,19 +1874,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "work_ref01",
                 "srcdatavar": "work_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "work01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

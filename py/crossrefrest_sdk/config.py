@@ -120,34 +120,42 @@ def make_config():
         "fields": [
           {
             "name": "altnames",
+            "title": "Altnames",
             "type": "`$ARRAY`",
           },
           {
             "name": "id",
+            "title": "Id",
             "type": "`$STRING`",
           },
           {
             "name": "items",
+            "title": "Items",
             "type": "`$ARRAY`",
           },
           {
             "name": "itemsperpage",
+            "title": "Itemsperpage",
             "type": "`$INTEGER`",
           },
           {
             "name": "location",
+            "title": "Location",
             "type": "`$STRING`",
           },
           {
             "name": "name",
+            "title": "Name",
             "type": "`$STRING`",
           },
           {
             "name": "totalresults",
+            "title": "Totalresults",
             "type": "`$INTEGER`",
           },
           {
             "name": "uri",
+            "title": "Uri",
             "type": "`$STRING`",
           },
         ],
@@ -162,30 +170,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": 0,
-                      "kind": "query",
-                      "name": "offset",
-                      "orig": "offset",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "query",
-                      "orig": "query",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": 20,
-                      "kind": "query",
-                      "name": "row",
-                      "orig": "row",
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/funders",
@@ -194,6 +178,38 @@ def make_config():
                     "lit": "funders",
                   },
                 ],
+                "parts": [
+                  "funders",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "offset",
+                      "orig": "offset",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 0,
+                    },
+                    {
+                      "name": "query",
+                      "orig": "query",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "row",
+                      "orig": "row",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 20,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "offset",
@@ -201,27 +217,8 @@ def make_config():
                     "row",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "funders",
-                ],
               },
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": "100000001",
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/funders/{id}",
@@ -233,19 +230,32 @@ def make_config():
                     "var": "id",
                   },
                 ],
+                "parts": [
+                  "funders",
+                  "{id}",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "100000001",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "id",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "funders",
-                  "{id}",
-                ],
               },
             ],
           },
@@ -258,34 +268,42 @@ def make_config():
         "fields": [
           {
             "name": "ISSN",
+            "title": "Issn",
             "type": "`$ARRAY`",
           },
           {
             "name": "coverage",
+            "title": "Coverage",
             "type": "`$OBJECT`",
           },
           {
             "name": "id",
+            "title": "Id",
             "type": "`$STRING`",
           },
           {
             "name": "items",
+            "title": "Items",
             "type": "`$ARRAY`",
           },
           {
             "name": "itemsperpage",
+            "title": "Itemsperpage",
             "type": "`$INTEGER`",
           },
           {
             "name": "publisher",
+            "title": "Publisher",
             "type": "`$STRING`",
           },
           {
             "name": "title",
+            "title": "Title",
             "type": "`$STRING`",
           },
           {
             "name": "totalresults",
+            "title": "Totalresults",
             "type": "`$INTEGER`",
           },
         ],
@@ -300,30 +318,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": 0,
-                      "kind": "query",
-                      "name": "offset",
-                      "orig": "offset",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "query",
-                      "orig": "query",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": 20,
-                      "kind": "query",
-                      "name": "row",
-                      "orig": "row",
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/journals",
@@ -332,6 +326,38 @@ def make_config():
                     "lit": "journals",
                   },
                 ],
+                "parts": [
+                  "journals",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "offset",
+                      "orig": "offset",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 0,
+                    },
+                    {
+                      "name": "query",
+                      "orig": "query",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "row",
+                      "orig": "row",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 20,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "offset",
@@ -339,35 +365,11 @@ def make_config():
                     "row",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "journals",
-                ],
               },
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": "1476-4687",
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "issn",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/journals/{issn}",
-                "rename": {
-                  "param": {
-                    "issn": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "journals",
@@ -376,19 +378,36 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "id",
-                  ],
+                "parts": [
+                  "journals",
+                  "{id}",
+                ],
+                "rename": {
+                  "param": {
+                    "issn": "id",
+                  },
                 },
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
-                "parts": [
-                  "journals",
-                  "{id}",
-                ],
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "issn",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "1476-4687",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
               },
             ],
           },
@@ -401,34 +420,42 @@ def make_config():
         "fields": [
           {
             "name": "counts",
+            "title": "Counts",
             "type": "`$OBJECT`",
           },
           {
             "name": "id",
+            "title": "Id",
             "type": "`$INTEGER`",
           },
           {
             "name": "items",
+            "title": "Items",
             "type": "`$ARRAY`",
           },
           {
             "name": "itemsperpage",
+            "title": "Itemsperpage",
             "type": "`$INTEGER`",
           },
           {
             "name": "laststatuschecktime",
+            "title": "Laststatuschecktime",
             "type": "`$INTEGER`",
           },
           {
             "name": "location",
+            "title": "Location",
             "type": "`$STRING`",
           },
           {
             "name": "primaryname",
+            "title": "Primaryname",
             "type": "`$STRING`",
           },
           {
             "name": "totalresults",
+            "title": "Totalresults",
             "type": "`$INTEGER`",
           },
         ],
@@ -443,30 +470,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": 0,
-                      "kind": "query",
-                      "name": "offset",
-                      "orig": "offset",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "query",
-                      "orig": "query",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": 20,
-                      "kind": "query",
-                      "name": "row",
-                      "orig": "row",
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/members",
@@ -475,6 +478,38 @@ def make_config():
                     "lit": "members",
                   },
                 ],
+                "parts": [
+                  "members",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "offset",
+                      "orig": "offset",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 0,
+                    },
+                    {
+                      "name": "query",
+                      "orig": "query",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "row",
+                      "orig": "row",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 20,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "offset",
@@ -482,27 +517,8 @@ def make_config():
                     "row",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "members",
-                ],
               },
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": "311",
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/members/{id}",
@@ -514,19 +530,32 @@ def make_config():
                     "var": "id",
                   },
                 ],
+                "parts": [
+                  "members",
+                  "{id}",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "311",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "id",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "members",
-                  "{id}",
-                ],
               },
             ],
           },
@@ -539,14 +568,17 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
             "type": "`$STRING`",
           },
           {
             "name": "items",
+            "title": "Items",
             "type": "`$ARRAY`",
           },
           {
             "name": "label",
+            "title": "Label",
             "type": "`$STRING`",
           },
         ],
@@ -561,18 +593,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": "journal-article",
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/types/{id}",
@@ -584,22 +604,34 @@ def make_config():
                     "var": "id",
                   },
                 ],
+                "parts": [
+                  "types",
+                  "{id}",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "journal-article",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "id",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "types",
-                  "{id}",
-                ],
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/types",
@@ -608,14 +640,16 @@ def make_config():
                     "lit": "types",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "types",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.message`",
                 },
-                "parts": [
-                  "types",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -628,72 +662,89 @@ def make_config():
         "fields": [
           {
             "name": "DOI",
-            "short": "Digital Object Identifier",
+            "title": "Doi",
             "type": "`$STRING`",
+            "short": "Digital Object Identifier",
           },
           {
             "name": "ISSN",
+            "title": "Issn",
             "type": "`$ARRAY`",
           },
           {
             "name": "URL",
-            "short": "URL to the work",
+            "title": "Url",
             "type": "`$STRING`",
+            "short": "URL to the work",
           },
           {
             "name": "abstract",
+            "title": "Abstract",
             "type": "`$STRING`",
           },
           {
             "name": "author",
+            "title": "Author",
             "type": "`$ARRAY`",
           },
           {
             "name": "containertitle",
+            "title": "Containertitle",
             "type": "`$ARRAY`",
           },
           {
             "name": "id",
+            "title": "Id",
             "type": "`$STRING`",
           },
           {
             "name": "isreferencedbycount",
+            "title": "Isreferencedbycount",
             "type": "`$INTEGER`",
           },
           {
             "name": "items",
+            "title": "Items",
             "type": "`$ARRAY`",
           },
           {
             "name": "itemsperpage",
+            "title": "Itemsperpage",
             "type": "`$INTEGER`",
           },
           {
             "name": "published",
+            "title": "Published",
             "type": "`$OBJECT`",
           },
           {
             "name": "publisher",
+            "title": "Publisher",
             "type": "`$STRING`",
           },
           {
             "name": "query",
+            "title": "Query",
             "type": "`$OBJECT`",
           },
           {
             "name": "referencecount",
+            "title": "Referencecount",
             "type": "`$INTEGER`",
           },
           {
             "name": "title",
+            "title": "Title",
             "type": "`$ARRAY`",
           },
           {
             "name": "totalresults",
+            "title": "Totalresults",
             "type": "`$INTEGER`",
           },
           {
             "name": "type",
+            "title": "Type",
             "type": "`$STRING`",
           },
         ],
@@ -708,55 +759,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "filter",
-                      "orig": "filter",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "mailto",
-                      "orig": "mailto",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": 0,
-                      "kind": "query",
-                      "name": "offset",
-                      "orig": "offset",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": "desc",
-                      "kind": "query",
-                      "name": "order",
-                      "orig": "order",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "query",
-                      "orig": "query",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": 20,
-                      "kind": "query",
-                      "name": "row",
-                      "orig": "row",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "sort",
-                      "orig": "sort",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/works",
@@ -765,6 +767,63 @@ def make_config():
                     "lit": "works",
                   },
                 ],
+                "parts": [
+                  "works",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "filter",
+                      "orig": "filter",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "mailto",
+                      "orig": "mailto",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "offset",
+                      "orig": "offset",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 0,
+                    },
+                    {
+                      "name": "order",
+                      "orig": "order",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "desc",
+                    },
+                    {
+                      "name": "query",
+                      "orig": "query",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "row",
+                      "orig": "row",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 20,
+                    },
+                    {
+                      "name": "sort",
+                      "orig": "sort",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "filter",
@@ -776,50 +835,11 @@ def make_config():
                     "sort",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "works",
-                ],
               },
               {
-                "args": {
-                  "params": [
-                    {
-                      "kind": "param",
-                      "name": "funder_id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "example": 0,
-                      "kind": "query",
-                      "name": "offset",
-                      "orig": "offset",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": 20,
-                      "kind": "query",
-                      "name": "row",
-                      "orig": "row",
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/funders/{id}/works",
-                "rename": {
-                  "param": {
-                    "id": "funder_id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "funders",
@@ -831,6 +851,47 @@ def make_config():
                     "lit": "works",
                   },
                 ],
+                "parts": [
+                  "funders",
+                  "{funder_id}",
+                  "works",
+                ],
+                "rename": {
+                  "param": {
+                    "id": "funder_id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "funder_id",
+                      "orig": "id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "offset",
+                      "orig": "offset",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 0,
+                    },
+                    {
+                      "name": "row",
+                      "orig": "row",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 20,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "funder_id",
@@ -838,44 +899,8 @@ def make_config():
                     "row",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "funders",
-                  "{funder_id}",
-                  "works",
-                ],
               },
               {
-                "args": {
-                  "params": [
-                    {
-                      "kind": "param",
-                      "name": "issn",
-                      "orig": "issn",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "example": 0,
-                      "kind": "query",
-                      "name": "offset",
-                      "orig": "offset",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": 20,
-                      "kind": "query",
-                      "name": "row",
-                      "orig": "row",
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/journals/{issn}/works",
@@ -890,6 +915,43 @@ def make_config():
                     "lit": "works",
                   },
                 ],
+                "parts": [
+                  "journals",
+                  "{issn}",
+                  "works",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "issn",
+                      "orig": "issn",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "offset",
+                      "orig": "offset",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 0,
+                    },
+                    {
+                      "name": "row",
+                      "orig": "row",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 20,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "issn",
@@ -897,52 +959,11 @@ def make_config():
                     "row",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "journals",
-                  "{issn}",
-                  "works",
-                ],
               },
               {
-                "args": {
-                  "params": [
-                    {
-                      "kind": "param",
-                      "name": "member_id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "example": 0,
-                      "kind": "query",
-                      "name": "offset",
-                      "orig": "offset",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": 20,
-                      "kind": "query",
-                      "name": "row",
-                      "orig": "row",
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/members/{id}/works",
-                "rename": {
-                  "param": {
-                    "id": "member_id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "members",
@@ -954,6 +975,47 @@ def make_config():
                     "lit": "works",
                   },
                 ],
+                "parts": [
+                  "members",
+                  "{member_id}",
+                  "works",
+                ],
+                "rename": {
+                  "param": {
+                    "id": "member_id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "member_id",
+                      "orig": "id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "offset",
+                      "orig": "offset",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 0,
+                    },
+                    {
+                      "name": "row",
+                      "orig": "row",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 20,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "member_id",
@@ -961,52 +1023,11 @@ def make_config():
                     "row",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "members",
-                  "{member_id}",
-                  "works",
-                ],
               },
               {
-                "args": {
-                  "params": [
-                    {
-                      "kind": "param",
-                      "name": "type_id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "example": 0,
-                      "kind": "query",
-                      "name": "offset",
-                      "orig": "offset",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": 20,
-                      "kind": "query",
-                      "name": "row",
-                      "orig": "row",
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/types/{id}/works",
-                "rename": {
-                  "param": {
-                    "id": "type_id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "types",
@@ -1018,6 +1039,47 @@ def make_config():
                     "lit": "works",
                   },
                 ],
+                "parts": [
+                  "types",
+                  "{type_id}",
+                  "works",
+                ],
+                "rename": {
+                  "param": {
+                    "id": "type_id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "type_id",
+                      "orig": "id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "offset",
+                      "orig": "offset",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 0,
+                    },
+                    {
+                      "name": "row",
+                      "orig": "row",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 20,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "offset",
@@ -1025,45 +1087,11 @@ def make_config():
                     "type_id",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "types",
-                  "{type_id}",
-                  "works",
-                ],
               },
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": "10.1037/0003-066X.59.1.29",
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "doi",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "mailto",
-                      "orig": "mailto",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/works/{doi}",
-                "rename": {
-                  "param": {
-                    "doi": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "works",
@@ -1072,20 +1100,45 @@ def make_config():
                     "var": "id",
                   },
                 ],
+                "parts": [
+                  "works",
+                  "{id}",
+                ],
+                "rename": {
+                  "param": {
+                    "doi": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.message`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "doi",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "10.1037/0003-066X.59.1.29",
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "mailto",
+                      "orig": "mailto",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "id",
                     "mailto",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.message`",
-                },
-                "parts": [
-                  "works",
-                  "{id}",
-                ],
               },
             ],
           },
@@ -1093,16 +1146,16 @@ def make_config():
         "relations": {
           "ancestors": [
             [
-              "funder",
+              "$.main.kit.entity.funder",
             ],
             [
-              "journal",
+              "$.main.kit.entity.journal",
             ],
             [
-              "member",
+              "$.main.kit.entity.member",
             ],
             [
-              "type",
+              "$.main.kit.entity.type",
             ],
           ],
         },
