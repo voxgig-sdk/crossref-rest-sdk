@@ -164,14 +164,10 @@ const funder = client.Funder()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `altnames` | `any[]` | No |  |
 | `id` | `string` | No |  |
-| `items` | `any[]` | No |  |
-| `itemsperpage` | `number` | No |  |
-| `location` | `string` | No |  |
-| `name` | `string` | No |  |
-| `totalresults` | `number` | No |  |
-| `uri` | `string` | No |  |
+| `message` | `Record<string, any>` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -221,14 +217,10 @@ const journal = client.Journal()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ISSN` | `any[]` | No |  |
-| `coverage` | `Record<string, any>` | No |  |
 | `id` | `string` | No |  |
-| `items` | `any[]` | No |  |
-| `itemsperpage` | `number` | No |  |
-| `publisher` | `string` | No |  |
-| `title` | `string` | No |  |
-| `totalresults` | `number` | No |  |
+| `message` | `Record<string, any>` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -278,14 +270,10 @@ const member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `counts` | `Record<string, any>` | No |  |
-| `id` | `number` | No |  |
-| `items` | `any[]` | No |  |
-| `itemsperpage` | `number` | No |  |
-| `laststatuschecktime` | `number` | No |  |
-| `location` | `string` | No |  |
-| `primaryname` | `string` | No |  |
-| `totalresults` | `number` | No |  |
+| `id` | `string` | No |  |
+| `message` | `Record<string, any>` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -336,8 +324,9 @@ const type = client.Type()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `id` | `string` | No |  |
-| `items` | `any[]` | No |  |
-| `label` | `string` | No |  |
+| `message` | `Record<string, any>` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -387,23 +376,11 @@ const work = client.Work()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `DOI` | `string` | No | Digital Object Identifier |
-| `ISSN` | `any[]` | No |  |
-| `URL` | `string` | No | URL to the work |
-| `abstract` | `string` | No |  |
-| `author` | `any[]` | No |  |
-| `containertitle` | `any[]` | No |  |
 | `id` | `string` | No |  |
-| `isreferencedbycount` | `number` | No |  |
-| `items` | `any[]` | No |  |
-| `itemsperpage` | `number` | No |  |
-| `published` | `Record<string, any>` | No |  |
-| `publisher` | `string` | No |  |
-| `query` | `Record<string, any>` | No |  |
-| `referencecount` | `number` | No |  |
-| `title` | `any[]` | No |  |
-| `totalresults` | `number` | No |  |
-| `type` | `string` | No |  |
+| `message` | `Record<string, any>` | No |  |
+| `messagetype` | `string` | No |  |
+| `messageversion` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 

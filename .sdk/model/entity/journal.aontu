@@ -5,53 +5,29 @@ main: kit: entity: journal: {
   alias: field: {}
 
   fields: {
-    ISSN: {
-      h: "Issn"
-      n: "ISSN"
-      r: false
-      t: "`$ARRAY`"
-    }
-    coverage: {
-      h: "Coverage"
-      n: "coverage"
-      r: false
-      t: "`$OBJECT`"
-    }
     id: {
       h: "Id"
       n: "id"
       r: false
       t: "`$STRING`"
     }
-    items: {
-      h: "Items"
-      n: "items"
+    message: {
+      h: "Message"
+      n: "message"
       r: false
-      t: "`$ARRAY`"
+      t: "`$OBJECT`"
     }
-    itemsperpage: {
-      h: "Itemsperpage"
-      n: "itemsperpage"
-      r: false
-      t: "`$INTEGER`"
-    }
-    publisher: {
-      h: "Publisher"
-      n: "publisher"
+    messagetype: {
+      h: "Messagetype"
+      n: "messagetype"
       r: false
       t: "`$STRING`"
     }
-    title: {
-      h: "Title"
-      n: "title"
+    status: {
+      h: "Status"
+      n: "status"
       r: false
       t: "`$STRING`"
-    }
-    totalresults: {
-      h: "Totalresults"
-      n: "totalresults"
-      r: false
-      t: "`$INTEGER`"
     }
   }
 
@@ -92,7 +68,7 @@ main: kit: entity: journal: {
                 ex: 20
                 k: "query"
                 n: "row"
-                or: "row"
+                or: "rows"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -114,7 +90,7 @@ main: kit: entity: journal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
         {
@@ -157,7 +133,7 @@ main: kit: entity: journal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
       ]

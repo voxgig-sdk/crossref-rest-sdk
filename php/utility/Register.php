@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 CrossrefRestUtility::setRegistrar(function (CrossrefRestUtility $u): void {
     $u->clean = [CrossrefRestClean::class, 'call'];
+    $u->clean_add = [CrossrefRestClean::class, 'add'];
+    $u->clean_explain = [CrossrefRestDone::class, 'clean_explain'];
     $u->done = [CrossrefRestDone::class, 'call'];
     $u->make_error = [CrossrefRestMakeError::class, 'call'];
     $u->feature_add = [CrossrefRestFeatureAdd::class, 'call'];

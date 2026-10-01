@@ -2,47 +2,31 @@
   "existing": {
     "funder": {
       "FUNDER00": {
-        "altnames": [],
         "id": "FUNDER00",
-        "items": [],
-        "itemsperpage": 83,
-        "location": "s54",
-        "name": "s55",
-        "totalresults": 86,
-        "uri": "s57"
+        "message": {},
+        "messagetype": "s2a",
+        "status": "s2b"
       },
       "FUNDER01": {
-        "altnames": [],
         "id": "FUNDER01",
-        "items": [],
-        "itemsperpage": 163,
-        "location": "sa4",
-        "name": "sa5",
-        "totalresults": 166,
-        "uri": "sa7"
+        "message": {},
+        "messagetype": "s52",
+        "status": "s53"
       },
       "FUNDER02": {
-        "altnames": [],
         "id": "FUNDER02",
-        "items": [],
-        "itemsperpage": 243,
-        "location": "sf4",
-        "name": "sf5",
-        "totalresults": 246,
-        "uri": "sf7"
+        "message": {},
+        "messagetype": "s7a",
+        "status": "s7b"
       }
     }
   },
   "new": {
     "funder": {
       "funder_ref01": {
-        "altnames": [],
-        "items": [],
-        "itemsperpage": 323,
-        "location": "s144",
-        "name": "s145",
-        "totalresults": 326,
-        "uri": "s147"
+        "message": {},
+        "messagetype": "sa2",
+        "status": "sa3"
       }
     }
   },

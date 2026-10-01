@@ -229,14 +229,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `altnames` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `location` |  |
-| `name` |  |
-| `totalresults` |  |
-| `uri` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -246,14 +242,10 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `ISSN` |  |
-| `coverage` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `publisher` |  |
-| `title` |  |
-| `totalresults` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -263,14 +255,10 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `counts` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `laststatuschecktime` |  |
-| `location` |  |
-| `primaryname` |  |
-| `totalresults` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -281,8 +269,9 @@ API path: `/members`
 | Field | Description |
 | --- | --- |
 | `id` |  |
-| `items` |  |
-| `label` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -292,23 +281,11 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `DOI` | Digital Object Identifier |
-| `ISSN` |  |
-| `URL` | URL to the work |
-| `abstract` |  |
-| `author` |  |
-| `containertitle` |  |
 | `id` |  |
-| `isreferencedbycount` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `published` |  |
-| `publisher` |  |
-| `query` |  |
-| `referencecount` |  |
-| `title` |  |
-| `totalresults` |  |
-| `type` |  |
+| `message` |  |
+| `messagetype` |  |
+| `messageversion` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -333,14 +310,10 @@ Create an instance: `local funder = client:Funder(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `altnames` | `table` |  |
 | `id` | `string` |  |
-| `items` | `table` |  |
-| `itemsperpage` | `number` |  |
-| `location` | `string` |  |
-| `name` | `string` |  |
-| `totalresults` | `number` |  |
-| `uri` | `string` |  |
+| `message` | `table` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -363,14 +336,10 @@ Create an instance: `local journal = client:Journal(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ISSN` | `table` |  |
-| `coverage` | `table` |  |
 | `id` | `string` |  |
-| `items` | `table` |  |
-| `itemsperpage` | `number` |  |
-| `publisher` | `string` |  |
-| `title` | `string` |  |
-| `totalresults` | `number` |  |
+| `message` | `table` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -393,14 +362,10 @@ Create an instance: `local member = client:Member(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `counts` | `table` |  |
-| `id` | `number` |  |
-| `items` | `table` |  |
-| `itemsperpage` | `number` |  |
-| `laststatuschecktime` | `number` |  |
-| `location` | `string` |  |
-| `primaryname` | `string` |  |
-| `totalresults` | `number` |  |
+| `id` | `string` |  |
+| `message` | `table` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -424,8 +389,9 @@ Create an instance: `local type = client:Type(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `id` | `string` |  |
-| `items` | `table` |  |
-| `label` | `string` |  |
+| `message` | `table` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -448,23 +414,11 @@ Create an instance: `local work = client:Work(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `string` | Digital Object Identifier |
-| `ISSN` | `table` |  |
-| `URL` | `string` | URL to the work |
-| `abstract` | `string` |  |
-| `author` | `table` |  |
-| `containertitle` | `table` |  |
 | `id` | `string` |  |
-| `isreferencedbycount` | `number` |  |
-| `items` | `table` |  |
-| `itemsperpage` | `number` |  |
-| `published` | `table` |  |
-| `publisher` | `string` |  |
-| `query` | `table` |  |
-| `referencecount` | `number` |  |
-| `title` | `table` |  |
-| `totalresults` | `number` |  |
-| `type` | `string` |  |
+| `message` | `table` |  |
+| `messagetype` | `string` |  |
+| `messageversion` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 

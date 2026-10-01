@@ -262,14 +262,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"altnames"` |  |
 | `"id"` |  |
-| `"items"` |  |
-| `"itemsperpage"` |  |
-| `"location"` |  |
-| `"name"` |  |
-| `"totalresults"` |  |
-| `"uri"` |  |
+| `"message"` |  |
+| `"messagetype"` |  |
+| `"status"` |  |
 
 Operations: Load.
 
@@ -279,14 +275,10 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `"ISSN"` |  |
-| `"coverage"` |  |
 | `"id"` |  |
-| `"items"` |  |
-| `"itemsperpage"` |  |
-| `"publisher"` |  |
-| `"title"` |  |
-| `"totalresults"` |  |
+| `"message"` |  |
+| `"messagetype"` |  |
+| `"status"` |  |
 
 Operations: Load.
 
@@ -296,14 +288,10 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `"counts"` |  |
 | `"id"` |  |
-| `"items"` |  |
-| `"itemsperpage"` |  |
-| `"laststatuschecktime"` |  |
-| `"location"` |  |
-| `"primaryname"` |  |
-| `"totalresults"` |  |
+| `"message"` |  |
+| `"messagetype"` |  |
+| `"status"` |  |
 
 Operations: Load.
 
@@ -314,8 +302,9 @@ API path: `/members`
 | Field | Description |
 | --- | --- |
 | `"id"` |  |
-| `"items"` |  |
-| `"label"` |  |
+| `"message"` |  |
+| `"messagetype"` |  |
+| `"status"` |  |
 
 Operations: Load.
 
@@ -325,23 +314,11 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `"DOI"` | Digital Object Identifier |
-| `"ISSN"` |  |
-| `"URL"` | URL to the work |
-| `"abstract"` |  |
-| `"author"` |  |
-| `"containertitle"` |  |
 | `"id"` |  |
-| `"isreferencedbycount"` |  |
-| `"items"` |  |
-| `"itemsperpage"` |  |
-| `"published"` |  |
-| `"publisher"` |  |
-| `"query"` |  |
-| `"referencecount"` |  |
-| `"title"` |  |
-| `"totalresults"` |  |
-| `"type"` |  |
+| `"message"` |  |
+| `"messagetype"` |  |
+| `"messageversion"` |  |
+| `"status"` |  |
 
 Operations: Load.
 
@@ -366,14 +343,10 @@ Create an instance: `funder := client.Funder(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `altnames` | `[]any` |  |
 | `id` | `string` |  |
-| `items` | `[]any` |  |
-| `itemsperpage` | `int` |  |
-| `location` | `string` |  |
-| `name` | `string` |  |
-| `totalresults` | `int` |  |
-| `uri` | `string` |  |
+| `message` | `map[string]any` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -400,14 +373,10 @@ Create an instance: `journal := client.Journal(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ISSN` | `[]any` |  |
-| `coverage` | `map[string]any` |  |
 | `id` | `string` |  |
-| `items` | `[]any` |  |
-| `itemsperpage` | `int` |  |
-| `publisher` | `string` |  |
-| `title` | `string` |  |
-| `totalresults` | `int` |  |
+| `message` | `map[string]any` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -434,14 +403,10 @@ Create an instance: `member := client.Member(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `counts` | `map[string]any` |  |
-| `id` | `int` |  |
-| `items` | `[]any` |  |
-| `itemsperpage` | `int` |  |
-| `laststatuschecktime` | `int` |  |
-| `location` | `string` |  |
-| `primaryname` | `string` |  |
-| `totalresults` | `int` |  |
+| `id` | `string` |  |
+| `message` | `map[string]any` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -469,8 +434,9 @@ Create an instance: `type_ := client.Type(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `id` | `string` |  |
-| `items` | `[]any` |  |
-| `label` | `string` |  |
+| `message` | `map[string]any` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -497,23 +463,11 @@ Create an instance: `work := client.Work(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `string` | Digital Object Identifier |
-| `ISSN` | `[]any` |  |
-| `URL` | `string` | URL to the work |
-| `abstract` | `string` |  |
-| `author` | `[]any` |  |
-| `containertitle` | `[]any` |  |
 | `id` | `string` |  |
-| `isreferencedbycount` | `int` |  |
-| `items` | `[]any` |  |
-| `itemsperpage` | `int` |  |
-| `published` | `map[string]any` |  |
-| `publisher` | `string` |  |
-| `query` | `map[string]any` |  |
-| `referencecount` | `int` |  |
-| `title` | `[]any` |  |
-| `totalresults` | `int` |  |
-| `type` | `string` |  |
+| `message` | `map[string]any` |  |
+| `messagetype` | `string` |  |
+| `messageversion` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 

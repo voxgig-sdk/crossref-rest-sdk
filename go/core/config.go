@@ -94,43 +94,23 @@ func MakeConfig() map[string]any {
 			"funder": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "altnames",
-						"title": "Altnames",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
 						"name": "id",
 						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "items",
-						"title": "Items",
-						"type": "`$ARRAY`",
+						"name": "message",
+						"title": "Message",
+						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "itemsperpage",
-						"title": "Itemsperpage",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "location",
-						"title": "Location",
+						"name": "messagetype",
+						"title": "Messagetype",
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "name",
-						"title": "Name",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "totalresults",
-						"title": "Totalresults",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "uri",
-						"title": "Uri",
+						"name": "status",
+						"title": "Status",
 						"type": "`$STRING`",
 					},
 				},
@@ -159,7 +139,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -178,7 +158,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "row",
-											"orig": "row",
+											"orig": "rows",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 20,
@@ -212,7 +192,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -242,44 +222,24 @@ func MakeConfig() map[string]any {
 			"journal": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "ISSN",
-						"title": "Issn",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "coverage",
-						"title": "Coverage",
-						"type": "`$OBJECT`",
-					},
-					map[string]any{
 						"name": "id",
 						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "items",
-						"title": "Items",
-						"type": "`$ARRAY`",
+						"name": "message",
+						"title": "Message",
+						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "itemsperpage",
-						"title": "Itemsperpage",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "publisher",
-						"title": "Publisher",
+						"name": "messagetype",
+						"title": "Messagetype",
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "title",
-						"title": "Title",
+						"name": "status",
+						"title": "Status",
 						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "totalresults",
-						"title": "Totalresults",
-						"type": "`$INTEGER`",
 					},
 				},
 				"id": map[string]any{
@@ -307,7 +267,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -326,7 +286,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "row",
-											"orig": "row",
+											"orig": "rows",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 20,
@@ -364,7 +324,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -394,44 +354,24 @@ func MakeConfig() map[string]any {
 			"member": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "counts",
-						"title": "Counts",
+						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
+					},
+					map[string]any{
+						"name": "message",
+						"title": "Message",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "id",
-						"title": "Id",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "items",
-						"title": "Items",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "itemsperpage",
-						"title": "Itemsperpage",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "laststatuschecktime",
-						"title": "Laststatuschecktime",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "location",
-						"title": "Location",
+						"name": "messagetype",
+						"title": "Messagetype",
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "primaryname",
-						"title": "Primaryname",
+						"name": "status",
+						"title": "Status",
 						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "totalresults",
-						"title": "Totalresults",
-						"type": "`$INTEGER`",
 					},
 				},
 				"id": map[string]any{
@@ -459,7 +399,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -478,7 +418,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "row",
-											"orig": "row",
+											"orig": "rows",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 20,
@@ -512,7 +452,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -547,13 +487,18 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "items",
-						"title": "Items",
-						"type": "`$ARRAY`",
+						"name": "message",
+						"title": "Message",
+						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "label",
-						"title": "Label",
+						"name": "messagetype",
+						"title": "Messagetype",
+						"type": "`$STRING`",
+					},
+					map[string]any{
+						"name": "status",
+						"title": "Status",
 						"type": "`$STRING`",
 					},
 				},
@@ -586,7 +531,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -621,7 +566,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{},
@@ -636,90 +581,28 @@ func MakeConfig() map[string]any {
 			"work": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "DOI",
-						"title": "Doi",
-						"type": "`$STRING`",
-						"short": "Digital Object Identifier",
-					},
-					map[string]any{
-						"name": "ISSN",
-						"title": "Issn",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "URL",
-						"title": "Url",
-						"type": "`$STRING`",
-						"short": "URL to the work",
-					},
-					map[string]any{
-						"name": "abstract",
-						"title": "Abstract",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "author",
-						"title": "Author",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "containertitle",
-						"title": "Containertitle",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
 						"name": "id",
 						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "isreferencedbycount",
-						"title": "Isreferencedbycount",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "items",
-						"title": "Items",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "itemsperpage",
-						"title": "Itemsperpage",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "published",
-						"title": "Published",
+						"name": "message",
+						"title": "Message",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "publisher",
-						"title": "Publisher",
+						"name": "messagetype",
+						"title": "Messagetype",
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "query",
-						"title": "Query",
-						"type": "`$OBJECT`",
+						"name": "messageversion",
+						"title": "Messageversion",
+						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "referencecount",
-						"title": "Referencecount",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "title",
-						"title": "Title",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "totalresults",
-						"title": "Totalresults",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "type",
-						"title": "Type",
+						"name": "status",
+						"title": "Status",
 						"type": "`$STRING`",
 					},
 				},
@@ -748,7 +631,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -786,7 +669,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "row",
-											"orig": "row",
+											"orig": "rows",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 20,
@@ -838,7 +721,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -860,7 +743,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "row",
-											"orig": "row",
+											"orig": "rows",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 20,
@@ -898,7 +781,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -920,7 +803,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "row",
-											"orig": "row",
+											"orig": "rows",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 20,
@@ -962,7 +845,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -984,7 +867,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "row",
-											"orig": "row",
+											"orig": "rows",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 20,
@@ -1026,7 +909,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -1048,7 +931,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "row",
-											"orig": "row",
+											"orig": "rows",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 20,
@@ -1086,7 +969,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.message`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{

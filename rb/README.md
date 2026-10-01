@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/crossref-rest-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/crossref-rest-sdk/releases](https://github.com/voxgig-sdk/crossref-rest-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/crossref-rest-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-crossref-rest-sdk", path: "./crossref-rest-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
@@ -242,14 +251,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `altnames` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `location` |  |
-| `name` |  |
-| `totalresults` |  |
-| `uri` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -259,14 +264,10 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `ISSN` |  |
-| `coverage` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `publisher` |  |
-| `title` |  |
-| `totalresults` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -276,14 +277,10 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `counts` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `laststatuschecktime` |  |
-| `location` |  |
-| `primaryname` |  |
-| `totalresults` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -294,8 +291,9 @@ API path: `/members`
 | Field | Description |
 | --- | --- |
 | `id` |  |
-| `items` |  |
-| `label` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -305,23 +303,11 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `DOI` | Digital Object Identifier |
-| `ISSN` |  |
-| `URL` | URL to the work |
-| `abstract` |  |
-| `author` |  |
-| `containertitle` |  |
 | `id` |  |
-| `isreferencedbycount` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `published` |  |
-| `publisher` |  |
-| `query` |  |
-| `referencecount` |  |
-| `title` |  |
-| `totalresults` |  |
-| `type` |  |
+| `message` |  |
+| `messagetype` |  |
+| `messageversion` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -346,14 +332,10 @@ Create an instance: `funder = client.Funder`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `altnames` | `Array` |  |
 | `id` | `String` |  |
-| `items` | `Array` |  |
-| `itemsperpage` | `Integer` |  |
-| `location` | `String` |  |
-| `name` | `String` |  |
-| `totalresults` | `Integer` |  |
-| `uri` | `String` |  |
+| `message` | `Hash` |  |
+| `messagetype` | `String` |  |
+| `status` | `String` |  |
 
 #### Example: Load
 
@@ -377,14 +359,10 @@ Create an instance: `journal = client.Journal`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ISSN` | `Array` |  |
-| `coverage` | `Hash` |  |
 | `id` | `String` |  |
-| `items` | `Array` |  |
-| `itemsperpage` | `Integer` |  |
-| `publisher` | `String` |  |
-| `title` | `String` |  |
-| `totalresults` | `Integer` |  |
+| `message` | `Hash` |  |
+| `messagetype` | `String` |  |
+| `status` | `String` |  |
 
 #### Example: Load
 
@@ -408,14 +386,10 @@ Create an instance: `member = client.Member`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `counts` | `Hash` |  |
-| `id` | `Integer` |  |
-| `items` | `Array` |  |
-| `itemsperpage` | `Integer` |  |
-| `laststatuschecktime` | `Integer` |  |
-| `location` | `String` |  |
-| `primaryname` | `String` |  |
-| `totalresults` | `Integer` |  |
+| `id` | `String` |  |
+| `message` | `Hash` |  |
+| `messagetype` | `String` |  |
+| `status` | `String` |  |
 
 #### Example: Load
 
@@ -440,8 +414,9 @@ Create an instance: `type = client.Type`
 | Field | Type | Description |
 | --- | --- | --- |
 | `id` | `String` |  |
-| `items` | `Array` |  |
-| `label` | `String` |  |
+| `message` | `Hash` |  |
+| `messagetype` | `String` |  |
+| `status` | `String` |  |
 
 #### Example: Load
 
@@ -465,23 +440,11 @@ Create an instance: `work = client.Work`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `String` | Digital Object Identifier |
-| `ISSN` | `Array` |  |
-| `URL` | `String` | URL to the work |
-| `abstract` | `String` |  |
-| `author` | `Array` |  |
-| `containertitle` | `Array` |  |
 | `id` | `String` |  |
-| `isreferencedbycount` | `Integer` |  |
-| `items` | `Array` |  |
-| `itemsperpage` | `Integer` |  |
-| `published` | `Hash` |  |
-| `publisher` | `String` |  |
-| `query` | `Hash` |  |
-| `referencecount` | `Integer` |  |
-| `title` | `Array` |  |
-| `totalresults` | `Integer` |  |
-| `type` | `String` |  |
+| `message` | `Hash` |  |
+| `messagetype` | `String` |  |
+| `messageversion` | `String` |  |
+| `status` | `String` |  |
 
 #### Example: Load
 

@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/crossref-rest-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/crossref-rest-sdk/releases](https://github.com/voxgig-sdk/crossref-rest-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/crossref-rest-sdk
+composer config repositories.crossref-rest-sdk path ./crossref-rest-sdk/php
+composer require voxgig-sdk/crossref-rest-sdk:@dev
+```
 
 
 ## Tutorial: your first API call
@@ -252,14 +257,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `altnames` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `location` |  |
-| `name` |  |
-| `totalresults` |  |
-| `uri` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -269,14 +270,10 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `ISSN` |  |
-| `coverage` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `publisher` |  |
-| `title` |  |
-| `totalresults` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -286,14 +283,10 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `counts` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `laststatuschecktime` |  |
-| `location` |  |
-| `primaryname` |  |
-| `totalresults` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -304,8 +297,9 @@ API path: `/members`
 | Field | Description |
 | --- | --- |
 | `id` |  |
-| `items` |  |
-| `label` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -315,23 +309,11 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `DOI` | Digital Object Identifier |
-| `ISSN` |  |
-| `URL` | URL to the work |
-| `abstract` |  |
-| `author` |  |
-| `containertitle` |  |
 | `id` |  |
-| `isreferencedbycount` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `published` |  |
-| `publisher` |  |
-| `query` |  |
-| `referencecount` |  |
-| `title` |  |
-| `totalresults` |  |
-| `type` |  |
+| `message` |  |
+| `messagetype` |  |
+| `messageversion` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -356,14 +338,10 @@ Create an instance: `$funder = $client->Funder();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `altnames` | `array` |  |
 | `id` | `string` |  |
-| `items` | `array` |  |
-| `itemsperpage` | `int` |  |
-| `location` | `string` |  |
-| `name` | `string` |  |
-| `totalresults` | `int` |  |
-| `uri` | `string` |  |
+| `message` | `array` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -387,14 +365,10 @@ Create an instance: `$journal = $client->Journal();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ISSN` | `array` |  |
-| `coverage` | `array` |  |
 | `id` | `string` |  |
-| `items` | `array` |  |
-| `itemsperpage` | `int` |  |
-| `publisher` | `string` |  |
-| `title` | `string` |  |
-| `totalresults` | `int` |  |
+| `message` | `array` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -418,14 +392,10 @@ Create an instance: `$member = $client->Member();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `counts` | `array` |  |
-| `id` | `int` |  |
-| `items` | `array` |  |
-| `itemsperpage` | `int` |  |
-| `laststatuschecktime` | `int` |  |
-| `location` | `string` |  |
-| `primaryname` | `string` |  |
-| `totalresults` | `int` |  |
+| `id` | `string` |  |
+| `message` | `array` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -450,8 +420,9 @@ Create an instance: `$type = $client->Type();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `id` | `string` |  |
-| `items` | `array` |  |
-| `label` | `string` |  |
+| `message` | `array` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -475,23 +446,11 @@ Create an instance: `$work = $client->Work();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `string` | Digital Object Identifier |
-| `ISSN` | `array` |  |
-| `URL` | `string` | URL to the work |
-| `abstract` | `string` |  |
-| `author` | `array` |  |
-| `containertitle` | `array` |  |
 | `id` | `string` |  |
-| `isreferencedbycount` | `int` |  |
-| `items` | `array` |  |
-| `itemsperpage` | `int` |  |
-| `published` | `array` |  |
-| `publisher` | `string` |  |
-| `query` | `array` |  |
-| `referencecount` | `int` |  |
-| `title` | `array` |  |
-| `totalresults` | `int` |  |
-| `type` | `string` |  |
+| `message` | `array` |  |
+| `messagetype` | `string` |  |
+| `messageversion` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 

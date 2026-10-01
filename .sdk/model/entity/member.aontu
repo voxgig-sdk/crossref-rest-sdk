@@ -5,53 +5,29 @@ main: kit: entity: member: {
   alias: field: {}
 
   fields: {
-    counts: {
-      h: "Counts"
-      n: "counts"
-      r: false
-      t: "`$OBJECT`"
-    }
     id: {
       h: "Id"
       n: "id"
       r: false
-      t: "`$INTEGER`"
+      t: "`$STRING`"
     }
-    items: {
-      h: "Items"
-      n: "items"
+    message: {
+      h: "Message"
+      n: "message"
       r: false
-      t: "`$ARRAY`"
+      t: "`$OBJECT`"
     }
-    itemsperpage: {
-      h: "Itemsperpage"
-      n: "itemsperpage"
-      r: false
-      t: "`$INTEGER`"
-    }
-    laststatuschecktime: {
-      h: "Laststatuschecktime"
-      n: "laststatuschecktime"
-      r: false
-      t: "`$INTEGER`"
-    }
-    location: {
-      h: "Location"
-      n: "location"
+    messagetype: {
+      h: "Messagetype"
+      n: "messagetype"
       r: false
       t: "`$STRING`"
     }
-    primaryname: {
-      h: "Primaryname"
-      n: "primaryname"
+    status: {
+      h: "Status"
+      n: "status"
       r: false
       t: "`$STRING`"
-    }
-    totalresults: {
-      h: "Totalresults"
-      n: "totalresults"
-      r: false
-      t: "`$INTEGER`"
     }
   }
 
@@ -92,7 +68,7 @@ main: kit: entity: member: {
                 ex: 20
                 k: "query"
                 n: "row"
-                or: "row"
+                or: "rows"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -114,7 +90,7 @@ main: kit: entity: member: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
         {
@@ -152,7 +128,7 @@ main: kit: entity: member: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
       ]

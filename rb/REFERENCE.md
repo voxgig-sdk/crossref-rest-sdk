@@ -109,14 +109,10 @@ funder = client.Funder
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `altnames` | `Array` | No |  |
 | `id` | `String` | No |  |
-| `items` | `Array` | No |  |
-| `itemsperpage` | `Integer` | No |  |
-| `location` | `String` | No |  |
-| `name` | `String` | No |  |
-| `totalresults` | `Integer` | No |  |
-| `uri` | `String` | No |  |
+| `message` | `Hash` | No |  |
+| `messagetype` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
@@ -168,14 +164,10 @@ journal = client.Journal
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ISSN` | `Array` | No |  |
-| `coverage` | `Hash` | No |  |
 | `id` | `String` | No |  |
-| `items` | `Array` | No |  |
-| `itemsperpage` | `Integer` | No |  |
-| `publisher` | `String` | No |  |
-| `title` | `String` | No |  |
-| `totalresults` | `Integer` | No |  |
+| `message` | `Hash` | No |  |
+| `messagetype` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
@@ -227,14 +219,10 @@ member = client.Member
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `counts` | `Hash` | No |  |
-| `id` | `Integer` | No |  |
-| `items` | `Array` | No |  |
-| `itemsperpage` | `Integer` | No |  |
-| `laststatuschecktime` | `Integer` | No |  |
-| `location` | `String` | No |  |
-| `primaryname` | `String` | No |  |
-| `totalresults` | `Integer` | No |  |
+| `id` | `String` | No |  |
+| `message` | `Hash` | No |  |
+| `messagetype` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
@@ -287,8 +275,9 @@ type = client.Type
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `id` | `String` | No |  |
-| `items` | `Array` | No |  |
-| `label` | `String` | No |  |
+| `message` | `Hash` | No |  |
+| `messagetype` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
@@ -340,23 +329,11 @@ work = client.Work
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `DOI` | `String` | No | Digital Object Identifier |
-| `ISSN` | `Array` | No |  |
-| `URL` | `String` | No | URL to the work |
-| `abstract` | `String` | No |  |
-| `author` | `Array` | No |  |
-| `containertitle` | `Array` | No |  |
 | `id` | `String` | No |  |
-| `isreferencedbycount` | `Integer` | No |  |
-| `items` | `Array` | No |  |
-| `itemsperpage` | `Integer` | No |  |
-| `published` | `Hash` | No |  |
-| `publisher` | `String` | No |  |
-| `query` | `Hash` | No |  |
-| `referencecount` | `Integer` | No |  |
-| `title` | `Array` | No |  |
-| `totalresults` | `Integer` | No |  |
-| `type` | `String` | No |  |
+| `message` | `Hash` | No |  |
+| `messagetype` | `String` | No |  |
+| `messageversion` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 

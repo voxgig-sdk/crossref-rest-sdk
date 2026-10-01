@@ -10,38 +10,22 @@
 
 # Funder entity data model.
 #
-# @!attribute [rw] altnames
-#   @return [Array, nil]
-#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] items
-#   @return [Array, nil]
+# @!attribute [rw] message
+#   @return [Hash, nil]
 #
-# @!attribute [rw] itemsperpage
-#   @return [Integer, nil]
-#
-# @!attribute [rw] location
+# @!attribute [rw] messagetype
 #   @return [String, nil]
 #
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] totalresults
-#   @return [Integer, nil]
-#
-# @!attribute [rw] uri
+# @!attribute [rw] status
 #   @return [String, nil]
 Funder = Struct.new(
-  :altnames,
   :id,
-  :items,
-  :itemsperpage,
-  :location,
-  :name,
-  :totalresults,
-  :uri,
+  :message,
+  :messagetype,
+  :status,
   keyword_init: true
 )
 
@@ -56,38 +40,22 @@ FunderLoadMatch = Struct.new(
 
 # Journal entity data model.
 #
-# @!attribute [rw] ISSN
-#   @return [Array, nil]
-#
-# @!attribute [rw] coverage
-#   @return [Hash, nil]
-#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] items
-#   @return [Array, nil]
+# @!attribute [rw] message
+#   @return [Hash, nil]
 #
-# @!attribute [rw] itemsperpage
-#   @return [Integer, nil]
-#
-# @!attribute [rw] publisher
+# @!attribute [rw] messagetype
 #   @return [String, nil]
 #
-# @!attribute [rw] title
+# @!attribute [rw] status
 #   @return [String, nil]
-#
-# @!attribute [rw] totalresults
-#   @return [Integer, nil]
 Journal = Struct.new(
-  :ISSN,
-  :coverage,
   :id,
-  :items,
-  :itemsperpage,
-  :publisher,
-  :title,
-  :totalresults,
+  :message,
+  :messagetype,
+  :status,
   keyword_init: true
 )
 
@@ -102,38 +70,22 @@ JournalLoadMatch = Struct.new(
 
 # Member entity data model.
 #
-# @!attribute [rw] counts
+# @!attribute [rw] id
+#   @return [String, nil]
+#
+# @!attribute [rw] message
 #   @return [Hash, nil]
 #
-# @!attribute [rw] id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] items
-#   @return [Array, nil]
-#
-# @!attribute [rw] itemsperpage
-#   @return [Integer, nil]
-#
-# @!attribute [rw] laststatuschecktime
-#   @return [Integer, nil]
-#
-# @!attribute [rw] location
+# @!attribute [rw] messagetype
 #   @return [String, nil]
 #
-# @!attribute [rw] primaryname
+# @!attribute [rw] status
 #   @return [String, nil]
-#
-# @!attribute [rw] totalresults
-#   @return [Integer, nil]
 Member = Struct.new(
-  :counts,
   :id,
-  :items,
-  :itemsperpage,
-  :laststatuschecktime,
-  :location,
-  :primaryname,
-  :totalresults,
+  :message,
+  :messagetype,
+  :status,
   keyword_init: true
 )
 
@@ -151,15 +103,19 @@ MemberLoadMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] items
-#   @return [Array, nil]
+# @!attribute [rw] message
+#   @return [Hash, nil]
 #
-# @!attribute [rw] label
+# @!attribute [rw] messagetype
+#   @return [String, nil]
+#
+# @!attribute [rw] status
 #   @return [String, nil]
 Type = Struct.new(
   :id,
-  :items,
-  :label,
+  :message,
+  :messagetype,
+  :status,
   keyword_init: true
 )
 
@@ -174,74 +130,26 @@ TypeLoadMatch = Struct.new(
 
 # Work entity data model.
 #
-# @!attribute [rw] DOI
-#   @return [String, nil]
-#
-# @!attribute [rw] ISSN
-#   @return [Array, nil]
-#
-# @!attribute [rw] URL
-#   @return [String, nil]
-#
-# @!attribute [rw] abstract
-#   @return [String, nil]
-#
-# @!attribute [rw] author
-#   @return [Array, nil]
-#
-# @!attribute [rw] containertitle
-#   @return [Array, nil]
-#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] isreferencedbycount
-#   @return [Integer, nil]
-#
-# @!attribute [rw] items
-#   @return [Array, nil]
-#
-# @!attribute [rw] itemsperpage
-#   @return [Integer, nil]
-#
-# @!attribute [rw] published
+# @!attribute [rw] message
 #   @return [Hash, nil]
 #
-# @!attribute [rw] publisher
+# @!attribute [rw] messagetype
 #   @return [String, nil]
 #
-# @!attribute [rw] query
-#   @return [Hash, nil]
+# @!attribute [rw] messageversion
+#   @return [String, nil]
 #
-# @!attribute [rw] referencecount
-#   @return [Integer, nil]
-#
-# @!attribute [rw] title
-#   @return [Array, nil]
-#
-# @!attribute [rw] totalresults
-#   @return [Integer, nil]
-#
-# @!attribute [rw] type
+# @!attribute [rw] status
 #   @return [String, nil]
 Work = Struct.new(
-  :DOI,
-  :ISSN,
-  :URL,
-  :abstract,
-  :author,
-  :containertitle,
   :id,
-  :isreferencedbycount,
-  :items,
-  :itemsperpage,
-  :published,
-  :publisher,
-  :query,
-  :referencecount,
-  :title,
-  :totalresults,
-  :type,
+  :message,
+  :messagetype,
+  :messageversion,
+  :status,
   keyword_init: true
 )
 

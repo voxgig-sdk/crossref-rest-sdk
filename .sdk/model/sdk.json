@@ -97,13 +97,6 @@
             "field": {}
           },
           "fields": {
-            "altnames": {
-              "a": true,
-              "h": "Altnames",
-              "n": "altnames",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
             "id": {
               "a": true,
               "h": "Id",
@@ -111,45 +104,24 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "items": {
+            "message": {
               "a": true,
-              "h": "Items",
-              "n": "items",
+              "h": "Message",
+              "n": "message",
               "r": false,
-              "t": "`$ARRAY`"
+              "t": "`$OBJECT`"
             },
-            "itemsperpage": {
+            "messagetype": {
               "a": true,
-              "h": "Itemsperpage",
-              "n": "itemsperpage",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "location": {
-              "a": true,
-              "h": "Location",
-              "n": "location",
+              "h": "Messagetype",
+              "n": "messagetype",
               "r": false,
               "t": "`$STRING`"
             },
-            "name": {
+            "status": {
               "a": true,
-              "h": "Name",
-              "n": "name",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "totalresults": {
-              "a": true,
-              "h": "Totalresults",
-              "n": "totalresults",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "uri": {
-              "a": true,
-              "h": "Uri",
-              "n": "uri",
+              "h": "Status",
+              "n": "status",
               "r": false,
               "t": "`$STRING`"
             }
@@ -195,7 +167,7 @@
                         "ex": 20,
                         "k": "query",
                         "n": "row",
-                        "or": "row",
+                        "or": "rows",
                         "r": false,
                         "t": "`$INTEGER`"
                       }
@@ -219,7 +191,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 },
                 {
@@ -261,7 +233,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -277,20 +249,6 @@
             "field": {}
           },
           "fields": {
-            "ISSN": {
-              "a": true,
-              "h": "Issn",
-              "n": "ISSN",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
-            "coverage": {
-              "a": true,
-              "h": "Coverage",
-              "n": "coverage",
-              "r": false,
-              "t": "`$OBJECT`"
-            },
             "id": {
               "a": true,
               "h": "Id",
@@ -298,40 +256,26 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "items": {
+            "message": {
               "a": true,
-              "h": "Items",
-              "n": "items",
+              "h": "Message",
+              "n": "message",
               "r": false,
-              "t": "`$ARRAY`"
+              "t": "`$OBJECT`"
             },
-            "itemsperpage": {
+            "messagetype": {
               "a": true,
-              "h": "Itemsperpage",
-              "n": "itemsperpage",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "publisher": {
-              "a": true,
-              "h": "Publisher",
-              "n": "publisher",
+              "h": "Messagetype",
+              "n": "messagetype",
               "r": false,
               "t": "`$STRING`"
             },
-            "title": {
+            "status": {
               "a": true,
-              "h": "Title",
-              "n": "title",
+              "h": "Status",
+              "n": "status",
               "r": false,
               "t": "`$STRING`"
-            },
-            "totalresults": {
-              "a": true,
-              "h": "Totalresults",
-              "n": "totalresults",
-              "r": false,
-              "t": "`$INTEGER`"
             }
           },
           "id": {
@@ -375,7 +319,7 @@
                         "ex": 20,
                         "k": "query",
                         "n": "row",
-                        "or": "row",
+                        "or": "rows",
                         "r": false,
                         "t": "`$INTEGER`"
                       }
@@ -399,7 +343,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 },
                 {
@@ -445,7 +389,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -461,61 +405,33 @@
             "field": {}
           },
           "fields": {
-            "counts": {
-              "a": true,
-              "h": "Counts",
-              "n": "counts",
-              "r": false,
-              "t": "`$OBJECT`"
-            },
             "id": {
               "a": true,
               "h": "Id",
               "n": "id",
               "r": false,
-              "t": "`$INTEGER`"
+              "t": "`$STRING`"
             },
-            "items": {
+            "message": {
               "a": true,
-              "h": "Items",
-              "n": "items",
+              "h": "Message",
+              "n": "message",
               "r": false,
-              "t": "`$ARRAY`"
+              "t": "`$OBJECT`"
             },
-            "itemsperpage": {
+            "messagetype": {
               "a": true,
-              "h": "Itemsperpage",
-              "n": "itemsperpage",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "laststatuschecktime": {
-              "a": true,
-              "h": "Laststatuschecktime",
-              "n": "laststatuschecktime",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "location": {
-              "a": true,
-              "h": "Location",
-              "n": "location",
+              "h": "Messagetype",
+              "n": "messagetype",
               "r": false,
               "t": "`$STRING`"
             },
-            "primaryname": {
+            "status": {
               "a": true,
-              "h": "Primaryname",
-              "n": "primaryname",
+              "h": "Status",
+              "n": "status",
               "r": false,
               "t": "`$STRING`"
-            },
-            "totalresults": {
-              "a": true,
-              "h": "Totalresults",
-              "n": "totalresults",
-              "r": false,
-              "t": "`$INTEGER`"
             }
           },
           "id": {
@@ -559,7 +475,7 @@
                         "ex": 20,
                         "k": "query",
                         "n": "row",
-                        "or": "row",
+                        "or": "rows",
                         "r": false,
                         "t": "`$INTEGER`"
                       }
@@ -583,7 +499,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 },
                 {
@@ -625,7 +541,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -648,17 +564,24 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "items": {
+            "message": {
               "a": true,
-              "h": "Items",
-              "n": "items",
+              "h": "Message",
+              "n": "message",
               "r": false,
-              "t": "`$ARRAY`"
+              "t": "`$OBJECT`"
             },
-            "label": {
+            "messagetype": {
               "a": true,
-              "h": "Label",
-              "n": "label",
+              "h": "Messagetype",
+              "n": "messagetype",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
               "r": false,
               "t": "`$STRING`"
             }
@@ -712,7 +635,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 },
                 {
@@ -735,7 +658,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -751,50 +674,6 @@
             "field": {}
           },
           "fields": {
-            "DOI": {
-              "a": true,
-              "h": "Doi",
-              "n": "DOI",
-              "r": false,
-              "sh": "Digital Object Identifier",
-              "t": "`$STRING`"
-            },
-            "ISSN": {
-              "a": true,
-              "h": "Issn",
-              "n": "ISSN",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
-            "URL": {
-              "a": true,
-              "h": "Url",
-              "n": "URL",
-              "r": false,
-              "sh": "URL to the work",
-              "t": "`$STRING`"
-            },
-            "abstract": {
-              "a": true,
-              "h": "Abstract",
-              "n": "abstract",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "author": {
-              "a": true,
-              "h": "Author",
-              "n": "author",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
-            "containertitle": {
-              "a": true,
-              "h": "Containertitle",
-              "n": "containertitle",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
             "id": {
               "a": true,
               "h": "Id",
@@ -802,73 +681,31 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "isreferencedbycount": {
+            "message": {
               "a": true,
-              "h": "Isreferencedbycount",
-              "n": "isreferencedbycount",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "items": {
-              "a": true,
-              "h": "Items",
-              "n": "items",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
-            "itemsperpage": {
-              "a": true,
-              "h": "Itemsperpage",
-              "n": "itemsperpage",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "published": {
-              "a": true,
-              "h": "Published",
-              "n": "published",
+              "h": "Message",
+              "n": "message",
               "r": false,
               "t": "`$OBJECT`"
             },
-            "publisher": {
+            "messagetype": {
               "a": true,
-              "h": "Publisher",
-              "n": "publisher",
+              "h": "Messagetype",
+              "n": "messagetype",
               "r": false,
               "t": "`$STRING`"
             },
-            "query": {
+            "messageversion": {
               "a": true,
-              "h": "Query",
-              "n": "query",
+              "h": "Messageversion",
+              "n": "messageversion",
               "r": false,
-              "t": "`$OBJECT`"
+              "t": "`$STRING`"
             },
-            "referencecount": {
+            "status": {
               "a": true,
-              "h": "Referencecount",
-              "n": "referencecount",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "title": {
-              "a": true,
-              "h": "Title",
-              "n": "title",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
-            "totalresults": {
-              "a": true,
-              "h": "Totalresults",
-              "n": "totalresults",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "type": {
-              "a": true,
-              "h": "Type",
-              "n": "type",
+              "h": "Status",
+              "n": "status",
               "r": false,
               "t": "`$STRING`"
             }
@@ -939,7 +776,7 @@
                         "ex": 20,
                         "k": "query",
                         "n": "row",
-                        "or": "row",
+                        "or": "rows",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -975,7 +812,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 },
                 {
@@ -1011,7 +848,7 @@
                         "ex": 20,
                         "k": "query",
                         "n": "row",
-                        "or": "row",
+                        "or": "rows",
                         "r": false,
                         "t": "`$INTEGER`"
                       }
@@ -1045,7 +882,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 },
                 {
@@ -1081,7 +918,7 @@
                         "ex": 20,
                         "k": "query",
                         "n": "row",
-                        "or": "row",
+                        "or": "rows",
                         "r": false,
                         "t": "`$INTEGER`"
                       }
@@ -1111,7 +948,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 },
                 {
@@ -1147,7 +984,7 @@
                         "ex": 20,
                         "k": "query",
                         "n": "row",
-                        "or": "row",
+                        "or": "rows",
                         "r": false,
                         "t": "`$INTEGER`"
                       }
@@ -1181,7 +1018,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 },
                 {
@@ -1217,7 +1054,7 @@
                         "ex": 20,
                         "k": "query",
                         "n": "row",
-                        "or": "row",
+                        "or": "rows",
                         "r": false,
                         "t": "`$INTEGER`"
                       }
@@ -1251,7 +1088,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 },
                 {
@@ -1308,7 +1145,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.message`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -1940,7 +1777,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

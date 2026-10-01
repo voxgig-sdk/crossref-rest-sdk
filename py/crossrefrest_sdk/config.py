@@ -119,43 +119,23 @@ def make_config():
       "funder": {
         "fields": [
           {
-            "name": "altnames",
-            "title": "Altnames",
-            "type": "`$ARRAY`",
-          },
-          {
             "name": "id",
             "title": "Id",
             "type": "`$STRING`",
           },
           {
-            "name": "items",
-            "title": "Items",
-            "type": "`$ARRAY`",
+            "name": "message",
+            "title": "Message",
+            "type": "`$OBJECT`",
           },
           {
-            "name": "itemsperpage",
-            "title": "Itemsperpage",
-            "type": "`$INTEGER`",
-          },
-          {
-            "name": "location",
-            "title": "Location",
+            "name": "messagetype",
+            "title": "Messagetype",
             "type": "`$STRING`",
           },
           {
-            "name": "name",
-            "title": "Name",
-            "type": "`$STRING`",
-          },
-          {
-            "name": "totalresults",
-            "title": "Totalresults",
-            "type": "`$INTEGER`",
-          },
-          {
-            "name": "uri",
-            "title": "Uri",
+            "name": "status",
+            "title": "Status",
             "type": "`$STRING`",
           },
         ],
@@ -184,7 +164,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "query": [
@@ -203,7 +183,7 @@ def make_config():
                     },
                     {
                       "name": "row",
-                      "orig": "row",
+                      "orig": "rows",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "example": 20,
@@ -237,7 +217,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "params": [
@@ -267,44 +247,24 @@ def make_config():
       "journal": {
         "fields": [
           {
-            "name": "ISSN",
-            "title": "Issn",
-            "type": "`$ARRAY`",
-          },
-          {
-            "name": "coverage",
-            "title": "Coverage",
-            "type": "`$OBJECT`",
-          },
-          {
             "name": "id",
             "title": "Id",
             "type": "`$STRING`",
           },
           {
-            "name": "items",
-            "title": "Items",
-            "type": "`$ARRAY`",
+            "name": "message",
+            "title": "Message",
+            "type": "`$OBJECT`",
           },
           {
-            "name": "itemsperpage",
-            "title": "Itemsperpage",
-            "type": "`$INTEGER`",
-          },
-          {
-            "name": "publisher",
-            "title": "Publisher",
+            "name": "messagetype",
+            "title": "Messagetype",
             "type": "`$STRING`",
           },
           {
-            "name": "title",
-            "title": "Title",
+            "name": "status",
+            "title": "Status",
             "type": "`$STRING`",
-          },
-          {
-            "name": "totalresults",
-            "title": "Totalresults",
-            "type": "`$INTEGER`",
           },
         ],
         "id": {
@@ -332,7 +292,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "query": [
@@ -351,7 +311,7 @@ def make_config():
                     },
                     {
                       "name": "row",
-                      "orig": "row",
+                      "orig": "rows",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "example": 20,
@@ -389,7 +349,7 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "params": [
@@ -419,44 +379,24 @@ def make_config():
       "member": {
         "fields": [
           {
-            "name": "counts",
-            "title": "Counts",
+            "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "message",
+            "title": "Message",
             "type": "`$OBJECT`",
           },
           {
-            "name": "id",
-            "title": "Id",
-            "type": "`$INTEGER`",
-          },
-          {
-            "name": "items",
-            "title": "Items",
-            "type": "`$ARRAY`",
-          },
-          {
-            "name": "itemsperpage",
-            "title": "Itemsperpage",
-            "type": "`$INTEGER`",
-          },
-          {
-            "name": "laststatuschecktime",
-            "title": "Laststatuschecktime",
-            "type": "`$INTEGER`",
-          },
-          {
-            "name": "location",
-            "title": "Location",
+            "name": "messagetype",
+            "title": "Messagetype",
             "type": "`$STRING`",
           },
           {
-            "name": "primaryname",
-            "title": "Primaryname",
+            "name": "status",
+            "title": "Status",
             "type": "`$STRING`",
-          },
-          {
-            "name": "totalresults",
-            "title": "Totalresults",
-            "type": "`$INTEGER`",
           },
         ],
         "id": {
@@ -484,7 +424,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "query": [
@@ -503,7 +443,7 @@ def make_config():
                     },
                     {
                       "name": "row",
-                      "orig": "row",
+                      "orig": "rows",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "example": 20,
@@ -537,7 +477,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "params": [
@@ -572,13 +512,18 @@ def make_config():
             "type": "`$STRING`",
           },
           {
-            "name": "items",
-            "title": "Items",
-            "type": "`$ARRAY`",
+            "name": "message",
+            "title": "Message",
+            "type": "`$OBJECT`",
           },
           {
-            "name": "label",
-            "title": "Label",
+            "name": "messagetype",
+            "title": "Messagetype",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "status",
+            "title": "Status",
             "type": "`$STRING`",
           },
         ],
@@ -611,7 +556,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "params": [
@@ -646,7 +591,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {},
                 "select": {},
@@ -661,90 +606,28 @@ def make_config():
       "work": {
         "fields": [
           {
-            "name": "DOI",
-            "title": "Doi",
-            "type": "`$STRING`",
-            "short": "Digital Object Identifier",
-          },
-          {
-            "name": "ISSN",
-            "title": "Issn",
-            "type": "`$ARRAY`",
-          },
-          {
-            "name": "URL",
-            "title": "Url",
-            "type": "`$STRING`",
-            "short": "URL to the work",
-          },
-          {
-            "name": "abstract",
-            "title": "Abstract",
-            "type": "`$STRING`",
-          },
-          {
-            "name": "author",
-            "title": "Author",
-            "type": "`$ARRAY`",
-          },
-          {
-            "name": "containertitle",
-            "title": "Containertitle",
-            "type": "`$ARRAY`",
-          },
-          {
             "name": "id",
             "title": "Id",
             "type": "`$STRING`",
           },
           {
-            "name": "isreferencedbycount",
-            "title": "Isreferencedbycount",
-            "type": "`$INTEGER`",
-          },
-          {
-            "name": "items",
-            "title": "Items",
-            "type": "`$ARRAY`",
-          },
-          {
-            "name": "itemsperpage",
-            "title": "Itemsperpage",
-            "type": "`$INTEGER`",
-          },
-          {
-            "name": "published",
-            "title": "Published",
+            "name": "message",
+            "title": "Message",
             "type": "`$OBJECT`",
           },
           {
-            "name": "publisher",
-            "title": "Publisher",
+            "name": "messagetype",
+            "title": "Messagetype",
             "type": "`$STRING`",
           },
           {
-            "name": "query",
-            "title": "Query",
-            "type": "`$OBJECT`",
+            "name": "messageversion",
+            "title": "Messageversion",
+            "type": "`$STRING`",
           },
           {
-            "name": "referencecount",
-            "title": "Referencecount",
-            "type": "`$INTEGER`",
-          },
-          {
-            "name": "title",
-            "title": "Title",
-            "type": "`$ARRAY`",
-          },
-          {
-            "name": "totalresults",
-            "title": "Totalresults",
-            "type": "`$INTEGER`",
-          },
-          {
-            "name": "type",
-            "title": "Type",
+            "name": "status",
+            "title": "Status",
             "type": "`$STRING`",
           },
         ],
@@ -773,7 +656,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "query": [
@@ -811,7 +694,7 @@ def make_config():
                     },
                     {
                       "name": "row",
-                      "orig": "row",
+                      "orig": "rows",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "example": 20,
@@ -863,7 +746,7 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "params": [
@@ -885,7 +768,7 @@ def make_config():
                     },
                     {
                       "name": "row",
-                      "orig": "row",
+                      "orig": "rows",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "example": 20,
@@ -923,7 +806,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "params": [
@@ -945,7 +828,7 @@ def make_config():
                     },
                     {
                       "name": "row",
-                      "orig": "row",
+                      "orig": "rows",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "example": 20,
@@ -987,7 +870,7 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "params": [
@@ -1009,7 +892,7 @@ def make_config():
                     },
                     {
                       "name": "row",
-                      "orig": "row",
+                      "orig": "rows",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "example": 20,
@@ -1051,7 +934,7 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "params": [
@@ -1073,7 +956,7 @@ def make_config():
                     },
                     {
                       "name": "row",
-                      "orig": "row",
+                      "orig": "rows",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "example": 20,
@@ -1111,7 +994,7 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.message`",
+                  "res": "`body`",
                 },
                 "args": {
                   "params": [

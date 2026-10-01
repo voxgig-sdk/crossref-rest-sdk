@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 CrossrefRestUtility.registrar = ->(u) {
   u.clean = CrossrefRestUtilities::Clean
+  u.clean_add = CrossrefRestUtilities::CleanAdd
+  u.clean_explain = CrossrefRestUtilities::CleanExplain
   u.done = CrossrefRestUtilities::Done
   u.make_error = CrossrefRestUtilities::MakeError
   u.feature_add = CrossrefRestUtilities::FeatureAdd

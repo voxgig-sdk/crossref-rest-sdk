@@ -11,15 +11,21 @@ main: kit: entity: type: {
       r: false
       t: "`$STRING`"
     }
-    items: {
-      h: "Items"
-      n: "items"
+    message: {
+      h: "Message"
+      n: "message"
       r: false
-      t: "`$ARRAY`"
+      t: "`$OBJECT`"
     }
-    label: {
-      h: "Label"
-      n: "label"
+    messagetype: {
+      h: "Messagetype"
+      n: "messagetype"
+      r: false
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
       r: false
       t: "`$STRING`"
     }
@@ -70,7 +76,7 @@ main: kit: entity: type: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
         {
@@ -88,7 +94,7 @@ main: kit: entity: type: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
       ]

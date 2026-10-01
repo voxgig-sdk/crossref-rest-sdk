@@ -15,14 +15,10 @@ declare(strict_types=1);
 /** Funder entity data model. */
 class Funder
 {
-    public ?array $altnames = null;
     public ?string $id = null;
-    public ?array $items = null;
-    public ?int $itemsperpage = null;
-    public ?string $location = null;
-    public ?string $name = null;
-    public ?int $totalresults = null;
-    public ?string $uri = null;
+    public ?array $message = null;
+    public ?string $messagetype = null;
+    public ?string $status = null;
 }
 
 /** Request payload for Funder#load. */
@@ -34,14 +30,10 @@ class FunderLoadMatch
 /** Journal entity data model. */
 class Journal
 {
-    public ?array $ISSN = null;
-    public ?array $coverage = null;
     public ?string $id = null;
-    public ?array $items = null;
-    public ?int $itemsperpage = null;
-    public ?string $publisher = null;
-    public ?string $title = null;
-    public ?int $totalresults = null;
+    public ?array $message = null;
+    public ?string $messagetype = null;
+    public ?string $status = null;
 }
 
 /** Request payload for Journal#load. */
@@ -53,14 +45,10 @@ class JournalLoadMatch
 /** Member entity data model. */
 class Member
 {
-    public ?array $counts = null;
-    public ?int $id = null;
-    public ?array $items = null;
-    public ?int $itemsperpage = null;
-    public ?int $laststatuschecktime = null;
-    public ?string $location = null;
-    public ?string $primaryname = null;
-    public ?int $totalresults = null;
+    public ?string $id = null;
+    public ?array $message = null;
+    public ?string $messagetype = null;
+    public ?string $status = null;
 }
 
 /** Request payload for Member#load. */
@@ -73,8 +61,9 @@ class MemberLoadMatch
 class Type
 {
     public ?string $id = null;
-    public ?array $items = null;
-    public ?string $label = null;
+    public ?array $message = null;
+    public ?string $messagetype = null;
+    public ?string $status = null;
 }
 
 /** Request payload for Type#load. */
@@ -86,23 +75,11 @@ class TypeLoadMatch
 /** Work entity data model. */
 class Work
 {
-    public ?string $DOI = null;
-    public ?array $ISSN = null;
-    public ?string $URL = null;
-    public ?string $abstract = null;
-    public ?array $author = null;
-    public ?array $containertitle = null;
     public ?string $id = null;
-    public ?int $isreferencedbycount = null;
-    public ?array $items = null;
-    public ?int $itemsperpage = null;
-    public ?array $published = null;
-    public ?string $publisher = null;
-    public ?array $query = null;
-    public ?int $referencecount = null;
-    public ?array $title = null;
-    public ?int $totalresults = null;
-    public ?string $type = null;
+    public ?array $message = null;
+    public ?string $messagetype = null;
+    public ?string $messageversion = null;
+    public ?string $status = null;
 }
 
 /** Request payload for Work#load. */

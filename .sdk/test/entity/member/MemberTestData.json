@@ -2,47 +2,31 @@
   "existing": {
     "member": {
       "MEMBER00": {
-        "counts": {},
         "id": "MEMBER00",
-        "items": [],
-        "itemsperpage": 83,
-        "laststatuschecktime": 84,
-        "location": "s55",
-        "primaryname": "s56",
-        "totalresults": 87
+        "message": {},
+        "messagetype": "s2a",
+        "status": "s2b"
       },
       "MEMBER01": {
-        "counts": {},
         "id": "MEMBER01",
-        "items": [],
-        "itemsperpage": 163,
-        "laststatuschecktime": 164,
-        "location": "sa5",
-        "primaryname": "sa6",
-        "totalresults": 167
+        "message": {},
+        "messagetype": "s52",
+        "status": "s53"
       },
       "MEMBER02": {
-        "counts": {},
         "id": "MEMBER02",
-        "items": [],
-        "itemsperpage": 243,
-        "laststatuschecktime": 244,
-        "location": "sf5",
-        "primaryname": "sf6",
-        "totalresults": 247
+        "message": {},
+        "messagetype": "s7a",
+        "status": "s7b"
       }
     }
   },
   "new": {
     "member": {
       "member_ref01": {
-        "counts": {},
-        "items": [],
-        "itemsperpage": 323,
-        "laststatuschecktime": 324,
-        "location": "s145",
-        "primaryname": "s146",
-        "totalresults": 327
+        "message": {},
+        "messagetype": "sa2",
+        "status": "sa3"
       }
     }
   },

@@ -245,14 +245,10 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `altnames` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `location` |  |
-| `name` |  |
-| `totalresults` |  |
-| `uri` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -262,14 +258,10 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `ISSN` |  |
-| `coverage` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `publisher` |  |
-| `title` |  |
-| `totalresults` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -279,14 +271,10 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `counts` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `laststatuschecktime` |  |
-| `location` |  |
-| `primaryname` |  |
-| `totalresults` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -297,8 +285,9 @@ API path: `/members`
 | Field | Description |
 | --- | --- |
 | `id` |  |
-| `items` |  |
-| `label` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -308,23 +297,11 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `DOI` | Digital Object Identifier |
-| `ISSN` |  |
-| `URL` | URL to the work |
-| `abstract` |  |
-| `author` |  |
-| `containertitle` |  |
 | `id` |  |
-| `isreferencedbycount` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `published` |  |
-| `publisher` |  |
-| `query` |  |
-| `referencecount` |  |
-| `title` |  |
-| `totalresults` |  |
-| `type` |  |
+| `message` |  |
+| `messagetype` |  |
+| `messageversion` |  |
+| `status` |  |
 
 Operations: Load.
 
@@ -349,14 +326,10 @@ Create an instance: `funder = client.Funder()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `altnames` | `list` |  |
 | `id` | `str` |  |
-| `items` | `list` |  |
-| `itemsperpage` | `int` |  |
-| `location` | `str` |  |
-| `name` | `str` |  |
-| `totalresults` | `int` |  |
-| `uri` | `str` |  |
+| `message` | `dict` |  |
+| `messagetype` | `str` |  |
+| `status` | `str` |  |
 
 #### Example: Load
 
@@ -379,14 +352,10 @@ Create an instance: `journal = client.Journal()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ISSN` | `list` |  |
-| `coverage` | `dict` |  |
 | `id` | `str` |  |
-| `items` | `list` |  |
-| `itemsperpage` | `int` |  |
-| `publisher` | `str` |  |
-| `title` | `str` |  |
-| `totalresults` | `int` |  |
+| `message` | `dict` |  |
+| `messagetype` | `str` |  |
+| `status` | `str` |  |
 
 #### Example: Load
 
@@ -409,14 +378,10 @@ Create an instance: `member = client.Member()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `counts` | `dict` |  |
-| `id` | `int` |  |
-| `items` | `list` |  |
-| `itemsperpage` | `int` |  |
-| `laststatuschecktime` | `int` |  |
-| `location` | `str` |  |
-| `primaryname` | `str` |  |
-| `totalresults` | `int` |  |
+| `id` | `str` |  |
+| `message` | `dict` |  |
+| `messagetype` | `str` |  |
+| `status` | `str` |  |
 
 #### Example: Load
 
@@ -440,8 +405,9 @@ Create an instance: `type = client.Type()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `id` | `str` |  |
-| `items` | `list` |  |
-| `label` | `str` |  |
+| `message` | `dict` |  |
+| `messagetype` | `str` |  |
+| `status` | `str` |  |
 
 #### Example: Load
 
@@ -464,23 +430,11 @@ Create an instance: `work = client.Work()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `str` | Digital Object Identifier |
-| `ISSN` | `list` |  |
-| `URL` | `str` | URL to the work |
-| `abstract` | `str` |  |
-| `author` | `list` |  |
-| `containertitle` | `list` |  |
 | `id` | `str` |  |
-| `isreferencedbycount` | `int` |  |
-| `items` | `list` |  |
-| `itemsperpage` | `int` |  |
-| `published` | `dict` |  |
-| `publisher` | `str` |  |
-| `query` | `dict` |  |
-| `referencecount` | `int` |  |
-| `title` | `list` |  |
-| `totalresults` | `int` |  |
-| `type` | `str` |  |
+| `message` | `dict` |  |
+| `messagetype` | `str` |  |
+| `messageversion` | `str` |  |
+| `status` | `str` |  |
 
 #### Example: Load
 

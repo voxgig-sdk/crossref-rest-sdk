@@ -5,107 +5,33 @@ main: kit: entity: work: {
   alias: field: {}
 
   fields: {
-    DOI: {
-      h: "Doi"
-      n: "DOI"
-      r: false
-      sh: "Digital Object Identifier"
-      t: "`$STRING`"
-    }
-    ISSN: {
-      h: "Issn"
-      n: "ISSN"
-      r: false
-      t: "`$ARRAY`"
-    }
-    URL: {
-      h: "Url"
-      n: "URL"
-      r: false
-      sh: "URL to the work"
-      t: "`$STRING`"
-    }
-    abstract: {
-      h: "Abstract"
-      n: "abstract"
-      r: false
-      t: "`$STRING`"
-    }
-    author: {
-      h: "Author"
-      n: "author"
-      r: false
-      t: "`$ARRAY`"
-    }
-    containertitle: {
-      h: "Containertitle"
-      n: "containertitle"
-      r: false
-      t: "`$ARRAY`"
-    }
     id: {
       h: "Id"
       n: "id"
       r: false
       t: "`$STRING`"
     }
-    isreferencedbycount: {
-      h: "Isreferencedbycount"
-      n: "isreferencedbycount"
-      r: false
-      t: "`$INTEGER`"
-    }
-    items: {
-      h: "Items"
-      n: "items"
-      r: false
-      t: "`$ARRAY`"
-    }
-    itemsperpage: {
-      h: "Itemsperpage"
-      n: "itemsperpage"
-      r: false
-      t: "`$INTEGER`"
-    }
-    published: {
-      h: "Published"
-      n: "published"
+    message: {
+      h: "Message"
+      n: "message"
       r: false
       t: "`$OBJECT`"
     }
-    publisher: {
-      h: "Publisher"
-      n: "publisher"
+    messagetype: {
+      h: "Messagetype"
+      n: "messagetype"
       r: false
       t: "`$STRING`"
     }
-    query: {
-      h: "Query"
-      n: "query"
+    messageversion: {
+      h: "Messageversion"
+      n: "messageversion"
       r: false
-      t: "`$OBJECT`"
+      t: "`$STRING`"
     }
-    referencecount: {
-      h: "Referencecount"
-      n: "referencecount"
-      r: false
-      t: "`$INTEGER`"
-    }
-    title: {
-      h: "Title"
-      n: "title"
-      r: false
-      t: "`$ARRAY`"
-    }
-    totalresults: {
-      h: "Totalresults"
-      n: "totalresults"
-      r: false
-      t: "`$INTEGER`"
-    }
-    type: {
-      h: "Type"
-      n: "type"
+    status: {
+      h: "Status"
+      n: "status"
       r: false
       t: "`$STRING`"
     }
@@ -170,7 +96,7 @@ main: kit: entity: work: {
                 ex: 20
                 k: "query"
                 n: "row"
-                or: "row"
+                or: "rows"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -203,7 +129,7 @@ main: kit: entity: work: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
         {
@@ -235,7 +161,7 @@ main: kit: entity: work: {
                 ex: 20
                 k: "query"
                 n: "row"
-                or: "row"
+                or: "rows"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -268,7 +194,7 @@ main: kit: entity: work: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
         {
@@ -300,7 +226,7 @@ main: kit: entity: work: {
                 ex: 20
                 k: "query"
                 n: "row"
-                or: "row"
+                or: "rows"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -328,7 +254,7 @@ main: kit: entity: work: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
         {
@@ -360,7 +286,7 @@ main: kit: entity: work: {
                 ex: 20
                 k: "query"
                 n: "row"
-                or: "row"
+                or: "rows"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -393,7 +319,7 @@ main: kit: entity: work: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
         {
@@ -425,7 +351,7 @@ main: kit: entity: work: {
                 ex: 20
                 k: "query"
                 n: "row"
-                or: "row"
+                or: "rows"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -458,7 +384,7 @@ main: kit: entity: work: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
         {
@@ -511,7 +437,7 @@ main: kit: entity: work: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.message`"
+            res: "`body`"
           }
         }
       ]

@@ -108,14 +108,10 @@ $funder = $client->Funder();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `altnames` | `array` | No |  |
 | `id` | `string` | No |  |
-| `items` | `array` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `location` | `string` | No |  |
-| `name` | `string` | No |  |
-| `totalresults` | `int` | No |  |
-| `uri` | `string` | No |  |
+| `message` | `array` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -167,14 +163,10 @@ $journal = $client->Journal();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ISSN` | `array` | No |  |
-| `coverage` | `array` | No |  |
 | `id` | `string` | No |  |
-| `items` | `array` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `publisher` | `string` | No |  |
-| `title` | `string` | No |  |
-| `totalresults` | `int` | No |  |
+| `message` | `array` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -226,14 +218,10 @@ $member = $client->Member();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `counts` | `array` | No |  |
-| `id` | `int` | No |  |
-| `items` | `array` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `laststatuschecktime` | `int` | No |  |
-| `location` | `string` | No |  |
-| `primaryname` | `string` | No |  |
-| `totalresults` | `int` | No |  |
+| `id` | `string` | No |  |
+| `message` | `array` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -286,8 +274,9 @@ $type = $client->Type();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `id` | `string` | No |  |
-| `items` | `array` | No |  |
-| `label` | `string` | No |  |
+| `message` | `array` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -339,23 +328,11 @@ $work = $client->Work();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `DOI` | `string` | No | Digital Object Identifier |
-| `ISSN` | `array` | No |  |
-| `URL` | `string` | No | URL to the work |
-| `abstract` | `string` | No |  |
-| `author` | `array` | No |  |
-| `containertitle` | `array` | No |  |
 | `id` | `string` | No |  |
-| `isreferencedbycount` | `int` | No |  |
-| `items` | `array` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `published` | `array` | No |  |
-| `publisher` | `string` | No |  |
-| `query` | `array` | No |  |
-| `referencecount` | `int` | No |  |
-| `title` | `array` | No |  |
-| `totalresults` | `int` | No |  |
-| `type` | `string` | No |  |
+| `message` | `array` | No |  |
+| `messagetype` | `string` | No |  |
+| `messageversion` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 

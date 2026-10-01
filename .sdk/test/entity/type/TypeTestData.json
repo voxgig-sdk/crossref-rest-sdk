@@ -3,26 +3,30 @@
     "type": {
       "TYPE00": {
         "id": "TYPE00",
-        "items": [],
-        "label": "s20"
+        "message": {},
+        "messagetype": "s2a",
+        "status": "s2b"
       },
       "TYPE01": {
         "id": "TYPE01",
-        "items": [],
-        "label": "s3e"
+        "message": {},
+        "messagetype": "s52",
+        "status": "s53"
       },
       "TYPE02": {
         "id": "TYPE02",
-        "items": [],
-        "label": "s5c"
+        "message": {},
+        "messagetype": "s7a",
+        "status": "s7b"
       }
     }
   },
   "new": {
     "type": {
       "type_ref01": {
-        "items": [],
-        "label": "s7a"
+        "message": {},
+        "messagetype": "sa2",
+        "status": "sa3"
       }
     }
   },

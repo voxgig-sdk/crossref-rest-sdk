@@ -17,14 +17,10 @@ from typing import TypedDict, Any
 
 
 class Funder(TypedDict, total=False):
-    altnames: list
     id: str
-    items: list
-    itemsperpage: int
-    location: str
-    name: str
-    totalresults: int
-    uri: str
+    message: dict
+    messagetype: str
+    status: str
 
 
 class FunderLoadMatch(TypedDict):
@@ -32,14 +28,10 @@ class FunderLoadMatch(TypedDict):
 
 
 class Journal(TypedDict, total=False):
-    ISSN: list
-    coverage: dict
     id: str
-    items: list
-    itemsperpage: int
-    publisher: str
-    title: str
-    totalresults: int
+    message: dict
+    messagetype: str
+    status: str
 
 
 class JournalLoadMatch(TypedDict):
@@ -47,14 +39,10 @@ class JournalLoadMatch(TypedDict):
 
 
 class Member(TypedDict, total=False):
-    counts: dict
-    id: int
-    items: list
-    itemsperpage: int
-    laststatuschecktime: int
-    location: str
-    primaryname: str
-    totalresults: int
+    id: str
+    message: dict
+    messagetype: str
+    status: str
 
 
 class MemberLoadMatch(TypedDict):
@@ -63,8 +51,9 @@ class MemberLoadMatch(TypedDict):
 
 class Type(TypedDict, total=False):
     id: str
-    items: list
-    label: str
+    message: dict
+    messagetype: str
+    status: str
 
 
 class TypeLoadMatch(TypedDict):
@@ -72,23 +61,11 @@ class TypeLoadMatch(TypedDict):
 
 
 class Work(TypedDict, total=False):
-    DOI: str
-    ISSN: list
-    URL: str
-    abstract: str
-    author: list
-    containertitle: list
     id: str
-    isreferencedbycount: int
-    items: list
-    itemsperpage: int
-    published: dict
-    publisher: str
-    query: dict
-    referencecount: int
-    title: list
-    totalresults: int
-    type: str
+    message: dict
+    messagetype: str
+    messageversion: str
+    status: str
 
 
 class WorkLoadMatchRequired(TypedDict):

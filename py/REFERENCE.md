@@ -103,14 +103,10 @@ funder = client.Funder()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `altnames` | `list` | No |  |
 | `id` | `str` | No |  |
-| `items` | `list` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `location` | `str` | No |  |
-| `name` | `str` | No |  |
-| `totalresults` | `int` | No |  |
-| `uri` | `str` | No |  |
+| `message` | `dict` | No |  |
+| `messagetype` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
@@ -161,14 +157,10 @@ journal = client.Journal()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ISSN` | `list` | No |  |
-| `coverage` | `dict` | No |  |
 | `id` | `str` | No |  |
-| `items` | `list` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `publisher` | `str` | No |  |
-| `title` | `str` | No |  |
-| `totalresults` | `int` | No |  |
+| `message` | `dict` | No |  |
+| `messagetype` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
@@ -219,14 +211,10 @@ member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `counts` | `dict` | No |  |
-| `id` | `int` | No |  |
-| `items` | `list` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `laststatuschecktime` | `int` | No |  |
-| `location` | `str` | No |  |
-| `primaryname` | `str` | No |  |
-| `totalresults` | `int` | No |  |
+| `id` | `str` | No |  |
+| `message` | `dict` | No |  |
+| `messagetype` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
@@ -278,8 +266,9 @@ type = client.Type()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `id` | `str` | No |  |
-| `items` | `list` | No |  |
-| `label` | `str` | No |  |
+| `message` | `dict` | No |  |
+| `messagetype` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
@@ -330,23 +319,11 @@ work = client.Work()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `DOI` | `str` | No | Digital Object Identifier |
-| `ISSN` | `list` | No |  |
-| `URL` | `str` | No | URL to the work |
-| `abstract` | `str` | No |  |
-| `author` | `list` | No |  |
-| `containertitle` | `list` | No |  |
 | `id` | `str` | No |  |
-| `isreferencedbycount` | `int` | No |  |
-| `items` | `list` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `published` | `dict` | No |  |
-| `publisher` | `str` | No |  |
-| `query` | `dict` | No |  |
-| `referencecount` | `int` | No |  |
-| `title` | `list` | No |  |
-| `totalresults` | `int` | No |  |
-| `type` | `str` | No |  |
+| `message` | `dict` | No |  |
+| `messagetype` | `str` | No |  |
+| `messageversion` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 

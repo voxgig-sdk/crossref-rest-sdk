@@ -42,11 +42,6 @@ Results: Successful response with works metadata; Successful response with work 
 
 SDK operations: `load`.
 
-Key fields to recognise:
-
-- `DOI`: Digital Object Identifier
-- `URL`: URL to the work
-
 ### Route map
 
 Use this map to locate a capability. Consult the entity reference before supplying request data; routes for the same operation can require different fields.

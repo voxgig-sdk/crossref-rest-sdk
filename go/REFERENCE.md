@@ -114,14 +114,10 @@ fmt.Println(funder.GetName()) // "funder"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `altnames` | `[]any` | No |  |
 | `id` | `string` | No |  |
-| `items` | `[]any` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `location` | `string` | No |  |
-| `name` | `string` | No |  |
-| `totalresults` | `int` | No |  |
-| `uri` | `string` | No |  |
+| `message` | `map[string]any` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -172,14 +168,10 @@ fmt.Println(journal.GetName()) // "journal"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ISSN` | `[]any` | No |  |
-| `coverage` | `map[string]any` | No |  |
 | `id` | `string` | No |  |
-| `items` | `[]any` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `publisher` | `string` | No |  |
-| `title` | `string` | No |  |
-| `totalresults` | `int` | No |  |
+| `message` | `map[string]any` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -230,14 +222,10 @@ fmt.Println(member.GetName()) // "member"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `counts` | `map[string]any` | No |  |
-| `id` | `int` | No |  |
-| `items` | `[]any` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `laststatuschecktime` | `int` | No |  |
-| `location` | `string` | No |  |
-| `primaryname` | `string` | No |  |
-| `totalresults` | `int` | No |  |
+| `id` | `string` | No |  |
+| `message` | `map[string]any` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -289,8 +277,9 @@ fmt.Println(type_.GetName()) // "type"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `id` | `string` | No |  |
-| `items` | `[]any` | No |  |
-| `label` | `string` | No |  |
+| `message` | `map[string]any` | No |  |
+| `messagetype` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -341,23 +330,11 @@ fmt.Println(work.GetName()) // "work"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `DOI` | `string` | No | Digital Object Identifier |
-| `ISSN` | `[]any` | No |  |
-| `URL` | `string` | No | URL to the work |
-| `abstract` | `string` | No |  |
-| `author` | `[]any` | No |  |
-| `containertitle` | `[]any` | No |  |
 | `id` | `string` | No |  |
-| `isreferencedbycount` | `int` | No |  |
-| `items` | `[]any` | No |  |
-| `itemsperpage` | `int` | No |  |
-| `published` | `map[string]any` | No |  |
-| `publisher` | `string` | No |  |
-| `query` | `map[string]any` | No |  |
-| `referencecount` | `int` | No |  |
-| `title` | `[]any` | No |  |
-| `totalresults` | `int` | No |  |
-| `type` | `string` | No |  |
+| `message` | `map[string]any` | No |  |
+| `messagetype` | `string` | No |  |
+| `messageversion` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 

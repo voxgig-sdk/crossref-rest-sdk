@@ -15,9 +15,13 @@ predictable and low-friction for both humans and AI agents.
 
 ## Install
 This package is not yet published to npm. Install it from the GitHub
-release tag (`ts/vX.Y.Z`):
+release tag (`ts/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/crossref-rest-sdk/releases)), or from a
+clone, which carries the compiled `dist/`:
 
-- Releases: [https://github.com/voxgig-sdk/crossref-rest-sdk/releases](https://github.com/voxgig-sdk/crossref-rest-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/crossref-rest-sdk
+npm install ./crossref-rest-sdk/ts
+```
 
 
 ## Tutorial: your first API call
@@ -294,14 +298,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `altnames` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `location` |  |
-| `name` |  |
-| `totalresults` |  |
-| `uri` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: load.
 
@@ -311,14 +311,10 @@ API path: `/funders`
 
 | Field | Description |
 | --- | --- |
-| `ISSN` |  |
-| `coverage` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `publisher` |  |
-| `title` |  |
-| `totalresults` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: load.
 
@@ -328,14 +324,10 @@ API path: `/journals`
 
 | Field | Description |
 | --- | --- |
-| `counts` |  |
 | `id` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `laststatuschecktime` |  |
-| `location` |  |
-| `primaryname` |  |
-| `totalresults` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: load.
 
@@ -346,8 +338,9 @@ API path: `/members`
 | Field | Description |
 | --- | --- |
 | `id` |  |
-| `items` |  |
-| `label` |  |
+| `message` |  |
+| `messagetype` |  |
+| `status` |  |
 
 Operations: load.
 
@@ -357,23 +350,11 @@ API path: `/types/{id}`
 
 | Field | Description |
 | --- | --- |
-| `DOI` | Digital Object Identifier |
-| `ISSN` |  |
-| `URL` | URL to the work |
-| `abstract` |  |
-| `author` |  |
-| `containertitle` |  |
 | `id` |  |
-| `isreferencedbycount` |  |
-| `items` |  |
-| `itemsperpage` |  |
-| `published` |  |
-| `publisher` |  |
-| `query` |  |
-| `referencecount` |  |
-| `title` |  |
-| `totalresults` |  |
-| `type` |  |
+| `message` |  |
+| `messagetype` |  |
+| `messageversion` |  |
+| `status` |  |
 
 Operations: load.
 
@@ -398,14 +379,10 @@ Create an instance: `const funder = client.Funder()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `altnames` | `any[]` |  |
 | `id` | `string` |  |
-| `items` | `any[]` |  |
-| `itemsperpage` | `number` |  |
-| `location` | `string` |  |
-| `name` | `string` |  |
-| `totalresults` | `number` |  |
-| `uri` | `string` |  |
+| `message` | `Record<string, any>` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -428,14 +405,10 @@ Create an instance: `const journal = client.Journal()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ISSN` | `any[]` |  |
-| `coverage` | `Record<string, any>` |  |
 | `id` | `string` |  |
-| `items` | `any[]` |  |
-| `itemsperpage` | `number` |  |
-| `publisher` | `string` |  |
-| `title` | `string` |  |
-| `totalresults` | `number` |  |
+| `message` | `Record<string, any>` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -458,14 +431,10 @@ Create an instance: `const member = client.Member()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `counts` | `Record<string, any>` |  |
-| `id` | `number` |  |
-| `items` | `any[]` |  |
-| `itemsperpage` | `number` |  |
-| `laststatuschecktime` | `number` |  |
-| `location` | `string` |  |
-| `primaryname` | `string` |  |
-| `totalresults` | `number` |  |
+| `id` | `string` |  |
+| `message` | `Record<string, any>` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -489,8 +458,9 @@ Create an instance: `const type = client.Type()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `id` | `string` |  |
-| `items` | `any[]` |  |
-| `label` | `string` |  |
+| `message` | `Record<string, any>` |  |
+| `messagetype` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
@@ -513,23 +483,11 @@ Create an instance: `const work = client.Work()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `DOI` | `string` | Digital Object Identifier |
-| `ISSN` | `any[]` |  |
-| `URL` | `string` | URL to the work |
-| `abstract` | `string` |  |
-| `author` | `any[]` |  |
-| `containertitle` | `any[]` |  |
 | `id` | `string` |  |
-| `isreferencedbycount` | `number` |  |
-| `items` | `any[]` |  |
-| `itemsperpage` | `number` |  |
-| `published` | `Record<string, any>` |  |
-| `publisher` | `string` |  |
-| `query` | `Record<string, any>` |  |
-| `referencecount` | `number` |  |
-| `title` | `any[]` |  |
-| `totalresults` | `number` |  |
-| `type` | `string` |  |
+| `message` | `Record<string, any>` |  |
+| `messagetype` | `string` |  |
+| `messageversion` | `string` |  |
+| `status` | `string` |  |
 
 #### Example: Load
 
