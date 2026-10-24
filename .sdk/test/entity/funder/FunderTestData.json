@@ -31,12 +31,12 @@
     }
   },
   "requests": {
-    "GET /funders": {
+    "GET /funders/{id}": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"
     },
-    "GET /funders/{id}": {
+    "GET /funders": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"

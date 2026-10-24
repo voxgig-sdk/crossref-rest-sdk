@@ -13,10 +13,6 @@ main: kit: flow: BasicWorkFlow:
         suffix: "_dt0"
       }
 
-      m: {
-        id: "work01"
-      }
-
       o: "load",
       v: [
         {

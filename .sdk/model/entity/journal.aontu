@@ -43,6 +43,53 @@ main: kit: entity: journal: {
       points: [
         {
           co: {
+            id: "GET /journals/{issn}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "1476-4687"
+                k: "param"
+                n: "id"
+                or: "issn"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/journals/{issn}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              issn: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "journals"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
             id: "GET /journals"
             source: "openapi3"
             version: 2
@@ -76,59 +123,13 @@ main: kit: entity: journal: {
           }
           m: "GET"
           o: "/journals"
-          q: {
-            exist: [
-              "offset"
-              "query"
-              "row"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
               lit: "journals"
-            }
-          ]
-          t: {
-            req: "`reqdata`"
-            res: "`body`"
-          }
-        }
-        {
-          co: {
-            id: "GET /journals/{issn}"
-            source: "openapi3"
-            version: 2
-          }
-          g: {
-            params: [
-              {
-                ex: "1476-4687"
-                k: "param"
-                n: "id"
-                or: "issn"
-                r: true
-                t: "`$STRING`"
-              }
-            ]
-          }
-          m: "GET"
-          o: "/journals/{issn}"
-          q: {
-            exist: [
-              "id"
-            ]
-          }
-          r: {
-            param: {
-              issn: "id"
-            }
-          }
-          s: [
-            {
-              lit: "journals"
-            }
-            {
-              var: "id"
             }
           ]
           t: {

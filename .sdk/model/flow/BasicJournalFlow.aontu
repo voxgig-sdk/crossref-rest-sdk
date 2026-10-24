@@ -13,10 +13,6 @@ main: kit: flow: BasicJournalFlow:
         suffix: "_dt0"
       }
 
-      m: {
-        id: "journal01"
-      }
-
       o: "load",
       v: [
         {

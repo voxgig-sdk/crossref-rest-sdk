@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { CrossrefRestSDK, BaseFeature, stdutil } from '../../..'
+import { CrossrefRestSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('JournalEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = CrossrefRestSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Journal().load({"id":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.CROSSREF_REST_TEST_LIVE
@@ -51,7 +63,7 @@ describe('JournalEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$STRING`","key$":"id","index$":0},"message":{"a":true,"h":"Message","n":"message","r":false,"t":"`$OBJECT`","key$":"message","index$":1},"messagetype":{"a":true,"h":"Messagetype","n":"messagetype","r":false,"t":"`$STRING`","key$":"messagetype","index$":2},"status":{"a":true,"h":"Status","n":"status","r":false,"t":"`$STRING`","key$":"status","index$":3}},"id":{"field":"id","name":"id"},"name":"journal","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /journals","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":0,"k":"query","n":"offset","or":"offset","r":false,"t":"`$INTEGER`","index$":0},{"a":true,"k":"query","n":"query","or":"query","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":20,"k":"query","n":"row","or":"rows","r":false,"t":"`$INTEGER`","index$":2}]},"k":"http","m":"GET","o":"/journals","q":{"exist":["offset","query","row"]},"r":{},"s":[{"lit":"journals"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"GET /journals/{issn}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"1476-4687","k":"param","n":"id","or":"issn","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/journals/{issn}","q":{"exist":["id"]},"r":{"param":{"issn":"id"}},"s":[{"lit":"journals"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"journal","name__orig":"journal","Name":"Journal","name_":"journal","name-":"journal","NAME":"JOURNAL","index$":1}, {"active":true,"entity":"journal","key$":"BasicJournalFlow","kind":"basic","name":"BasicJournalFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"journal_ref01","srcdatavar":"journal_ref01_data","suffix":"_dt0"},"m":{"id":"journal01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-journal_ref01"}}],"index$":0}]}, 'Journal', {"GET /journals":{"protocol":"http","parameters":[{"name":"query","in":"query","description":"Search query string","required":false,"schema":{"type":"string"},"index$":0},{"name":"rows","in":"query","description":"Number of results to return per page","required":false,"schema":{"type":"integer","default":20},"index$":1},{"name":"offset","in":"query","description":"Offset for pagination","required":false,"schema":{"type":"integer","default":0},"index$":2}]},"GET /journals/{issn}":{"protocol":"http","parameters":[{"name":"issn","in":"path","description":"International Standard Serial Number (ISSN) of the journal","required":true,"schema":{"type":"string"},"example":"1476-4687","index$":0}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$STRING`","key$":"id","index$":0},"message":{"a":true,"h":"Message","n":"message","r":false,"t":"`$OBJECT`","key$":"message","index$":1},"messagetype":{"a":true,"h":"Messagetype","n":"messagetype","r":false,"t":"`$STRING`","key$":"messagetype","index$":2},"status":{"a":true,"h":"Status","n":"status","r":false,"t":"`$STRING`","key$":"status","index$":3}},"id":{"field":"id","name":"id"},"name":"journal","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /journals/{issn}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"1476-4687","k":"param","n":"id","or":"issn","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/journals/{issn}","q":{"exist":["id"]},"r":{"param":{"issn":"id"}},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"journals"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"GET /journals","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":0,"k":"query","n":"offset","or":"offset","r":false,"t":"`$INTEGER`","index$":0},{"a":true,"k":"query","n":"query","or":"query","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":20,"k":"query","n":"row","or":"rows","r":false,"t":"`$INTEGER`","index$":2}]},"k":"http","m":"GET","o":"/journals","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"journals"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"journal","name__orig":"journal","Name":"Journal","name_":"journal","name-":"journal","NAME":"JOURNAL","index$":1}, {"active":true,"entity":"journal","key$":"BasicJournalFlow","kind":"basic","name":"BasicJournalFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"journal_ref01","srcdatavar":"journal_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-journal_ref01"}}],"index$":0}]}, 'Journal', {"GET /journals/{issn}":{"protocol":"http","parameters":[{"name":"issn","in":"path","description":"International Standard Serial Number (ISSN) of the journal","required":true,"schema":{"type":"string"},"example":"1476-4687","index$":0}]},"GET /journals":{"protocol":"http","parameters":[{"name":"query","in":"query","description":"Search query string","required":false,"schema":{"type":"string"},"index$":0},{"name":"rows","in":"query","description":"Number of results to return per page","required":false,"schema":{"type":"integer","default":20},"index$":1},{"name":"offset","in":"query","description":"Offset for pagination","required":false,"schema":{"type":"integer","default":0},"index$":2}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -73,6 +85,12 @@ describe('JournalEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

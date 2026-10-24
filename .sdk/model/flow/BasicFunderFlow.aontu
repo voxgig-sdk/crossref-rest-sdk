@@ -13,10 +13,6 @@ main: kit: flow: BasicFunderFlow:
         suffix: "_dt0"
       }
 
-      m: {
-        id: "funder01"
-      }
-
       o: "load",
       v: [
         {

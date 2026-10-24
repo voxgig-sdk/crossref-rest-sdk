@@ -54,6 +54,14 @@ const utility_1 = require("../../utility");
         const ent = testsdk.Type();
         (0, node_assert_1.default)(null != ent);
     });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.CrossrefRestSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.Type().load({ "id": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.CROSSREF_REST_TEST_LIVE;
         for (const op of ['load']) {
@@ -62,7 +70,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 0 }, "message": { "a": true, "h": "Message", "n": "message", "r": false, "t": "`$OBJECT`", "key$": "message", "index$": 1 }, "messagetype": { "a": true, "h": "Messagetype", "n": "messagetype", "r": false, "t": "`$STRING`", "key$": "messagetype", "index$": 2 }, "status": { "a": true, "h": "Status", "n": "status", "r": false, "t": "`$STRING`", "key$": "status", "index$": 3 } }, "id": { "field": "id", "name": "id" }, "name": "type", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /types/{id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "journal-article", "k": "param", "n": "id", "or": "id", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/types/{id}", "q": { "exist": ["id"] }, "r": {}, "s": [{ "lit": "types" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }, { "a": true, "co": { "id": "GET /types", "source": "openapi3", "version": 2 }, "g": {}, "k": "http", "m": "GET", "o": "/types", "q": {}, "r": {}, "s": [{ "lit": "types" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 1 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "type", "name__orig": "type", "Name": "Type", "name_": "type", "name-": "type", "NAME": "TYPE", "index$": 3 }, { "active": true, "entity": "type", "key$": "BasicTypeFlow", "kind": "basic", "name": "BasicTypeFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "type_ref01", "srcdatavar": "type_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-type_ref01" } }], "index$": 0 }] }, 'Type', { "GET /types/{id}": { "protocol": "http", "parameters": [{ "name": "id", "in": "path", "description": "Type identifier", "required": true, "schema": { "type": "string" }, "example": "journal-article", "index$": 0 }] }, "GET /types": { "protocol": "http", "parameters": [] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 0 }, "message": { "a": true, "h": "Message", "n": "message", "r": false, "t": "`$OBJECT`", "key$": "message", "index$": 1 }, "messagetype": { "a": true, "h": "Messagetype", "n": "messagetype", "r": false, "t": "`$STRING`", "key$": "messagetype", "index$": 2 }, "status": { "a": true, "h": "Status", "n": "status", "r": false, "t": "`$STRING`", "key$": "status", "index$": 3 } }, "id": { "field": "id", "name": "id" }, "name": "type", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /types/{id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "journal-article", "k": "param", "n": "id", "or": "id", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/types/{id}", "q": { "exist": ["id"] }, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "types" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }, { "a": true, "co": { "id": "GET /types", "source": "openapi3", "version": 2 }, "g": {}, "k": "http", "m": "GET", "o": "/types", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "types" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 1 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "type", "name__orig": "type", "Name": "Type", "name_": "type", "name-": "type", "NAME": "TYPE", "index$": 3 }, { "active": true, "entity": "type", "key$": "BasicTypeFlow", "kind": "basic", "name": "BasicTypeFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "type_ref01", "srcdatavar": "type_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-type_ref01" } }], "index$": 0 }] }, 'Type', { "GET /types/{id}": { "protocol": "http", "parameters": [{ "name": "id", "in": "path", "description": "Type identifier", "required": true, "schema": { "type": "string" }, "example": "journal-article", "index$": 0 }] }, "GET /types": { "protocol": "http", "parameters": [] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -77,6 +85,11 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)(type_ref01_data_dt0.id === type_ref01_data.id);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

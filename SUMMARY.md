@@ -48,20 +48,20 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 | Entity | SDK operation | HTTP route | Authentication |
 | --- | --- | --- | --- |
-| Funder | `load` | `GET /funders` | See reference |
 | Funder | `load` | `GET /funders/{id}` | See reference |
-| Journal | `load` | `GET /journals` | See reference |
+| Funder | `load` | `GET /funders` | See reference |
 | Journal | `load` | `GET /journals/{issn}` | See reference |
-| Member | `load` | `GET /members` | See reference |
+| Journal | `load` | `GET /journals` | See reference |
 | Member | `load` | `GET /members/{id}` | See reference |
+| Member | `load` | `GET /members` | See reference |
 | Type | `load` | `GET /types/{id}` | See reference |
 | Type | `load` | `GET /types` | See reference |
-| Work | `load` | `GET /works` | See reference |
 | Work | `load` | `GET /funders/{id}/works` | See reference |
+| Work | `load` | `GET /works/{doi}` | See reference |
 | Work | `load` | `GET /journals/{issn}/works` | See reference |
 | Work | `load` | `GET /members/{id}/works` | See reference |
 | Work | `load` | `GET /types/{id}/works` | See reference |
-| Work | `load` | `GET /works/{doi}` | See reference |
+| Work | `load` | `GET /works` | See reference |
 
 ## Connect to the API
 

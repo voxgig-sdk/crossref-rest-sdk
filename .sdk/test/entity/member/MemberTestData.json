@@ -31,12 +31,12 @@
     }
   },
   "requests": {
-    "GET /members": {
+    "GET /members/{id}": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"
     },
-    "GET /members/{id}": {
+    "GET /members": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"

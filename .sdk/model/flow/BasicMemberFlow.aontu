@@ -13,10 +13,6 @@ main: kit: flow: BasicMemberFlow:
         suffix: "_dt0"
       }
 
-      m: {
-        id: "member01"
-      }
-
       o: "load",
       v: [
         {

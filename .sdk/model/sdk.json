@@ -139,6 +139,52 @@
                 {
                   "a": true,
                   "co": {
+                    "id": "GET /funders/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "100000001",
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/funders/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "funders"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
                     "id": "GET /funders",
                     "source": "openapi3",
                     "version": 2
@@ -176,59 +222,15 @@
                   "k": "http",
                   "m": "GET",
                   "o": "/funders",
-                  "q": {
-                    "exist": [
-                      "offset",
-                      "query",
-                      "row"
-                    ]
-                  },
+                  "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "funders"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /funders/{id}",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "ex": "100000001",
-                        "k": "param",
-                        "n": "id",
-                        "or": "id",
-                        "r": true,
-                        "t": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/funders/{id}",
-                  "q": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "r": {},
-                  "s": [
-                    {
-                      "lit": "funders"
-                    },
-                    {
-                      "var": "id"
                     }
                   ],
                   "t": {
@@ -291,6 +293,56 @@
                 {
                   "a": true,
                   "co": {
+                    "id": "GET /journals/{issn}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "1476-4687",
+                        "k": "param",
+                        "n": "id",
+                        "or": "issn",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/journals/{issn}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "issn": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "journals"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
                     "id": "GET /journals",
                     "source": "openapi3",
                     "version": 2
@@ -328,63 +380,15 @@
                   "k": "http",
                   "m": "GET",
                   "o": "/journals",
-                  "q": {
-                    "exist": [
-                      "offset",
-                      "query",
-                      "row"
-                    ]
-                  },
+                  "q": {},
                   "r": {},
-                  "s": [
-                    {
-                      "lit": "journals"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /journals/{issn}",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "ex": "1476-4687",
-                        "k": "param",
-                        "n": "id",
-                        "or": "issn",
-                        "r": true,
-                        "t": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/journals/{issn}",
-                  "q": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "r": {
-                    "param": {
-                      "issn": "id"
-                    }
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
                   },
                   "s": [
                     {
                       "lit": "journals"
-                    },
-                    {
-                      "var": "id"
                     }
                   ],
                   "t": {
@@ -447,6 +451,52 @@
                 {
                   "a": true,
                   "co": {
+                    "id": "GET /members/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "311",
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/members/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "members"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
                     "id": "GET /members",
                     "source": "openapi3",
                     "version": 2
@@ -484,59 +534,15 @@
                   "k": "http",
                   "m": "GET",
                   "o": "/members",
-                  "q": {
-                    "exist": [
-                      "offset",
-                      "query",
-                      "row"
-                    ]
-                  },
+                  "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "members"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /members/{id}",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "ex": "311",
-                        "k": "param",
-                        "n": "id",
-                        "or": "id",
-                        "r": true,
-                        "t": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/members/{id}",
-                  "q": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "r": {},
-                  "s": [
-                    {
-                      "lit": "members"
-                    },
-                    {
-                      "var": "id"
                     }
                   ],
                   "t": {
@@ -625,6 +631,10 @@
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "types"
@@ -651,6 +661,10 @@
                   "o": "/types",
                   "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "types"
@@ -720,6 +734,350 @@
               "input": "data",
               "name": "load",
               "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /funders/{id}/works",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "funder_id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "rows",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/funders/{id}/works",
+                  "q": {
+                    "exist": [
+                      "funder_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "id": "funder_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "funders"
+                    },
+                    {
+                      "var": "funder_id"
+                    },
+                    {
+                      "lit": "works"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /works/{doi}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "10.1037/0003-066X.59.1.29",
+                        "k": "param",
+                        "n": "id",
+                        "or": "doi",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "mailto",
+                        "or": "mailto",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/works/{doi}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "doi": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "works"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /journals/{issn}/works",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "issn",
+                        "or": "issn",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "rows",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/journals/{issn}/works",
+                  "q": {
+                    "exist": [
+                      "issn"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "journals"
+                    },
+                    {
+                      "var": "issn"
+                    },
+                    {
+                      "lit": "works"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /members/{id}/works",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "member_id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "rows",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/members/{id}/works",
+                  "q": {
+                    "exist": [
+                      "member_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "id": "member_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "members"
+                    },
+                    {
+                      "var": "member_id"
+                    },
+                    {
+                      "lit": "works"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /types/{id}/works",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "type_id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "row",
+                        "or": "rows",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/types/{id}/works",
+                  "q": {
+                    "exist": [
+                      "type_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "id": "type_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "types"
+                    },
+                    {
+                      "var": "type_id"
+                    },
+                    {
+                      "lit": "works"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
                 {
                   "a": true,
                   "co": {
@@ -793,354 +1151,15 @@
                   "k": "http",
                   "m": "GET",
                   "o": "/works",
-                  "q": {
-                    "exist": [
-                      "filter",
-                      "mailto",
-                      "offset",
-                      "order",
-                      "query",
-                      "row",
-                      "sort"
-                    ]
-                  },
+                  "q": {},
                   "r": {},
-                  "s": [
-                    {
-                      "lit": "works"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /funders/{id}/works",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "k": "param",
-                        "n": "funder_id",
-                        "or": "id",
-                        "r": true,
-                        "t": "`$STRING`"
-                      }
-                    ],
-                    "query": [
-                      {
-                        "a": true,
-                        "ex": 0,
-                        "k": "query",
-                        "n": "offset",
-                        "or": "offset",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      },
-                      {
-                        "a": true,
-                        "ex": 20,
-                        "k": "query",
-                        "n": "row",
-                        "or": "rows",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/funders/{id}/works",
-                  "q": {
-                    "exist": [
-                      "funder_id",
-                      "offset",
-                      "row"
-                    ]
-                  },
-                  "r": {
-                    "param": {
-                      "id": "funder_id"
-                    }
-                  },
-                  "s": [
-                    {
-                      "lit": "funders"
-                    },
-                    {
-                      "var": "funder_id"
-                    },
-                    {
-                      "lit": "works"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /journals/{issn}/works",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "k": "param",
-                        "n": "issn",
-                        "or": "issn",
-                        "r": true,
-                        "t": "`$STRING`"
-                      }
-                    ],
-                    "query": [
-                      {
-                        "a": true,
-                        "ex": 0,
-                        "k": "query",
-                        "n": "offset",
-                        "or": "offset",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      },
-                      {
-                        "a": true,
-                        "ex": 20,
-                        "k": "query",
-                        "n": "row",
-                        "or": "rows",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/journals/{issn}/works",
-                  "q": {
-                    "exist": [
-                      "issn",
-                      "offset",
-                      "row"
-                    ]
-                  },
-                  "r": {},
-                  "s": [
-                    {
-                      "lit": "journals"
-                    },
-                    {
-                      "var": "issn"
-                    },
-                    {
-                      "lit": "works"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /members/{id}/works",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "k": "param",
-                        "n": "member_id",
-                        "or": "id",
-                        "r": true,
-                        "t": "`$STRING`"
-                      }
-                    ],
-                    "query": [
-                      {
-                        "a": true,
-                        "ex": 0,
-                        "k": "query",
-                        "n": "offset",
-                        "or": "offset",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      },
-                      {
-                        "a": true,
-                        "ex": 20,
-                        "k": "query",
-                        "n": "row",
-                        "or": "rows",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/members/{id}/works",
-                  "q": {
-                    "exist": [
-                      "member_id",
-                      "offset",
-                      "row"
-                    ]
-                  },
-                  "r": {
-                    "param": {
-                      "id": "member_id"
-                    }
-                  },
-                  "s": [
-                    {
-                      "lit": "members"
-                    },
-                    {
-                      "var": "member_id"
-                    },
-                    {
-                      "lit": "works"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /types/{id}/works",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "k": "param",
-                        "n": "type_id",
-                        "or": "id",
-                        "r": true,
-                        "t": "`$STRING`"
-                      }
-                    ],
-                    "query": [
-                      {
-                        "a": true,
-                        "ex": 0,
-                        "k": "query",
-                        "n": "offset",
-                        "or": "offset",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      },
-                      {
-                        "a": true,
-                        "ex": 20,
-                        "k": "query",
-                        "n": "row",
-                        "or": "rows",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/types/{id}/works",
-                  "q": {
-                    "exist": [
-                      "offset",
-                      "row",
-                      "type_id"
-                    ]
-                  },
-                  "r": {
-                    "param": {
-                      "id": "type_id"
-                    }
-                  },
-                  "s": [
-                    {
-                      "lit": "types"
-                    },
-                    {
-                      "var": "type_id"
-                    },
-                    {
-                      "lit": "works"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /works/{doi}",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "ex": "10.1037/0003-066X.59.1.29",
-                        "k": "param",
-                        "n": "id",
-                        "or": "doi",
-                        "r": true,
-                        "t": "`$STRING`"
-                      }
-                    ],
-                    "query": [
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "mailto",
-                        "or": "mailto",
-                        "r": false,
-                        "t": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/works/{doi}",
-                  "q": {
-                    "exist": [
-                      "id",
-                      "mailto"
-                    ]
-                  },
-                  "r": {
-                    "param": {
-                      "doi": "id"
-                    }
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
                   },
                   "s": [
                     {
                       "lit": "works"
-                    },
-                    {
-                      "var": "id"
                     }
                   ],
                   "t": {
@@ -1491,6 +1510,7 @@
             },
             "optspec": {
               "clearTimer": "`$FUNCTION`",
+              "now": "`$FUNCTION`",
               "setTimer": "`$FUNCTION`"
             },
             "strict": false
@@ -1596,9 +1616,7 @@
                 "srcdatavar": "funder_ref01_data",
                 "suffix": "_dt0"
               },
-              "m": {
-                "id": "funder01"
-              },
+              "m": {},
               "o": "load",
               "s": [],
               "v": [
@@ -1628,9 +1646,7 @@
                 "srcdatavar": "journal_ref01_data",
                 "suffix": "_dt0"
               },
-              "m": {
-                "id": "journal01"
-              },
+              "m": {},
               "o": "load",
               "s": [],
               "v": [
@@ -1660,9 +1676,7 @@
                 "srcdatavar": "member_ref01_data",
                 "suffix": "_dt0"
               },
-              "m": {
-                "id": "member01"
-              },
+              "m": {},
               "o": "load",
               "s": [],
               "v": [
@@ -1722,9 +1736,7 @@
                 "srcdatavar": "work_ref01_data",
                 "suffix": "_dt0"
               },
-              "m": {
-                "id": "work01"
-              },
+              "m": {},
               "o": "load",
               "s": [],
               "v": [
@@ -1766,7 +1778,7 @@
       "optspec": {
         "allow": {
           "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
-          "op": "create,update,load,list,remove,command,direct,graphql"
+          "op": "create,update,patch,load,list,remove,command,direct,graphql"
         },
         "apikey": "",
         "auth": {
@@ -1819,6 +1831,11 @@
         "top": {
           "active": true
         }
+      },
+      "publisher": {
+        "name": "",
+        "security": "",
+        "url": ""
       },
       "repo": {
         "host": "github.com",
@@ -2049,7 +2066,10 @@
             "version": "0.0.1"
           },
           "superseded": [],
-          "title": "Go MCP server"
+          "title": "Go MCP server",
+          "tool": {
+            "write": false
+          }
         },
         "lua": {
           "active": true,
@@ -2426,6 +2446,17 @@
           "base": "",
           "strict": true
         }
+      },
+      "text": {
+        "about_md": "",
+        "docs_url": "",
+        "entity_desc": {},
+        "homepage": "",
+        "meta_source": "",
+        "summary": "",
+        "tagline": "",
+        "title": "",
+        "website": ""
       }
     }
   },

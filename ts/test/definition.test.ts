@@ -13,47 +13,6 @@ const PLAN: any[] = [
     "accessor": "Funder",
     "op": "load",
     "method": "GET",
-    "path": "/funders",
-    "args": [],
-    "select": {
-      "offset": "v1",
-      "query": "v1",
-      "row": "v1"
-    },
-    "headers": [],
-    "query": [
-      "query",
-      "rows",
-      "offset"
-    ],
-    "auth": null,
-    "status": 200,
-    "sample": {
-      "status": "ok",
-      "message-type": "funder-list",
-      "message": {
-        "items": [
-          {
-            "alt-names": [
-              "x"
-            ],
-            "id": "x",
-            "location": "x",
-            "name": "x",
-            "uri": "x"
-          }
-        ],
-        "items-per-page": 1,
-        "total-results": 1
-      }
-    },
-    "idField": "id"
-  },
-  {
-    "entity": "funder",
-    "accessor": "Funder",
-    "op": "load",
-    "method": "GET",
     "path": "/funders/{id}",
     "args": [
       {
@@ -64,7 +23,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -83,41 +47,60 @@ const PLAN: any[] = [
     "idField": "id"
   },
   {
-    "entity": "journal",
-    "accessor": "Journal",
+    "entity": "funder",
+    "accessor": "Funder",
     "op": "load",
     "method": "GET",
-    "path": "/journals",
+    "path": "/funders",
     "args": [],
     "select": {
-      "offset": "v1",
+      "offset": 0,
       "query": "v1",
-      "row": "v1"
+      "row": 20
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "query",
       "rows",
       "offset"
     ],
+    "queryArgs": [
+      {
+        "name": "offset",
+        "wire": "offset"
+      },
+      {
+        "name": "query",
+        "wire": "query"
+      },
+      {
+        "name": "row",
+        "wire": "rows"
+      }
+    ],
     "auth": null,
     "status": 200,
     "sample": {
       "status": "ok",
-      "message-type": "journal-list",
+      "message-type": "funder-list",
       "message": {
+        "items-per-page": 1,
+        "total-results": 1,
         "items": [
           {
-            "ISSN": [
+            "id": "x",
+            "name": "x",
+            "location": "x",
+            "alt-names": [
               "x"
             ],
-            "coverage": {},
-            "publisher": "x",
-            "title": "x"
+            "uri": "x"
           }
-        ],
-        "items-per-page": 1,
-        "total-results": 1
+        ]
       }
     },
     "idField": "id"
@@ -137,7 +120,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -155,40 +143,59 @@ const PLAN: any[] = [
     "idField": "id"
   },
   {
-    "entity": "member",
-    "accessor": "Member",
+    "entity": "journal",
+    "accessor": "Journal",
     "op": "load",
     "method": "GET",
-    "path": "/members",
+    "path": "/journals",
     "args": [],
     "select": {
-      "offset": "v1",
+      "offset": 0,
       "query": "v1",
-      "row": "v1"
+      "row": 20
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "query",
       "rows",
       "offset"
     ],
+    "queryArgs": [
+      {
+        "name": "offset",
+        "wire": "offset"
+      },
+      {
+        "name": "query",
+        "wire": "query"
+      },
+      {
+        "name": "row",
+        "wire": "rows"
+      }
+    ],
     "auth": null,
     "status": 200,
     "sample": {
       "status": "ok",
-      "message-type": "member-list",
+      "message-type": "journal-list",
       "message": {
+        "items-per-page": 1,
+        "total-results": 1,
         "items": [
           {
-            "counts": {},
-            "id": 1,
-            "last-status-check-time": 1,
-            "location": "x",
-            "primary-name": "x"
+            "title": "x",
+            "ISSN": [
+              "x"
+            ],
+            "publisher": "x",
+            "coverage": {}
           }
-        ],
-        "items-per-page": 1,
-        "total-results": 1
+        ]
       }
     },
     "idField": "id"
@@ -208,7 +215,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -220,6 +232,63 @@ const PLAN: any[] = [
         "location": "x",
         "last-status-check-time": 1,
         "counts": {}
+      }
+    },
+    "idField": "id"
+  },
+  {
+    "entity": "member",
+    "accessor": "Member",
+    "op": "load",
+    "method": "GET",
+    "path": "/members",
+    "args": [],
+    "select": {
+      "offset": 0,
+      "query": "v1",
+      "row": 20
+    },
+    "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
+    "query": [
+      "query",
+      "rows",
+      "offset"
+    ],
+    "queryArgs": [
+      {
+        "name": "offset",
+        "wire": "offset"
+      },
+      {
+        "name": "query",
+        "wire": "query"
+      },
+      {
+        "name": "row",
+        "wire": "rows"
+      }
+    ],
+    "auth": null,
+    "status": 200,
+    "sample": {
+      "status": "ok",
+      "message-type": "member-list",
+      "message": {
+        "items-per-page": 1,
+        "total-results": 1,
+        "items": [
+          {
+            "id": 1,
+            "primary-name": "x",
+            "location": "x",
+            "last-status-check-time": 1,
+            "counts": {}
+          }
+        ]
       }
     },
     "idField": "id"
@@ -239,7 +308,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -261,7 +335,12 @@ const PLAN: any[] = [
     "args": [],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -283,78 +362,6 @@ const PLAN: any[] = [
     "accessor": "Work",
     "op": "load",
     "method": "GET",
-    "path": "/works",
-    "args": [],
-    "select": {
-      "filter": "v1",
-      "mailto": "v1",
-      "offset": "v1",
-      "order": "v1",
-      "query": "v1",
-      "row": "v1",
-      "sort": "v1"
-    },
-    "headers": [],
-    "query": [
-      "query",
-      "rows",
-      "offset",
-      "filter",
-      "sort",
-      "order",
-      "mailto"
-    ],
-    "auth": null,
-    "status": 200,
-    "sample": {
-      "status": "ok",
-      "message-type": "work-list",
-      "message-version": "1.0.0",
-      "message": {
-        "items": [
-          {
-            "DOI": "x",
-            "ISSN": [
-              "x"
-            ],
-            "URL": "x",
-            "abstract": "x",
-            "author": [
-              {
-                "ORCID": "x",
-                "family": "x",
-                "given": "x"
-              }
-            ],
-            "container-title": [
-              "x"
-            ],
-            "is-referenced-by-count": 1,
-            "published": {
-              "date-parts": [
-                []
-              ]
-            },
-            "publisher": "x",
-            "reference-count": 1,
-            "title": [
-              "x"
-            ],
-            "type": "x"
-          }
-        ],
-        "items-per-page": 1,
-        "query": {},
-        "total-results": 1
-      }
-    },
-    "idField": "id"
-  },
-  {
-    "entity": "work",
-    "accessor": "Work",
-    "op": "load",
-    "method": "GET",
     "path": "/funders/{id}/works",
     "args": [
       {
@@ -364,149 +371,27 @@ const PLAN: any[] = [
       }
     ],
     "select": {
-      "offset": "v1",
-      "row": "v1"
+      "offset": 0,
+      "row": 20
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "rows",
       "offset"
     ],
-    "auth": null,
-    "status": 200,
-    "sample": {
-      "status": "ok",
-      "message-type": "work-list",
-      "message-version": "1.0.0",
-      "message": {
-        "items": [
-          {
-            "DOI": "x",
-            "ISSN": [
-              "x"
-            ],
-            "URL": "x",
-            "abstract": "x",
-            "author": [
-              {
-                "ORCID": "x",
-                "family": "x",
-                "given": "x"
-              }
-            ],
-            "container-title": [
-              "x"
-            ],
-            "is-referenced-by-count": 1,
-            "published": {
-              "date-parts": [
-                []
-              ]
-            },
-            "publisher": "x",
-            "reference-count": 1,
-            "title": [
-              "x"
-            ],
-            "type": "x"
-          }
-        ],
-        "items-per-page": 1,
-        "query": {},
-        "total-results": 1
-      }
-    },
-    "idField": "id"
-  },
-  {
-    "entity": "work",
-    "accessor": "Work",
-    "op": "load",
-    "method": "GET",
-    "path": "/journals/{issn}/works",
-    "args": [
+    "queryArgs": [
       {
-        "name": "issn",
-        "wire": "issn",
-        "value": "p1"
-      }
-    ],
-    "select": {
-      "offset": "v1",
-      "row": "v1"
-    },
-    "headers": [],
-    "query": [
-      "rows",
-      "offset"
-    ],
-    "auth": null,
-    "status": 200,
-    "sample": {
-      "status": "ok",
-      "message-type": "work-list",
-      "message-version": "1.0.0",
-      "message": {
-        "items": [
-          {
-            "DOI": "x",
-            "ISSN": [
-              "x"
-            ],
-            "URL": "x",
-            "abstract": "x",
-            "author": [
-              {
-                "ORCID": "x",
-                "family": "x",
-                "given": "x"
-              }
-            ],
-            "container-title": [
-              "x"
-            ],
-            "is-referenced-by-count": 1,
-            "published": {
-              "date-parts": [
-                []
-              ]
-            },
-            "publisher": "x",
-            "reference-count": 1,
-            "title": [
-              "x"
-            ],
-            "type": "x"
-          }
-        ],
-        "items-per-page": 1,
-        "query": {},
-        "total-results": 1
-      }
-    },
-    "idField": "id"
-  },
-  {
-    "entity": "work",
-    "accessor": "Work",
-    "op": "load",
-    "method": "GET",
-    "path": "/members/{id}/works",
-    "args": [
+        "name": "offset",
+        "wire": "offset"
+      },
       {
-        "name": "member_id",
-        "wire": "id",
-        "value": "p1"
+        "name": "row",
+        "wire": "rows"
       }
-    ],
-    "select": {
-      "offset": "v1",
-      "row": "v1"
-    },
-    "headers": [],
-    "query": [
-      "rows",
-      "offset"
     ],
     "auth": null,
     "status": 200,
@@ -515,109 +400,41 @@ const PLAN: any[] = [
       "message-type": "work-list",
       "message-version": "1.0.0",
       "message": {
+        "items-per-page": 1,
+        "query": {},
+        "total-results": 1,
         "items": [
           {
             "DOI": "x",
-            "ISSN": [
+            "URL": "x",
+            "title": [
               "x"
             ],
-            "URL": "x",
-            "abstract": "x",
             "author": [
               {
-                "ORCID": "x",
+                "given": "x",
                 "family": "x",
-                "given": "x"
+                "ORCID": "x"
               }
             ],
-            "container-title": [
-              "x"
-            ],
-            "is-referenced-by-count": 1,
             "published": {
               "date-parts": [
                 []
               ]
             },
-            "publisher": "x",
-            "reference-count": 1,
-            "title": [
-              "x"
-            ],
-            "type": "x"
-          }
-        ],
-        "items-per-page": 1,
-        "query": {},
-        "total-results": 1
-      }
-    },
-    "idField": "id"
-  },
-  {
-    "entity": "work",
-    "accessor": "Work",
-    "op": "load",
-    "method": "GET",
-    "path": "/types/{id}/works",
-    "args": [
-      {
-        "name": "type_id",
-        "wire": "id",
-        "value": "p1"
-      }
-    ],
-    "select": {
-      "offset": "v1",
-      "row": "v1"
-    },
-    "headers": [],
-    "query": [
-      "rows",
-      "offset"
-    ],
-    "auth": null,
-    "status": 200,
-    "sample": {
-      "status": "ok",
-      "message-type": "work-list",
-      "message-version": "1.0.0",
-      "message": {
-        "items": [
-          {
-            "DOI": "x",
-            "ISSN": [
-              "x"
-            ],
-            "URL": "x",
-            "abstract": "x",
-            "author": [
-              {
-                "ORCID": "x",
-                "family": "x",
-                "given": "x"
-              }
-            ],
+            "type": "x",
             "container-title": [
               "x"
             ],
-            "is-referenced-by-count": 1,
-            "published": {
-              "date-parts": [
-                []
-              ]
-            },
-            "publisher": "x",
-            "reference-count": 1,
-            "title": [
+            "ISSN": [
               "x"
             ],
-            "type": "x"
+            "publisher": "x",
+            "abstract": "x",
+            "reference-count": 1,
+            "is-referenced-by-count": 1
           }
-        ],
-        "items-per-page": 1,
-        "query": {},
-        "total-results": 1
+        ]
       }
     },
     "idField": "id"
@@ -639,8 +456,18 @@ const PLAN: any[] = [
       "mailto": "v1"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "mailto"
+    ],
+    "queryArgs": [
+      {
+        "name": "mailto",
+        "wire": "mailto"
+      }
     ],
     "auth": null,
     "status": 200,
@@ -656,9 +483,9 @@ const PLAN: any[] = [
         ],
         "author": [
           {
-            "ORCID": "x",
+            "given": "x",
             "family": "x",
-            "given": "x"
+            "ORCID": "x"
           }
         ],
         "published": {
@@ -679,6 +506,358 @@ const PLAN: any[] = [
         "abstract": "x",
         "reference-count": 1,
         "is-referenced-by-count": 1
+      }
+    },
+    "idField": "id"
+  },
+  {
+    "entity": "work",
+    "accessor": "Work",
+    "op": "load",
+    "method": "GET",
+    "path": "/journals/{issn}/works",
+    "args": [
+      {
+        "name": "issn",
+        "wire": "issn",
+        "value": "p1"
+      }
+    ],
+    "select": {
+      "offset": 0,
+      "row": 20
+    },
+    "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
+    "query": [
+      "rows",
+      "offset"
+    ],
+    "queryArgs": [
+      {
+        "name": "offset",
+        "wire": "offset"
+      },
+      {
+        "name": "row",
+        "wire": "rows"
+      }
+    ],
+    "auth": null,
+    "status": 200,
+    "sample": {
+      "status": "ok",
+      "message-type": "work-list",
+      "message-version": "1.0.0",
+      "message": {
+        "items-per-page": 1,
+        "query": {},
+        "total-results": 1,
+        "items": [
+          {
+            "DOI": "x",
+            "URL": "x",
+            "title": [
+              "x"
+            ],
+            "author": [
+              {
+                "given": "x",
+                "family": "x",
+                "ORCID": "x"
+              }
+            ],
+            "published": {
+              "date-parts": [
+                []
+              ]
+            },
+            "type": "x",
+            "container-title": [
+              "x"
+            ],
+            "ISSN": [
+              "x"
+            ],
+            "publisher": "x",
+            "abstract": "x",
+            "reference-count": 1,
+            "is-referenced-by-count": 1
+          }
+        ]
+      }
+    },
+    "idField": "id"
+  },
+  {
+    "entity": "work",
+    "accessor": "Work",
+    "op": "load",
+    "method": "GET",
+    "path": "/members/{id}/works",
+    "args": [
+      {
+        "name": "member_id",
+        "wire": "id",
+        "value": "p1"
+      }
+    ],
+    "select": {
+      "offset": 0,
+      "row": 20
+    },
+    "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
+    "query": [
+      "rows",
+      "offset"
+    ],
+    "queryArgs": [
+      {
+        "name": "offset",
+        "wire": "offset"
+      },
+      {
+        "name": "row",
+        "wire": "rows"
+      }
+    ],
+    "auth": null,
+    "status": 200,
+    "sample": {
+      "status": "ok",
+      "message-type": "work-list",
+      "message-version": "1.0.0",
+      "message": {
+        "items-per-page": 1,
+        "query": {},
+        "total-results": 1,
+        "items": [
+          {
+            "DOI": "x",
+            "URL": "x",
+            "title": [
+              "x"
+            ],
+            "author": [
+              {
+                "given": "x",
+                "family": "x",
+                "ORCID": "x"
+              }
+            ],
+            "published": {
+              "date-parts": [
+                []
+              ]
+            },
+            "type": "x",
+            "container-title": [
+              "x"
+            ],
+            "ISSN": [
+              "x"
+            ],
+            "publisher": "x",
+            "abstract": "x",
+            "reference-count": 1,
+            "is-referenced-by-count": 1
+          }
+        ]
+      }
+    },
+    "idField": "id"
+  },
+  {
+    "entity": "work",
+    "accessor": "Work",
+    "op": "load",
+    "method": "GET",
+    "path": "/types/{id}/works",
+    "args": [
+      {
+        "name": "type_id",
+        "wire": "id",
+        "value": "p1"
+      }
+    ],
+    "select": {
+      "offset": 0,
+      "row": 20
+    },
+    "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
+    "query": [
+      "rows",
+      "offset"
+    ],
+    "queryArgs": [
+      {
+        "name": "offset",
+        "wire": "offset"
+      },
+      {
+        "name": "row",
+        "wire": "rows"
+      }
+    ],
+    "auth": null,
+    "status": 200,
+    "sample": {
+      "status": "ok",
+      "message-type": "work-list",
+      "message-version": "1.0.0",
+      "message": {
+        "items-per-page": 1,
+        "query": {},
+        "total-results": 1,
+        "items": [
+          {
+            "DOI": "x",
+            "URL": "x",
+            "title": [
+              "x"
+            ],
+            "author": [
+              {
+                "given": "x",
+                "family": "x",
+                "ORCID": "x"
+              }
+            ],
+            "published": {
+              "date-parts": [
+                []
+              ]
+            },
+            "type": "x",
+            "container-title": [
+              "x"
+            ],
+            "ISSN": [
+              "x"
+            ],
+            "publisher": "x",
+            "abstract": "x",
+            "reference-count": 1,
+            "is-referenced-by-count": 1
+          }
+        ]
+      }
+    },
+    "idField": "id"
+  },
+  {
+    "entity": "work",
+    "accessor": "Work",
+    "op": "load",
+    "method": "GET",
+    "path": "/works",
+    "args": [],
+    "select": {
+      "filter": "v1",
+      "mailto": "v1",
+      "offset": 0,
+      "order": "desc",
+      "query": "v1",
+      "row": 20,
+      "sort": "v1"
+    },
+    "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
+    "query": [
+      "query",
+      "rows",
+      "offset",
+      "filter",
+      "sort",
+      "order",
+      "mailto"
+    ],
+    "queryArgs": [
+      {
+        "name": "filter",
+        "wire": "filter"
+      },
+      {
+        "name": "mailto",
+        "wire": "mailto"
+      },
+      {
+        "name": "offset",
+        "wire": "offset"
+      },
+      {
+        "name": "order",
+        "wire": "order"
+      },
+      {
+        "name": "query",
+        "wire": "query"
+      },
+      {
+        "name": "row",
+        "wire": "rows"
+      },
+      {
+        "name": "sort",
+        "wire": "sort"
+      }
+    ],
+    "auth": null,
+    "status": 200,
+    "sample": {
+      "status": "ok",
+      "message-type": "work-list",
+      "message-version": "1.0.0",
+      "message": {
+        "items-per-page": 1,
+        "query": {},
+        "total-results": 1,
+        "items": [
+          {
+            "DOI": "x",
+            "URL": "x",
+            "title": [
+              "x"
+            ],
+            "author": [
+              {
+                "given": "x",
+                "family": "x",
+                "ORCID": "x"
+              }
+            ],
+            "published": {
+              "date-parts": [
+                []
+              ]
+            },
+            "type": "x",
+            "container-title": [
+              "x"
+            ],
+            "ISSN": [
+              "x"
+            ],
+            "publisher": "x",
+            "abstract": "x",
+            "reference-count": 1,
+            "is-referenced-by-count": 1
+          }
+        ]
       }
     },
     "idField": "id"

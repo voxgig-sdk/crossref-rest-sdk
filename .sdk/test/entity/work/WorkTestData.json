@@ -47,12 +47,12 @@
     }
   },
   "requests": {
-    "GET /works": {
+    "GET /funders/{id}/works": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"
     },
-    "GET /funders/{id}/works": {
+    "GET /works/{doi}": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"
@@ -72,7 +72,7 @@
       "version": 2,
       "source": "openapi3"
     },
-    "GET /works/{doi}": {
+    "GET /works": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"

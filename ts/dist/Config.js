@@ -87,6 +87,7 @@ class Config {
             },
             "optspec": {
                 "clearTimer": "`$FUNCTION`",
+                "now": "`$FUNCTION`",
                 "setTimer": "`$FUNCTION`"
             },
             "strict": false,
@@ -143,6 +144,49 @@ class Config {
                         {
                             "kind": "http",
                             "method": "GET",
+                            "orig": "/funders/{id}",
+                            "segments": [
+                                {
+                                    "lit": "funders"
+                                },
+                                {
+                                    "var": "id"
+                                }
+                            ],
+                            "parts": [
+                                "funders",
+                                "{id}"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "100000001"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
+                        },
+                        {
+                            "kind": "http",
+                            "method": "GET",
                             "orig": "/funders",
                             "segments": [
                                 {
@@ -181,51 +225,10 @@ class Config {
                                     }
                                 ]
                             },
-                            "select": {
-                                "exist": [
-                                    "offset",
-                                    "query",
-                                    "row"
-                                ]
-                            }
-                        },
-                        {
-                            "kind": "http",
-                            "method": "GET",
-                            "orig": "/funders/{id}",
-                            "segments": [
-                                {
-                                    "lit": "funders"
-                                },
-                                {
-                                    "var": "id"
-                                }
-                            ],
-                            "parts": [
-                                "funders",
-                                "{id}"
-                            ],
-                            "rename": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "args": {
-                                "params": [
-                                    {
-                                        "name": "id",
-                                        "orig": "id",
-                                        "type": "`$STRING`",
-                                        "kind": "param",
-                                        "reqd": true,
-                                        "example": "100000001"
-                                    }
-                                ]
-                            },
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]
@@ -271,55 +274,6 @@ class Config {
                         {
                             "kind": "http",
                             "method": "GET",
-                            "orig": "/journals",
-                            "segments": [
-                                {
-                                    "lit": "journals"
-                                }
-                            ],
-                            "parts": [
-                                "journals"
-                            ],
-                            "rename": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "args": {
-                                "query": [
-                                    {
-                                        "name": "offset",
-                                        "orig": "offset",
-                                        "type": "`$INTEGER`",
-                                        "kind": "query",
-                                        "example": 0
-                                    },
-                                    {
-                                        "name": "query",
-                                        "orig": "query",
-                                        "type": "`$STRING`",
-                                        "kind": "query"
-                                    },
-                                    {
-                                        "name": "row",
-                                        "orig": "rows",
-                                        "type": "`$INTEGER`",
-                                        "kind": "query",
-                                        "example": 20
-                                    }
-                                ]
-                            },
-                            "select": {
-                                "exist": [
-                                    "offset",
-                                    "query",
-                                    "row"
-                                ]
-                            }
-                        },
-                        {
-                            "kind": "http",
-                            "method": "GET",
                             "orig": "/journals/{issn}",
                             "segments": [
                                 {
@@ -358,6 +312,57 @@ class Config {
                                 "exist": [
                                     "id"
                                 ]
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
+                        },
+                        {
+                            "kind": "http",
+                            "method": "GET",
+                            "orig": "/journals",
+                            "segments": [
+                                {
+                                    "lit": "journals"
+                                }
+                            ],
+                            "parts": [
+                                "journals"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "offset",
+                                        "orig": "offset",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    },
+                                    {
+                                        "name": "query",
+                                        "orig": "query",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "row",
+                                        "orig": "rows",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 20
+                                    }
+                                ]
+                            },
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]
@@ -403,6 +408,49 @@ class Config {
                         {
                             "kind": "http",
                             "method": "GET",
+                            "orig": "/members/{id}",
+                            "segments": [
+                                {
+                                    "lit": "members"
+                                },
+                                {
+                                    "var": "id"
+                                }
+                            ],
+                            "parts": [
+                                "members",
+                                "{id}"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "311"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
+                        },
+                        {
+                            "kind": "http",
+                            "method": "GET",
                             "orig": "/members",
                             "segments": [
                                 {
@@ -441,51 +489,10 @@ class Config {
                                     }
                                 ]
                             },
-                            "select": {
-                                "exist": [
-                                    "offset",
-                                    "query",
-                                    "row"
-                                ]
-                            }
-                        },
-                        {
-                            "kind": "http",
-                            "method": "GET",
-                            "orig": "/members/{id}",
-                            "segments": [
-                                {
-                                    "lit": "members"
-                                },
-                                {
-                                    "var": "id"
-                                }
-                            ],
-                            "parts": [
-                                "members",
-                                "{id}"
-                            ],
-                            "rename": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "args": {
-                                "params": [
-                                    {
-                                        "name": "id",
-                                        "orig": "id",
-                                        "type": "`$STRING`",
-                                        "kind": "param",
-                                        "reqd": true,
-                                        "example": "311"
-                                    }
-                                ]
-                            },
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]
@@ -565,6 +572,10 @@ class Config {
                                 "exist": [
                                     "id"
                                 ]
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         },
                         {
@@ -585,7 +596,11 @@ class Config {
                                 "res": "`body`"
                             },
                             "args": {},
-                            "select": {}
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
                         }
                     ]
                 }
@@ -632,6 +647,321 @@ class Config {
                     "input": "data",
                     "name": "load",
                     "points": [
+                        {
+                            "kind": "http",
+                            "method": "GET",
+                            "orig": "/funders/{id}/works",
+                            "segments": [
+                                {
+                                    "lit": "funders"
+                                },
+                                {
+                                    "var": "funder_id"
+                                },
+                                {
+                                    "lit": "works"
+                                }
+                            ],
+                            "parts": [
+                                "funders",
+                                "{funder_id}",
+                                "works"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "id": "funder_id"
+                                }
+                            },
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "funder_id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ],
+                                "query": [
+                                    {
+                                        "name": "offset",
+                                        "orig": "offset",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    },
+                                    {
+                                        "name": "row",
+                                        "orig": "rows",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 20
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "funder_id"
+                                ]
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
+                        },
+                        {
+                            "kind": "http",
+                            "method": "GET",
+                            "orig": "/works/{doi}",
+                            "segments": [
+                                {
+                                    "lit": "works"
+                                },
+                                {
+                                    "var": "id"
+                                }
+                            ],
+                            "parts": [
+                                "works",
+                                "{id}"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "doi": "id"
+                                }
+                            },
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "doi",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "10.1037/0003-066X.59.1.29"
+                                    }
+                                ],
+                                "query": [
+                                    {
+                                        "name": "mailto",
+                                        "orig": "mailto",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
+                        },
+                        {
+                            "kind": "http",
+                            "method": "GET",
+                            "orig": "/journals/{issn}/works",
+                            "segments": [
+                                {
+                                    "lit": "journals"
+                                },
+                                {
+                                    "var": "issn"
+                                },
+                                {
+                                    "lit": "works"
+                                }
+                            ],
+                            "parts": [
+                                "journals",
+                                "{issn}",
+                                "works"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "issn",
+                                        "orig": "issn",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ],
+                                "query": [
+                                    {
+                                        "name": "offset",
+                                        "orig": "offset",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    },
+                                    {
+                                        "name": "row",
+                                        "orig": "rows",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 20
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "issn"
+                                ]
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
+                        },
+                        {
+                            "kind": "http",
+                            "method": "GET",
+                            "orig": "/members/{id}/works",
+                            "segments": [
+                                {
+                                    "lit": "members"
+                                },
+                                {
+                                    "var": "member_id"
+                                },
+                                {
+                                    "lit": "works"
+                                }
+                            ],
+                            "parts": [
+                                "members",
+                                "{member_id}",
+                                "works"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "id": "member_id"
+                                }
+                            },
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "member_id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ],
+                                "query": [
+                                    {
+                                        "name": "offset",
+                                        "orig": "offset",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    },
+                                    {
+                                        "name": "row",
+                                        "orig": "rows",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 20
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "member_id"
+                                ]
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
+                        },
+                        {
+                            "kind": "http",
+                            "method": "GET",
+                            "orig": "/types/{id}/works",
+                            "segments": [
+                                {
+                                    "lit": "types"
+                                },
+                                {
+                                    "var": "type_id"
+                                },
+                                {
+                                    "lit": "works"
+                                }
+                            ],
+                            "parts": [
+                                "types",
+                                "{type_id}",
+                                "works"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "id": "type_id"
+                                }
+                            },
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "type_id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ],
+                                "query": [
+                                    {
+                                        "name": "offset",
+                                        "orig": "offset",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    },
+                                    {
+                                        "name": "row",
+                                        "orig": "rows",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 20
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "type_id"
+                                ]
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
+                        },
                         {
                             "kind": "http",
                             "method": "GET",
@@ -698,320 +1028,10 @@ class Config {
                                     }
                                 ]
                             },
-                            "select": {
-                                "exist": [
-                                    "filter",
-                                    "mailto",
-                                    "offset",
-                                    "order",
-                                    "query",
-                                    "row",
-                                    "sort"
-                                ]
-                            }
-                        },
-                        {
-                            "kind": "http",
-                            "method": "GET",
-                            "orig": "/funders/{id}/works",
-                            "segments": [
-                                {
-                                    "lit": "funders"
-                                },
-                                {
-                                    "var": "funder_id"
-                                },
-                                {
-                                    "lit": "works"
-                                }
-                            ],
-                            "parts": [
-                                "funders",
-                                "{funder_id}",
-                                "works"
-                            ],
-                            "rename": {
-                                "param": {
-                                    "id": "funder_id"
-                                }
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "args": {
-                                "params": [
-                                    {
-                                        "name": "funder_id",
-                                        "orig": "id",
-                                        "type": "`$STRING`",
-                                        "kind": "param",
-                                        "reqd": true
-                                    }
-                                ],
-                                "query": [
-                                    {
-                                        "name": "offset",
-                                        "orig": "offset",
-                                        "type": "`$INTEGER`",
-                                        "kind": "query",
-                                        "example": 0
-                                    },
-                                    {
-                                        "name": "row",
-                                        "orig": "rows",
-                                        "type": "`$INTEGER`",
-                                        "kind": "query",
-                                        "example": 20
-                                    }
-                                ]
-                            },
-                            "select": {
-                                "exist": [
-                                    "funder_id",
-                                    "offset",
-                                    "row"
-                                ]
-                            }
-                        },
-                        {
-                            "kind": "http",
-                            "method": "GET",
-                            "orig": "/journals/{issn}/works",
-                            "segments": [
-                                {
-                                    "lit": "journals"
-                                },
-                                {
-                                    "var": "issn"
-                                },
-                                {
-                                    "lit": "works"
-                                }
-                            ],
-                            "parts": [
-                                "journals",
-                                "{issn}",
-                                "works"
-                            ],
-                            "rename": {},
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "args": {
-                                "params": [
-                                    {
-                                        "name": "issn",
-                                        "orig": "issn",
-                                        "type": "`$STRING`",
-                                        "kind": "param",
-                                        "reqd": true
-                                    }
-                                ],
-                                "query": [
-                                    {
-                                        "name": "offset",
-                                        "orig": "offset",
-                                        "type": "`$INTEGER`",
-                                        "kind": "query",
-                                        "example": 0
-                                    },
-                                    {
-                                        "name": "row",
-                                        "orig": "rows",
-                                        "type": "`$INTEGER`",
-                                        "kind": "query",
-                                        "example": 20
-                                    }
-                                ]
-                            },
-                            "select": {
-                                "exist": [
-                                    "issn",
-                                    "offset",
-                                    "row"
-                                ]
-                            }
-                        },
-                        {
-                            "kind": "http",
-                            "method": "GET",
-                            "orig": "/members/{id}/works",
-                            "segments": [
-                                {
-                                    "lit": "members"
-                                },
-                                {
-                                    "var": "member_id"
-                                },
-                                {
-                                    "lit": "works"
-                                }
-                            ],
-                            "parts": [
-                                "members",
-                                "{member_id}",
-                                "works"
-                            ],
-                            "rename": {
-                                "param": {
-                                    "id": "member_id"
-                                }
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "args": {
-                                "params": [
-                                    {
-                                        "name": "member_id",
-                                        "orig": "id",
-                                        "type": "`$STRING`",
-                                        "kind": "param",
-                                        "reqd": true
-                                    }
-                                ],
-                                "query": [
-                                    {
-                                        "name": "offset",
-                                        "orig": "offset",
-                                        "type": "`$INTEGER`",
-                                        "kind": "query",
-                                        "example": 0
-                                    },
-                                    {
-                                        "name": "row",
-                                        "orig": "rows",
-                                        "type": "`$INTEGER`",
-                                        "kind": "query",
-                                        "example": 20
-                                    }
-                                ]
-                            },
-                            "select": {
-                                "exist": [
-                                    "member_id",
-                                    "offset",
-                                    "row"
-                                ]
-                            }
-                        },
-                        {
-                            "kind": "http",
-                            "method": "GET",
-                            "orig": "/types/{id}/works",
-                            "segments": [
-                                {
-                                    "lit": "types"
-                                },
-                                {
-                                    "var": "type_id"
-                                },
-                                {
-                                    "lit": "works"
-                                }
-                            ],
-                            "parts": [
-                                "types",
-                                "{type_id}",
-                                "works"
-                            ],
-                            "rename": {
-                                "param": {
-                                    "id": "type_id"
-                                }
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "args": {
-                                "params": [
-                                    {
-                                        "name": "type_id",
-                                        "orig": "id",
-                                        "type": "`$STRING`",
-                                        "kind": "param",
-                                        "reqd": true
-                                    }
-                                ],
-                                "query": [
-                                    {
-                                        "name": "offset",
-                                        "orig": "offset",
-                                        "type": "`$INTEGER`",
-                                        "kind": "query",
-                                        "example": 0
-                                    },
-                                    {
-                                        "name": "row",
-                                        "orig": "rows",
-                                        "type": "`$INTEGER`",
-                                        "kind": "query",
-                                        "example": 20
-                                    }
-                                ]
-                            },
-                            "select": {
-                                "exist": [
-                                    "offset",
-                                    "row",
-                                    "type_id"
-                                ]
-                            }
-                        },
-                        {
-                            "kind": "http",
-                            "method": "GET",
-                            "orig": "/works/{doi}",
-                            "segments": [
-                                {
-                                    "lit": "works"
-                                },
-                                {
-                                    "var": "id"
-                                }
-                            ],
-                            "parts": [
-                                "works",
-                                "{id}"
-                            ],
-                            "rename": {
-                                "param": {
-                                    "doi": "id"
-                                }
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "args": {
-                                "params": [
-                                    {
-                                        "name": "id",
-                                        "orig": "doi",
-                                        "type": "`$STRING`",
-                                        "kind": "param",
-                                        "reqd": true,
-                                        "example": "10.1037/0003-066X.59.1.29"
-                                    }
-                                ],
-                                "query": [
-                                    {
-                                        "name": "mailto",
-                                        "orig": "mailto",
-                                        "type": "`$STRING`",
-                                        "kind": "query"
-                                    }
-                                ]
-                            },
-                            "select": {
-                                "exist": [
-                                    "id",
-                                    "mailto"
-                                ]
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]

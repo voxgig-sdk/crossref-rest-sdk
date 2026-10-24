@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 				},
 				"optspec": map[string]any{
 					"clearTimer": "`$FUNCTION`",
+					"now": "`$FUNCTION`",
 					"setTimer": "`$FUNCTION`",
 				},
 				"strict": false,
@@ -127,6 +128,49 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"kind": "http",
 								"method": "GET",
+								"orig": "/funders/{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "funders",
+									},
+									map[string]any{
+										"var": "id",
+									},
+								},
+								"parts": []any{
+									"funders",
+									"{id}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "100000001",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
 								"orig": "/funders",
 								"segments": []any{
 									map[string]any{
@@ -165,51 +209,10 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"offset",
-										"query",
-										"row",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/funders/{id}",
-								"segments": []any{
-									map[string]any{
-										"lit": "funders",
-									},
-									map[string]any{
-										"var": "id",
-									},
-								},
-								"parts": []any{
-									"funders",
-									"{id}",
-								},
-								"rename": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"name": "id",
-											"orig": "id",
-											"type": "`$STRING`",
-											"kind": "param",
-											"reqd": true,
-											"example": "100000001",
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -255,55 +258,6 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"kind": "http",
 								"method": "GET",
-								"orig": "/journals",
-								"segments": []any{
-									map[string]any{
-										"lit": "journals",
-									},
-								},
-								"parts": []any{
-									"journals",
-								},
-								"rename": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"example": 0,
-										},
-										map[string]any{
-											"name": "query",
-											"orig": "query",
-											"type": "`$STRING`",
-											"kind": "query",
-										},
-										map[string]any{
-											"name": "row",
-											"orig": "rows",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"example": 20,
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"offset",
-										"query",
-										"row",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
 								"orig": "/journals/{issn}",
 								"segments": []any{
 									map[string]any{
@@ -342,6 +296,57 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"id",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/journals",
+								"segments": []any{
+									map[string]any{
+										"lit": "journals",
+									},
+								},
+								"parts": []any{
+									"journals",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "query",
+											"orig": "query",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "rows",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -387,6 +392,49 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"kind": "http",
 								"method": "GET",
+								"orig": "/members/{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "members",
+									},
+									map[string]any{
+										"var": "id",
+									},
+								},
+								"parts": []any{
+									"members",
+									"{id}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "311",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
 								"orig": "/members",
 								"segments": []any{
 									map[string]any{
@@ -425,51 +473,10 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"offset",
-										"query",
-										"row",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/members/{id}",
-								"segments": []any{
-									map[string]any{
-										"lit": "members",
-									},
-									map[string]any{
-										"var": "id",
-									},
-								},
-								"parts": []any{
-									"members",
-									"{id}",
-								},
-								"rename": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"name": "id",
-											"orig": "id",
-											"type": "`$STRING`",
-											"kind": "param",
-											"reqd": true,
-											"example": "311",
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -550,6 +557,10 @@ func MakeConfig() map[string]any {
 										"id",
 									},
 								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
 							},
 							map[string]any{
 								"kind": "http",
@@ -570,6 +581,10 @@ func MakeConfig() map[string]any {
 								},
 								"args": map[string]any{},
 								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
 							},
 						},
 					},
@@ -616,6 +631,321 @@ func MakeConfig() map[string]any {
 						"input": "data",
 						"name": "load",
 						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/funders/{id}/works",
+								"segments": []any{
+									map[string]any{
+										"lit": "funders",
+									},
+									map[string]any{
+										"var": "funder_id",
+									},
+									map[string]any{
+										"lit": "works",
+									},
+								},
+								"parts": []any{
+									"funders",
+									"{funder_id}",
+									"works",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"id": "funder_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "funder_id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "rows",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"funder_id",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/works/{doi}",
+								"segments": []any{
+									map[string]any{
+										"lit": "works",
+									},
+									map[string]any{
+										"var": "id",
+									},
+								},
+								"parts": []any{
+									"works",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"doi": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "doi",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "10.1037/0003-066X.59.1.29",
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "mailto",
+											"orig": "mailto",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/journals/{issn}/works",
+								"segments": []any{
+									map[string]any{
+										"lit": "journals",
+									},
+									map[string]any{
+										"var": "issn",
+									},
+									map[string]any{
+										"lit": "works",
+									},
+								},
+								"parts": []any{
+									"journals",
+									"{issn}",
+									"works",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "issn",
+											"orig": "issn",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "rows",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"issn",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/members/{id}/works",
+								"segments": []any{
+									map[string]any{
+										"lit": "members",
+									},
+									map[string]any{
+										"var": "member_id",
+									},
+									map[string]any{
+										"lit": "works",
+									},
+								},
+								"parts": []any{
+									"members",
+									"{member_id}",
+									"works",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"id": "member_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "member_id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "rows",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"member_id",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/types/{id}/works",
+								"segments": []any{
+									map[string]any{
+										"lit": "types",
+									},
+									map[string]any{
+										"var": "type_id",
+									},
+									map[string]any{
+										"lit": "works",
+									},
+								},
+								"parts": []any{
+									"types",
+									"{type_id}",
+									"works",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"id": "type_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "type_id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "row",
+											"orig": "rows",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"type_id",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
 							map[string]any{
 								"kind": "http",
 								"method": "GET",
@@ -682,320 +1012,10 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"filter",
-										"mailto",
-										"offset",
-										"order",
-										"query",
-										"row",
-										"sort",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/funders/{id}/works",
-								"segments": []any{
-									map[string]any{
-										"lit": "funders",
-									},
-									map[string]any{
-										"var": "funder_id",
-									},
-									map[string]any{
-										"lit": "works",
-									},
-								},
-								"parts": []any{
-									"funders",
-									"{funder_id}",
-									"works",
-								},
-								"rename": map[string]any{
-									"param": map[string]any{
-										"id": "funder_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"name": "funder_id",
-											"orig": "id",
-											"type": "`$STRING`",
-											"kind": "param",
-											"reqd": true,
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"example": 0,
-										},
-										map[string]any{
-											"name": "row",
-											"orig": "rows",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"example": 20,
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"funder_id",
-										"offset",
-										"row",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/journals/{issn}/works",
-								"segments": []any{
-									map[string]any{
-										"lit": "journals",
-									},
-									map[string]any{
-										"var": "issn",
-									},
-									map[string]any{
-										"lit": "works",
-									},
-								},
-								"parts": []any{
-									"journals",
-									"{issn}",
-									"works",
-								},
-								"rename": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"name": "issn",
-											"orig": "issn",
-											"type": "`$STRING`",
-											"kind": "param",
-											"reqd": true,
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"example": 0,
-										},
-										map[string]any{
-											"name": "row",
-											"orig": "rows",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"example": 20,
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"issn",
-										"offset",
-										"row",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/members/{id}/works",
-								"segments": []any{
-									map[string]any{
-										"lit": "members",
-									},
-									map[string]any{
-										"var": "member_id",
-									},
-									map[string]any{
-										"lit": "works",
-									},
-								},
-								"parts": []any{
-									"members",
-									"{member_id}",
-									"works",
-								},
-								"rename": map[string]any{
-									"param": map[string]any{
-										"id": "member_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"name": "member_id",
-											"orig": "id",
-											"type": "`$STRING`",
-											"kind": "param",
-											"reqd": true,
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"example": 0,
-										},
-										map[string]any{
-											"name": "row",
-											"orig": "rows",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"example": 20,
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"member_id",
-										"offset",
-										"row",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/types/{id}/works",
-								"segments": []any{
-									map[string]any{
-										"lit": "types",
-									},
-									map[string]any{
-										"var": "type_id",
-									},
-									map[string]any{
-										"lit": "works",
-									},
-								},
-								"parts": []any{
-									"types",
-									"{type_id}",
-									"works",
-								},
-								"rename": map[string]any{
-									"param": map[string]any{
-										"id": "type_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"name": "type_id",
-											"orig": "id",
-											"type": "`$STRING`",
-											"kind": "param",
-											"reqd": true,
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"example": 0,
-										},
-										map[string]any{
-											"name": "row",
-											"orig": "rows",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"example": 20,
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"offset",
-										"row",
-										"type_id",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/works/{doi}",
-								"segments": []any{
-									map[string]any{
-										"lit": "works",
-									},
-									map[string]any{
-										"var": "id",
-									},
-								},
-								"parts": []any{
-									"works",
-									"{id}",
-								},
-								"rename": map[string]any{
-									"param": map[string]any{
-										"doi": "id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"name": "id",
-											"orig": "doi",
-											"type": "`$STRING`",
-											"kind": "param",
-											"reqd": true,
-											"example": "10.1037/0003-066X.59.1.29",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"name": "mailto",
-											"orig": "mailto",
-											"type": "`$STRING`",
-											"kind": "query",
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-										"mailto",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},

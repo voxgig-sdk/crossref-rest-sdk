@@ -10,6 +10,12 @@ import (
 	"github.com/voxgig-sdk/crossref-rest-sdk/go/core"
 )
 
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const memberDirectLiveStrict = true
+
 func TestMemberDirect(t *testing.T) {
 	t.Run("direct-load-member", func(t *testing.T) {
 		setup := memberDirectSetup(map[string]any{"id": "direct01"})
@@ -26,26 +32,29 @@ func TestMemberDirect(t *testing.T) {
 		}
 		client := setup.client
 
+		params := map[string]any{}
+		query := map[string]any{}
+		if setup.live {
+			params["id"] = "311"
+		} else {
+			params["id"] = "direct01"
+		}
 
 		result, err := client.Direct(map[string]any{
-			"path":   "members",
+			"path":   "members/{id}",
 			"method": "GET",
-			"params": map[string]any{},
+			"params": params,
+			"query":  query,
 		})
 		if setup.live {
-			// Live mode is lenient: synthetic IDs frequently 4xx. Skip
-			// rather than fail when the load endpoint isn't reachable with
-			// the IDs we can construct from setup.idmap — unless the model
-			// sets main.kit.test.live.strict.
 			if err != nil {
-				t.Fatalf("load call failed (likely synthetic IDs against live API): %v", err)
+				liveMiss(t, memberDirectLiveStrict, "Live load failed: %v", err)
 			}
-			if result["ok"] != true {
-				t.Fatalf("load call not ok (likely synthetic IDs against live API): %v", result)
+			if status := core.ToInt(result["status"]); result["ok"] != true || status < 200 || status >= 300 {
+				liveMiss(t, memberDirectLiveStrict, "Live load failed: %s", liveDescribe(result))
 			}
-			status := core.ToInt(result["status"])
-			if status < 200 || status >= 300 {
-				t.Fatalf("expected 2xx status, got %v", result["status"])
+			if result["data"] == nil {
+				liveMiss(t, memberDirectLiveStrict, "Live load returned no data: %s", liveDescribe(result))
 			}
 		} else {
 			if err != nil {
@@ -78,7 +87,10 @@ func TestMemberDirect(t *testing.T) {
 					t.Fatalf("expected method GET, got %v", initMap["method"])
 				}
 			}
-			if _, ok := call["url"].(string); ok {
+			if url, ok := call["url"].(string); ok {
+				if !strings.Contains(url, "direct01") {
+					t.Fatalf("expected url to contain direct01, got %v", url)
+				}
 			}
 		}
 	})

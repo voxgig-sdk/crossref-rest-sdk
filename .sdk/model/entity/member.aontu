@@ -43,6 +43,48 @@ main: kit: entity: member: {
       points: [
         {
           co: {
+            id: "GET /members/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "311"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/members/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "members"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
             id: "GET /members"
             source: "openapi3"
             version: 2
@@ -76,54 +118,13 @@ main: kit: entity: member: {
           }
           m: "GET"
           o: "/members"
-          q: {
-            exist: [
-              "offset"
-              "query"
-              "row"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
               lit: "members"
-            }
-          ]
-          t: {
-            req: "`reqdata`"
-            res: "`body`"
-          }
-        }
-        {
-          co: {
-            id: "GET /members/{id}"
-            source: "openapi3"
-            version: 2
-          }
-          g: {
-            params: [
-              {
-                ex: "311"
-                k: "param"
-                n: "id"
-                or: "id"
-                r: true
-                t: "`$STRING`"
-              }
-            ]
-          }
-          m: "GET"
-          o: "/members/{id}"
-          q: {
-            exist: [
-              "id"
-            ]
-          }
-          s: [
-            {
-              lit: "members"
-            }
-            {
-              var: "id"
             }
           ]
           t: {

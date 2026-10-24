@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { CrossrefRestSDK, BaseFeature, stdutil } from '../../..'
+import { CrossrefRestSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('TypeEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = CrossrefRestSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Type().load({"id":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.CROSSREF_REST_TEST_LIVE
@@ -51,7 +63,7 @@ describe('TypeEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$STRING`","key$":"id","index$":0},"message":{"a":true,"h":"Message","n":"message","r":false,"t":"`$OBJECT`","key$":"message","index$":1},"messagetype":{"a":true,"h":"Messagetype","n":"messagetype","r":false,"t":"`$STRING`","key$":"messagetype","index$":2},"status":{"a":true,"h":"Status","n":"status","r":false,"t":"`$STRING`","key$":"status","index$":3}},"id":{"field":"id","name":"id"},"name":"type","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /types/{id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"journal-article","k":"param","n":"id","or":"id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/types/{id}","q":{"exist":["id"]},"r":{},"s":[{"lit":"types"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"GET /types","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/types","q":{},"r":{},"s":[{"lit":"types"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"type","name__orig":"type","Name":"Type","name_":"type","name-":"type","NAME":"TYPE","index$":3}, {"active":true,"entity":"type","key$":"BasicTypeFlow","kind":"basic","name":"BasicTypeFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"type_ref01","srcdatavar":"type_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-type_ref01"}}],"index$":0}]}, 'Type', {"GET /types/{id}":{"protocol":"http","parameters":[{"name":"id","in":"path","description":"Type identifier","required":true,"schema":{"type":"string"},"example":"journal-article","index$":0}]},"GET /types":{"protocol":"http","parameters":[]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$STRING`","key$":"id","index$":0},"message":{"a":true,"h":"Message","n":"message","r":false,"t":"`$OBJECT`","key$":"message","index$":1},"messagetype":{"a":true,"h":"Messagetype","n":"messagetype","r":false,"t":"`$STRING`","key$":"messagetype","index$":2},"status":{"a":true,"h":"Status","n":"status","r":false,"t":"`$STRING`","key$":"status","index$":3}},"id":{"field":"id","name":"id"},"name":"type","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /types/{id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"journal-article","k":"param","n":"id","or":"id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/types/{id}","q":{"exist":["id"]},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"types"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"GET /types","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/types","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"types"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"type","name__orig":"type","Name":"Type","name_":"type","name-":"type","NAME":"TYPE","index$":3}, {"active":true,"entity":"type","key$":"BasicTypeFlow","kind":"basic","name":"BasicTypeFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"type_ref01","srcdatavar":"type_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-type_ref01"}}],"index$":0}]}, 'Type', {"GET /types/{id}":{"protocol":"http","parameters":[{"name":"id","in":"path","description":"Type identifier","required":true,"schema":{"type":"string"},"example":"journal-article","index$":0}]},"GET /types":{"protocol":"http","parameters":[]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -73,6 +85,12 @@ describe('TypeEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

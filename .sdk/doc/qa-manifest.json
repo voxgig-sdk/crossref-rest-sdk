@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Crossref REST API Production Server",
+      "Successful response with funder metadata",
+      "Successful response with journal metadata",
+      "Successful response with member metadata",
+      "Successful response with type metadata",
+      "Successful response with work metadata",
+      "Successful response with works metadata",
+      "The Crossref REST API allows users to search and retrieve metadata for scholarly works, including DOIs, ISSNs, and funder identifiers. It provides access to various endpoints that expose data on works, journals, funders, and more, facilitating sophisticated searches and integrations for research purposes."
+    ]
+  }
 }

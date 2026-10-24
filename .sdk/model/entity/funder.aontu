@@ -43,6 +43,48 @@ main: kit: entity: funder: {
       points: [
         {
           co: {
+            id: "GET /funders/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "100000001"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/funders/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "funders"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
             id: "GET /funders"
             source: "openapi3"
             version: 2
@@ -76,54 +118,13 @@ main: kit: entity: funder: {
           }
           m: "GET"
           o: "/funders"
-          q: {
-            exist: [
-              "offset"
-              "query"
-              "row"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
               lit: "funders"
-            }
-          ]
-          t: {
-            req: "`reqdata`"
-            res: "`body`"
-          }
-        }
-        {
-          co: {
-            id: "GET /funders/{id}"
-            source: "openapi3"
-            version: 2
-          }
-          g: {
-            params: [
-              {
-                ex: "100000001"
-                k: "param"
-                n: "id"
-                or: "id"
-                r: true
-                t: "`$STRING`"
-              }
-            ]
-          }
-          m: "GET"
-          o: "/funders/{id}"
-          q: {
-            exist: [
-              "id"
-            ]
-          }
-          s: [
-            {
-              lit: "funders"
-            }
-            {
-              var: "id"
             }
           ]
           t: {
